@@ -4,7 +4,7 @@ $body-bg: #c1bdba;
 $form-bg: #13232f;
 $white: #ffffff;
 
-$main: #1ab188;
+$main: #0498e2;
 $main-light: lighten($main,5%);
 $main-dark: darken($main,5%);
 
@@ -21,7 +21,7 @@ $br: 4px;
 }
 
 html {
-	overflow-y: scroll; 
+	overflow-y: scroll;
 }
 
 body {
@@ -158,7 +158,7 @@ textarea {
     float:left;
     width:48%;
     margin-right:4%;
-    &:last-child { 
+    &:last-child {
       margin:0;
     }
   }
