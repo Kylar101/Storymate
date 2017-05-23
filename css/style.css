@@ -17,7 +17,7 @@
 #side-bar {
   background: #132330;
   height: 94vh;
-  width: 15%; }
+  width: 15vw; }
   #side-bar a {
     color: #fff; }
     #side-bar a:hover {
@@ -30,6 +30,32 @@
     #side-bar ul li {
       margin-left: 5px;
       padding-top: 10px; }
+
+#main-content {
+  display: flex; }
+
+.profile-header {
+  background-image: url("../img/profile-background-v1.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 85vw;
+  height: 50vh;
+  display: block;
+  position: relative; }
+  .profile-header .profile-picture {
+    border-radius: 75px;
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    top: 25%;
+    left: 43%; }
+  .profile-header .count-bg {
+    position: absolute;
+    top: 80%;
+    left: 46%; }
+    .profile-header .count-bg .story-count {
+      color: #fff;
+      font-size: 1.4em; }
 
 *, *:before, *:after {
   box-sizing: border-box; }

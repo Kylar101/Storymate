@@ -1,0 +1,30 @@
+#main-content {
+	display: flex;
+}
+.profile-header {
+	// background: red;
+	background-image: url('../img/profile-background-v1.jpg');
+	background-size: cover;
+	background-position: center;
+	width: 85vw;
+	height: 50vh;
+	display: block;
+	position: relative;
+	.profile-picture {
+		border-radius: 75px;
+		height: 150px;
+		width: 150px;
+		position: absolute;
+		top: 25%;
+		left: 43%;
+	}
+	.count-bg {
+		position: absolute;
+		top: 80%;
+		left: 46%;
+		.story-count {
+			color: #fff;
+			font-size: 1.4em;
+		}
+	}
+}
