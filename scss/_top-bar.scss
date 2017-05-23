@@ -1,0 +1,19 @@
+#top-bar {
+	background: $dark-blue;
+	width: 100%;
+	height: 6vh;
+	.user-bar {
+		width: 70%;
+		margin: 0 auto;
+		color: #fff;
+		.user-name {
+			text-align: right;
+			padding: 5px 0; 
+			&:before {
+				content: '\f007';
+				font-family: 'FontAwesome';
+				margin-right: 5px;
+			}
+		}
+	}
+} 
