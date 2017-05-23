@@ -18,6 +18,18 @@
   background: #132330;
   height: 94vh;
   width: 15%; }
+  #side-bar a {
+    color: #fff; }
+    #side-bar a:hover {
+      text-decoration: none;
+      background: #0498e2;
+      color: #132330; }
+  #side-bar ul {
+    list-style-type: none;
+    padding-left: 20px; }
+    #side-bar ul li {
+      margin-left: 5px;
+      padding-top: 10px; }
 
 *, *:before, *:after {
   box-sizing: border-box; }

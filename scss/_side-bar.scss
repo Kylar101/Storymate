@@ -2,4 +2,21 @@
 	background: $dark-blue;
 	height: 94vh;
 	width: 15%;
+	a {
+		color: #fff;
+		
+		&:hover {
+			text-decoration: none;
+			background: $main;
+			color: $dark-blue;
+		}	
+	}
+	ul {
+		list-style-type: none;
+		padding-left: 20px;
+		li {
+			margin-left: 5px;
+			padding-top: 10px;
+		}
+	}
 }
