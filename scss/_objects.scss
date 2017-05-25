@@ -1,0 +1,35 @@
+// Buttons
+.edit-button {
+	background: $edit-green;
+	cursor: pointer;
+	color: $dark-blue; 
+	&:hover {
+		background: $darker-edit-green;
+		color: $dark-blue;
+	}
+}
+
+
+
+@mixin card($width) {
+	width: $width;
+	height: 300px;
+	background: red;
+	display: block;
+}
+
+@mixin not-first-card($margin) {
+	margin-left: $margin;
+}
+
+// Story Cards
+.story-card-location {
+	display: flex;
+	margin-bottom: 50px;
+	.story-card {
+		@include card(48%); 
+		&:nth-of-type(2n) {
+			@include not-first-card(4%);
+		}
+	}
+}

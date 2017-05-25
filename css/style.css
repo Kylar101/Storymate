@@ -1,8 +1,28 @@
+.edit-button {
+  background: #0df10d;
+  cursor: pointer;
+  color: #132330; }
+  .edit-button:hover {
+    background: #0ac10a;
+    color: #132330; }
+
+.story-card-location {
+  display: flex;
+  margin-bottom: 50px; }
+  .story-card-location .story-card {
+    width: 48%;
+    height: 300px;
+    background: red;
+    display: block; }
+    .story-card-location .story-card:nth-of-type(2n) {
+      margin-left: 4%; }
+
 #top-bar {
   background: #132330;
   width: 100%;
   height: 6vh;
-  position: fixed; }
+  position: fixed;
+  z-index: 100; }
   #top-bar .user-bar {
     width: 70%;
     margin: 0 auto;
@@ -20,7 +40,8 @@
   margin-top: 6vh;
   height: 94vh;
   width: 15vw;
-  position: fixed; }
+  position: fixed;
+  z-index: 100; }
   #side-bar a {
     color: #fff; }
     #side-bar a:hover {
@@ -39,7 +60,7 @@
 
 #page-content {
   margin-top: 6vh;
-  margin-left: 15vw; }
+  margin-left: 13vw; }
 
 .profile-header {
   background-image: url("../img/profile-background-v1.jpg");
@@ -55,23 +76,32 @@
     width: 150px;
     position: absolute;
     top: 25%;
-    left: 43%; }
+    left: 40%; }
   .profile-header .count-bg {
     position: absolute;
     top: 80%;
-    left: 46%; }
+    left: 43%; }
     .profile-header .count-bg .story-count {
       color: #fff;
       font-size: 1.4em; }
 
-.personal-details {
-  width: 60vw;
-  margin-left: 10vw; }
-  .personal-details h2 {
-    font-size: 25px;
-    margin-top: 3vh;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #132330; }
+.profile-details {
+  width: 50vw;
+  margin-left: 17vw; }
+
+.profile-heading {
+  font-size: 25px;
+  margin-top: 3vh;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #132330; }
+
+.personal-details .my-details {
+  margin-top: 20px;
+  position: relative; }
+  .personal-details .my-details a {
+    position: absolute;
+    right: 0;
+    top: 30%; }
   .personal-details .my-details p {
     line-height: 12px;
     font-size: 20px; }

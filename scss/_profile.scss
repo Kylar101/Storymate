@@ -3,10 +3,11 @@
 }
 #page-content {
 	margin-top: 6vh;
-	margin-left: 15vw;
+	margin-left: 13vw;
 }
+
+// header image
 .profile-header {
-	// background: red;
 	background-image: url('../img/profile-background-v1.jpg');
 	background-size: cover;
 	background-position: center;
@@ -20,31 +21,59 @@
 		width: 150px;
 		position: absolute;
 		top: 25%;
-		left: 43%; 
+		left: 40%; 
 	}
 	.count-bg {
 		position: absolute;
 		top: 80%;
-		left: 46%;
+		left: 43%;
 		.story-count {
 			color: #fff;
 			font-size: 1.4em;
 		}
 	}
 }
+
+// profile details position
+.profile-details{
+	width: 50vw;
+	margin-left: 17vw;
+}
+
+
+.profile-heading {
+	font-size: 25px;
+	margin-top: 3vh;
+	padding-bottom: 10px;
+	border-bottom: 1px solid $dark-blue;
+}
+
+// user details
 .personal-details {
-	width: 60vw;
-	margin-left: 10vw;
-	h2 {
-		font-size: 25px;
-		margin-top: 3vh;
-		padding-bottom: 10px;
-		border-bottom: 1px solid $dark-blue;
-	}
 	.my-details {
+		margin-top: 20px;
+		position: relative;
+		a {
+			position: absolute;
+			right: 0;
+			top: 30%;
+		}
 		p {
 		    line-height: 12px;
 		    font-size: 20px;
 		}
 	}
 }
+
+
+// user stories
+.my-stories {
+
+}
+
+
+
+
+
+
+
