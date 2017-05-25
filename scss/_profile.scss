@@ -1,6 +1,10 @@
 #main-content {
 	display: flex;
 }
+#page-content {
+	margin-top: 6vh;
+	margin-left: 15vw;
+}
 .profile-header {
 	// background: red;
 	background-image: url('../img/profile-background-v1.jpg');
@@ -16,7 +20,7 @@
 		width: 150px;
 		position: absolute;
 		top: 25%;
-		left: 43%;
+		left: 43%; 
 	}
 	.count-bg {
 		position: absolute;
@@ -25,6 +29,22 @@
 		.story-count {
 			color: #fff;
 			font-size: 1.4em;
+		}
+	}
+}
+.personal-details {
+	width: 60vw;
+	margin-left: 10vw;
+	h2 {
+		font-size: 25px;
+		margin-top: 3vh;
+		padding-bottom: 10px;
+		border-bottom: 1px solid $dark-blue;
+	}
+	.my-details {
+		p {
+		    line-height: 12px;
+		    font-size: 20px;
 		}
 	}
 }
