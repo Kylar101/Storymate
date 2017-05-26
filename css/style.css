@@ -6,6 +6,15 @@
     background: #0ac10a;
     color: #132330; }
 
+.delete-button {
+  background: red;
+  cursor: pointer;
+  color: #fff; }
+
+.story-card-buttons {
+  display: flex;
+  flex-wrap: wrap; }
+
 .story-card-location {
   margin-top: 5vh;
   display: flex;

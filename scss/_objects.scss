@@ -9,6 +9,24 @@
 	}
 }
 
+.delete-button {
+	background: red;
+	cursor: pointer;
+	color: #fff;
+	&:hover {
+		background: $darker-delete-red;
+		color: #fff;
+	}
+}
+
+.story-card-buttons {
+	display: flex;
+	flex-wrap: wrap;
+	.card-icons {
+		// color: 
+	}
+}
+
 
 
 @mixin card($width, $height) {
