@@ -10,10 +10,37 @@
   background: red;
   cursor: pointer;
   color: #fff; }
+  .delete-button:hover {
+    background: #cc0000;
+    color: #fff; }
+
+.view-button {
+  background: #0498e2;
+  cursor: pointer;
+  color: #fff; }
+  .view-button:hover {
+    background: #0487c9;
+    color: #fff; }
+
+.comments-button {
+  background: #000;
+  color: #fff;
+  cursor: pointer; }
+  .comments-button:hover {
+    background: #404040;
+    color: #fff; }
 
 .story-card-buttons {
   display: flex;
   flex-wrap: wrap; }
+  .story-card-buttons .card-icons {
+    font-size: 25px;
+    width: 40px;
+    text-align: center;
+    border-radius: 5px;
+    margin-left: 20px; }
+    .story-card-buttons .card-icons:first-of-type {
+      margin-left: 45px; }
 
 .story-card-location {
   margin-top: 5vh;
@@ -25,7 +52,8 @@
     height: 300px;
     background: #ddd;
     display: block;
-    margin-bottom: 3vh; }
+    margin-bottom: 3vh;
+    border-radius: 10px; }
     .story-card-location .story-card:nth-of-type(2n) {
       margin-left: 4%; }
     .story-card-location .story-card .story-title {
@@ -141,10 +169,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #0498e2;
   transition: .5s ease; }
-  a:hover {
-    color: #0487c9; }
 
 .form {
   background: rgba(19, 35, 47, 0.9);
