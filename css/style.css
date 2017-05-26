@@ -7,15 +7,20 @@
     color: #132330; }
 
 .story-card-location {
+  margin-top: 5vh;
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: 50px; }
   .story-card-location .story-card {
     width: 48%;
     height: 300px;
-    background: red;
-    display: block; }
+    background: #ddd;
+    display: block;
+    margin-bottom: 3vh; }
     .story-card-location .story-card:nth-of-type(2n) {
       margin-left: 4%; }
+    .story-card-location .story-card .story-title {
+      text-align: center; }
 
 #top-bar {
   background: #132330;
@@ -29,7 +34,8 @@
     color: #fff; }
     #top-bar .user-bar .user-name {
       text-align: right;
-      padding: 5px 0; }
+      padding: 5px 0;
+      margin-right: 2vw; }
       #top-bar .user-bar .user-name:before {
         content: '\f007';
         font-family: 'FontAwesome';
@@ -60,7 +66,8 @@
 
 #page-content {
   margin-top: 6vh;
-  margin-left: 13vw; }
+  margin-left: 15vw;
+  overflow: hidden; }
 
 .profile-header {
   background-image: url("../img/profile-background-v1.jpg");

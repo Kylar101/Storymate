@@ -10,7 +10,8 @@
 		color: #fff;
 		.user-name {
 			text-align: right;
-			padding: 5px 0; 
+			padding: 5px 0;
+			margin-right: 2vw;
 			&:before {
 				content: '\f007';
 				font-family: 'FontAwesome';
