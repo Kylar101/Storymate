@@ -40,6 +40,7 @@
 }
 
 .story-card-buttons {
+	margin-top: 5vh;
 	display: flex;
 	flex-wrap: wrap;
 	.card-icons {
@@ -49,7 +50,7 @@
 		border-radius: 5px;
 		margin-left: 20px;
 		&:first-of-type{
-			margin-left: 45px;
+			margin-left: 55px;
 		}
 	}
 }
