@@ -1,0 +1,13 @@
+#footer-content {
+	margin-left: 15vw;
+	text-align: center;
+}
+
+// legal
+.copyright {
+	&:before {
+		content: "\f1f9";
+		font-family: "FontAwesome";
+		margin-right: 5px;
+	}
+}

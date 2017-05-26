@@ -106,6 +106,15 @@
       margin-left: 5px;
       padding-top: 10px; }
 
+#footer-content {
+  margin-left: 15vw;
+  text-align: center; }
+
+.copyright:before {
+  content: "\f1f9";
+  font-family: "FontAwesome";
+  margin-right: 5px; }
+
 #main-content {
   display: flex; }
 
