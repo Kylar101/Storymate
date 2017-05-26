@@ -20,7 +20,14 @@
     .story-card-location .story-card:nth-of-type(2n) {
       margin-left: 4%; }
     .story-card-location .story-card .story-title {
-      text-align: center; }
+      text-align: center;
+      margin-top: 2vh; }
+    .story-card-location .story-card .story-card-image {
+      margin-top: 2vh;
+      width: 50%;
+      height: 50%;
+      margin-left: 25%;
+      border-radius: 500px; }
 
 #top-bar {
   background: #132330;
