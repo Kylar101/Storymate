@@ -88,7 +88,7 @@
 		}
 		.story-card-image {
 			margin-top: 2vh;
-			width: 50%;
+			width: 50%; 
 			height: 50%;
 			margin-left: 25%;
 			border-radius: 500px;
@@ -96,3 +96,16 @@
 	}
 }
 
+// layout
+#page-content {
+	margin-top: 6vh;
+	margin-left: 15vw;
+	overflow: hidden;
+}
+
+// text
+.title {
+	font-size: 25x;
+	color: $dark-blue;
+	text-align: left;
+}

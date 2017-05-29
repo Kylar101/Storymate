@@ -67,6 +67,16 @@
       margin-left: 25%;
       border-radius: 500px; }
 
+#page-content {
+  margin-top: 6vh;
+  margin-left: 15vw;
+  overflow: hidden; }
+
+.title {
+  font-size: 25x;
+  color: #132330;
+  text-align: left; }
+
 #top-bar {
   background: #132330;
   width: 100%;
@@ -117,11 +127,6 @@
 
 #main-content {
   display: flex; }
-
-#page-content {
-  margin-top: 6vh;
-  margin-left: 15vw;
-  overflow: hidden; }
 
 .profile-header {
   background-image: url("../img/profile-background-v1.jpg");
@@ -307,3 +312,7 @@ textarea {
 .forgot {
   margin-top: -20px;
   text-align: right; }
+
+#post-story {
+  margin-left: 13vw;
+  width: 55vw; }
