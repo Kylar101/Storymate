@@ -3,9 +3,37 @@
 	width: 55vw;
 }
 
-button.story-type-button {
+.story-type-button {
 	background: $dark-blue;
 	color: #fff;
+	cursor: pointer;
+	width: 125px;
+	&:hover {
+		background: $lighter-dark-blue;
+		color: #fff;
+	}
+	span {
+		transition: margin .2s;
+		position: relative;
+		display: block;
+		&:after {
+			position: absolute;
+			transition: opacity .2s, transform .2s;
+			transform: translateX(10px);
+			content: '\f00c';
+			font-family: 'FontAwesome';
+			opacity: 0;
+		}
+	}
+}
+
+
+.type-active span {
+	margin: 0 10px 0 0;
+	&:after {
+		opacity: 1;
+		transform: translateX(5);
+	}
 }
 
 .post-form {
@@ -29,7 +57,7 @@ button.story-type-button {
 		}
 	}
 	input[type="text"] {
-		height:5vh;
+		height:7vh;
 	}
 	.small-label {
 		font-size:22px;

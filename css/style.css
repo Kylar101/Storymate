@@ -325,9 +325,31 @@ textarea {
   margin-left: 13vw;
   width: 55vw; }
 
-button.story-type-button {
+.story-type-button {
   background: #132330;
-  color: #fff; }
+  color: #fff;
+  cursor: pointer;
+  width: 125px; }
+  .story-type-button:hover {
+    background: #294b67;
+    color: #fff; }
+  .story-type-button span {
+    transition: margin .2s;
+    position: relative;
+    display: block; }
+    .story-type-button span:after {
+      position: absolute;
+      transition: opacity .2s, transform .2s;
+      transform: translateX(10px);
+      content: '\f00c';
+      font-family: 'FontAwesome';
+      opacity: 0; }
+
+.type-active span {
+  margin: 0 10px 0 0; }
+  .type-active span:after {
+    opacity: 1;
+    transform: translateX(5); }
 
 .post-form {
   margin-bottom: 5vh; }
@@ -347,7 +369,7 @@ button.story-type-button {
       border-color: black;
       box-shadow: 0 0 5px #132330; }
   .post-form input[type="text"] {
-    height: 5vh; }
+    height: 7vh; }
   .post-form .small-label {
     font-size: 22px; }
     .post-form .small-label .req {

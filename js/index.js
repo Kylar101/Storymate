@@ -37,10 +37,10 @@ $('.form').find('input, textarea').on('keyup blur focus', function (e) {
 });
 
 $('.story-type-button').on('click', function(e){
-  if ($(this).hasClass('active')) {
-    $(this).removeClass('active');
+  if ($(this).hasClass('type-active')) {
+    $(this).removeClass('type-active');
   } else {
-    $(this).addClass('active');
+    $(this).addClass('type-active');
   }
 });
 
