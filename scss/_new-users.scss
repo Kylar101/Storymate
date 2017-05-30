@@ -1,3 +1,26 @@
-.new-user-locations {
-	background: $gray-light;
+.new-users-location {
+	display: flex;
+	flex-wrap: wrap;
+	.new-users {
+		width: 48%;
+		background: $gray-light;
+		text-align: center;
+		&:nth-of-type(2n) {
+			margin-left: 4%;
+		}
+		.user-name {
+			font-size: 20px;
+		}
+		.user-email {
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+.user-buttons {
+	.user-icons {
+		width: 5vw;
+	}	
 }

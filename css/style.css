@@ -393,5 +393,19 @@ textarea {
   position: static;
   opacity: 1; }
 
-.new-user-locations {
-  background: #a0b3b0; }
+.new-users-location {
+  display: flex;
+  flex-wrap: wrap; }
+  .new-users-location .new-users {
+    width: 48%;
+    background: #a0b3b0;
+    text-align: center; }
+    .new-users-location .new-users:nth-of-type(2n) {
+      margin-left: 4%; }
+    .new-users-location .new-users .user-name {
+      font-size: 20px; }
+    .new-users-location .new-users .user-email:hover {
+      text-decoration: none; }
+
+.user-buttons .user-icons {
+  width: 5vw; }
