@@ -1,3 +1,12 @@
+// -----------------------------------------------------------
+// ------------------- Helper functions ----------------------
+// -----------------------------------------------------------
+
+
+// -----------------------------------------------------------
+// ---------------------- Functionality ----------------------
+// ----------------------------------------------------------- 
+
 $('.form').find('input, textarea').on('keyup blur focus', function (e) {
   
   var $this = $(this),
@@ -25,6 +34,14 @@ $('.form').find('input, textarea').on('keyup blur focus', function (e) {
 			}
     }
 
+});
+
+$('.story-type-button').on('click', function(e){
+  if ($(this).hasClass('active')) {
+    $(this).removeClass('active');
+  } else {
+    $(this).addClass('active');
+  }
 });
 
 $('.tab a').on('click', function (e) {

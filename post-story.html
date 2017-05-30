@@ -28,7 +28,7 @@
 	<div id="main-content">
 		<nav id="side-bar">
 			<ul>
-				<li class="post-story"><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Post Story</a></li>
+				<li class="post-story active"><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Post Story</a></li>
 				<li class="manage-story"><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i> Manage Stories</a></li>
 			</ul>
 		</nav>
@@ -58,10 +58,12 @@
 							<p class="small-label">
 								Story Type <span class="req">*</span>
 							</p>
-							<p class="checkbox" name="story-options" data-type="images"><input type="checkbox"> Images </p>
-							<p class="checkbox" name="story-options" data-type="audio"><input type="checkbox"> Audio </p>
-							<p class="checkbox" name="story-options" data-type="images"><input type="checkbox"> Text </p>
-						</div>
+							<!--<p class="checkbox" data-type="images"><input type="checkbox" name="storyOptions"> Images </p>
+							<p class="checkbox" data-type="audio"><input type="checkbox" name="storyOptions"> Audio </p>
+							<p class="checkbox" data-type="images"><input type="checkbox" name="storyOptions"> Text </p>-->
+							<a class="story-type-button" data-type="images">Images</a>
+							<a class="story-type-button" data-type="audio">Audio</a>
+						</div> 
 
 						<div class="field-wrap">
 							<p class="small-label">
@@ -102,7 +104,7 @@
 
 
 	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-	<script src="js/index.js"></script>
+	<script src="./js/index.js"></script>
 </body>
 
 </html>

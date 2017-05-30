@@ -3,6 +3,11 @@
 	width: 55vw;
 }
 
+button.story-type-button {
+	background: $dark-blue;
+	color: #fff;
+}
+
 .post-form {
 	margin-bottom: 5vh;
 	.post-story {
