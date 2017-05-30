@@ -2,7 +2,8 @@
 .edit-button {
 	background: $edit-green;
 	cursor: pointer;
-	color: $dark-blue; 
+	color: $dark-blue;
+	color: #fff;
 	&:hover {
 		background: $darker-edit-green;
 		color: $dark-blue;
@@ -49,9 +50,9 @@
 		width: 40px;
 		text-align: center;
 		border-radius: 5px;
-		margin-left: 20px;
+		margin-left: 2vw;
 		&:first-of-type{
-			margin-left: 55px;
+			margin-left: 5vw;
 		}
 	}
 }
@@ -78,7 +79,7 @@
 	flex-wrap: wrap;
 	margin-bottom: 50px;
 	.story-card {
-		@include card(48%, 300px); 
+		@include card(48%, 45vh); 
 		&:nth-of-type(2n) {
 			@include not-first-card(4%);
 		}
@@ -89,7 +90,7 @@
 		.story-card-image {
 			margin-top: 2vh;
 			width: 50%; 
-			height: 50%;
+			height: 55%;
 			margin-left: 25%;
 			border-radius: 500px;
 		}
@@ -108,4 +109,5 @@
 	font-size: 25x;
 	color: $dark-blue;
 	text-align: left;
+	margin-top: 4vh;
 }

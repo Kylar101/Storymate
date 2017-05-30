@@ -8,16 +8,18 @@ $main-dark: darken($main,5%);
 
 // dark blue
 $dark-blue: #132330;
+$lighter-dark-blue: lighten($dark-blue, 15%);
+$darker-dark-blue: darken($dark-blue, 15%);
 
 // greens
 $edit-green: #0df10d;
-$darker-edit-green: darken($edit-green,10%);
+$darker-edit-green: darken($edit-green,15%);
 
 // reds
 $delete-red: #ff0000;
-$darker-delete-red: darken($delete-red, 10%);
+$darker-delete-red: darken($delete-red, 15%);
 
-$light-black: lighten(#000, 25%);
+$light-black: lighten(#000, 20%);
 
 $gray-light: #a0b3b0;
 $gray: #ddd;

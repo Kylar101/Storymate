@@ -2,3 +2,43 @@
 	margin-left: 13vw;
 	width: 55vw;
 }
+
+.post-form {
+	margin-bottom: 5vh;
+	.post-story {
+		color: $dark-blue;
+	}
+	input[type="text"], textarea {
+		font-size:22px;
+		display:block;
+		width:100%;
+		padding:5px 10px;
+		background:$gray-light;
+		border:1px solid $lighter-dark-blue;
+		color:$dark-blue;
+		border-radius:0;
+		transition:border-color .25s ease, box-shadow .25s ease;
+		&:focus {
+			border-color: $darker-dark-blue;
+			box-shadow: 0 0 5px $dark-blue;
+		}
+	}
+	input[type="text"] {
+		height:5vh;
+	}
+	.small-label {
+		font-size:22px;
+		.req {
+			margin:2px;
+			color:$main;
+		}
+	}
+	input[type="checkbox"] {
+		transform: scale(1.5);
+		margin-right: 5px;
+	}
+	.checkbox {
+		font-size: 20px;
+		margin-bottom: 5px;
+	}
+}

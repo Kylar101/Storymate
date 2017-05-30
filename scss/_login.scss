@@ -16,7 +16,7 @@ a {
   transition:.5s ease;
 }
 
-.form {
+.login-form {
   background:rgba($form-bg,.9);
   padding: 40px;
   max-width:600px;
@@ -85,7 +85,7 @@ label {
 }
 
 label.active {
-  transform:translateY(50px);
+  transform:translateY(-25px);
   left:2px;
   font-size:14px;
   .req {
@@ -97,7 +97,7 @@ label.highlight {
 	color:$white;
 }
 
-input, textarea {
+input[type="text"], textarea {
   font-size:22px;
   display:block;
   width:100%;

@@ -1,9 +1,10 @@
 .edit-button {
   background: #0df10d;
   cursor: pointer;
-  color: #132330; }
+  color: #132330;
+  color: #fff; }
   .edit-button:hover {
-    background: #0ac10a;
+    background: #09a809;
     color: #132330; }
 
 .delete-button {
@@ -11,7 +12,7 @@
   cursor: pointer;
   color: #fff; }
   .delete-button:hover {
-    background: #cc0000;
+    background: #b30000;
     color: #fff; }
 
 .view-button {
@@ -27,7 +28,7 @@
   color: #fff;
   cursor: pointer; }
   .comments-button:hover {
-    background: #404040;
+    background: #333333;
     color: #fff; }
 
 .story-card-buttons {
@@ -39,9 +40,9 @@
     width: 40px;
     text-align: center;
     border-radius: 5px;
-    margin-left: 20px; }
+    margin-left: 2vw; }
     .story-card-buttons .card-icons:first-of-type {
-      margin-left: 55px; }
+      margin-left: 5vw; }
 
 .story-card-location {
   margin-top: 5vh;
@@ -50,7 +51,7 @@
   margin-bottom: 50px; }
   .story-card-location .story-card {
     width: 48%;
-    height: 300px;
+    height: 45vh;
     background: #ddd;
     display: block;
     margin-bottom: 3vh;
@@ -63,7 +64,7 @@
     .story-card-location .story-card .story-card-image {
       margin-top: 2vh;
       width: 50%;
-      height: 50%;
+      height: 55%;
       margin-left: 25%;
       border-radius: 500px; }
 
@@ -75,7 +76,8 @@
 .title {
   font-size: 25x;
   color: #132330;
-  text-align: left; }
+  text-align: left;
+  margin-top: 4vh; }
 
 #top-bar {
   background: #132330;
@@ -89,7 +91,7 @@
     color: #fff; }
     #top-bar .user-bar .user-name {
       text-align: right;
-      padding: 5px 0;
+      padding: 1vh 0;
       margin-right: 2vw; }
       #top-bar .user-bar .user-name:before {
         content: '\f007';
@@ -142,7 +144,7 @@
     width: 150px;
     position: absolute;
     top: 25%;
-    left: 40%; }
+    left: 35vw; }
   .profile-header .count-bg {
     position: absolute;
     top: 80%;
@@ -186,7 +188,7 @@ a {
   text-decoration: none;
   transition: .5s ease; }
 
-.form {
+.login-form {
   background: rgba(19, 35, 47, 0.9);
   padding: 40px;
   max-width: 600px;
@@ -244,7 +246,7 @@ label {
     color: #0498e2; }
 
 label.active {
-  transform: translateY(50px);
+  transform: translateY(-25px);
   left: 2px;
   font-size: 14px; }
   label.active .req {
@@ -253,7 +255,7 @@ label.active {
 label.highlight {
   color: #ffffff; }
 
-input, textarea {
+input[type="text"], textarea {
   font-size: 22px;
   display: block;
   width: 100%;
@@ -265,7 +267,7 @@ input, textarea {
   color: #ffffff;
   border-radius: 0;
   transition: border-color .25s ease, box-shadow .25s ease; }
-  input:focus, textarea:focus {
+  input[type="text"]:focus, textarea:focus {
     outline: 0;
     border-color: #0498e2; }
 
@@ -316,3 +318,34 @@ textarea {
 #post-story {
   margin-left: 13vw;
   width: 55vw; }
+
+.post-form {
+  margin-bottom: 5vh; }
+  .post-form .post-story {
+    color: #132330; }
+  .post-form input[type="text"], .post-form textarea {
+    font-size: 22px;
+    display: block;
+    width: 100%;
+    padding: 5px 10px;
+    background: #a0b3b0;
+    border: 1px solid #294b67;
+    color: #132330;
+    border-radius: 0;
+    transition: border-color .25s ease, box-shadow .25s ease; }
+    .post-form input[type="text"]:focus, .post-form textarea:focus {
+      border-color: black;
+      box-shadow: 0 0 5px #132330; }
+  .post-form input[type="text"] {
+    height: 5vh; }
+  .post-form .small-label {
+    font-size: 22px; }
+    .post-form .small-label .req {
+      margin: 2px;
+      color: #0498e2; }
+  .post-form input[type="checkbox"] {
+    transform: scale(1.5);
+    margin-right: 5px; }
+  .post-form .checkbox {
+    font-size: 20px;
+    margin-bottom: 5px; }
