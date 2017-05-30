@@ -75,3 +75,13 @@
 		margin-bottom: 5px;
 	}
 }
+
+.story-images,.story-text,.story-audio {
+	opacity: 0;
+	position: absolute;
+	transition: opacity .5s;
+}
+.show {
+	position: static;
+	opacity: 1;
+}
