@@ -4,7 +4,7 @@ $white: #ffffff;
 
 $main: #0498e2;
 $main-light: lighten($main,5%);
-$main-dark: darken($main,5%);
+$main-dark: darken($main,15%);
 
 // dark blue
 $dark-blue: #132330;
@@ -19,7 +19,7 @@ $darker-edit-green: darken($edit-green,10%);
 $delete-red: #ff0000;
 $darker-delete-red: darken($delete-red, 15%);
 
-$light-black: lighten(#000, 20%);
+$light-black: lighten(#000, 25%);
 
 $gray-light: #a0b3b0;
 $gray: #ddd;

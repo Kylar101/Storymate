@@ -1,14 +1,6 @@
 .new-users-location {
-	display: flex;
-	flex-wrap: wrap;
 	.new-users {
-		width: 48%;
-		background: $gray-light;
-		text-align: center;
-		height: 100px;
-		&:nth-of-type(2n) {
-			margin-left: 4%;
-		}
+		display: flex;
 		.user-name {
 			font-size: 20px;
 		}
@@ -24,5 +16,6 @@
 	.user-icons {
 		padding: 5px 10px;
 		border-radius: 4px;
+		display: inline-block;
 	}	
 }
