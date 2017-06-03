@@ -93,6 +93,8 @@
       text-align: right;
       padding: 1vh 0;
       margin-right: 2vw; }
+      #top-bar .user-bar .user-name a {
+        color: #fff; }
       #top-bar .user-bar .user-name:before {
         content: '\f007';
         font-family: 'FontAwesome';
@@ -262,7 +264,7 @@ label.active {
 label.highlight {
   color: #ffffff; }
 
-input[type="text"], textarea {
+input[type="text"], input[type="email"], input[type="password"], textarea {
   font-size: 22px;
   display: block;
   width: 100%;
@@ -274,7 +276,7 @@ input[type="text"], textarea {
   color: #ffffff;
   border-radius: 0;
   transition: border-color .25s ease, box-shadow .25s ease; }
-  input[type="text"]:focus, textarea:focus {
+  input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus {
     outline: 0;
     border-color: #0498e2; }
 
@@ -321,6 +323,8 @@ textarea {
 .forgot {
   margin-top: -20px;
   text-align: right; }
+  .forgot a {
+    color: #fff; }
 
 #post-story {
   margin-left: 13vw;

@@ -12,6 +12,9 @@
 			text-align: right;
 			padding: 1vh 0;
 			margin-right: 2vw;
+			a {
+				color: #fff;
+			}
 			&:before {
 				content: '\f007';
 				font-family: 'FontAwesome';

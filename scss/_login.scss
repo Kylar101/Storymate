@@ -97,7 +97,7 @@ label.highlight {
 	color:$white;
 }
 
-input[type="text"], textarea {
+input[type="text"], input[type="email"], input[type="password"], textarea {
   font-size:22px;
   display:block;
   width:100%;
@@ -158,7 +158,7 @@ textarea {
   &:hover, &:focus {
     background:$main-dark;
   }
-}
+} 
 
 .button-block {
   display:block;
@@ -168,4 +168,7 @@ textarea {
 .forgot {
   margin-top:-20px;
   text-align:right;
+  a {
+    color: #fff;
+  }
 }
