@@ -2,11 +2,27 @@
 // ------------------- Helper functions ----------------------
 // -----------------------------------------------------------
 
+function getUrl() {
+  var path = window.location.pathname;
+  path = path.substring(path.lastIndexOf("/")+1,path.lastIndexOf("."));
+  return path;
+}
+
+function activeDashabordItem(item) {
+  $('.'+item).addClass('active');
+}
 
 // -----------------------------------------------------------
 // ---------------------- Functionality ----------------------
 // ----------------------------------------------------------- 
 
+// apply active dashboard class
+window.onload = function() {
+  var currentUrl = getUrl();
+  activeDashabordItem(currentUrl);
+}
+
+// adds float labels
 $('.form').find('input, textarea').on('keyup blur focus', function (e) {
   
   var $this = $(this),
