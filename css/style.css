@@ -400,8 +400,15 @@ textarea {
 
 .new-users-location .new-users {
   display: flex; }
+  .new-users-location .new-users .user-details {
+    display: flex; }
   .new-users-location .new-users .user-name {
-    font-size: 20px; }
+    font-size: 20px;
+    margin-right: 5vw;
+    display: block; }
+    .new-users-location .new-users .user-name:after {
+      content: "|";
+      margin-left: 2vw; }
   .new-users-location .new-users .user-email:hover {
     text-decoration: none; }
 

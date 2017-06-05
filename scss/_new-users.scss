@@ -1,8 +1,17 @@
 .new-users-location {
 	.new-users {
 		display: flex;
+		.user-details {
+			display: flex;
+		}
 		.user-name {
 			font-size: 20px;
+			margin-right: 5vw;
+			display: block;
+			&:after {
+				content: "|";
+				margin-left: 2vw; 
+			}	
 		}
 		.user-email {
 			&:hover {
