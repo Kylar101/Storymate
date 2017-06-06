@@ -52,6 +52,7 @@ $('.form').find('input, textarea').on('keyup blur focus', function (e) {
 
 });
 
+// shows the story type when activated
 $('.story-type-button').on('click', function(e){
   var type = $(this).data('type');
   if ($(this).hasClass('type-active')) {
@@ -63,6 +64,8 @@ $('.story-type-button').on('click', function(e){
   }
 });
 
+
+// toggles between login and sign up
 $('.tab a').on('click', function (e) {
   
   e.preventDefault();
