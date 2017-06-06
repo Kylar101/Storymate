@@ -12,4 +12,16 @@
 @import "post-story";
 @import "new-users";
 
+html, body {
+  height: 100%;
+}
+
+#main-content {
+  min-height: 100%;
+  margin-bottom: -10vh;
+  &:after {
+    content: "";
+    display: block;
+  }
+}
 

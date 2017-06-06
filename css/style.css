@@ -127,7 +127,7 @@
       background: #05a9fb; }
 
 #footer-content {
-  margin-top: 5vh;
+  height: 10vh;
   margin-left: 15vw;
   text-align: center; }
 
@@ -423,3 +423,13 @@ textarea {
   padding: 3px 8px;
   border-radius: 4px;
   display: inline-block; }
+
+html, body {
+  height: 100%; }
+
+#main-content {
+  min-height: 100%;
+  margin-bottom: -10vh; }
+  #main-content:after {
+    content: "";
+    display: block; }
