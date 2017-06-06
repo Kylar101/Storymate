@@ -68,13 +68,10 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-// removed by extract-text-webpack-plugin
+"use strict";
 
-/***/ }),
-/* 1 */
-/***/ (function(module, exports) {
 
 // -----------------------------------------------------------
 // ------------------- Helper functions ----------------------
@@ -82,12 +79,12 @@
 
 function getUrl() {
   var path = window.location.pathname;
-  path = path.substring(path.lastIndexOf("/")+1,path.lastIndexOf("."));
+  path = path.substring(path.lastIndexOf("/") + 1, path.lastIndexOf("."));
   return path;
 }
 
 function activeDashabordItem(item) {
-  $('.'+item).addClass('active');
+  $('.' + item).addClass('active');
 }
 
 // -----------------------------------------------------------
@@ -95,85 +92,85 @@ function activeDashabordItem(item) {
 // ----------------------------------------------------------- 
 
 // apply active dashboard class
-window.onload = function() {
+window.onload = function () {
   var currentUrl = getUrl();
   activeDashabordItem(currentUrl);
-}
+};
 
 // adds float labels
 $('.form').find('input, textarea').on('keyup blur focus', function (e) {
-  
+
   var $this = $(this),
       label = $this.prev('label');
 
-	  if (e.type === 'keyup') {
-			if ($this.val() === '') {
-          label.removeClass('active highlight');
-        } else {
-          label.addClass('active highlight');
-        }
-    } else if (e.type === 'blur') {
-    	if( $this.val() === '' ) {
-    		label.removeClass('active highlight'); 
-			} else {
-		    label.removeClass('highlight');   
-			}   
-    } else if (e.type === 'focus') {
-      
-      if( $this.val() === '' ) {
-    		label.removeClass('highlight'); 
-			} 
-      else if( $this.val() !== '' ) {
-		    label.addClass('highlight');
-			}
+  if (e.type === 'keyup') {
+    if ($this.val() === '') {
+      label.removeClass('active highlight');
+    } else {
+      label.addClass('active highlight');
     }
+  } else if (e.type === 'blur') {
+    if ($this.val() === '') {
+      label.removeClass('active highlight');
+    } else {
+      label.removeClass('highlight');
+    }
+  } else if (e.type === 'focus') {
 
-});
-
-// shows the story type when activated
-$('.story-type-button').on('click', function(e){
-  var type = $(this).data('type');
-  if ($(this).hasClass('type-active')) {
-    $(this).removeClass('type-active');
-    $('.story-'+type).removeClass('show');
-  } else {
-    $(this).addClass('type-active');
-    $('.story-'+type).addClass('show');
+    if ($this.val() === '') {
+      label.removeClass('highlight');
+    } else if ($this.val() !== '') {
+      label.addClass('highlight');
+    }
   }
 });
 
+// shows the story type when activated
+$('.story-type-button').on('click', function (e) {
+  var type = $(this).data('type');
+  if ($(this).hasClass('type-active')) {
+    $(this).removeClass('type-active');
+    $('.story-' + type).removeClass('show');
+  } else {
+    $(this).addClass('type-active');
+    $('.story-' + type).addClass('show');
+  }
+});
 
 // toggles between login and sign up
 $('.tab a').on('click', function (e) {
-  
+
   e.preventDefault();
-  
+
   $(this).parent().addClass('active');
   $(this).parent().siblings().removeClass('active');
-  
+
   target = $(this).attr('href');
 
   $('.tab-content > div').not(target).hide();
-  
+
   $(target).fadeIn(600);
-  
 });
 
 /***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
 /* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__scss_style_scss__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__scss_style_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__scss_style_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__js_index__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__js_index___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__js_index__);
+
+
 // css
 
+__webpack_require__(1);
 
-// js
-
+__webpack_require__(0);
 
 /***/ })
 /******/ ]);
+//# sourceMappingURL=bundle.js.map
