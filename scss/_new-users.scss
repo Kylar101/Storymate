@@ -1,6 +1,7 @@
 .new-users-location {
 	.new-users {
 		display: flex;
+		margin-top: 2vh;
 		.user-details {
 			display: flex;
 		}
@@ -8,12 +9,17 @@
 			font-size: 20px;
 			margin-right: 5vw;
 			display: block;
+			min-width: 15vw;
+			position: relative;
 			&:after {
 				content: "|";
-				margin-left: 2vw; 
+				position: absolute;
+				right: -10px;
 			}	
 		}
 		.user-email {
+			display: block;
+			min-width: 20vw;
 			&:hover {
 				text-decoration: none;
 			}
@@ -23,7 +29,7 @@
 
 .user-buttons {
 	.user-icons {
-		padding: 5px 10px;
+		padding: 3px 8px;
 		border-radius: 4px; 
 		display: inline-block;
 	}	

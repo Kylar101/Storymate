@@ -399,20 +399,27 @@ textarea {
   opacity: 1; }
 
 .new-users-location .new-users {
-  display: flex; }
+  display: flex;
+  margin-top: 2vh; }
   .new-users-location .new-users .user-details {
     display: flex; }
   .new-users-location .new-users .user-name {
     font-size: 20px;
     margin-right: 5vw;
-    display: block; }
+    display: block;
+    min-width: 15vw;
+    position: relative; }
     .new-users-location .new-users .user-name:after {
       content: "|";
-      margin-left: 2vw; }
-  .new-users-location .new-users .user-email:hover {
-    text-decoration: none; }
+      position: absolute;
+      right: -10px; }
+  .new-users-location .new-users .user-email {
+    display: block;
+    min-width: 20vw; }
+    .new-users-location .new-users .user-email:hover {
+      text-decoration: none; }
 
 .user-buttons .user-icons {
-  padding: 5px 10px;
+  padding: 3px 8px;
   border-radius: 4px;
   display: inline-block; }
