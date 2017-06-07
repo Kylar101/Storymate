@@ -23,10 +23,7 @@ module.exports = {
 	        'sass-loader'
 	        ]
 	    })
-  	},/*{
-  		test: /\.jpg$/,
-  		use: ['ignore-loader']
-  	},*/{
+  	},{
         test: /\.js$/,
         exclude: [/node_modules/],
         use: [{
