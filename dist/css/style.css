@@ -140,7 +140,7 @@
   display: flex; }
 
 .profile-header {
-  background-image: url([object Object]);
+  background-image: url("../img/profile-background-v1.jpg");
   background-size: cover;
   background-position: center;
   width: 85vw;

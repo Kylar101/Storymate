@@ -166,6 +166,7 @@ $('.tab a').on('click', function (e) {
 
 
 // css
+// import './css/font-awesome.min.css';
 
 __webpack_require__(1);
 

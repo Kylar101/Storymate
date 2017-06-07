@@ -14,12 +14,19 @@ module.exports = {
   	rules: [{
   		test: /\.(sass|scss|css)$/,
   		use: ExtractTextPlugin.extract({
-	        use: ['css-loader', 'sass-loader']
+	        use: [{
+	        	loader: 'css-loader',
+	        	options: {
+	        		url: false
+	        	}
+	        },
+	        'sass-loader'
+	        ]
 	    })
-  	},{
+  	},/*{
   		test: /\.jpg$/,
   		use: ['ignore-loader']
-  	},{
+  	},*/{
         test: /\.js$/,
         exclude: [/node_modules/],
         use: [{
@@ -28,7 +35,24 @@ module.exports = {
             presets: ['es2015']
           },
         }],
-      }
+      },{
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              mimetype: 'application/font-woff'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use: [
+          { loader: 'file-loader' }
+        ]
+      },
   	]
   },
   plugins: [
