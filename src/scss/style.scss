@@ -2,15 +2,15 @@
 @import "objects";
 
 // partials
-@import "top-bar";
-@import "side-bar";
-@import "footer";
+@import "./partials/top-bar";
+@import "./partials/side-bar";
+@import "./partials/footer";
 
 // pages
-@import "profile";
-@import "login";
-@import "post-story";
-@import "new-users";
+@import "./pages/profile";
+@import "./pages/login";
+@import "./pages/post-story";
+@import "./pages/new-users";
 
 html, body {
   height: 100%;
