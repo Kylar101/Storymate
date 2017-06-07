@@ -1,13 +1,6 @@
 const gulp = require('gulp');
-// const sass = require('gulp-sass');
 const webpack = require('webpack');
 const webpackStream = require('webpack-stream');
-
-    // gulp.task('sass',function(){
-    //   gulp.src(['./src/scss/style.scss'])
-    //     .pipe(sass())
-    //     .pipe(gulp.dest('dist/css'))
-    // });
 
     gulp.task('copy-html', function() {
 	  gulp.src(['./src/*.html'])
