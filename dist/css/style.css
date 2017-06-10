@@ -389,14 +389,14 @@ textarea {
 
 .story-images, .story-text, .story-audio {
   opacity: 0;
-  position: absolute;
-  left: -1000px;
-  transition: opacity .5s; }
-
-.show {
-  left: 0;
-  position: static;
-  opacity: 1; }
+  height: 0;
+  transition: opacity .5s, height .5s;
+  pointer-events: none; }
+  .story-images.show, .story-text.show, .story-audio.show {
+    height: auto;
+    opacity: 1;
+    margin-bottom: 40px;
+    pointer-events: auto; }
 
 .new-users-location .new-users {
   display: flex;
