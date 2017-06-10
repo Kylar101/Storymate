@@ -26,7 +26,6 @@
     "file-loader": "^0.11.2",
     "font-awesome-sass-loader": "^2.0.1",
     "gulp": "^3.9.1",
-    "ignore-loader": "^0.1.2",
     "node-sass": "^4.5.2",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.17.0",

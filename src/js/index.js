@@ -20,7 +20,7 @@ function activeDashabordItem(item) {
 // apply active dashboard class
 window.onload = function() {
   var currentUrl = getUrl();
-  activeDashabordItem(currentUrl);
+  activeDashabordItem(currentUrl); 
 }
 
 // adds float labels

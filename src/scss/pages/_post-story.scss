@@ -66,6 +66,13 @@
 			color:$main;
 		}
 	}
+	.text-label {
+	  left:29vw;
+	}
+
+	.text-label.active {
+	  left:28vw;
+	}
 	input[type="checkbox"] {
 		transform: scale(1.5);
 		margin-right: 5px;
