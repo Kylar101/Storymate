@@ -10191,6 +10191,37 @@ textarea {
   border-radius: 4px;
   display: inline-block; }
 
+.new-stories-location .new-stories {
+  display: flex;
+  margin-top: 2vh; }
+  .new-stories-location .new-stories .stories-details {
+    display: flex; }
+  .new-stories-location .new-stories .stories-name {
+    font-size: 20px;
+    margin-right: 10vw;
+    display: block;
+    min-width: 15vw;
+    position: relative; }
+    .new-stories-location .new-stories .stories-name:after {
+      content: "|";
+      position: absolute;
+      right: -10px; }
+    .new-stories-location .new-stories .stories-name .story-link {
+      color: #132330; }
+      .new-stories-location .new-stories .stories-name .story-link:hover {
+        text-decoration: none;
+        color: #294b67; }
+  .new-stories-location .new-stories .stories-email {
+    display: block;
+    min-width: 20vw; }
+    .new-stories-location .new-stories .stories-email:hover {
+      text-decoration: none; }
+
+.stories-buttons .stories-icons {
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-block; }
+
 html, body {
   height: 100%; }
 

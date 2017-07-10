@@ -1,0 +1,43 @@
+.new-stories-location {
+	.new-stories {
+		display: flex;
+		margin-top: 2vh;
+		.stories-details {
+			display: flex;
+		}
+		.stories-name {
+			font-size: 20px;
+			margin-right: 10vw;
+			display: block;
+			min-width: 15vw;
+			position: relative;
+			&:after { 
+				content: "|";
+				position: absolute;
+				right: -10px;
+			}
+			.story-link {
+				color: $dark-blue;
+				&:hover {
+					text-decoration: none;
+					color: $lighter-dark-blue;
+				}
+			}
+		}
+		.stories-email {
+			display: block;
+			min-width: 20vw;
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+.stories-buttons {
+	.stories-icons {
+		padding: 3px 8px;
+		border-radius: 4px; 
+		display: inline-block;
+	}	
+}
