@@ -15,6 +15,21 @@
 	}
 }
 
+.story-comments {
+	margin: 0 5vw;
+	.comment {
+		h4 {
+			color: $light-black;
+		}
+		&-content {
+
+		}
+	}
+	.add-comment {
+		margin-top: 20px;
+	}
+}
+
 .story-header {
 	height: 500px; 
 	margin: 6vh 0;
