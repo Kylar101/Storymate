@@ -12,12 +12,13 @@
 @import "./pages/post-story";
 @import "./pages/new-users";
 @import "./pages/new-stories";
+@import "./pages/view-story";
 
 html, body {
   height: 100%;
 }
 
-#main-content {
+#main-content, #main-content-front {
   min-height: 100%;
   margin-bottom: -10vh;
   &:after {

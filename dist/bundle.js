@@ -74,6 +74,7 @@
 
 
 var $ = __webpack_require__(6);
+// require("jquery-ui/jquery-ui.js");
 // -----------------------------------------------------------
 // ------------------- Helper functions ----------------------
 // -----------------------------------------------------------
@@ -88,6 +89,25 @@ function activeDashabordItem(item) {
   $('.' + item).addClass('active');
 }
 
+function slider() {
+  $(".slider #1").show("fade", 500);
+  $(".slider #1").delay(2000).hide("slide", { direction: 'left' }, 500);
+
+  var sc = $(".slider img").size();
+  var count = 2;
+
+  setInterval(function () {
+    $(".slider #" + count).show("slide", { direction: 'right' }, 500);
+    $(".slider #" + count).delay(2000).hide("slide", { direction: 'left' }, 500);
+
+    if (count == sc) {
+      count = 1;
+    } else {
+      count++;
+    }
+  }, 3000);
+}
+
 // -----------------------------------------------------------
 // ---------------------- Functionality ----------------------
 // ----------------------------------------------------------- 
@@ -96,6 +116,7 @@ function activeDashabordItem(item) {
 window.onload = function () {
   var currentUrl = getUrl();
   activeDashabordItem(currentUrl);
+  // slider();
 };
 
 // adds float labels

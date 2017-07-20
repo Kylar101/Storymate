@@ -1,0 +1,51 @@
+#front-content {
+	display: flex;
+}
+
+.story-content {
+	width: 75vw;
+	height: auto;
+	.story-article {
+		h1 {
+			color: $main;
+		}
+	}
+	.content {
+		margin: 0 5vw;
+	}
+}
+
+.story-header {
+	height: 500px; 
+	margin: 6vh 0;
+	display: block;
+	.story-feature-image {
+		width: 100%;
+		max-height: 500px;
+		display: none;
+	}
+}
+
+.author-details {
+	width: 25vw;
+	position: relative;
+	text-align: center;
+	.details {
+		position: absolute;
+		top: 25vh;
+		left: 1vw;
+		.description {
+			width: 75%;
+			margin: 0 auto;
+		}
+		.stay {
+			position: fixed;
+		}
+	}
+	img {
+		border-radius: 50px;
+		width: 100px;
+		height: auto;
+	}
+
+}
