@@ -9831,6 +9831,46 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
       margin-left: 25%;
       border-radius: 500px; }
 
+.search-story-card-location {
+  margin-top: 5vh;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 50px; }
+  .search-story-card-location .story-card {
+    width: 30%;
+    height: 45vh;
+    background: #a9dcf5;
+    display: block;
+    margin-bottom: 3vh;
+    border-radius: 10px; }
+    .search-story-card-location .story-card:hover {
+      background: #64c0ed; }
+    .search-story-card-location .story-card:nth-of-type(2n) {
+      margin-left: 5%; }
+    .search-story-card-location .story-card:nth-of-type(3n) {
+      margin-left: 5%; }
+    .search-story-card-location .story-card .story-title {
+      text-align: center;
+      margin-top: 2vh; }
+    .search-story-card-location .story-card .author-name {
+      text-align: center;
+      font-size: 1.3em; }
+    .search-story-card-location .story-card .story-card-image {
+      margin-top: 2vh;
+      width: 50%;
+      height: 50%;
+      margin-left: 25%;
+      border-radius: 500px; }
+    .search-story-card-location .story-card .story-extra {
+      display: flex;
+      width: 61%;
+      margin: 0 auto; }
+      .search-story-card-location .story-card .story-extra .likes .feature-likes {
+        margin-left: 1vw;
+        font-size: 1.2em; }
+      .search-story-card-location .story-card .story-extra .view-story {
+        margin-left: 2vw; }
+
 #page-content {
   margin-top: 6vh;
   margin-left: 15vw;
@@ -10331,6 +10371,36 @@ textarea {
   .advanced-active span:after {
     opacity: 1;
     transform: translateX(5); }
+
+.search-content .search-wrapper {
+  width: 75vw;
+  margin: 0 auto; }
+
+.search-content .first-item {
+  display: flex;
+  margin: 5px 0;
+  background: #a9dcf5; }
+  .search-content .first-item img {
+    width: 300px;
+    height: auto;
+    max-height: 250px; }
+  .search-content .first-item .story-info {
+    margin-left: 4vw; }
+    .search-content .first-item .story-info .author-name:hover {
+      color: black;
+      transition: color .2s; }
+    .search-content .first-item .story-info .author-name a:hover {
+      text-decoration: none; }
+    .search-content .first-item .story-info .story-extra {
+      display: flex; }
+      .search-content .first-item .story-info .story-extra .likes .feature-likes {
+        margin-left: 1vw;
+        font-size: 1.2em; }
+      .search-content .first-item .story-info .story-extra .view-story {
+        margin-left: 2vw; }
+  .search-content .first-item:hover {
+    background: #64c0ed;
+    transition: background .2s; }
 
 html, body {
   height: 100%; }

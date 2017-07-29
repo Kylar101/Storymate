@@ -59,10 +59,10 @@
 
 
 
-@mixin card($width, $height) {
+@mixin card($width, $height, $background) {
 	width: $width;
 	height: $height;
-	background: $gray;
+	background: $background;
 	display: block;
 	margin-bottom: 3vh;
 	border-radius: 10px;
@@ -79,7 +79,7 @@
 	flex-wrap: wrap;
 	margin-bottom: 50px;
 	.story-card {
-		@include card(48%, 45vh); 
+		@include card(48%, 45vh, $gray); 
 		&:nth-of-type(2n) {
 			@include not-first-card(4%);
 		}
@@ -93,6 +93,53 @@
 			height: 50%;
 			margin-left: 25%;
 			border-radius: 500px;
+		}
+	}
+}
+
+.search-story-card-location {
+	margin-top: 5vh;
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 50px;
+	.story-card {
+		@include card(30%, 45vh, $search-blue);
+		&:hover {
+			background: $dark-search-blue;
+		}
+		&:nth-of-type(2n) {
+			@include not-first-card(5%);
+		}
+
+		&:nth-of-type(3n) {
+			@include not-first-card(5%);
+		}
+		.story-title {
+			text-align: center;
+			margin-top: 2vh;
+		}
+		.author-name {
+			text-align: center;
+			font-size: 1.3em;
+		}
+		.story-card-image {
+			margin-top: 2vh;
+			width: 50%; 
+			height: 50%;
+			margin-left: 25%;
+			border-radius: 500px;
+		}
+		.story-extra {
+			display: flex;
+			width: 61%;
+		    margin: 0 auto;
+			.likes .feature-likes {
+				margin-left: 1vw;
+				font-size: 1.2em;
+			}
+			.view-story {
+				margin-left: 2vw;
+			}
 		}
 	}
 }

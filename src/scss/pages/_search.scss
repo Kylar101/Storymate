@@ -80,3 +80,46 @@
 		transform: translateX(5);
 	}
 }
+
+.search-content {
+	.search-wrapper {
+		width: 75vw;
+		margin: 0 auto;
+	}
+	.first-item {
+		display: flex;
+		margin: 5px 0;
+		background: $search-blue;
+		img {
+			width: 300px;
+			height: auto;
+			max-height: 250px;
+		}
+		.story-info {
+			margin-left: 4vw;
+			.author-name {
+				&:hover {
+					color: $darker-dark-blue;
+					transition: color .2s;
+				}
+				a:hover {
+					text-decoration: none;
+				}
+			}
+			.story-extra {
+				display: flex;
+				.likes .feature-likes {
+					margin-left: 1vw;
+					font-size: 1.2em;
+				}
+				.view-story {
+					margin-left: 2vw;
+				}
+			}
+		}
+		&:hover {
+			background: $dark-search-blue;
+			transition: background .2s;
+		}
+	}
+}
