@@ -10285,8 +10285,48 @@ textarea {
     .search-header .search-options .field-wrap {
       margin-bottom: 0; }
     .search-header .search-options .search-bar {
-      background: #0498e2;
+      background: #05a9fb;
       width: 450px; }
+    .search-header .search-options .search-button {
+      width: 3vw;
+      border: none;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px; }
+  .search-header .search-advanced {
+    color: #fff; }
+    .search-header .search-advanced .advanced-search-options {
+      opacity: 0;
+      pointer-events: none; }
+      .search-header .search-advanced .advanced-search-options.show {
+        opacity: 1;
+        pointer-events: auto;
+        transition: opacity .2s; }
+
+.advanced-options-button {
+  background: #132330;
+  color: #fff;
+  cursor: pointer;
+  width: 125px; }
+  .advanced-options-button:hover {
+    background: #294b67;
+    color: #fff; }
+  .advanced-options-button span {
+    transition: margin .2s;
+    position: relative;
+    display: block; }
+    .advanced-options-button span:after {
+      position: absolute;
+      transition: opacity .2s, transform .2s;
+      transform: translateX(10px);
+      content: '\F00C';
+      font-family: 'FontAwesome';
+      opacity: 0; }
+
+.advanced-active span {
+  margin: 0 10px 0 0; }
+  .advanced-active span:after {
+    opacity: 1;
+    transform: translateX(5); }
 
 html, body {
   height: 100%; }
