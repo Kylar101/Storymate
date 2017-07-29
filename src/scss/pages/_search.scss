@@ -1,0 +1,29 @@
+#front-content {
+	display: flex;
+}
+
+.search-header {
+	background-image: url('../img/story-feature2.jpg');
+	background-size: cover;
+	height: 55vh;
+	display: block;
+	position: relative;
+	.search-options {    
+		position: absolute;
+	    top: 25vh;
+	    left: 30vw;
+		.form {
+			display: flex;
+		}
+		.field-wrap {
+			margin-bottom: 0;
+		}
+		.search-bar {
+			background: $main;
+			width: 450px;
+		}
+		.search-button {
+
+		}
+	}
+}
