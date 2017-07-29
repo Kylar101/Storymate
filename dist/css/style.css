@@ -10294,6 +10294,10 @@ textarea {
       border-bottom-right-radius: 5px; }
   .search-header .search-advanced {
     color: #fff; }
+    .search-header .search-advanced .advance-button {
+      cursor: pointer; }
+      .search-header .search-advanced .advance-button:hover {
+        text-decoration: underline; }
     .search-header .search-advanced .advanced-search-options {
       opacity: 0;
       pointer-events: none; }

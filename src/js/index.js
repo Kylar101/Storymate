@@ -92,7 +92,7 @@ $('.story-type-button').on('click', function(e){
 $('.advanced-options-button').on('click', function(e){
   var type = $(this).data('type');
   if ($(this).hasClass('advanced-active')) {
-    $(this).removeClass('type-active');
+    $(this).removeClass('advanced-active');
     // $('.story-'+type).removeClass('show');
   } else {
     $(this).addClass('advanced-active');

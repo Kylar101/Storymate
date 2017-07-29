@@ -31,6 +31,12 @@
 	}
 	.search-advanced {
 		color: #fff;
+		.advance-button {
+			cursor: pointer;
+			&:hover {
+				text-decoration: underline;
+			} 
+		}
 		.advanced-search-options {
 			opacity: 0;
 			pointer-events: none;
