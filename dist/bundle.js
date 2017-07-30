@@ -63,181 +63,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var $ = __webpack_require__(6);
-// require("jquery-ui/jquery-ui.js");
-// -----------------------------------------------------------
-// ------------------- Helper functions ----------------------
-// -----------------------------------------------------------
-
-function getUrl() {
-  var path = window.location.pathname;
-  path = path.substring(path.lastIndexOf("/") + 1, path.lastIndexOf("."));
-  return path;
-}
-
-function activeDashabordItem(item) {
-  $('.' + item).addClass('active');
-}
-
-function slider() {
-  $(".slider #1").show("fade", 500);
-  $(".slider #1").delay(2000).hide("slide", { direction: 'left' }, 500);
-
-  var sc = $(".slider img").size();
-  var count = 2;
-
-  setInterval(function () {
-    $(".slider #" + count).show("slide", { direction: 'right' }, 500);
-    $(".slider #" + count).delay(2000).hide("slide", { direction: 'left' }, 500);
-
-    if (count == sc) {
-      count = 1;
-    } else {
-      count++;
-    }
-  }, 3000);
-}
-
-// -----------------------------------------------------------
-// ---------------------- Functionality ----------------------
-// ----------------------------------------------------------- 
-
-// apply active dashboard class
-window.onload = function () {
-  var currentUrl = getUrl();
-  activeDashabordItem(currentUrl);
-  // slider();
-};
-
-// adds float labels
-$('.form').find('input, textarea').on('keyup blur focus', function (e) {
-
-  var $this = $(this),
-      label = $this.prev('label');
-
-  if (e.type === 'keyup') {
-    if ($this.val() === '') {
-      label.removeClass('active highlight');
-    } else {
-      label.addClass('active highlight');
-    }
-  } else if (e.type === 'blur') {
-    if ($this.val() === '') {
-      label.removeClass('active highlight');
-    } else {
-      label.removeClass('highlight');
-    }
-  } else if (e.type === 'focus') {
-
-    if ($this.val() === '') {
-      label.removeClass('highlight');
-    } else if ($this.val() !== '') {
-      label.addClass('highlight');
-    }
-  }
-});
-
-// shows the story type when activated
-$('.story-type-button').on('click', function (e) {
-  var type = $(this).data('type');
-  if ($(this).hasClass('type-active')) {
-    $(this).removeClass('type-active');
-    $('.story-' + type).removeClass('show');
-  } else {
-    $(this).addClass('type-active');
-    $('.story-' + type).addClass('show');
-  }
-});
-
-$('.advanced-options-button').on('click', function (e) {
-  var type = $(this).data('type');
-  if ($(this).hasClass('advanced-active')) {
-    $(this).removeClass('advanced-active');
-    // $('.story-'+type).removeClass('show');
-  } else {
-    $(this).addClass('advanced-active');
-    // $('.story-'+type).addClass('show');
-  }
-});
-
-$('.advance-button').on('click', function () {
-  if ($('.advanced-search-options').hasClass('show')) {
-    $('.advanced-search-options').removeClass('show');
-  } else {
-    $('.advanced-search-options').addClass('show');
-  }
-}
-
-// toggles between login and sign up
-);$('.tab a').on('click', function (e) {
-
-  e.preventDefault();
-
-  $(this).parent().addClass('active');
-  $(this).parent().siblings().removeClass('active');
-
-  var target = $(this).attr('href');
-
-  $('.tab-content > div').not(target).hide();
-
-  $(target).fadeIn(600);
-});
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-// css
-
-__webpack_require__(3);
-
-__webpack_require__(1);
-
-__webpack_require__(2);
-
-__webpack_require__(4);
-
-__webpack_require__(0);
-
-/***/ }),
-/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10495,6 +10325,175 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _utils = __webpack_require__(7);
+
+var _utils2 = _interopRequireDefault(_utils);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var $ = __webpack_require__(0);
+
+
+// -----------------------------------------------------------
+// ---------------------- Functionality ----------------------
+// ----------------------------------------------------------- 
+
+// apply active dashboard class
+window.onload = function () {
+  var currentUrl = _utils2.default.getUrl();
+  _utils2.default.activeDashabordItem(currentUrl);
+  if (currentUrl.includes('view')) {
+    console.log('here');
+  }
+};
+
+// adds float labels
+$('.form').find('input, textarea').on('keyup blur focus', function (e) {
+
+  var $this = $(this),
+      label = $this.prev('label');
+
+  if (e.type === 'keyup') {
+    if ($this.val() === '') {
+      label.removeClass('active highlight');
+    } else {
+      label.addClass('active highlight');
+    }
+  } else if (e.type === 'blur') {
+    if ($this.val() === '') {
+      label.removeClass('active highlight');
+    } else {
+      label.removeClass('highlight');
+    }
+  } else if (e.type === 'focus') {
+
+    if ($this.val() === '') {
+      label.removeClass('highlight');
+    } else if ($this.val() !== '') {
+      label.addClass('highlight');
+    }
+  }
+});
+
+// shows the story type when activated
+$('.story-type-button').on('click', function (e) {
+  var type = $(this).data('type');
+  if ($(this).hasClass('type-active')) {
+    $(this).removeClass('type-active');
+    $('.story-' + type).removeClass('show');
+  } else {
+    $(this).addClass('type-active');
+    $('.story-' + type).addClass('show');
+  }
+});
+
+$('.advanced-options-button').on('click', function (e) {
+  var type = $(this).data('type');
+  if ($(this).hasClass('advanced-active')) {
+    $(this).removeClass('advanced-active');
+    // $('.story-'+type).removeClass('show');
+  } else {
+    $(this).addClass('advanced-active');
+    // $('.story-'+type).addClass('show');
+  }
+});
+
+$('.advance-button').on('click', function () {
+  if ($('.advanced-search-options').hasClass('show')) {
+    $('.advanced-search-options').removeClass('show');
+  } else {
+    $('.advanced-search-options').addClass('show');
+  }
+}
+
+// toggles between login and sign up
+);$('.tab a').on('click', function (e) {
+
+  e.preventDefault();
+
+  $(this).parent().addClass('active');
+  $(this).parent().siblings().removeClass('active');
+
+  var target = $(this).attr('href');
+
+  $('.tab-content > div').not(target).hide();
+
+  $(target).fadeIn(600);
+});
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// css
+
+__webpack_require__(4);
+
+__webpack_require__(2);
+
+__webpack_require__(3);
+
+__webpack_require__(5);
+
+__webpack_require__(1);
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function($) {
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = {
+	getUrl: function getUrl() {
+		var path = window.location.pathname;
+		path = path.substring(path.lastIndexOf("/") + 1, path.lastIndexOf("."));
+		return path;
+	},
+
+	activeDashabordItem: function activeDashabordItem(item) {
+		$('.' + item).addClass('active');
+	}
+};
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ })
 /******/ ]);

@@ -10286,8 +10286,7 @@ textarea {
   display: block; }
   .story-header .story-feature-image {
     width: 100%;
-    max-height: 500px;
-    display: none; }
+    max-height: 500px; }
 
 .author-details {
   width: 25vw;
@@ -10326,7 +10325,11 @@ textarea {
       margin-bottom: 0; }
     .search-header .search-options .search-bar {
       background: #05a9fb;
+      opacity: .5;
       width: 450px; }
+      .search-header .search-options .search-bar:focus {
+        opacity: 1;
+        transition: opacity .2s; }
     .search-header .search-options .search-button {
       width: 3vw;
       border: none;

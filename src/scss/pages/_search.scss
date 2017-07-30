@@ -20,7 +20,12 @@
 		}
 		.search-bar {
 			background: $main-light;
+			opacity: .5;
 			width: 450px;
+			&:focus {
+				opacity: 1;
+				transition: opacity .2s;
+			}
 		}
 		.search-button {
 		    width: 3vw;
