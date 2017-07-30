@@ -11,7 +11,7 @@ npm install
 - run the following in a console
 
 ```shell
-gulp watch
+gulp
 ```
 
 ### CSS
@@ -20,6 +20,8 @@ gulp watch
 	- If you make a new file, name it `_{name}.scss`
 	- include the file in `src/scss/styles.scss`
 		- see file for reference
+
+**NOTE** If you make a mistake in your css, the watch will stop. To fix this, fix you css and restart the watch command *See above*
 
 ### JS
 
@@ -60,5 +62,3 @@ gulp pack
 ```shell
 gulp build
 ```
-
-**NOTE** If you make a mistake in your css, the watch will stop. To fix this, fix you css and restart the watch command *See above*
