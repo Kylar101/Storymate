@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿<?php
+session_start();
+include('php/connector.php');
+$_SESSION['curStoryID'] = $_GET['story'];
+?>
+<!DOCTYPE html>
 <html >
 <head>
   <meta charset="UTF-8">
