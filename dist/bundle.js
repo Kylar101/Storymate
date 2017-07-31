@@ -10412,10 +10412,10 @@ $('.advance-button').on('click', function () {
   } else {
     $('.advanced-search-options').addClass('show');
   }
-});
+}
 
 // toggles between login and sign up
-$('.tab a').on('click', function (e) {
+);$('.tab a').on('click', function (e) {
 
   e.preventDefault();
 
