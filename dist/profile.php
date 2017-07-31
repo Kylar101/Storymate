@@ -61,16 +61,6 @@ $row = mysqli_fetch_array($result);
 						<p class="name"><?php echo $row['firstName']; ?> <?php echo $row['lastName']; ?></p>
 						<p class="email"><?php echo $row['email']; ?></p>
 						<p class="number"><?php echo $row['phone']; ?></p>
-						<?php
-							$arr = array('one', 'two', 'three');
-
-							foreach ($arr as $value) {
-						?>
-						<p>hopefully <?php echo $value ?></p>
-						<?php
-						}
-						?>
-
 						<a href="#" class="btn edit-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>  Edit Details</a>
 					</div>
 				</div>
