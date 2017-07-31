@@ -39,7 +39,8 @@
 .post-form {
 	margin-bottom: 5vh;
 	.post-story {
-		color: $dark-blue;
+		// color: $dark-blue;
+		color: $main;
 	}
 	input[type="text"], textarea {
 		font-size:22px;
