@@ -66,6 +66,13 @@
 			color:$main;
 		}
 	}
+	.categories {
+		display: flex;
+		flex-wrap: wrap;
+		.story-cat {
+			width: 25%;
+		}
+	}
 	.text-label {
 	  left:29vw;
 	}
