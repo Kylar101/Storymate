@@ -10133,6 +10133,9 @@ textarea {
   margin-left: 13vw;
   width: 55vw; }
 
+.draft-button {
+  background-color: #D3D3D3; }
+
 .story-type-button {
   background: #132330;
   color: #fff;
@@ -10169,8 +10172,6 @@ textarea {
     width: 100%;
     padding: 5px 10px;
     background: #a0b3b0;
-    border: 1px solid #294b67;
-    color: #132330;
     border-radius: 0;
     transition: border-color .25s ease, box-shadow .25s ease; }
     .post-form input[type="text"]:focus, .post-form textarea:focus {

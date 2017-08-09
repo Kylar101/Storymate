@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Profile</title>
+	<title>Create your Story</title>
 	<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/style.css">
 
@@ -34,8 +34,9 @@
 		<article id="page-content">
 			<div id="post-story">
 				<div class="title-wrapper">
-					<h1 class="title">Post Story</h1>
+					<h1 class="title">Create your Story</h1>
 				</div>
+				<br/>
 				<div class="post-form form">
 					<form action="/" method="post">
 
@@ -43,24 +44,24 @@
 							<label class="post-story">
 									Story Title<span class="req">*</span>
 								</label>
-							<input type="text" required autocomplete="off" />
+							<input type="text" required autocomplete="off"/>
 						</div>
 
 						<div class="field-wrap">
 							<label class="post-story text">
 									Story Description<span class="req">*</span>
 								</label>
-							<textarea rows="3" name="description" required></textarea>
+							<textarea rows="2" name="description" required></textarea>
 						</div>
 
 						<div class="field-wrap">
 							<p class="small-label">
-								Story Type <span class="req">*</span>
+								Add content <span class="req">*</span>
 							</p>
 							<button type="button" class="btn story-type-button" data-type="images"><span>Images</span></button>
 							<button type="button" class="btn story-type-button" data-type="text"><span>Text</span></button>
 							<button type="button" class="btn story-type-button" data-type="audio"><span>Audio</span></button>
-						</div> 
+						</div>
 
 						<div class="story-images">
 							<p class="small-label">
@@ -84,7 +85,8 @@
 						</div>
 
 						<div class="field-wrap">
-							<button type="submit" class="btn view-button"><i class="fa fa-check" aria-hidden="true"></i> Post Story</button>
+							<button type="draft" class="btn draft-button">Save Draft</button><!--<i class="fa fa-check" aria-hidden="true"></i> Post Story</button> -->
+							<button type="submit" class="btn view-button">Publish</button><!--<i class="fa fa-check" aria-hidden="true"></i> Post Story</button> -->
 						</div>
 
 					</form>
