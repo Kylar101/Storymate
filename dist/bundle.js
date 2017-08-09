@@ -10430,6 +10430,7 @@ $('.advance-button').on('click', function () {
   $(target).fadeIn(600);
 });
 
+// Terms and conditions modal
 var tcModal = document.getElementById('tc-modal');
 
 var tcModalActive = new _bootstrap2.default.Modal(tcModal);

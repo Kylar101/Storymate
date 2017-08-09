@@ -90,6 +90,7 @@ $('.tab a').on('click', function (e) {
   
 });
 
+// Terms and conditions modal
 let tcModal = document.getElementById('tc-modal')
 
 let tcModalActive = new bsn.Modal(tcModal)
