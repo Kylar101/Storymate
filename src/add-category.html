@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Add Categories</title>
+	<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+
+	<!-- Top bar -->
+	<header>
+		<section id="top-bar">
+			<div class="user-bar">
+				<p class="user-name">Jeffery</p>
+			</div>
+		</section>
+	</header>
+
+	<!-- Main content -->
+	<div id="main-content">
+		<nav id="side-bar">
+			<ul>
+				<li class="post-story"><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Post Story</a></li>
+				<li class="manage-stories"><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i> Manage Stories</a></li>
+				<li class="new-users"><a href="#"><i class="fa fa-user" aria-hidden="true"></i> New Users</a></li>
+				<li class="new-stories"><a href="#"><i class="fa fa-book" aria-hidden="true"></i> New Stories</a></li>
+			</ul>
+		</nav>
+		<article id="page-content">
+			<div id="post-story">
+				<div class="title-wrapper">
+					<h1 class="title">Add Category</h1>
+				</div>
+				<div class="post-form form">
+					<form action="/" method="post">
+
+						<div class="field-wrap">
+							<label class="post-story">
+									Category Title<span class="req">*</span>
+								</label>
+							<input type="text" required autocomplete="off" />
+						</div>
+
+						<div class="field-wrap">
+							<label class="post-story text">
+									Category Description
+								</label>
+							<input type="text" required autocomplete="off" />
+						</div>
+
+						
+
+						<div class="field-wrap">
+							<button type="submit" class="btn view-button"><i class="fa fa-check" aria-hidden="true"></i> Add Category</button>
+						</div>
+
+					</form>
+				</div>
+			</div>
+		</article>
+	</div>
+
+	<!-- footer content -->
+	<footer id="footer-content">
+		<p class="copyright">Communify 2017</p>
+	</footer>
+
+
+
+	<script src="bundle.js"></script>
+</body>
+
+</html>
