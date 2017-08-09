@@ -9,7 +9,9 @@ $username = $_SESSION['login_user'];
 $getID = "SELECT userID FROM users WHERE email = '$username'";
 $authorID = mysqli_query($conn,$getID);
 
-$sql = "INSERT INTO comments (authorID, comment) VALUES ('$authorID','$comment')";
+$storyID = $_SESSION['curStoryID']
+
+$sql = "INSERT INTO comments (storyID, authorID, comment) VALUES ('$storyID','$authorID','$comment')";
 mysqli_query($conn,$sql);
 
 header("location: ../profile.php");
