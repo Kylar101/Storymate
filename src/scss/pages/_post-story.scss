@@ -65,6 +65,9 @@
 			margin:2px;
 			color:$main;
 		}
+		&.index {
+			color: $gray-light;
+		}
 	}
 	.categories {
 		display: flex;
