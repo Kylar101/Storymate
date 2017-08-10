@@ -2,11 +2,20 @@
 .edit-button {
 	background: $edit-green;
 	cursor: pointer;
-	color: $dark-blue; 
+	color: $dark-blue;
 	color: #fff;
 	&:hover {
 		background: $darker-edit-green;
 		color: #fff;
+	}
+}
+
+.draft-button{
+	background-color: $draft-button;
+	cursor: pointer;
+	color: $dark-blue;
+	&:hover {
+		background: $draft-darker;
 	}
 }
 
@@ -79,7 +88,7 @@
 	flex-wrap: wrap;
 	margin-bottom: 50px;
 	.story-card {
-		@include card(48%, 45vh, $gray); 
+		@include card(48%, 45vh, $gray);
 		&:nth-of-type(2n) {
 			@include not-first-card(4%);
 		}
@@ -89,7 +98,7 @@
 		}
 		.story-card-image {
 			margin-top: 2vh;
-			width: 50%; 
+			width: 50%;
 			height: 50%;
 			margin-left: 25%;
 			border-radius: 500px;
@@ -124,7 +133,7 @@
 		}
 		.story-card-image {
 			margin-top: 2vh;
-			width: 50%; 
+			width: 50%;
 			height: 50%;
 			margin-left: 25%;
 			border-radius: 500px;

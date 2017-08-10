@@ -9770,6 +9770,13 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
     background: #0ac10a;
     color: #fff; }
 
+.draft-button {
+  background-color: #d3d3d3;
+  cursor: pointer;
+  color: #132330; }
+  .draft-button:hover {
+    background: #adadad; }
+
 .delete-button {
   background: red;
   cursor: pointer;
@@ -10141,9 +10148,6 @@ textarea {
 #post-story {
   margin-left: 13vw;
   width: 55vw; }
-
-.draft-button {
-  background-color: #D3D3D3; }
 
 .story-type-button {
   background: #132330;
