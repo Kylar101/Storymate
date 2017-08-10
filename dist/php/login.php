@@ -8,7 +8,7 @@
 
   	$sql = "SELECT userID from users WHERE username = '$username' AND password = '$password'";
   	$result = mysqli_query($conn,$sql);
-  	$row = mysqli_fetch_array($result);
+  	// $row = mysqli_fetch_array($result);
 
   	$count = mysqli_num_rows($result);
 
@@ -23,6 +23,5 @@
   	{
   		$error = "Your username or pasword is invalid";
   	}
-  }
 
 ?>

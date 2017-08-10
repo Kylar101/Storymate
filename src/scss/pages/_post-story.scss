@@ -73,6 +73,16 @@
 			margin:2px;
 			color:$main;
 		}
+		&.index {
+			color: $gray-light;
+		}
+	}
+	.categories {
+		display: flex;
+		flex-wrap: wrap;
+		.story-cat {
+			width: 25%;
+		}
 	}
 	.text-label {
 	  left:29vw;

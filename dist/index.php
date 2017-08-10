@@ -98,7 +98,7 @@
         <div id="login">
           <h1>Welcome Back!</h1>
 
-          <form action="" method="post">
+          <form action="php/login.php" method="post">
 
             <div class="field-wrap">
             <label>
@@ -127,7 +127,7 @@
 </div> <!-- /form -->
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-    <script src="js/bundle.js"></script>
+    <script src="bundle.js"></script>
 
 </body>
 </html>

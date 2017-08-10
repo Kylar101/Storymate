@@ -97,6 +97,18 @@ label.highlight {
 	color:$white;
 }
 
+.index {
+  margin-top: -20px;
+  // margin-bottom: -10px;
+  font-size: 15px;
+  color: $gray-light;
+  text-align: center;
+}
+
+.tc-button {
+  margin: 10px 40%;
+}
+
 input[type="text"], input[type="email"], input[type="password"], textarea {
   font-size:22px;
   display:block;

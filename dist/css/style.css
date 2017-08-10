@@ -10067,6 +10067,15 @@ label.active {
 label.highlight {
   color: #ffffff; }
 
+.index {
+  margin-top: -20px;
+  font-size: 15px;
+  color: #a0b3b0;
+  text-align: center; }
+
+.tc-button {
+  margin: 10px 40%; }
+
 input[type="text"], input[type="email"], input[type="password"], textarea {
   font-size: 22px;
   display: block;
@@ -10184,6 +10193,13 @@ textarea {
     .post-form .small-label .req {
       margin: 2px;
       color: #0498e2; }
+    .post-form .small-label.index {
+      color: #a0b3b0; }
+  .post-form .categories {
+    display: flex;
+    flex-wrap: wrap; }
+    .post-form .categories .story-cat {
+      width: 25%; }
   .post-form .text-label {
     left: 29vw; }
   .post-form .text-label.active {

@@ -1,5 +1,6 @@
 var $ = require("jquery");
 import utils from './inc/utils.js';
+import bsn from 'bootstrap.native';
 
 // -----------------------------------------------------------
 // ---------------------- Functionality ----------------------
@@ -9,9 +10,6 @@ import utils from './inc/utils.js';
 window.onload = function() {
   var currentUrl = utils.getUrl();
   utils.activeDashabordItem(currentUrl);
-  if (currentUrl.includes('view')) {
-    console.log('here')
-  }
 }
 
 // adds float labels
@@ -91,3 +89,15 @@ $('.tab a').on('click', function (e) {
   $(target).fadeIn(600);
   
 });
+
+// Terms and conditions modal
+let tcModal = document.getElementById('tc-modal')
+
+let tcModalActive = new bsn.Modal(tcModal)
+
+let tcButton = document.querySelector('#tc-index')
+tcButton.addEventListener('click', () => {
+  
+  tcModalActive.show()
+
+})
