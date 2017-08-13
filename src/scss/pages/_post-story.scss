@@ -3,6 +3,10 @@
 	width: 55vw;
 }
 
+//Added by renzo for button "Save Draft"
+
+
+
 .story-type-button {
 	background: $dark-blue;
 	color: #fff;
@@ -40,6 +44,7 @@
 	margin-bottom: 5vh;
 	.post-story {
 		color: $dark-blue;
+		// color: $main;
 	}
 	input[type="text"], textarea {
 		font-size:22px;
@@ -47,8 +52,9 @@
 		width:100%;
 		padding:5px 10px;
 		background:$gray-light;
-		border:1px solid $lighter-dark-blue;
-		color:$dark-blue;
+		//@Renzo: Border of fields deleted
+		// border:1px solid $lighter-dark-blue;
+		// color:$dark-blue;
 		border-radius:0;
 		transition:border-color .25s ease, box-shadow .25s ease;
 		&:focus {

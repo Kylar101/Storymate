@@ -9770,6 +9770,13 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
     background: #0ac10a;
     color: #fff; }
 
+.draft-button {
+  background-color: #d3d3d3;
+  cursor: pointer;
+  color: #132330; }
+  .draft-button:hover {
+    background: #adadad; }
+
 .delete-button {
   background: red;
   cursor: pointer;
@@ -10178,8 +10185,6 @@ textarea {
     width: 100%;
     padding: 5px 10px;
     background: #a0b3b0;
-    border: 1px solid #294b67;
-    color: #132330;
     border-radius: 0;
     transition: border-color .25s ease, box-shadow .25s ease; }
     .post-form input[type="text"]:focus, .post-form textarea:focus {
