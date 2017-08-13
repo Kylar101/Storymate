@@ -20,9 +20,9 @@ $row = mysqli_fetch_array($result);
   <meta charset="UTF-8">
   <title>Profile</title>
   <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"> -->
+  <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+  <!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
   <link rel="stylesheet" href="css/style.css">
 
 
@@ -61,7 +61,32 @@ $row = mysqli_fetch_array($result);
 						<p class="name"><?php echo $row['firstName']; ?> <?php echo $row['lastName']; ?></p>
 						<p class="email"><?php echo $row['email']; ?></p>
 						<p class="number"><?php echo $row['phone']; ?></p>
-						<a href="#" class="btn edit-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>  Edit Details</a>
+						<button id="edit-user-details" class="btn edit-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>  Edit Details</button>
+					</div>
+					
+					<div id="change-user-details">
+						<form action="php/edit-details.php" method="POST" class="form details-edit">
+							<div class="field-wrap">
+								<label>
+									First Name<span class="req">*</span>
+								</label>
+								<input type="text" name="first-name" required autocomplete="off" />
+							</div>
+							<div class="field-wrap">
+								<label>
+									Last Name<span class="req">*</span>
+								</label>
+								<input type="text" name="last-name" required autocomplete="off" />
+							</div>
+							<div class="field-wrap">
+								<label>
+									Phone Number
+								</label>
+								<input type="tel" name="phone-number" autocomplete="off" />
+							</div>
+							<button type="submit" class="btn view-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Submit Changes</button>
+							<span class="change-details-cancel">Cancel</span>
+						</form>
 					</div>
 				</div>
 				<div class="my-stories">
@@ -134,7 +159,7 @@ $row = mysqli_fetch_array($result);
 
 
 
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-  <script src="js/index.js"></script>
+  <!-- <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> -->
+  <script src="bundle.js"></script>
 </body>
 </html>

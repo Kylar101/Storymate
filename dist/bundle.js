@@ -10356,6 +10356,16 @@ window.onload = function () {
   _utils2.default.activeDashabordItem(currentUrl);
 };
 
+document.querySelector('#edit-user-details').addEventListener('click', function (element) {
+  document.querySelector('#change-user-details').classList.add('show');
+  document.querySelector('.my-details').classList.add('hide');
+});
+
+document.querySelector('.change-details-cancel').addEventListener('click', function (element) {
+  document.querySelector('#change-user-details').classList.remove('show');
+  document.querySelector('.my-details').classList.remove('hide');
+});
+
 // adds float labels
 $('.form').find('input, textarea').on('keyup blur focus', function (e) {
 
@@ -10432,7 +10442,6 @@ $('.tab a').on('click', function (e) {
 
 // Terms and conditions modal
 var tcModal = document.getElementById('tc-modal');
-
 var tcModalActive = new _bootstrap2.default.Modal(tcModal);
 
 var tcButton = document.querySelector('#tc-index');

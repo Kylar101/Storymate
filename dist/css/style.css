@@ -9985,13 +9985,54 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 .personal-details .my-details {
   margin-top: 20px;
   position: relative; }
-  .personal-details .my-details a {
+  .personal-details .my-details.hide {
+    opacity: 0;
+    pointer-events: none;
+    height: 0;
+    transition: opacity .3s, height .3s; }
+  .personal-details .my-details button {
     position: absolute;
     right: 0;
     top: 30%; }
   .personal-details .my-details p {
     line-height: 12px;
     font-size: 20px; }
+
+.personal-details #change-user-details {
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
+  transition: opacity .3s, height .3s;
+  position: relative; }
+  .personal-details #change-user-details button {
+    position: absolute;
+    right: 0;
+    top: 30%; }
+  .personal-details #change-user-details.show {
+    opacity: 1;
+    pointer-events: auto;
+    height: 100%; }
+
+.personal-details form.form.details-edit {
+  width: 35%; }
+  .personal-details form.form.details-edit .field-wrap {
+    margin-bottom: 25px; }
+
+.personal-details .details-edit label {
+  color: #132330; }
+
+.personal-details .details-edit input[type="text"], .personal-details .details-edit input[type="email"], .personal-details .details-edit input[type="tel"] {
+  background: rgba(5, 169, 251, 0.5);
+  color: #132330; }
+
+.personal-details .details-edit .change-details-cancel {
+  pointer-events: cursor;
+  position: absolute;
+  right: 0;
+  top: 55%; }
+  .personal-details .details-edit .change-details-cancel:hover {
+    text-decoration: underline;
+    pointer-events: cursor; }
 
 *, *:before, *:after {
   box-sizing: border-box; }
@@ -10083,7 +10124,7 @@ label.highlight {
 .tc-button {
   margin: 10px 40%; }
 
-input[type="text"], input[type="email"], input[type="password"], textarea {
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"], textarea {
   font-size: 22px;
   display: block;
   width: 100%;
@@ -10095,7 +10136,7 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
   color: #ffffff;
   border-radius: 0;
   transition: border-color .25s ease, box-shadow .25s ease; }
-  input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus {
+  input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="tel"]:focus, textarea:focus {
     outline: 0;
     border-color: #0498e2; }
 
@@ -10431,7 +10472,7 @@ html, body {
 
 #main-content, #main-content-front {
   min-height: 100%;
-  margin-bottom: -10vh; }
+  margin-bottom: -5vh; }
   #main-content:after, #main-content-front:after {
     content: "";
     display: block; }

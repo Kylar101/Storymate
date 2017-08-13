@@ -50,7 +50,13 @@
 	.my-details {
 		margin-top: 20px;
 		position: relative;
-		a {
+		&.hide {
+			opacity: 0;
+			pointer-events: none;
+			height: 0;
+			transition: opacity .3s, height .3s;
+		}
+		button {
 			position: absolute;
 			right: 0;
 			top: 30%;
@@ -58,6 +64,48 @@
 		p {
 		    line-height: 12px;
 		    font-size: 20px;
+		}
+	}
+	#change-user-details {
+		opacity: 0;
+		pointer-events: none;
+		height: 0;
+		transition: opacity .3s, height .3s;
+		position: relative;
+		button {
+			position: absolute;
+			right: 0;
+			top: 30%;
+		}
+		&.show {
+			opacity: 1;
+			pointer-events: auto;
+			height: 100%;
+		}
+	}
+	form.form.details-edit {
+		width: 35%;
+		.field-wrap {
+			margin-bottom: 25px;
+		}
+	}
+	.details-edit {
+		label {
+			color: $dark-blue;
+		}
+		input[type="text"], input[type="email"], input[type="tel"] {
+			background:rgba($main-light, .5);
+			color: $dark-blue;
+		}
+		.change-details-cancel {
+			pointer-events: cursor;
+			position: absolute;
+			right: 0;
+			top: 55%;
+			&:hover {
+				text-decoration: underline;
+				pointer-events: cursor;
+			}
 		}
 	}
 }
