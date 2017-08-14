@@ -75,22 +75,22 @@ if (!$countResult) {
 					<div id="change-user-details">
 						<form action="php/edit-details.php" method="POST" class="form details-edit">
 							<div class="field-wrap">
-								<label>
+								<label class="active">
 									First Name<span class="req">*</span>
 								</label>
-								<input type="text" name="first-name" required autocomplete="off" />
+								<input type="text" name="first-name" required autocomplete="off" value="<?php echo $row['firstName']; ?>" />
 							</div>
 							<div class="field-wrap">
-								<label>
+								<label class="active">
 									Last Name<span class="req">*</span>
 								</label>
-								<input type="text" name="last-name" required autocomplete="off" />
+								<input type="text" name="last-name" required autocomplete="off" value="<?php echo $row['lastName']; ?>" />
 							</div>
 							<div class="field-wrap">
-								<label>
+								<label class="active">
 									Phone Number
 								</label>
-								<input type="tel" name="phone-number" autocomplete="off" />
+								<input type="tel" name="phone-number" autocomplete="off" value="<?php echo $row['phone']; ?>" />
 							</div>
 							<button type="submit" class="btn view-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Submit Changes</button>
 							<span class="change-details-cancel">Cancel</span>
