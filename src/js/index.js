@@ -10,17 +10,19 @@ import bsn from 'bootstrap.native';
 window.onload = function() {
   var currentUrl = utils.getUrl();
   utils.activeDashabordItem(currentUrl);
+  console.log(currentUrl)
+  if (currentUrl.includes('profile')) {
+    document.querySelector('#edit-user-details').addEventListener('click',(element) => {
+      document.querySelector('#change-user-details').classList.add('show')
+      document.querySelector('.my-details').classList.add('hide')
+    })
+
+    document.querySelector('.change-details-cancel').addEventListener('click',(element) => {
+      document.querySelector('#change-user-details').classList.remove('show')
+      document.querySelector('.my-details').classList.remove('hide')
+    })
+  }
 }
-
-document.querySelector('#edit-user-details').addEventListener('click',(element) => {
-  document.querySelector('#change-user-details').classList.add('show')
-  document.querySelector('.my-details').classList.add('hide')
-})
-
-document.querySelector('.change-details-cancel').addEventListener('click',(element) => {
-  document.querySelector('#change-user-details').classList.remove('show')
-  document.querySelector('.my-details').classList.remove('hide')
-})
 
 
 // adds float labels

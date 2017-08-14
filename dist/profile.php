@@ -12,6 +12,14 @@ $sql = "SELECT * FROM users WHERE userID = '$currentUser'";
 $result = mysqli_query($conn,$sql);
 $row = mysqli_fetch_array($result);
 
+$storyNum = "SELECT count(storyID) AS num_stories FROM stories WHERE authorID = '$currentUser'";
+$countResult = mysqli_query($conn,$storyNum);
+$countRow = mysqli_fetch_array($countResult);
+
+if (!$countResult) {
+	die (mysql_error($countResult));
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +59,7 @@ $row = mysqli_fetch_array($result);
 			<div class="profile-header">
 				<img src="img/profile-pic.gif" class="profile-picture">
 				<div class="count-bg">
-					<p class="story-count">3 stories</p>
+					<p class="story-count"><?php echo $countRow['num_stories']; ?> stories</p>
 				</div>
 			</div>
 			<div class="profile-details">

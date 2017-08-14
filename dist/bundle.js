@@ -10354,17 +10354,19 @@ var $ = __webpack_require__(0);
 window.onload = function () {
   var currentUrl = _utils2.default.getUrl();
   _utils2.default.activeDashabordItem(currentUrl);
+  console.log(currentUrl);
+  if (currentUrl.includes('profile')) {
+    document.querySelector('#edit-user-details').addEventListener('click', function (element) {
+      document.querySelector('#change-user-details').classList.add('show');
+      document.querySelector('.my-details').classList.add('hide');
+    });
+
+    document.querySelector('.change-details-cancel').addEventListener('click', function (element) {
+      document.querySelector('#change-user-details').classList.remove('show');
+      document.querySelector('.my-details').classList.remove('hide');
+    });
+  }
 };
-
-document.querySelector('#edit-user-details').addEventListener('click', function (element) {
-  document.querySelector('#change-user-details').classList.add('show');
-  document.querySelector('.my-details').classList.add('hide');
-});
-
-document.querySelector('.change-details-cancel').addEventListener('click', function (element) {
-  document.querySelector('#change-user-details').classList.remove('show');
-  document.querySelector('.my-details').classList.remove('hide');
-});
 
 // adds float labels
 $('.form').find('input, textarea').on('keyup blur focus', function (e) {
@@ -10423,10 +10425,10 @@ $('.advance-button').on('click', function () {
   } else {
     $('.advanced-search-options').addClass('show');
   }
-});
+}
 
 // toggles between login and sign up
-$('.tab a').on('click', function (e) {
+);$('.tab a').on('click', function (e) {
 
   e.preventDefault();
 
