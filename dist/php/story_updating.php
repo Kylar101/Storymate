@@ -3,12 +3,14 @@
 session_start();
 include('connector.php');
 
+$storyID = $_GET['story'];
+
 $Title = mysqli_real_escape_string($conn,$_POST['title']);
 $Description = mysqli_real_escape_string($conn,$_POST['description']);
 $Images = mysqli_real_escape_string($conn,$_POST['images']);
 $Text= mysqli_real_escape_string($conn,$_POST['text']);
 #$pubSet = mysqli_real_escape_string($conn,$_POST['public']);
-$username = get_current_user();
+$username = $_SESSION['login_user'];
 
 $getID = "SELECT userID FROM users WHERE email = '$username'";
 $authorID = mysqli_query($conn,$getID);
@@ -23,9 +25,13 @@ $getTagID = "SELECT categoryID FROM categories WHERE tagName = '$tagName'";
 $tagID = mysqli_query($conn,$getTagID);
 */
 
-$sql = "INSERT INTO stories (title, description, authorID) VALUES ('$Title', '$Description', '$authorID')";
+$sql = "UPDATE stories SET title='$Title', description='$Description' WHERE storyID='$storyID'";
 
-mysqli_query($conn,$sql);
+$result = mysqli_query($conn,$sql);
+
+if (!$result) {
+    die(mysqli_error($conn));
+}
 
 header("location: ../profile.php");
 

@@ -37,7 +37,7 @@
   <meta charset="UTF-8">
   <title>Sign-Up/Login Form</title>
   <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"> -->
 
 
       <link rel="stylesheet" href="css/style.css">
@@ -89,6 +89,10 @@
             <input type="password"required autocomplete="off" name="subPass"/>
           </div>
 
+            <p class="index">By signing up, you are agreeing to our Terms &amp; Conditions</p>
+
+            <span id="tc-index" class="btn comments-button tc-button">View T&amp;C</span>
+
           <button type="submit" class="button button-block"/>Get Started</button>
 
           </form>
@@ -125,9 +129,25 @@
       </div><!-- tab-content -->
 
 </div> <!-- /form -->
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<!-- Show help in modal -->
+        <div class="modal" id="tc-modal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Terms and Conditions</h4>
+              </div>
+              <div class="modal-body help-body">
+                <h2>T&amp;C here</h2>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>  <!-- <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> -->
 
-    <script src="bundle.js"></script>
+    <script src="./bundle.js"></script>
 
 </body>
 </html>

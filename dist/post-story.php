@@ -13,6 +13,22 @@ $sql = "SELECT * FROM users WHERE userID = '$user'";
 $result = mysqli_query($conn,$sql);
 $row = mysqli_fetch_array($result);
 
+$editMode = $_GET['edit'];
+$storyID = $_GET['story'];
+
+$getStory = "SELECT * FROM stories WHERE storyID = '$storyID'";
+$storyResult = mysqli_query($conn, $getStory);
+$storyRow = mysqli_fetch_array($storyResult);
+
+if (!$storyResult) {
+	die(mysqli_error($conn));
+}
+
+$storyActive = '';
+if ($editMode) {
+	$storyActive = 'active';
+}
+
 ?>
 
 <html>
@@ -51,23 +67,39 @@ $row = mysqli_fetch_array($result);
 		<article id="page-content">
 			<div id="post-story">
 				<div class="title-wrapper">
-					<h1 class="title">Post Story</h1>
+					<?php if (!$editMode) : ?>
+						<h1 class="title">Post Story</h1>
+					<?php else : ?>
+						<h1 class="title">Edit "<?php echo $storyRow['title'] ?>"</h1>
+					<?php endif; ?>
 				</div>
 				<div class="post-form form">
+					<?php if (!$editMode) : ?>
 					<form action="php/story_processing.php" method="post">
+					<?php else : ?>
+					<form action="php/story_updating.php?story=<?php echo $storyID ?>" method="post">
+					<?php endif; ?>
 
 						<div class="field-wrap">
-							<label class="post-story">
+							<label class="post-story <?php echo $storyActive; ?>">
 									Story Title<span class="req">*</span>
 								</label>
+							<?php if (!$editMode) : ?>
 							<input type="text" name="title" required autocomplete="off"/>
+							<?php else : ?>
+							<input type="text" name="title" required autocomplete="off" value="<?php echo $storyRow['title']?>"/>
+							<?php endif; ?>
 						</div>
 
 						<div class="field-wrap">
-							<label class="post-story text">
+							<label class="post-story text <?php echo $storyActive; ?>">
 									Story Description<span class="req">*</span>
 								</label>
+							<?php if (!$editMode) : ?>
 							<textarea rows="3" name="description" required></textarea>
+							<?php else : ?>
+							<textarea rows="3" name="description" required><?php echo $storyRow['description']?></textarea>
+							<?php endif; ?>
 						</div>
 
 						<div class="field-wrap">
@@ -101,7 +133,11 @@ $row = mysqli_fetch_array($result);
 						</div>
 
 						<div class="field-wrap">
+							<?php if (!$editMode) : ?>
 							<button type="submit" class="btn view-button"><i class="fa fa-check" aria-hidden="true"></i> Post Story</button>
+							<?php else : ?>
+							<button type="submit" class="btn view-button"><i class="fa fa-check" aria-hidden="true"></i> Update Story</button>
+							<?php endif; ?>
 						</div>
 
 					</form>
@@ -117,8 +153,8 @@ $row = mysqli_fetch_array($result);
 
 
 
-	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-	<script src="./js/index.js"></script>
+	<!-- <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> -->
+	<script src="bundle.js"></script>
 </body>
 
 </html>
