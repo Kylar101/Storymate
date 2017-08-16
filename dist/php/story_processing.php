@@ -8,10 +8,13 @@ $Description = mysqli_real_escape_string($conn,$_POST['description']);
 $Images = mysqli_real_escape_string($conn,$_POST['images']);
 $Text= mysqli_real_escape_string($conn,$_POST['text']);
 #$pubSet = mysqli_real_escape_string($conn,$_POST['public']);
-$username = get_current_user();
+$username = $_SESSION['login_user'];
 
 $getID = "SELECT userID FROM users WHERE email = '$username'";
-$authorID = mysqli_query($conn,$getID);
+$authorResult = mysqli_query($conn,$getID);
+$authorRow = mysqli_fetch_array($authorResult);
+$authorID = $authorRow['userID'];
+
 
 /*
 $catname = mysqli_real_escape_string($conn,$_POST['category']);
@@ -25,7 +28,11 @@ $tagID = mysqli_query($conn,$getTagID);
 
 $sql = "INSERT INTO stories (title, description, authorID) VALUES ('$Title', '$Description', '$authorID')";
 
-mysqli_query($conn,$sql);
+$result = mysqli_query($conn,$sql);
+
+if (!$result) {
+    die(mysqli_error($conn));
+}
 
 header("location: ../profile.php");
 

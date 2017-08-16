@@ -4,30 +4,39 @@
   include ('php/connector.php');
   session_start();
 
-$username = get_current_user();
+$username = $_SESSION['login_user'];
 
-$getID = "SELECT userID FROM users WHERE username = '$username'";
-$user = 1;#mysqli_query($conn,$getID);
+$getID = "SELECT userID FROM users WHERE email = '$username'";
+$user = mysqli_query($conn,$getID);
+$userRow = mysqli_fetch_array($user);
+$userID = $userRow['userID'];
 
-$sql = "SELECT * FROM users WHERE userID = '$user'";
+$sql = "SELECT * FROM users WHERE userID = '$userID'";
 $result = mysqli_query($conn,$sql);
 $row = mysqli_fetch_array($result);
 
-$editMode = $_GET['edit'];
-$storyID = $_GET['story'];
-
-$getStory = "SELECT * FROM stories WHERE storyID = '$storyID'";
-$storyResult = mysqli_query($conn, $getStory);
-$storyRow = mysqli_fetch_array($storyResult);
-
-if (!$storyResult) {
-	die(mysqli_error($conn));
-}
-
+$editMode = '';
+$storyID = '';
 $storyActive = '';
-if ($editMode) {
-	$storyActive = 'active';
-}
+
+if (isset($_GET['edit'])) :
+
+	$editMode = $_GET['edit'];
+	$storyID = $_GET['story'];
+
+	$getStory = "SELECT * FROM stories WHERE storyID = '$storyID'";
+	$storyResult = mysqli_query($conn, $getStory);
+	$storyRow = mysqli_fetch_array($storyResult);
+
+	if (!$storyResult) {
+		die(mysqli_error($conn));
+	}
+
+	if ($editMode) {
+		$storyActive = 'active';
+	}
+
+endif;
 
 ?>
 
@@ -37,9 +46,6 @@ if ($editMode) {
 	<meta charset="UTF-8">
 	<title>Profile</title>
 	<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/style.css">
 
 
@@ -51,7 +57,7 @@ if ($editMode) {
 	<header>
 		<section id="top-bar">
 			<div class="user-bar">
-				<p class="user-name"><?php echo $row['firstName']; ?></p>
+				<p class="user-name"><a href="profile.php"><?php echo $row['firstName']; ?></a></p>
 			</div>
 		</section>
 	</header>
