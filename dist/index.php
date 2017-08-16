@@ -115,7 +115,7 @@
             <label>
               Password<span class="req">*</span>
             </label>
-            <input type="password"required autocomplete="off" name="pwd"/>
+            <input type="password" required autocomplete="off" name="pwd"/>
           </div>
 
           <p class="forgot"><a href="#">Forgot Password?</a></p>
