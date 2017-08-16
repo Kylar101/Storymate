@@ -115,45 +115,13 @@ if (!$countResult) {
 							<div class="story-card-buttons">
 								<a href=view-story.php?story=<?php echo $stories[0] ?> class="view-button card-icons"><i class="fa fa-eye" aria-hidden="true"></i></a>
 								<a href="#" class="delete-button card-icons"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-								<a href="#" class="edit-button card-icons"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-								<a href="#" class="comments-button card-icons"><i class="fa fa-comments" aria-hidden="true"></i></a>
+								<a href=post-story.php?edit=true&story=<?php echo $stories[0] ?> class="edit-button card-icons"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 							</div>
 						</div>
 						<?php
 							}
 						?>
 
-
-						<div class="story-card">
-							<img src="img/pizzasheen.gif" class="story-card-image">
-							<h3 class="story-title">7 Years</h3>
-							<div class="story-card-buttons">
-								<a href="#" class="view-button card-icons"><i class="fa fa-eye" aria-hidden="true"></i></a>
-								<a href="#" class="delete-button card-icons"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-								<a href="#" class="edit-button card-icons"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-								<a href="#" class="comments-button card-icons"><i class="fa fa-comments" aria-hidden="true"></i></a>
-							</div>
-						</div>
-						<div class="story-card">
-							<img src="img/unisheen.jpg" class="story-card-image">
-							<h3 class="story-title">Stars</h3>
-							<div class="story-card-buttons">
-								<a href="#" class="view-button card-icons"><i class="fa fa-eye" aria-hidden="true"></i></a>
-								<a href="#" class="delete-button card-icons"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-								<a href="#" class="edit-button card-icons"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-								<a href="#" class="comments-button card-icons"><i class="fa fa-comments" aria-hidden="true"></i></a>
-							</div>
-						</div>
-						<div class="story-card">
-							<img src="img/pusheen-burger.jpg" class="story-card-image">
-							<h3 class="story-title">New Divide</h3>
-							<div class="story-card-buttons">
-								<a href="#" class="view-button card-icons"><i class="fa fa-eye" aria-hidden="true"></i></a>
-								<a href="#" class="delete-button card-icons"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-								<a href="#" class="edit-button card-icons"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-								<a href="#" class="comments-button card-icons"><i class="fa fa-comments" aria-hidden="true"></i></a>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
