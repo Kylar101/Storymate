@@ -13,21 +13,28 @@ $sql = "SELECT * FROM users WHERE userID = '$user'";
 $result = mysqli_query($conn,$sql);
 $row = mysqli_fetch_array($result);
 
-$editMode = $_GET['edit'];
-$storyID = $_GET['story'];
-
-$getStory = "SELECT * FROM stories WHERE storyID = '$storyID'";
-$storyResult = mysqli_query($conn, $getStory);
-$storyRow = mysqli_fetch_array($storyResult);
-
-if (!$storyResult) {
-	die(mysqli_error($conn));
-}
-
+$editMode = '';
+$storyID = '';
 $storyActive = '';
-if ($editMode) {
-	$storyActive = 'active';
-}
+
+if (isset($_GET['edit'])) :
+
+	$editMode = $_GET['edit'];
+	$storyID = $_GET['story'];
+
+	$getStory = "SELECT * FROM stories WHERE storyID = '$storyID'";
+	$storyResult = mysqli_query($conn, $getStory);
+	$storyRow = mysqli_fetch_array($storyResult);
+
+	if (!$storyResult) {
+		die(mysqli_error($conn));
+	}
+
+	if ($editMode) {
+		$storyActive = 'active';
+	}
+
+endif;
 
 ?>
 
