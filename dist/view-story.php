@@ -1,15 +1,16 @@
 <?php
 session_start();
 include('php/connector.php');
-$curstoryID = $_SESSION['curStoryID'] = $_GET['story'];
+$curstoryID = $_GET['story'];
 
 $storySQL = "SELECT * FROM stories WHERE storyID = '$curstoryID'";
 $storyRes = mysqli_query($conn,$storySQL);
 $storyRow = mysqli_fetch_array($storyRes);
 
-$commentSQL = "SELECT * FROM comments WHERE comments.storyID = $curstoryId";
+$commentSQL = "SELECT * FROM comments WHERE storyID = $curstoryId";
 $commRes = mysqli_query($conn,$commentSQL);
 $commRow = mysqli_fetch_array($commRes);
+
 ?>
 <!DOCTYPE html>
 <html >
