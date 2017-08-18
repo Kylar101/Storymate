@@ -10,7 +10,6 @@ import bsn from 'bootstrap.native';
 window.onload = function() {
   var currentUrl = utils.getUrl();
   utils.activeDashabordItem(currentUrl);
-  console.log(currentUrl)
   if (currentUrl.includes('profile')) {
     document.querySelector('#edit-user-details').addEventListener('click',(element) => {
       document.querySelector('#change-user-details').classList.add('show')

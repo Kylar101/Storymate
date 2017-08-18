@@ -10354,7 +10354,6 @@ var $ = __webpack_require__(0);
 window.onload = function () {
   var currentUrl = _utils2.default.getUrl();
   _utils2.default.activeDashabordItem(currentUrl);
-  console.log(currentUrl);
   if (currentUrl.includes('profile')) {
     document.querySelector('#edit-user-details').addEventListener('click', function (element) {
       document.querySelector('#change-user-details').classList.add('show');
@@ -10522,7 +10521,7 @@ exports.default = {
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Native Javascript for Bootstrap 3 v2.0.12 | © dnp_theme | MIT-License
+/* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Native Javascript for Bootstrap 3 v2.0.13 | © dnp_theme | MIT-License
 (function (root, factory) {
   if (true) {
     // AMD support:
@@ -11285,7 +11284,7 @@ exports.default = {
             if ( self[interval] && !hasClass(element,paused) ) {
               self.cycle();
             }
-          },timeout);
+          },timeout+100);
         });
   
       } else {
