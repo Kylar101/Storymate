@@ -1,4 +1,5 @@
 import utils from './utils';
+import $ from 'jquery';
 
 'use strict'
 
@@ -72,12 +73,22 @@ function makeLink(){
   let guid = utils.guid();
   mt.controls = true;
   mt.src = url;
-  hf.href = url;
-  hf.download = `${guid}${media.ext}`;
+  // hf.href = url;
+  // hf.download = `${guid}${media.ext}`;
   hf.innerHTML = `download file`;
+  hf.id = 'audio-file';
   hf.classList.add('btn');
   hf.classList.add('edit-button');
   li.appendChild(mt);
   li.appendChild(hf);
   ul.appendChild(li);
+
+  id('audio-file').addEventListener('click', ()=> {
+    // $.ajax({
+    //   url: 'php/audio-processor.php',
+      
+    // })
+  })
+
 }
+

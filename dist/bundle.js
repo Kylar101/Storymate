@@ -70,37 +70,6 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-/* WEBPACK VAR INJECTION */(function($) {
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.default = {
-	getUrl: function getUrl() {
-		var path = window.location.pathname;
-		path = path.substring(path.lastIndexOf("/") + 1, path.lastIndexOf("."));
-		return path;
-	},
-
-	activeDashabordItem: function activeDashabordItem(item) {
-		$('.' + item).addClass('active');
-	},
-	guid: function guid() {
-		return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
-	}
-};
-
-
-function s4() {
-	return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-}
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
  * jQuery JavaScript Library v3.2.1
  * https://jquery.com/
@@ -10358,13 +10327,44 @@ return jQuery;
 
 
 /***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function($) {
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = {
+	getUrl: function getUrl() {
+		var path = window.location.pathname;
+		path = path.substring(path.lastIndexOf("/") + 1, path.lastIndexOf("."));
+		return path;
+	},
+
+	activeDashabordItem: function activeDashabordItem(item) {
+		$('.' + item).addClass('active');
+	},
+	guid: function guid() {
+		return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+	}
+};
+
+
+function s4() {
+	return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+}
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _utils = __webpack_require__(0);
+var _utils = __webpack_require__(1);
 
 var _utils2 = _interopRequireDefault(_utils);
 
@@ -10376,7 +10376,7 @@ __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var $ = __webpack_require__(1);
+var $ = __webpack_require__(0);
 
 
 // -----------------------------------------------------------
@@ -10534,9 +10534,13 @@ __webpack_require__(2);
 "use strict";
 
 
-var _utils = __webpack_require__(0);
+var _utils = __webpack_require__(1);
 
 var _utils2 = _interopRequireDefault(_utils);
+
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10609,14 +10613,22 @@ function makeLink() {
   var guid = _utils2.default.guid();
   mt.controls = true;
   mt.src = url;
-  hf.href = url;
-  hf.download = '' + guid + media.ext;
+  // hf.href = url;
+  // hf.download = `${guid}${media.ext}`;
   hf.innerHTML = 'download file';
+  hf.id = 'audio-file';
   hf.classList.add('btn');
   hf.classList.add('edit-button');
   li.appendChild(mt);
   li.appendChild(hf);
   ul.appendChild(li);
+
+  id('audio-file').addEventListener('click', function () {
+    // $.ajax({
+    //   url: 'php/audio-processor.php',
+
+    // })
+  });
 }
 
 /***/ }),
