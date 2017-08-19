@@ -9802,7 +9802,8 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
     color: #fff; }
 
 .story-card-buttons {
-  margin-top: 5vh;
+  width: 50%;
+  margin: 5vh auto;
   display: flex;
   flex-wrap: wrap; }
   .story-card-buttons .card-icons {
