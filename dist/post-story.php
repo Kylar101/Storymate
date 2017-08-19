@@ -132,10 +132,21 @@ endif;
 						</div>
 
 						<div class="field-wrap story-audio">
-							<p class="small-label">
-								Audio <span class="req">*</span>
-							</p>
-							<input type="file" name="audio" accept="audio/*">
+							<div id='gUMArea'>
+						      <div>
+						      Record:
+						        <input type="radio" name="media" value="video" checked id='mediaVideo'>Video
+						        <input type="radio" name="media" value="audio">audio
+						      </div>
+						      <button class="btn btn-default"  id='gUMbtn'>Request Stream</button>
+						    </div>
+						    <div id='btns'>
+						      <button  class="btn btn-default" id='start'>Start</button>
+						      <button  class="btn btn-default" id='stop'>Stop</button>
+						    </div>
+						    <div>
+						      <ul  class="list-unstyled" id='ul'></ul>
+						    </div>
 						</div>
 
 						<div class="field-wrap">
@@ -160,6 +171,7 @@ endif;
 
 
 	<!-- <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> -->
+	<script src="./js/audioRecorder.js"></script>
 	<script src="bundle.js"></script>
 </body>
 
