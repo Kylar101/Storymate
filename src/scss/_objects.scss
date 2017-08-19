@@ -51,7 +51,8 @@
 
 // story cards
 .story-card-buttons {
-	margin-top: 5vh;
+	width: 50%;
+	margin: 5vh auto;
 	display: flex;
 	flex-wrap: wrap;
 	.card-icons {
