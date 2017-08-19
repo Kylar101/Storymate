@@ -1,3 +1,5 @@
+import utils from './utils';
+
 'use strict'
 
 let log = console.log.bind(console),
@@ -8,7 +10,7 @@ let log = console.log.bind(console),
   stop = id('stop'),
   stream,
   recorder,
-  counter=1,
+  counter=1, 
   chunks,
   media;
 
@@ -63,15 +65,18 @@ stop.onclick = e => {
 function makeLink(){
   let blob = new Blob(chunks, {type: media.type })
     , url = URL.createObjectURL(blob)
-    , li = document.createElement('li')
+    , li = document.createElement('div')
     , mt = document.createElement(media.tag)
     , hf = document.createElement('a')
   ;
+  let guid = utils.guid();
   mt.controls = true;
   mt.src = url;
   hf.href = url;
-  hf.download = `${counter++}${media.ext}`;
-  hf.innerHTML = `dowwload ${hf.download}`;
+  hf.download = `${guid}${media.ext}`;
+  hf.innerHTML = `download file`;
+  hf.classList.add('btn');
+  hf.classList.add('edit-button');
   li.appendChild(mt);
   li.appendChild(hf);
   ul.appendChild(li);

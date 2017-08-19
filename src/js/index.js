@@ -1,7 +1,7 @@
 var $ = require("jquery");
 import utils from './inc/utils.js';
 import bsn from 'bootstrap.native';
-// import './inc/audioRecorder';
+import './inc/audioRecorder';
 
 // -----------------------------------------------------------
 // ---------------------- Functionality ----------------------

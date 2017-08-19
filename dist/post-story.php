@@ -133,19 +133,19 @@ endif;
 
 						<div class="field-wrap story-audio">
 							<div id='gUMArea'>
-						      <div>
+						      <div style="display: none;">
 						      Record:
-						        <input type="radio" name="media" value="video" checked id='mediaVideo'>Video
-						        <input type="radio" name="media" value="audio">audio
+						        <input type="radio" name="media" value="video" id='mediaVideo'>Video
+						        <input type="radio" name="media" value="audio" checked>audio
 						      </div>
-						      <button class="btn btn-default"  id='gUMbtn'>Request Stream</button>
+						      <button type="button" class="btn btn-default"  id='gUMbtn'>Show Recorder</button>
 						    </div>
 						    <div id='btns'>
-						      <button  class="btn btn-default" id='start'>Start</button>
-						      <button  class="btn btn-default" id='stop'>Stop</button>
+						      <button type="button" class="btn btn-default" id='start'>Start Recording</button>
+						      <button  type="button"  class="btn btn-default" id='stop'>Stop Recording</button>
 						    </div>
 						    <div>
-						      <ul  class="list-unstyled" id='ul'></ul>
+						      <div  class="list-unstyled" id='ul'></div>
 						    </div>
 						</div>
 
@@ -171,7 +171,6 @@ endif;
 
 
 	<!-- <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> -->
-	<script src="./js/audioRecorder.js"></script>
 	<script src="bundle.js"></script>
 </body>
 
