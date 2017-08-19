@@ -9762,12 +9762,12 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   overflow: visible;
   clip: auto; }
 .edit-button {
-  background: #0df10d;
+  background: #0ac10a;
   cursor: pointer;
   color: #132330;
   color: #fff; }
   .edit-button:hover {
-    background: #0ac10a;
+    background: #079107;
     color: #fff; }
 
 .draft-button {
@@ -9968,20 +9968,22 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   .profile-header .count-bg {
     position: absolute;
     top: 80%;
-    left: 43%; }
+    left: 40%; }
     .profile-header .count-bg .story-count {
       color: #fff;
       font-size: 1.4em; }
 
 .profile-details {
   width: 50vw;
-  margin-left: 17vw; }
+  margin-left: 17vw;
+  margin-top: 50px; }
 
 .profile-heading {
   font-size: 25px;
   margin-top: 3vh;
   padding-bottom: 10px;
-  border-bottom: 1px solid #132330; }
+  border-bottom: 1px solid #132330;
+  font-weight: bold; }
 
 .personal-details .my-details {
   margin-top: 20px;
@@ -9994,7 +9996,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   .personal-details .my-details button {
     position: absolute;
     right: 0;
-    top: 30%; }
+    bottom: 0; }
   .personal-details .my-details p {
     line-height: 12px;
     font-size: 20px; }
@@ -10035,6 +10037,9 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
     text-decoration: underline;
     pointer-events: cursor; }
 
+.my-stories {
+  margin-top: 40px; }
+
 *, *:before, *:after {
   box-sizing: border-box; }
 
@@ -10042,7 +10047,7 @@ html {
   overflow-y: scroll; }
 
 body {
-  background: #c1bdba;
+  background: #F0F0F0;
   font-family: 'Titillium Web', sans-serif; }
 
 a {

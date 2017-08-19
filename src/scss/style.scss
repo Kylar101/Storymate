@@ -13,10 +13,11 @@
 @import "./pages/new-users";
 @import "./pages/new-stories";
 @import "./pages/view-story";
-@import "./pages/search"; 
+@import "./pages/search";
 
 html, body {
   height: 100%;
+  //background: #F0F0F0;
 }
 
 #main-content, #main-content-front {
@@ -27,4 +28,3 @@ html, body {
     display: block;
   }
 }
-

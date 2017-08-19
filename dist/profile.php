@@ -59,19 +59,19 @@ if (!$countResult) {
 			<div class="profile-header">
 				<img src="img/profile-pic.gif" class="profile-picture">
 				<div class="count-bg">
-					<p class="story-count"><?php echo $countRow['num_stories']; ?> stories</p>
+					<p class="story-count">You have <?php echo $countRow['num_stories']; ?> stories</p>
 				</div>
 			</div>
 			<div class="profile-details">
 				<div class="personal-details">
 					<h2 class="profile-heading">My Details</h2>
 					<div class="my-details">
-						<p class="name"><?php echo $row['firstName']; ?> <?php echo $row['lastName']; ?></p>
-						<p class="email"><?php echo $row['email']; ?></p>
-						<p class="number"><?php echo $row['phone']; ?></p>
+						<p class="name">Name: <?php echo $row['firstName']; ?> <?php echo $row['lastName']; ?></p>
+						<p class="email">E-mail: <?php echo $row['email']; ?></p>
+						<p class="number">Phone: <?php echo $row['phone']; ?></p>
 						<button id="edit-user-details" class="btn edit-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>  Edit Details</button>
 					</div>
-					
+
 					<div id="change-user-details">
 						<form action="php/edit-details.php" method="POST" class="form details-edit">
 							<div class="field-wrap">
@@ -103,7 +103,7 @@ if (!$countResult) {
 						<?php
 							$storySQL = "SELECT * FROM stories where authorID = '$currentUser'";
 							$fetchStories = mysqli_query($conn,$storySQL);
-							
+
 							while($stories = mysqli_fetch_array($fetchStories)){
 
 								$title = $stories[1];
