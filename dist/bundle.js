@@ -10383,22 +10383,24 @@ var $ = __webpack_require__(0);
 // ---------------------- Functionality ----------------------
 // ----------------------------------------------------------- 
 
+var currentUrl = _utils2.default.getUrl();
+
 // apply active dashboard class
 window.onload = function () {
-  var currentUrl = _utils2.default.getUrl();
   _utils2.default.activeDashabordItem(currentUrl);
-  if (currentUrl.includes('profile')) {
-    document.querySelector('#edit-user-details').addEventListener('click', function (element) {
-      document.querySelector('#change-user-details').classList.add('show');
-      document.querySelector('.my-details').classList.add('hide');
-    });
-
-    document.querySelector('.change-details-cancel').addEventListener('click', function (element) {
-      document.querySelector('#change-user-details').classList.remove('show');
-      document.querySelector('.my-details').classList.remove('hide');
-    });
-  }
 };
+
+if (currentUrl.includes('profile')) {
+  document.querySelector('#edit-user-details').addEventListener('click', function (element) {
+    document.querySelector('#change-user-details').classList.add('show');
+    document.querySelector('.my-details').classList.add('hide');
+  });
+
+  document.querySelector('.change-details-cancel').addEventListener('click', function (element) {
+    document.querySelector('#change-user-details').classList.remove('show');
+    document.querySelector('.my-details').classList.remove('hide');
+  });
+}
 
 // adds float labels
 $('.form').find('input, textarea').on('keyup blur focus', function (e) {
@@ -10474,15 +10476,19 @@ $('.tab a').on('click', function (e) {
   $(target).fadeIn(600);
 });
 
-// Terms and conditions modal
-var tcModal = document.getElementById('tc-modal');
-var tcModalActive = new _bootstrap2.default.Modal(tcModal);
+if (currentUrl.includes('index')) {
+  // Terms and conditions modal
+  // let tcModal = document.getElementById('tc-modal')
+  // let tcModalActive = new bsn.Modal(tcModal)
 
-var tcButton = document.querySelector('#tc-index');
-tcButton.addEventListener('click', function () {
+  // let tcButton = document.querySelector('#tc-index')
+  // tcButton.addEventListener('click', () => {
 
-  tcModalActive.show();
-});
+  //   tcModalActive.show()
+
+  // })
+
+}
 
 /***/ }),
 /* 3 */
@@ -10560,6 +10566,8 @@ var log = console.log.bind(console),
     chunks = void 0,
     media = void 0;
 
+var currentUrl = _utils2.default.getUrl();
+// if (currentUrl.includes('post-story')){
 gUMbtn.onclick = function (e) {
   var mv = id('mediaVideo'),
       mediaOptions = {
@@ -10587,7 +10595,7 @@ gUMbtn.onclick = function (e) {
       chunks.push(e.data);
       if (recorder.state == 'inactive') makeLink();
     };
-    log('got media successfully');
+    log('got media');
   }).catch(log);
 };
 
@@ -10603,6 +10611,8 @@ stop.onclick = function (e) {
   recorder.stop();
   start.removeAttribute('disabled');
 };
+
+// }
 
 function makeLink() {
   var blob = new Blob(chunks, { type: media.type }),
@@ -10623,11 +10633,29 @@ function makeLink() {
   li.appendChild(hf);
   ul.appendChild(li);
 
-  id('audio-file').addEventListener('click', function () {
-    // $.ajax({
-    //   url: 'php/audio-processor.php',
+  console.log('make download button');
 
-    // })
+  var data = new FormData();
+  data.append('file', blob);
+
+  id('audio-file').addEventListener('click', function () {
+
+    console.log('click works');
+
+    _jquery2.default.ajax({
+      url: 'php/audio-processor.php',
+      data: data,
+      contentType: false,
+      processData: false,
+      success: function success(data) {
+        console.log('working');
+        console.log(data);
+      },
+      error: function error(data) {
+        console.log('error');
+        console.log(data);
+      }
+    });
   });
 }
 

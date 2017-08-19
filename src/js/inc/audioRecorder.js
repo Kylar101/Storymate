@@ -15,53 +15,54 @@ let log = console.log.bind(console),
   chunks,
   media;
 
-
-gUMbtn.onclick = e => {
-  let mv = id('mediaVideo'),
-      mediaOptions = {
-        video: {
-          tag: 'video',
-          type: 'video/webm',
-          ext: '.mp4',
-          gUM: {video: true, audio: true}
-        },
-        audio: {
-          tag: 'audio',
-          type: 'audio/mp3',
-          ext: '.mp3',
-          gUM: {audio: true}
-        }
+let currentUrl = utils.getUrl()
+// if (currentUrl.includes('post-story')){
+  gUMbtn.onclick = e => {
+    let mv = id('mediaVideo'),
+        mediaOptions = {
+          video: {
+            tag: 'video',
+            type: 'video/webm',
+            ext: '.mp4',
+            gUM: {video: true, audio: true}
+          },
+          audio: {
+            tag: 'audio',
+            type: 'audio/mp3',
+            ext: '.mp3',
+            gUM: {audio: true}
+          }
+        };
+    media = mv.checked ? mediaOptions.video : mediaOptions.audio;
+    navigator.mediaDevices.getUserMedia(media.gUM).then(_stream => {
+      stream = _stream;
+      id('gUMArea').style.display = 'none';
+      id('btns').style.display = 'inherit';
+      start.removeAttribute('disabled');
+      recorder = new MediaRecorder(stream);
+      recorder.ondataavailable = e => {
+        chunks.push(e.data);
+        if(recorder.state == 'inactive')  makeLink();
       };
-  media = mv.checked ? mediaOptions.video : mediaOptions.audio;
-  navigator.mediaDevices.getUserMedia(media.gUM).then(_stream => {
-    stream = _stream;
-    id('gUMArea').style.display = 'none';
-    id('btns').style.display = 'inherit';
+      log('got media');
+    }).catch(log);
+  }
+
+  start.onclick = e => {
+    start.disabled = true;
+    stop.removeAttribute('disabled');
+    chunks=[];
+    recorder.start();
+  }
+
+
+  stop.onclick = e => {
+    stop.disabled = true;
+    recorder.stop();
     start.removeAttribute('disabled');
-    recorder = new MediaRecorder(stream);
-    recorder.ondataavailable = e => {
-      chunks.push(e.data);
-      if(recorder.state == 'inactive')  makeLink();
-    };
-    log('got media successfully');
-  }).catch(log);
-}
+  }
 
-start.onclick = e => {
-  start.disabled = true;
-  stop.removeAttribute('disabled');
-  chunks=[];
-  recorder.start();
-}
-
-
-stop.onclick = e => {
-  stop.disabled = true;
-  recorder.stop();
-  start.removeAttribute('disabled');
-}
-
-
+// }
 
 function makeLink(){
   let blob = new Blob(chunks, {type: media.type })
@@ -83,11 +84,29 @@ function makeLink(){
   li.appendChild(hf);
   ul.appendChild(li);
 
+  console.log('make download button')
+
+  let data = new FormData()
+  data.append('file',blob)
+
   id('audio-file').addEventListener('click', ()=> {
-    // $.ajax({
-    //   url: 'php/audio-processor.php',
-      
-    // })
+
+    console.log('click works')
+
+    $.ajax({
+      url: 'php/audio-processor.php',
+      data: data,
+      contentType: false,
+      processData: false,
+      success: (data) => {
+        console.log('working')
+        console.log(data)
+      },
+      error: (data) => {
+        console.log('error')
+        console.log(data)
+      }
+    })
   })
 
 }
