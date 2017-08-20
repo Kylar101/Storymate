@@ -16,7 +16,12 @@ let log = console.log.bind(console),
   media;
 
 let currentUrl = utils.getUrl()
-// if (currentUrl.includes('post-story')){
+if (currentUrl.includes('post-story')){
+
+  id('audio-button').onclick = e => {
+    gUMbtn.click()
+  }
+
   gUMbtn.onclick = e => {
     let mv = id('mediaVideo'),
         mediaOptions = {
@@ -62,7 +67,7 @@ let currentUrl = utils.getUrl()
     start.removeAttribute('disabled');
   }
 
-// }
+}
 
 function makeLink(){
   let blob = new Blob(chunks, {type: media.type })
@@ -87,6 +92,7 @@ function makeLink(){
   console.log('make download button')
 
   let data = new FormData()
+  data.append('filename', `${guid}.mp3`)
   data.append('file',blob)
 
   id('audio-file').addEventListener('click', ()=> {

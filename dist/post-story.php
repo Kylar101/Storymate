@@ -114,7 +114,7 @@ endif;
 							</p>
 							<button type="button" class="btn story-type-button" data-type="images"><span>Images</span></button>
 							<button type="button" class="btn story-type-button" data-type="text"><span>Text</span></button>
-							<button type="button" class="btn story-type-button" data-type="audio"><span>Audio</span></button>
+							<button id="audio-button" type="button" class="btn story-type-button" data-type="audio"><span>Audio</span></button>
 						</div> 
 
 						<div class="field-wrap story-images">
