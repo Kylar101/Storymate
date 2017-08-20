@@ -1,4 +1,4 @@
-$body-bg: #c1bdba;
+$body-bg: #F0F0F0;
 $form-bg: #13232f;
 $white: #ffffff;
 
@@ -12,7 +12,7 @@ $lighter-dark-blue: lighten($dark-blue, 15%);
 $darker-dark-blue: darken($dark-blue, 15%);
 
 // greens
-$edit-green: #0df10d;
+$edit-green: #0ac10a;
 $darker-edit-green: darken($edit-green,10%);
 
 // reds
@@ -34,6 +34,7 @@ $br: 4px;
 
 
 // Renzo Variables
+$background-content-color: #F5F5F5;
 $post-story-bg: #ccc;
 $draft-button: #d3d3d3;
 $draft-darker: darken($draft-button, 15%);
