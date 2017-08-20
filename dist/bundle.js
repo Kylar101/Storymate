@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -10331,15 +10331,48 @@ return jQuery;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function($) {
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = {
+	getUrl: function getUrl() {
+		var path = window.location.pathname;
+		path = path.substring(path.lastIndexOf("/") + 1, path.lastIndexOf("."));
+		return path;
+	},
+
+	activeDashabordItem: function activeDashabordItem(item) {
+		$('.' + item).addClass('active');
+	},
+	guid: function guid() {
+		return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+	}
+};
 
 
-var _utils = __webpack_require__(7);
+function s4() {
+	return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+}
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _utils = __webpack_require__(1);
 
 var _utils2 = _interopRequireDefault(_utils);
 
-var _bootstrap = __webpack_require__(8);
+var _bootstrap = __webpack_require__(9);
 
 var _bootstrap2 = _interopRequireDefault(_bootstrap);
+
+__webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10350,23 +10383,24 @@ var $ = __webpack_require__(0);
 // ---------------------- Functionality ----------------------
 // ----------------------------------------------------------- 
 
+var currentUrl = _utils2.default.getUrl();
+
 // apply active dashboard class
 window.onload = function () {
-  var currentUrl = _utils2.default.getUrl();
   _utils2.default.activeDashabordItem(currentUrl);
-  console.log(currentUrl);
-  if (currentUrl.includes('profile')) {
-    document.querySelector('#edit-user-details').addEventListener('click', function (element) {
-      document.querySelector('#change-user-details').classList.add('show');
-      document.querySelector('.my-details').classList.add('hide');
-    });
-
-    document.querySelector('.change-details-cancel').addEventListener('click', function (element) {
-      document.querySelector('#change-user-details').classList.remove('show');
-      document.querySelector('.my-details').classList.remove('hide');
-    });
-  }
 };
+
+if (currentUrl.includes('profile')) {
+  document.querySelector('#edit-user-details').addEventListener('click', function (element) {
+    document.querySelector('#change-user-details').classList.add('show');
+    document.querySelector('.my-details').classList.add('hide');
+  });
+
+  document.querySelector('.change-details-cancel').addEventListener('click', function (element) {
+    document.querySelector('#change-user-details').classList.remove('show');
+    document.querySelector('.my-details').classList.remove('hide');
+  });
+}
 
 // adds float labels
 $('.form').find('input, textarea').on('keyup blur focus', function (e) {
@@ -10442,21 +10476,19 @@ $('.tab a').on('click', function (e) {
   $(target).fadeIn(600);
 });
 
-// Terms and conditions modal
-var tcModal = document.getElementById('tc-modal');
-var tcModalActive = new _bootstrap2.default.Modal(tcModal);
+if (currentUrl.includes('index')) {
+  // Terms and conditions modal
+  // let tcModal = document.getElementById('tc-modal')
+  // let tcModalActive = new bsn.Modal(tcModal)
 
-var tcButton = document.querySelector('#tc-index');
-tcButton.addEventListener('click', function () {
+  // let tcButton = document.querySelector('#tc-index')
+  // tcButton.addEventListener('click', () => {
 
-  tcModalActive.show();
-});
+  //   tcModalActive.show()
 
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
+  // })
 
-// removed by extract-text-webpack-plugin
+}
 
 /***/ }),
 /* 3 */
@@ -10478,6 +10510,12 @@ tcButton.addEventListener('click', function () {
 
 /***/ }),
 /* 6 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10485,41 +10523,144 @@ tcButton.addEventListener('click', function () {
 
 // css
 
-__webpack_require__(4);
-
-__webpack_require__(2);
+__webpack_require__(5);
 
 __webpack_require__(3);
 
-__webpack_require__(5);
+__webpack_require__(4);
 
-__webpack_require__(1);
+__webpack_require__(6);
 
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function($) {
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.default = {
-	getUrl: function getUrl() {
-		var path = window.location.pathname;
-		path = path.substring(path.lastIndexOf("/") + 1, path.lastIndexOf("."));
-		return path;
-	},
-
-	activeDashabordItem: function activeDashabordItem(item) {
-		$('.' + item).addClass('active');
-	}
-};
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+__webpack_require__(2);
 
 /***/ }),
 /* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _utils = __webpack_require__(1);
+
+var _utils2 = _interopRequireDefault(_utils);
+
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+'use strict';
+
+var log = console.log.bind(console),
+    id = function id(val) {
+  return document.getElementById(val);
+},
+    ul = id('ul'),
+    gUMbtn = id('gUMbtn'),
+    start = id('start'),
+    stop = id('stop'),
+    stream = void 0,
+    recorder = void 0,
+    counter = 1,
+    chunks = void 0,
+    media = void 0;
+
+var currentUrl = _utils2.default.getUrl();
+// if (currentUrl.includes('post-story')){
+gUMbtn.onclick = function (e) {
+  var mv = id('mediaVideo'),
+      mediaOptions = {
+    video: {
+      tag: 'video',
+      type: 'video/webm',
+      ext: '.mp4',
+      gUM: { video: true, audio: true }
+    },
+    audio: {
+      tag: 'audio',
+      type: 'audio/mp3',
+      ext: '.mp3',
+      gUM: { audio: true }
+    }
+  };
+  media = mv.checked ? mediaOptions.video : mediaOptions.audio;
+  navigator.mediaDevices.getUserMedia(media.gUM).then(function (_stream) {
+    stream = _stream;
+    id('gUMArea').style.display = 'none';
+    id('btns').style.display = 'inherit';
+    start.removeAttribute('disabled');
+    recorder = new MediaRecorder(stream);
+    recorder.ondataavailable = function (e) {
+      chunks.push(e.data);
+      if (recorder.state == 'inactive') makeLink();
+    };
+    log('got media');
+  }).catch(log);
+};
+
+start.onclick = function (e) {
+  start.disabled = true;
+  stop.removeAttribute('disabled');
+  chunks = [];
+  recorder.start();
+};
+
+stop.onclick = function (e) {
+  stop.disabled = true;
+  recorder.stop();
+  start.removeAttribute('disabled');
+};
+
+// }
+
+function makeLink() {
+  var blob = new Blob(chunks, { type: media.type }),
+      url = URL.createObjectURL(blob),
+      li = document.createElement('div'),
+      mt = document.createElement(media.tag),
+      hf = document.createElement('a');
+  var guid = _utils2.default.guid();
+  mt.controls = true;
+  mt.src = url;
+  // hf.href = url;
+  // hf.download = `${guid}${media.ext}`;
+  hf.innerHTML = 'download file';
+  hf.id = 'audio-file';
+  hf.classList.add('btn');
+  hf.classList.add('edit-button');
+  li.appendChild(mt);
+  li.appendChild(hf);
+  ul.appendChild(li);
+
+  console.log('make download button');
+
+  var data = new FormData();
+  data.append('file', blob);
+
+  id('audio-file').addEventListener('click', function () {
+
+    console.log('click works');
+
+    _jquery2.default.ajax({
+      url: 'php/audio-processor.php',
+      data: data,
+      contentType: false,
+      processData: false,
+      success: function success(data) {
+        console.log('working');
+        console.log(data);
+      },
+      error: function error(data) {
+        console.log('error');
+        console.log(data);
+      }
+    });
+  });
+}
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Native Javascript for Bootstrap 3 v2.0.12 | © dnp_theme | MIT-License
@@ -12331,10 +12472,10 @@ exports.default = {
   };
 }));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 var g;

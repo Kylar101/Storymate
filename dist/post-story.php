@@ -132,10 +132,21 @@ endif;
 						</div>
 
 						<div class="field-wrap story-audio">
-							<p class="small-label">
-								Audio <span class="req">*</span>
-							</p>
-							<input type="file" name="audio" accept="audio/*">
+							<div id='gUMArea'>
+						      <div style="display: none;">
+						      Record:
+						        <input type="radio" name="media" value="video" id='mediaVideo'>Video
+						        <input type="radio" name="media" value="audio" checked>audio
+						      </div>
+						      <button type="button" class="btn btn-default"  id='gUMbtn'>Show Recorder</button>
+						    </div>
+						    <div id='btns'>
+						      <button type="button" class="btn btn-default" id='start'>Start Recording</button>
+						      <button  type="button"  class="btn btn-default" id='stop'>Stop Recording</button>
+						    </div>
+						    <div>
+						      <div  class="list-unstyled" id='ul'></div>
+						    </div>
 						</div>
 
 						<div class="field-wrap">

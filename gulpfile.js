@@ -20,7 +20,7 @@ const webpackStream = require('webpack-stream');
 
     gulp.task('watch', function(){
     	gulp.watch(['./src/scss/**/*.scss'], ['pack']);
-    	gulp.watch(['./src/*.html'], ['copy-html']);
+    	// gulp.watch(['./src/*.html'], ['copy-html']);
     	gulp.watch(['./src/js/**/*.js', './src/app.js'], ['pack']);
     	gulp.watch(['./src/img/**/*.{jpg,png,gif,jpeg}'], ['copy-images']);
     });
