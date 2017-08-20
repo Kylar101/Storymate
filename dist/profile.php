@@ -59,7 +59,25 @@ if (!$countResult) {
 			<div class="profile-header">
 				<img src="img/profile-pic.gif" class="profile-picture">
 				<div class="count-bg">
-					<p class="story-count">You have <?php echo $countRow['num_stories']; ?> stories</p>
+					<!-- <p class="story-count">You have <?php echo $countRow['num_stories']; ?> stories</p> -->
+					<p class="story-count">You have
+						<?php
+							echo $countRow['num_stories'];
+							if ($countRow['num_stories'] === "1") {
+    						echo " story";
+							} else {
+								echo " stories";
+							}
+							?>
+					</p>
+
+
+
+
+
+
+
+
 				</div>
 			</div>
 			<div class="profile-details">
