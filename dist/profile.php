@@ -63,11 +63,11 @@ if (!$countResult) {
 					<p class="story-count">You have
 						<?php
 							echo $countRow['num_stories'];
-							if ($countRow['num_stories'] === "1") {
-    						echo " story";
-							} else {
-								echo " stories";
-							}
+							if ($countRow['num_stories'] > 1) :
+	    						echo " stories";
+							else :
+								echo " story";
+							endif;
 							?>
 					</p>
 
