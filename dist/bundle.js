@@ -10567,52 +10567,56 @@ var log = console.log.bind(console),
     media = void 0;
 
 var currentUrl = _utils2.default.getUrl();
-// if (currentUrl.includes('post-story')){
-gUMbtn.onclick = function (e) {
-  var mv = id('mediaVideo'),
-      mediaOptions = {
-    video: {
-      tag: 'video',
-      type: 'video/webm',
-      ext: '.mp4',
-      gUM: { video: true, audio: true }
-    },
-    audio: {
-      tag: 'audio',
-      type: 'audio/mp3',
-      ext: '.mp3',
-      gUM: { audio: true }
-    }
+if (currentUrl.includes('post-story')) {
+
+  id('audio-button').onclick = function (e) {
+    gUMbtn.click();
   };
-  media = mv.checked ? mediaOptions.video : mediaOptions.audio;
-  navigator.mediaDevices.getUserMedia(media.gUM).then(function (_stream) {
-    stream = _stream;
-    id('gUMArea').style.display = 'none';
-    id('btns').style.display = 'inherit';
-    start.removeAttribute('disabled');
-    recorder = new MediaRecorder(stream);
-    recorder.ondataavailable = function (e) {
-      chunks.push(e.data);
-      if (recorder.state == 'inactive') makeLink();
+
+  gUMbtn.onclick = function (e) {
+    var mv = id('mediaVideo'),
+        mediaOptions = {
+      video: {
+        tag: 'video',
+        type: 'video/webm',
+        ext: '.mp4',
+        gUM: { video: true, audio: true }
+      },
+      audio: {
+        tag: 'audio',
+        type: 'audio/mp3',
+        ext: '.mp3',
+        gUM: { audio: true }
+      }
     };
-    log('got media');
-  }).catch(log);
-};
+    media = mv.checked ? mediaOptions.video : mediaOptions.audio;
+    navigator.mediaDevices.getUserMedia(media.gUM).then(function (_stream) {
+      stream = _stream;
+      id('gUMArea').style.display = 'none';
+      id('btns').style.display = 'inherit';
+      start.removeAttribute('disabled');
+      recorder = new MediaRecorder(stream);
+      recorder.ondataavailable = function (e) {
+        chunks.push(e.data);
+        if (recorder.state == 'inactive') makeLink();
+      };
+      log('got media');
+    }).catch(log);
+  };
 
-start.onclick = function (e) {
-  start.disabled = true;
-  stop.removeAttribute('disabled');
-  chunks = [];
-  recorder.start();
-};
+  start.onclick = function (e) {
+    start.disabled = true;
+    stop.removeAttribute('disabled');
+    chunks = [];
+    recorder.start();
+  };
 
-stop.onclick = function (e) {
-  stop.disabled = true;
-  recorder.stop();
-  start.removeAttribute('disabled');
-};
-
-// }
+  stop.onclick = function (e) {
+    stop.disabled = true;
+    recorder.stop();
+    start.removeAttribute('disabled');
+  };
+}
 
 function makeLink() {
   var blob = new Blob(chunks, { type: media.type }),
@@ -10636,6 +10640,7 @@ function makeLink() {
   console.log('make download button');
 
   var data = new FormData();
+  data.append('filename', guid + '.mp3');
   data.append('file', blob);
 
   id('audio-file').addEventListener('click', function () {
@@ -10663,7 +10668,7 @@ function makeLink() {
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Native Javascript for Bootstrap 3 v2.0.12 | © dnp_theme | MIT-License
+/* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Native Javascript for Bootstrap 3 v2.0.13 | © dnp_theme | MIT-License
 (function (root, factory) {
   if (true) {
     // AMD support:
@@ -11426,7 +11431,7 @@ function makeLink() {
             if ( self[interval] && !hasClass(element,paused) ) {
               self.cycle();
             }
-          },timeout);
+          },timeout+100);
         });
   
       } else {

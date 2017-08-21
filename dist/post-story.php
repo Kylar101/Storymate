@@ -114,7 +114,7 @@ endif;
 							</p>
 							<button type="button" class="btn story-type-button" data-type="images"><span>Images</span></button>
 							<button type="button" class="btn story-type-button" data-type="text"><span>Text</span></button>
-							<button type="button" class="btn story-type-button" data-type="audio"><span>Audio</span></button>
+							<button id="audio-button" type="button" class="btn story-type-button" data-type="audio"><span>Audio</span></button>
 						</div> 
 
 						<div class="field-wrap story-images">
@@ -141,8 +141,8 @@ endif;
 						      <button type="button" class="btn btn-default"  id='gUMbtn'>Show Recorder</button>
 						    </div>
 						    <div id='btns'>
-						      <button type="button" class="btn btn-default" id='start'>Start Recording</button>
-						      <button  type="button"  class="btn btn-default" id='stop'>Stop Recording</button>
+						      <button type="button" class="btn audio-button" id='start'>Start Recording</button>
+						      <button  type="button"  class="btn delete-button" id='stop'>Stop Recording</button>
 						    </div>
 						    <div>
 						      <div  class="list-unstyled" id='ul'></div>

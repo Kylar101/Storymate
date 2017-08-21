@@ -9770,6 +9770,15 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
     background: #079107;
     color: #fff; }
 
+.audio-button {
+  background: #044804;
+  cursor: pointer;
+  color: #ffffff;
+  color: #fff; }
+  .audio-button:hover {
+    background: #079107;
+    color: #fff; }
+
 .draft-button {
   background-color: #d3d3d3;
   cursor: pointer;
@@ -10215,6 +10224,9 @@ textarea {
       content: '\F00C';
       font-family: 'FontAwesome';
       opacity: 0; }
+
+.field-wrap.story-text, .field-wrap.story-images, .field-wrap.story-audio {
+  margin-bottom: 10px; }
 
 .type-active span {
   margin: 0 10px 0 0; }
