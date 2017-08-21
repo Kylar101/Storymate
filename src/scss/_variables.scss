@@ -15,6 +15,9 @@ $darker-dark-blue: darken($dark-blue, 15%);
 $edit-green: #0ac10a;
 $darker-edit-green: darken($edit-green,10%);
 
+$audio-green: darken($edit-green, 25%);
+$audio-green-hover: lighten($audio-green, 15%);
+
 // reds
 $delete-red: #ff0000;
 $darker-delete-red: darken($delete-red, 15%);

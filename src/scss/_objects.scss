@@ -10,6 +10,17 @@
 	}
 }
 
+.audio-button {
+	background: $audio-green;
+	cursor: pointer;
+	color: $white;
+	color: #fff;
+	&:hover {
+		background: $audio-green-hover;
+		color: #fff;
+	}
+}
+
 .draft-button{
 	background-color: $draft-button;
 	cursor: pointer;

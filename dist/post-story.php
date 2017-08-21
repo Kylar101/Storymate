@@ -141,8 +141,8 @@ endif;
 						      <button type="button" class="btn btn-default"  id='gUMbtn'>Show Recorder</button>
 						    </div>
 						    <div id='btns'>
-						      <button type="button" class="btn btn-default" id='start'>Start Recording</button>
-						      <button  type="button"  class="btn btn-default" id='stop'>Stop Recording</button>
+						      <button type="button" class="btn audio-button" id='start'>Start Recording</button>
+						      <button  type="button"  class="btn delete-button" id='stop'>Stop Recording</button>
 						    </div>
 						    <div>
 						      <div  class="list-unstyled" id='ul'></div>
