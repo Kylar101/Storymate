@@ -60,8 +60,8 @@ if (currentUrl.includes('post-story')){
     chunks=[];
     recorder.start();
     $('#progress-timer').progressTimer({
-        timeLimit: 20,
-        warningThreshold: 10,
+        timeLimit: 10,
+        warningThreshold: 5,
         baseStyle: 'progress-bar-warning',
         warningStyle: 'progress-bar-danger',
         completeStyle: 'progress-bar-info',
