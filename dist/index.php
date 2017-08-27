@@ -91,7 +91,7 @@
 
             <p class="index">By signing up, you are agreeing to our <a href="#" class="terms-conditions-link">Terms &amp; Conditions</a></p>
 
-            <span id="tc-index" class="btn comments-button tc-button">View T&amp;C</span>
+            <!-- <span id="tc-index" class="btn comments-button tc-button">View T&amp;C</span> -->
 
           <button type="submit" class="button button-block"/>Get Started</button>
 
