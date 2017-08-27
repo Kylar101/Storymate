@@ -154,7 +154,9 @@ endif;
 
 						<div class="field-wrap">
 							<?php if (!$editMode) : ?>
-							<button type="submit" class="btn view-button"><i class="fa fa-check" aria-hidden="true"></i> Post Story</button>
+							<button type="submit" class="btn draft-button">Save Draft</button>
+              <button type="submit" class="btn view-button"><i class="fa fa-check" aria-hidden="true"></i> Post Story</button>
+
 							<?php else : ?>
 							<button type="submit" class="btn view-button"><i class="fa fa-check" aria-hidden="true"></i> Update Story</button>
 							<?php endif; ?>

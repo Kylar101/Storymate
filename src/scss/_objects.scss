@@ -25,8 +25,10 @@
 	background-color: $draft-button;
 	cursor: pointer;
 	color: $dark-blue;
+	width: 130px;
 	&:hover {
 		background: $draft-darker;
+		color: white;
 	}
 }
 

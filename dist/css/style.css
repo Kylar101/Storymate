@@ -9782,9 +9782,11 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 .draft-button {
   background-color: #d3d3d3;
   cursor: pointer;
-  color: #132330; }
+  color: #132330;
+  width: 130px; }
   .draft-button:hover {
-    background: #adadad; }
+    background: #adadad;
+    color: white; }
 
 .cancel-button {
   background-color: #d3d3d3;
