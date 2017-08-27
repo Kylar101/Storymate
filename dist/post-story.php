@@ -144,6 +144,7 @@ endif;
 						      <button type="button" class="btn audio-button" id='start'>Start Recording</button>
 						      <button  type="button"  class="btn delete-button" id='stop'>Stop Recording</button>
 						    </div>
+						    <div id="progress-timer"></div>
 						    <div>
 						      <div  class="list-unstyled" id='ul'></div>
 						    </div>

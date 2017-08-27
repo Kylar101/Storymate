@@ -1,4 +1,5 @@
 import utils from './utils';
+import './progressTimer'
 import $ from 'jquery';
 
 'use strict'
@@ -19,7 +20,7 @@ let currentUrl = utils.getUrl()
 if (currentUrl.includes('post-story')){
 
   id('audio-button').onclick = e => {
-    gUMbtn.click()
+    gUMbtn.click() 
   }
 
   gUMbtn.onclick = e => {
@@ -58,6 +59,17 @@ if (currentUrl.includes('post-story')){
     stop.removeAttribute('disabled');
     chunks=[];
     recorder.start();
+    $('#progress-timer').progressTimer({
+        timeLimit: 20,
+        warningThreshold: 10,
+        baseStyle: 'progress-bar-warning',
+        warningStyle: 'progress-bar-danger',
+        completeStyle: 'progress-bar-info',
+        onFinish: function() {
+            // console.log("I'm done");
+            stop.click()
+        }
+    })
   }
 
 
@@ -65,6 +77,7 @@ if (currentUrl.includes('post-story')){
     stop.disabled = true;
     recorder.stop();
     start.removeAttribute('disabled');
+    $('.progress').remove()
   }
 
 }
@@ -79,8 +92,8 @@ function makeLink(){
   let guid = utils.guid();
   mt.controls = true;
   mt.src = url;
-  // hf.href = url;
-  // hf.download = `${guid}${media.ext}`;
+  hf.href = url;
+  hf.download = `${guid}${media.ext}`;
   hf.innerHTML = `download file`;
   hf.id = 'audio-file';
   hf.classList.add('btn');
@@ -95,25 +108,25 @@ function makeLink(){
   data.append('filename', `${guid}.mp3`)
   data.append('file',blob)
 
-  id('audio-file').addEventListener('click', ()=> {
+  // id('audio-file').addEventListener('click', ()=> {
 
-    console.log('click works')
+  //   console.log('click works')
 
-    $.ajax({
-      url: 'php/audio-processor.php',
-      data: data,
-      contentType: false,
-      processData: false,
-      success: (data) => {
-        console.log('working')
-        console.log(data)
-      },
-      error: (data) => {
-        console.log('error')
-        console.log(data)
-      }
-    })
-  })
+  //   $.ajax({
+  //     url: 'php/audio-processor.php',
+  //     data: data,
+  //     contentType: false,
+  //     processData: false,
+  //     success: (data) => {
+  //       console.log('working')
+  //       console.log(data)
+  //     },
+  //     error: (data) => {
+  //       console.log('error')
+  //       console.log(data)
+  //     }
+  //   })
+  // })
 
 }
 
