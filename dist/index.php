@@ -4,7 +4,7 @@
   session_start();
 
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
+
 
 	$username = mysqli_real_escape_string($conn,$_POST['username']);
   $password = mysqli_real_escape_string($conn,$_POST['pwd']);
@@ -12,7 +12,7 @@
   $sql = "SELECT * from users WHERE email = '$username' AND password = '$password'";
   $result = mysqli_query($conn,$sql);
   $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-	#$active = $row['active'];	
+	#$active = $row['active'];
 
   	$count = mysqli_num_rows($result);
 
@@ -89,7 +89,7 @@
             <input type="password"required autocomplete="off" name="subPass"/>
           </div>
 
-            <p class="index">By signing up, you are agreeing to our Terms &amp; Conditions</p>
+            <p class="index">By signing up, you are agreeing to our <a href="#" class="terms-conditions-link">Terms &amp; Conditions</a></p>
 
             <span id="tc-index" class="btn comments-button tc-button">View T&amp;C</span>
 
