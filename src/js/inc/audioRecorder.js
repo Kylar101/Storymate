@@ -92,9 +92,9 @@ function makeLink(){
   let guid = utils.guid();
   mt.controls = true;
   mt.src = url;
-  hf.href = url;
-  hf.download = `${guid}${media.ext}`;
-  hf.innerHTML = `download file`;
+  // hf.href = url;
+  // hf.download = `${guid}${media.ext}`;
+  hf.innerHTML = `Save file`;
   hf.id = 'audio-file';
   hf.classList.add('btn');
   hf.classList.add('edit-button');
@@ -105,28 +105,36 @@ function makeLink(){
   console.log('make download button')
 
   let data = new FormData()
-  data.append('filename', `${guid}.mp3`)
+  // data.append('action','process')
+  data.append('filename', hf.download)
   data.append('file',blob)
 
-  // id('audio-file').addEventListener('click', ()=> {
+  id('audio-file').addEventListener('click', ()=> {
 
-  //   console.log('click works')
+    console.log('click works')
 
-  //   $.ajax({
-  //     url: 'php/audio-processor.php',
-  //     data: data,
-  //     contentType: false,
-  //     processData: false,
-  //     success: (data) => {
-  //       console.log('working')
-  //       console.log(data)
-  //     },
-  //     error: (data) => {
-  //       console.log('error')
-  //       console.log(data)
-  //     }
-  //   })
-  // })
+    $.ajax({
+        url :  "php/audio-processor.php",
+        type: 'POST',
+        data: data,
+        contentType: false,
+        processData: false,
+        success: function(data) {
+          alert('data: ' + data);
+        },    
+        error: function(error) {
+          alert('error: ' + error);
+        }
+      });
+
+    // $.post('php/audio-processor.php',{
+    //   filename: `${guid}.mp3`,
+    //   file: blob
+    // },
+    // function(data, success){
+    //   alert('Data: ' + data + '\nStatus: ' + success)
+    // })
+  })
 
 }
 
