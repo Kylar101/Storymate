@@ -9786,6 +9786,15 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   .draft-button:hover {
     background: #adadad; }
 
+.cancel-button {
+  background-color: #d3d3d3;
+  cursor: pointer;
+  color: #132330;
+  width: 150px; }
+  .cancel-button:hover {
+    background: #adadad;
+    color: white; }
+
 .delete-button {
   background: red;
   cursor: pointer;
@@ -9994,68 +10003,82 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   border-bottom: 1px solid #132330;
   font-weight: bold; }
 
-.personal-details .my-details {
-  margin-top: 20px;
-  position: relative; }
-  .personal-details .my-details.hide {
+.personal-details {
+  margin-bottom: 50px; }
+  .personal-details .my-details {
+    height: 125px;
+    margin-top: 20px;
+    position: relative; }
+    .personal-details .my-details.hide {
+      opacity: 0;
+      pointer-events: none;
+      height: 0;
+      transition: opacity .3s, height .3s; }
+    .personal-details .my-details button {
+      position: absolute;
+      right: 0; }
+    .personal-details .my-details p {
+      line-height: 12px;
+      font-size: 20px; }
+  .personal-details #change-user-details {
     opacity: 0;
     pointer-events: none;
     height: 0;
-    transition: opacity .3s, height .3s; }
-  .personal-details .my-details button {
-    position: absolute;
-    right: 0; }
-  .personal-details .my-details p {
-    line-height: 12px;
-    font-size: 20px; }
-
-.personal-details #change-user-details {
-  opacity: 0;
-  pointer-events: none;
-  height: auto;
-  transition: opacity .3s, height .3s;
-  position: relative; }
-  .personal-details #change-user-details button {
-    position: absolute;
-    right: 0; }
-  .personal-details #change-user-details.show {
-    opacity: 1;
-    pointer-events: auto;
-    height: 100%;
-    margin-top: 20px !important; }
-
-.personal-details form.form.details-edit {
-  width: 100%; }
-  .personal-details form.form.details-edit .field-wrap {
-    margin-bottom: 35px; }
-
-.personal-details .details-edit label {
-  color: #132330; }
-
-.personal-details .details-edit input[type="text"], .personal-details .details-edit input[type="email"], .personal-details .details-edit input[type="tel"] {
-  background: rgba(5, 169, 251, 0.1);
-  color: #132330; }
-
-.personal-details .details-edit .submit-cancel {
-  height: auto;
-  width: 100%;
-  display: flex;
-  align-items: flex-end;
-  margin-top: 60px; }
-
-.personal-details .details-edit .change-details-cancel {
-  pointer-events: cursor;
-  position: absolute;
-  bottom: 0;
-  /* top: 55%; */ }
-  .personal-details .details-edit .change-details-cancel:hover {
-    text-decoration: underline;
-    pointer-events: cursor;
-    cursor: pointer;
-    color: red; }
+    transition: opacity .3s, height .3s;
+    position: relative; }
+    .personal-details #change-user-details .submit-cancel {
+      margin-top: 0;
+      display: inline-block; }
+      .personal-details #change-user-details .submit-cancel .cancel-button {
+        float: right; }
+      .personal-details #change-user-details .submit-cancel .submit-changes-btn {
+        float: right;
+        margin-left: 5px; }
+    .personal-details #change-user-details.show {
+      opacity: 1;
+      pointer-events: auto;
+      height: 100%;
+      margin-top: 20px !important; }
+  .personal-details form.form.details-edit {
+    width: 100%; }
+    .personal-details form.form.details-edit .field-wrap {
+      margin-bottom: 35px; }
+  .personal-details .details-edit label {
+    color: #132330; }
+  .personal-details .details-edit input[type="text"], .personal-details .details-edit input[type="email"], .personal-details .details-edit input[type="tel"] {
+    background: rgba(5, 169, 251, 0.1);
+    color: #132330; }
+  .personal-details .details-edit .submit-cancel {
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    margin-top: 60px; }
 
 .my-stories {
-  margin-top: 40px; }
+  margin-top: 80px; }
+
+.story-card {
+  width: 48%;
+  /* height: 45vh; */
+  background: #ddd;
+  display: block;
+  margin-bottom: 3vh;
+  border-radius: 10px;
+  /* text-align: center; */ }
+
+.story-card-buttons {
+  width: 100%;
+  margin: 5vh auto;
+  display: flex;
+  flex-wrap: wrap; }
+
+.story-card-image {
+  margin-top: 2vh;
+  /* width: 50%; */
+  height: 50%;
+  margin-left: 25%;
+  border-radius: 500px; }
 
 *, *:before, *:after {
   box-sizing: border-box; }

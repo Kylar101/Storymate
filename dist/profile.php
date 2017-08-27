@@ -51,8 +51,8 @@ if (!$countResult) {
 	<div id="main-content">
 		<nav id="side-bar">
 			<ul>
+				<li class="manage-story"><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i> My Account</a></li>
 				<li class="post-story"><a href="post-story.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Post Story</a></li>
-				<li class="manage-story"><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i> Manage Stories</a></li>
 			</ul>
 		</nav>
 		<article id="page-content">
@@ -103,8 +103,8 @@ if (!$countResult) {
 									Last Name<span class="req">*</span>
 								</label>
 								<input type="text" name="last-name" required autocomplete="off" value="<?php echo $row['lastName']; ?>" />
-							</div>
-							<div class="field-wrap">
+								</div>
+								<div class="field-wrap">
 								<label class="active">
 									Phone Number
 								</label>
@@ -115,14 +115,16 @@ if (!$countResult) {
 
 
 							<div class="submit-cancel">
-							<button type="submit" class="btn view-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Submit Changes</button>
-							<p class="change-details-cancel">Cancel</p>
+
+							<button type="submit" class="btn view-button submit-changes-btn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Submit Changes</button>
+							<button type="submit" class="btn cancel-button">Cancel</button>
 						</div>
 
 
 						</form>
 					</div>
 				</div>
+				<hr/>
 				<div class="my-stories">
 					<h2 class="profile-heading">My Stories</h2>
 					<div class="story-card-location">
@@ -137,7 +139,7 @@ if (!$countResult) {
 						?>
 						<div class="story-card">
 							<img src="img/pizzasheen.gif" class="story-card-image">
-							<h3 class="story-title"><?php echo $title; ?></h3>
+							<h5 class="story-title"><?php echo $title; ?></h5>
 							<div class="story-card-buttons">
 								<a href=view-story.php?story=<?php echo $stories[0] ?> class="view-button card-icons"><i class="fa fa-eye" aria-hidden="true"></i></a>
 								<a href="#" class="delete-button card-icons"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
