@@ -8,7 +8,7 @@ $targetDirectory = 'uploads/';
 $targetFile = '';
 
 	if (isset($_FILES['file'])) {
-		$targetFile = $targetDirectory . basename($_FILES["file"]["tmp_name"]);
+		$targetFile = $targetDirectory . $filename;
 		if (!file_exists($targetFile)){
 			// echo $targetFile;
 			if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFile)) {
