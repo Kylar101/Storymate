@@ -57,7 +57,7 @@ endif;
 	<header>
 		<section id="top-bar">
 			<div class="user-bar">
-				<p class="user-name"><a href="profile.php"><?php echo $row['firstName']; ?></a></p>
+				<p class="user-name"><a href="profile.php"><?php echo $row['firstName'];echo ' '; echo $row['lastName']; ?></a></p>
 			</div>
 		</section>
 	</header>
@@ -89,7 +89,7 @@ endif;
 
 						<div class="field-wrap">
 							<label class="post-story <?php echo $storyActive; ?>">
-									Story Title<span class="req">*</span>
+									Title<span class="req">*</span>
 								</label>
 							<?php if (!$editMode) : ?>
 							<input type="text" name="title" required autocomplete="off"/>
@@ -100,23 +100,30 @@ endif;
 
 						<div class="field-wrap">
 							<label class="post-story text <?php echo $storyActive; ?>">
-									Story Description<span class="req">*</span>
+									Description<span class="req">*</span>
 								</label>
 							<?php if (!$editMode) : ?>
-							<textarea rows="3" name="description" required></textarea>
+							<textarea rows="1" name="description" required></textarea>
 							<?php else : ?>
-							<textarea rows="3" name="description" required><?php echo $storyRow['description']?></textarea>
+							<textarea rows="1" name="description" required><?php echo $storyRow['description']?></textarea>
 							<?php endif; ?>
 						</div>
 
 						<div class="field-wrap">
 							<p class="small-label">
-								Story Type <span class="req">*</span>
+								Add content <span class="req">*</span>
 							</p>
-							<button type="button" class="btn story-type-button" data-type="images"><span>Images</span></button>
-							<button type="button" class="btn story-type-button" data-type="text"><span>Text</span></button>
+              <button type="button" class="btn story-type-button" data-type="text"><span>Text</span></button>
+              <button type="button" class="btn story-type-button" data-type="images"><span>Images</span></button>
 							<button id="audio-button" type="button" class="btn story-type-button" data-type="audio"><span>Audio</span></button>
 						</div>
+
+            <div class="field-wrap story-text">
+              <label class="post-story text">
+                  Text <span class="req">*</span>
+                </label>
+              <textarea rows="8" name="text"></textarea>
+            </div>
 
 						<div class="field-wrap story-images">
 							<p class="small-label">
@@ -125,12 +132,7 @@ endif;
 							<input type="file" name="images" accept="image/*" multiple>
 						</div>
 
-						<div class="field-wrap story-text">
-							<label class="post-story text">
-									Text <span class="req">*</span>
-								</label>
-							<textarea rows="8" name="text"></textarea>
-						</div>
+
 
 						<div class="field-wrap story-audio">
 							<div id='gUMArea'>
