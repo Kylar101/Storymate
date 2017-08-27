@@ -10272,15 +10272,14 @@ textarea {
   .post-form .post-story {
     color: #132330; }
   .post-form input[type="text"], .post-form textarea {
-    font-size: 22px;
+    font-size: 18px;
     display: block;
     width: 100%;
     padding: 5px 10px;
-    background: #a0b3b0;
+    background: rgba(5, 169, 251, 0.1);
     border-radius: 0;
     transition: border-color .25s ease, box-shadow .25s ease; }
     .post-form input[type="text"]:focus, .post-form textarea:focus {
-      border-color: black;
       box-shadow: 0 0 5px #132330; }
   .post-form input[type="text"] {
     height: 7vh; }

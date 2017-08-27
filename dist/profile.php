@@ -71,13 +71,6 @@ if (!$countResult) {
 							?>
 					</p>
 
-
-
-
-
-
-
-
 				</div>
 			</div>
 			<div class="profile-details">
