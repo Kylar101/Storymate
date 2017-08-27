@@ -110,8 +110,16 @@ if (!$countResult) {
 								</label>
 								<input type="tel" name="phone-number" autocomplete="off" value="<?php echo $row['phone']; ?>" />
 							</div>
+
+
+
+
+							<div class="submit-cancel">
 							<button type="submit" class="btn view-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Submit Changes</button>
-							<span class="change-details-cancel">Cancel</span>
+							<p class="change-details-cancel">Cancel</p>
+						</div>
+
+
 						</form>
 					</div>
 				</div>

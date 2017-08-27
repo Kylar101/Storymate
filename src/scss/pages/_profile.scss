@@ -61,7 +61,7 @@
 		button {
 			position: absolute;
 			right: 0;
-			bottom: 0;
+			// bottom: 0;
 		}
 		p {
 		    line-height: 12px;
@@ -71,24 +71,27 @@
 	#change-user-details {
 		opacity: 0;
 		pointer-events: none;
-		height: 0;
+		height: auto;
 		transition: opacity .3s, height .3s;
 		position: relative;
+
 		button {
 			position: absolute;
 			right: 0;
-			top: 30%;
+			// top: 30%;
 		}
+
 		&.show {
 			opacity: 1;
 			pointer-events: auto;
 			height: 100%;
+			margin-top: 20px !important;
 		}
 	}
 	form.form.details-edit {
-		width: 35%;
+		width: 100%;
 		.field-wrap {
-			margin-bottom: 25px;
+			margin-bottom: 35px;
 		}
 	}
 	.details-edit {
@@ -96,22 +99,40 @@
 			color: $dark-blue;
 		}
 		input[type="text"], input[type="email"], input[type="tel"] {
-			background:rgba($main-light, .5);
+			background:rgba($main-light, .1);
 			color: $dark-blue;
 		}
+
+		.submit-cancel {
+			height: auto;
+			width: 100%;
+			display: flex;
+			align-items: flex-end;
+			margin-top: 60px;
+		}
+
 		.change-details-cancel {
 			pointer-events: cursor;
 			position: absolute;
-			right: 0;
-			top: 55%;
+			bottom: 0;
+			// right: 0;
+			// top: 55%;
+			// right: 10%;
+			/* top: 55%; */
+			// float: right;
+			// top: 17px;
+			// margin-right: 10px;
+
 			&:hover {
 				text-decoration: underline;
 				pointer-events: cursor;
+				cursor: pointer;
+				color: red;
+
 			}
 		}
 	}
 }
-
 
 // user stories
 .my-stories {

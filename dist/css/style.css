@@ -10004,8 +10004,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
     transition: opacity .3s, height .3s; }
   .personal-details .my-details button {
     position: absolute;
-    right: 0;
-    bottom: 0; }
+    right: 0; }
   .personal-details .my-details p {
     line-height: 12px;
     font-size: 20px; }
@@ -10013,38 +10012,47 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 .personal-details #change-user-details {
   opacity: 0;
   pointer-events: none;
-  height: 0;
+  height: auto;
   transition: opacity .3s, height .3s;
   position: relative; }
   .personal-details #change-user-details button {
     position: absolute;
-    right: 0;
-    top: 30%; }
+    right: 0; }
   .personal-details #change-user-details.show {
     opacity: 1;
     pointer-events: auto;
-    height: 100%; }
+    height: 100%;
+    margin-top: 20px !important; }
 
 .personal-details form.form.details-edit {
-  width: 35%; }
+  width: 100%; }
   .personal-details form.form.details-edit .field-wrap {
-    margin-bottom: 25px; }
+    margin-bottom: 35px; }
 
 .personal-details .details-edit label {
   color: #132330; }
 
 .personal-details .details-edit input[type="text"], .personal-details .details-edit input[type="email"], .personal-details .details-edit input[type="tel"] {
-  background: rgba(5, 169, 251, 0.5);
+  background: rgba(5, 169, 251, 0.1);
   color: #132330; }
+
+.personal-details .details-edit .submit-cancel {
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  margin-top: 60px; }
 
 .personal-details .details-edit .change-details-cancel {
   pointer-events: cursor;
   position: absolute;
-  right: 0;
-  top: 55%; }
+  bottom: 0;
+  /* top: 55%; */ }
   .personal-details .details-edit .change-details-cancel:hover {
     text-decoration: underline;
-    pointer-events: cursor; }
+    pointer-events: cursor;
+    cursor: pointer;
+    color: red; }
 
 .my-stories {
   margin-top: 40px; }
