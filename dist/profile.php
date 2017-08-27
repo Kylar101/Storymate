@@ -42,7 +42,7 @@ if (!$countResult) {
 	<header>
 		<section id="top-bar">
 			<div class="user-bar">
-				<p class="user-name"><?php echo $row['email']; ?></p>
+				<p class="user-name"><?php echo $row['firstName']; ?></p>
 			</div>
 		</section>
 	</header>

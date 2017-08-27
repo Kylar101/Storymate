@@ -66,8 +66,9 @@ endif;
 	<div id="main-content">
 		<nav id="side-bar">
 			<ul>
-				<li class="post-story active"><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Post Story</a></li>
-				<li class="manage-story"><a href="profile.php"><i class="fa fa-list-ul" aria-hidden="true"></i> Manage Stories</a></li>
+        <li class="manage-story"><a href="profile.php"><i class="fa fa-list-ul" aria-hidden="true"></i> My Account</a></li>
+        <li class="post-story active"><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Post Story</a></li>
+
 			</ul>
 		</nav>
 		<article id="page-content">
@@ -115,7 +116,7 @@ endif;
 							<button type="button" class="btn story-type-button" data-type="images"><span>Images</span></button>
 							<button type="button" class="btn story-type-button" data-type="text"><span>Text</span></button>
 							<button id="audio-button" type="button" class="btn story-type-button" data-type="audio"><span>Audio</span></button>
-						</div> 
+						</div>
 
 						<div class="field-wrap story-images">
 							<p class="small-label">
