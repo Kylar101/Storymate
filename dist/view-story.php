@@ -1,14 +1,43 @@
 <?php
 session_start();
 include('php/connector.php');
+
+$username = $_SESSION['login_user'];
+
+$getID = "SELECT userID FROM users WHERE email = '$username'";
+$user = mysqli_query($conn,$getID);
+$userRow = mysqli_fetch_array($user);
+$userID = $userRow['userID'];
+
+$sql = "SELECT * FROM users WHERE userID = '$userID'";
+$result = mysqli_query($conn,$sql);
+$row = mysqli_fetch_array($result);
+
 $curstoryID = $_GET['story'];
 
 $storySQL = "SELECT * FROM stories WHERE storyID = '$curstoryID'";
 $storyRes = mysqli_query($conn,$storySQL);
 $storyRow = mysqli_fetch_array($storyRes);
 
-$commentSQL = "SELECT * FROM comments WHERE storyID = $curstoryId";
+if (!$storyRes) {
+	die (mysqli_error($conn));
+}
+
+$contentsSQL = "SELECT * FROM storycontents WHERE storyID = '$curstoryID'";
+$contentsRes = mysqli_query($conn,$contentsSQL);
+$contentsRow = mysqli_fetch_array($contentsRes);
+
+if (!$contentsRes) {
+	die (mysqli_error($conn));
+}
+
+$commentSQL = "SELECT * FROM comments WHERE storyID = $curstoryID";
 $commRes = mysqli_query($conn,$commentSQL);
+
+if (!$commRes) {
+	die (mysqli_error($conn));
+}
+
 $commRow = mysqli_fetch_array($commRes);
 
 ?>
@@ -103,7 +132,7 @@ $commRow = mysqli_fetch_array($commRes);
 	<header>
 		<section id="top-bar">
 			<div class="user-bar">
-				<p class="user-name">Jeffery</p>
+				<p class="user-name"><?php echo $row['firstName'].' '. $row['lastName']; ?></p>
 			</div>
 		</section>
 	</header>
@@ -152,10 +181,9 @@ $commRow = mysqli_fetch_array($commRes);
 			        </div>
 			    </div>
 				<div class="story-article">
-					<h1>Sound of Silence</h1>
+					<h1><?php echo $storyRow['title'] ?></h1>
 					<div class="content">
-						<p>Sweet brownie jelly. Candy lollipop donut chocolate cake pudding. Toffee carrot cake croissant. Sweet icing bear claw. Tart halvah icing pastry marshmallow croissant wafer tootsie roll. Sweet roll lemon drops sweet lemon drops sweet roll marzipan. Topping brownie apple pie brownie. </p>
-						<p> Gingerbread cotton candy toffee apple pie croissant. Powder topping powder wafer chocolate bar. Powder chupa chups soufflé sweet roll. Jelly beans halvah toffee cake oat cake fruitcake oat cake caramels jelly. Chupa chups candy jelly beans donut bonbon oat cake muffin apple pie.</p>
+						<p><?php echo $contentsRow['text'] ?></p>
 					</div>
 				</div>
 				<div class="story-comments">

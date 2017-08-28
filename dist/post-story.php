@@ -59,7 +59,7 @@ endif;
 	<header>
 		<section id="top-bar">
 			<div class="user-bar">
-				<p class="user-name"><a href="profile.php"><?php echo $row['firstName'];echo ' '; echo $row['lastName']; ?></a></p>
+				<p class="user-name"><a href="profile.php"><?php echo $row['firstName'].' '. $row['lastName']; ?></a></p>
 			</div>
 		</section>
 	</header>
@@ -68,8 +68,8 @@ endif;
 	<div id="main-content">
 		<nav id="side-bar">
 			<ul>
-        <li class="manage-story"><a href="profile.php"><i class="fa fa-list-ul" aria-hidden="true"></i> My Account</a></li>
-        <li class="post-story active"><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Post Story</a></li>
+        <li class="profile"><a href="profile.php"><i class="fa fa-list-ul" aria-hidden="true"></i> My Account</a></li>
+        <li class="post-story active"><a href="post-story.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Post Story</a></li>
 
 			</ul>
 		</nav>
