@@ -4,7 +4,7 @@ include ('connector.php');
 
 $filename = GUID();
 $filename .= '.mp3';
-$targetDirectory = 'uploads/';
+$targetDirectory = '../uploads/';
 $targetFile = '';
 
 	if (isset($_FILES['file'])) {
