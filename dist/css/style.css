@@ -10234,6 +10234,14 @@ textarea {
   .forgot a {
     color: #fff; }
 
+.terms-conditions-link {
+  color: #0498e2;
+  cursor: pointer; }
+  .terms-conditions-link:hover {
+    color: #036597;
+    cursor: pointer;
+    text-decoration: underline; }
+
 #post-story {
   margin-left: 13vw;
   width: 55vw; }

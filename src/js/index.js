@@ -107,14 +107,14 @@ $('.tab a').on('click', function (e) {
 
 if (currentUrl.includes('index')) {
   // Terms and conditions modal
-  // let tcModal = document.getElementById('tc-modal')
-  // let tcModalActive = new bsn.Modal(tcModal)
+  let tcModal = document.getElementById('tc-modal')
+  let tcModalActive = new bsn.Modal(tcModal)
 
-  // let tcButton = document.querySelector('#tc-index')
-  // tcButton.addEventListener('click', () => {
+  let tcButton = document.querySelector('#tc-index')
+  tcButton.addEventListener('click', () => {
     
-  //   tcModalActive.show()
+    tcModalActive.show()
 
-  // })
+  })
 
 }

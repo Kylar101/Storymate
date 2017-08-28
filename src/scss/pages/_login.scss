@@ -184,3 +184,14 @@ textarea {
     color: #fff;
   }
 }
+
+
+.terms-conditions-link {
+  color: $main;
+  cursor: pointer;
+  &:hover {
+    color: $main-dark;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}

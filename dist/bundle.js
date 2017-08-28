@@ -10484,16 +10484,14 @@ $('.tab a').on('click', function (e) {
 
 if (currentUrl.includes('index')) {
   // Terms and conditions modal
-  // let tcModal = document.getElementById('tc-modal')
-  // let tcModalActive = new bsn.Modal(tcModal)
+  var tcModal = document.getElementById('tc-modal');
+  var tcModalActive = new _bootstrap2.default.Modal(tcModal);
 
-  // let tcButton = document.querySelector('#tc-index')
-  // tcButton.addEventListener('click', () => {
+  var tcButton = document.querySelector('#tc-index');
+  tcButton.addEventListener('click', function () {
 
-  //   tcModalActive.show()
-
-  // })
-
+    tcModalActive.show();
+  });
 }
 
 /***/ }),
