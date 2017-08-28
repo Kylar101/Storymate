@@ -132,7 +132,7 @@ $commRow = mysqli_fetch_array($commRes);
 	<header>
 		<section id="top-bar">
 			<div class="user-bar">
-				<p class="user-name"><?php echo $row['firstName'].' '. $row['lastName']; ?></p>
+				<p class="user-name"><a href="profile.php"><?php echo $row['firstName'].' '. $row['lastName']; ?></a></p>
 			</div>
 		</section>
 	</header>
