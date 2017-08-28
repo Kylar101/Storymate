@@ -153,6 +153,7 @@ endif;
 						    <div>
 						      <div  class="list-unstyled" id='ul'></div>
 						    </div>
+						    <input id="audioID" type="text" name="audio">
 						</div>
 
 						<div class="field-wrap">

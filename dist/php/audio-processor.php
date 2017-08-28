@@ -20,11 +20,15 @@ $targetFile = '';
 				    die(mysqli_error($conn));
 				}
 
-				// $getID = "SELECT audioID FROM audio WHERE audioFile = './uploads/$filename'";
-				// $audioResult = mysqli_query($conn,$getID);
-				$audioRow = mysqli_insert_id($conn);
+				$audioID = mysqli_insert_id($conn);
 
-				echo basename($_FILES["file"]["tmp_name"]) . 'was uploaded and stored as '. $filename . ' at '. $audioRow;
+				// $audioDetails['filename'] = $filename;
+				// $audioDetails['audioID'] = $audioID;
+				// $audioDetails['tmp_name'] = $_FILES["file"]["tmp_name"];
+
+				// $audioDetails = json_encode($audioDetails);
+
+				echo $audioID;
 
 			} else {
 				echo 'didnt upload';
