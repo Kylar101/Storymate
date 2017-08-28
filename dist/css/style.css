@@ -9782,9 +9782,20 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 .draft-button {
   background-color: #d3d3d3;
   cursor: pointer;
-  color: #132330; }
+  color: #132330;
+  width: 130px; }
   .draft-button:hover {
-    background: #adadad; }
+    background: #adadad;
+    color: white; }
+
+.cancel-button {
+  background-color: #d3d3d3;
+  cursor: pointer;
+  color: #132330;
+  width: 150px; }
+  .cancel-button:hover {
+    background: #adadad;
+    color: white; }
 
 .delete-button {
   background: red;
@@ -9994,60 +10005,82 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   border-bottom: 1px solid #132330;
   font-weight: bold; }
 
-.personal-details .my-details {
-  margin-top: 20px;
-  position: relative; }
-  .personal-details .my-details.hide {
+.personal-details {
+  margin-bottom: 50px; }
+  .personal-details .my-details {
+    height: 125px;
+    margin-top: 20px;
+    position: relative; }
+    .personal-details .my-details.hide {
+      opacity: 0;
+      pointer-events: none;
+      height: 0;
+      transition: opacity .3s, height .3s; }
+    .personal-details .my-details button {
+      position: absolute;
+      right: 0; }
+    .personal-details .my-details p {
+      line-height: 12px;
+      font-size: 20px; }
+  .personal-details #change-user-details {
     opacity: 0;
     pointer-events: none;
     height: 0;
-    transition: opacity .3s, height .3s; }
-  .personal-details .my-details button {
-    position: absolute;
-    right: 0;
-    bottom: 0; }
-  .personal-details .my-details p {
-    line-height: 12px;
-    font-size: 20px; }
-
-.personal-details #change-user-details {
-  opacity: 0;
-  pointer-events: none;
-  height: 0;
-  transition: opacity .3s, height .3s;
-  position: relative; }
-  .personal-details #change-user-details button {
-    position: absolute;
-    right: 0;
-    top: 30%; }
-  .personal-details #change-user-details.show {
-    opacity: 1;
-    pointer-events: auto;
-    height: 100%; }
-
-.personal-details form.form.details-edit {
-  width: 35%; }
-  .personal-details form.form.details-edit .field-wrap {
-    margin-bottom: 25px; }
-
-.personal-details .details-edit label {
-  color: #132330; }
-
-.personal-details .details-edit input[type="text"], .personal-details .details-edit input[type="email"], .personal-details .details-edit input[type="tel"] {
-  background: rgba(5, 169, 251, 0.5);
-  color: #132330; }
-
-.personal-details .details-edit .change-details-cancel {
-  pointer-events: cursor;
-  position: absolute;
-  right: 0;
-  top: 55%; }
-  .personal-details .details-edit .change-details-cancel:hover {
-    text-decoration: underline;
-    pointer-events: cursor; }
+    transition: opacity .3s, height .3s;
+    position: relative; }
+    .personal-details #change-user-details .submit-cancel {
+      margin-top: 0;
+      display: inline-block; }
+      .personal-details #change-user-details .submit-cancel .cancel-button {
+        float: right; }
+      .personal-details #change-user-details .submit-cancel .submit-changes-btn {
+        float: right;
+        margin-left: 5px; }
+    .personal-details #change-user-details.show {
+      opacity: 1;
+      pointer-events: auto;
+      height: 100%;
+      margin-top: 20px !important; }
+  .personal-details form.form.details-edit {
+    width: 100%; }
+    .personal-details form.form.details-edit .field-wrap {
+      margin-bottom: 35px; }
+  .personal-details .details-edit label {
+    color: #132330; }
+  .personal-details .details-edit input[type="text"], .personal-details .details-edit input[type="email"], .personal-details .details-edit input[type="tel"] {
+    background: rgba(5, 169, 251, 0.1);
+    color: #132330; }
+  .personal-details .details-edit .submit-cancel {
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    margin-top: 60px; }
 
 .my-stories {
-  margin-top: 40px; }
+  margin-top: 80px; }
+
+.story-card {
+  width: 48%;
+  /* height: 45vh; */
+  background: #ddd;
+  display: block;
+  margin-bottom: 3vh;
+  border-radius: 10px;
+  /* text-align: center; */ }
+
+.story-card-buttons {
+  width: 100%;
+  margin: 5vh auto;
+  display: flex;
+  flex-wrap: wrap; }
+
+.story-card-image {
+  margin-top: 2vh;
+  /* width: 50%; */
+  height: 50%;
+  margin-left: 25%;
+  border-radius: 500px; }
 
 *, *:before, *:after {
   box-sizing: border-box; }
@@ -10239,15 +10272,14 @@ textarea {
   .post-form .post-story {
     color: #132330; }
   .post-form input[type="text"], .post-form textarea {
-    font-size: 22px;
+    font-size: 18px;
     display: block;
     width: 100%;
     padding: 5px 10px;
-    background: #a0b3b0;
+    background: rgba(5, 169, 251, 0.1);
     border-radius: 0;
     transition: border-color .25s ease, box-shadow .25s ease; }
     .post-form input[type="text"]:focus, .post-form textarea:focus {
-      border-color: black;
       box-shadow: 0 0 5px #132330; }
   .post-form input[type="text"] {
     height: 7vh; }

@@ -32,7 +32,7 @@
 }
 
 // profile details position
-.profile-details{
+.profile-details {
 	width: 50vw;
 	margin-left: 17vw;
 	margin-top: 50px;
@@ -47,9 +47,13 @@
 	font-weight: bold;
 }
 
+
 // user details
+
 .personal-details {
+	margin-bottom: 50px;
 	.my-details {
+		height: 125px;
 		margin-top: 20px;
 		position: relative;
 		&.hide {
@@ -61,7 +65,7 @@
 		button {
 			position: absolute;
 			right: 0;
-			bottom: 0;
+			// bottom: 0;
 		}
 		p {
 		    line-height: 12px;
@@ -74,21 +78,36 @@
 		height: 0;
 		transition: opacity .3s, height .3s;
 		position: relative;
-		button {
-			position: absolute;
-			right: 0;
-			top: 30%;
+		.submit-cancel{
+			margin-top: 0;
+		    display: inline-block;
+				.cancel-button {
+									float: right;
+					// position: absolute;
+
+					// right: 0;
+					// top: 30%;
+				}
+				.submit-changes-btn {
+				// position: absolute;
+				// right: 0;
+				float: right;
+				margin-left: 5px;
+
+			}
 		}
 		&.show {
 			opacity: 1;
 			pointer-events: auto;
 			height: 100%;
+			margin-top: 20px !important;
 		}
 	}
+
 	form.form.details-edit {
-		width: 35%;
+		width: 100%;
 		.field-wrap {
-			margin-bottom: 25px;
+			margin-bottom: 35px;
 		}
 	}
 	.details-edit {
@@ -96,24 +115,57 @@
 			color: $dark-blue;
 		}
 		input[type="text"], input[type="email"], input[type="tel"] {
-			background:rgba($main-light, .5);
+			background:rgba($main-light, .1);
 			color: $dark-blue;
 		}
-		.change-details-cancel {
-			pointer-events: cursor;
-			position: absolute;
-			right: 0;
-			top: 55%;
-			&:hover {
-				text-decoration: underline;
-				pointer-events: cursor;
-			}
+
+		.submit-cancel {
+			height: auto;
+			width: 100%;
+			display: flex;
+			align-items: flex-end;
+			margin-top: 60px;
 		}
+
+		// .change-details-cancel {
+		// 	pointer-events: cursor;
+		// 	position: absolute;
+		// 	&:hover {
+		// 		text-decoration: underline;
+		// 		pointer-events: cursor;
+		// 		cursor: pointer;
+		// 		color: red;
+		// 	}
+		// }
 	}
 }
 
-
 // user stories
 .my-stories {
-	margin-top: 40px;
+	margin-top: 80px;
+}
+
+.story-card {
+    width: 48%;
+    /* height: 45vh; */
+    background: #ddd;
+    display: block;
+    margin-bottom: 3vh;
+    border-radius: 10px;
+    /* text-align: center; */
+}
+
+.story-card-buttons {
+	width: 100%;
+	    margin: 5vh auto;
+	    display: flex;
+	    flex-wrap: wrap;
+}
+
+.story-card-image {
+    margin-top: 2vh;
+    /* width: 50%; */
+    height: 50%;
+    margin-left: 25%;
+    border-radius: 500px;
 }
