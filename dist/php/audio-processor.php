@@ -12,7 +12,20 @@ $targetFile = '';
 		if (!file_exists($targetFile)){
 			// echo $targetFile;
 			if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFile)) {
-				echo basename($_FILES["file"]["tmp_name"]) . 'was uploaded';
+
+				$sql = "INSERT INTO audio (audioFile) VALUES ('./uploads/$filename')";
+				$result = mysqli_query($conn,$sql);
+
+				if (!$result) {
+				    die(mysqli_error($conn));
+				}
+
+				// $getID = "SELECT audioID FROM audio WHERE audioFile = './uploads/$filename'";
+				// $audioResult = mysqli_query($conn,$getID);
+				$audioRow = mysqli_insert_id($conn);
+
+				echo basename($_FILES["file"]["tmp_name"]) . 'was uploaded and stored as '. $filename . ' at '. $audioRow;
+
 			} else {
 				echo 'didnt upload';
 			}
