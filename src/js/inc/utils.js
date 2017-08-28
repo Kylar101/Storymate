@@ -8,9 +8,15 @@ export default {
 	activeDashabordItem : (item) => {
 	  $('.' + item).addClass('active');
 	},
+
 	guid : () => {
 	  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
 	    s4() + '-' + s4() + s4() + s4();
+	},
+
+	savedAudio : (audioID) => {
+		let audioInput = document.querySelector('#audioID')
+		audioInput.value = audioID
 	}
 }
 

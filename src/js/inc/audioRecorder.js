@@ -120,20 +120,12 @@ function makeLink(){
         contentType: false,
         processData: false,
         success: function(data) {
-          alert('data: ' + data);
+          utils.savedAudio(data)
         },    
         error: function(error) {
           alert('error: ' + error);
         }
-      });
-
-    // $.post('php/audio-processor.php',{
-    //   filename: `${guid}.mp3`,
-    //   file: blob
-    // },
-    // function(data, success){
-    //   alert('Data: ' + data + '\nStatus: ' + success)
-    // })
+      })
   })
 
 }

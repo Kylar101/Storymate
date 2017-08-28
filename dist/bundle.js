@@ -10346,8 +10346,14 @@ exports.default = {
 	activeDashabordItem: function activeDashabordItem(item) {
 		$('.' + item).addClass('active');
 	},
+
 	guid: function guid() {
 		return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+	},
+
+	savedAudio: function savedAudio(audioID) {
+		var audioInput = document.querySelector('#audioID');
+		audioInput.value = audioID;
 	}
 };
 
@@ -10669,20 +10675,12 @@ function makeLink() {
       contentType: false,
       processData: false,
       success: function success(data) {
-        alert('data: ' + data);
+        _utils2.default.savedAudio(data);
       },
       error: function error(_error) {
         alert('error: ' + _error);
       }
     });
-
-    // $.post('php/audio-processor.php',{
-    //   filename: `${guid}.mp3`,
-    //   file: blob
-    // },
-    // function(data, success){
-    //   alert('Data: ' + data + '\nStatus: ' + success)
-    // })
   });
 }
 
