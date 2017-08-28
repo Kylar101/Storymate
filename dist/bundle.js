@@ -10368,7 +10368,7 @@ var _utils = __webpack_require__(1);
 
 var _utils2 = _interopRequireDefault(_utils);
 
-var _bootstrap = __webpack_require__(9);
+var _bootstrap = __webpack_require__(10);
 
 var _bootstrap2 = _interopRequireDefault(_bootstrap);
 
@@ -10544,6 +10544,8 @@ var _utils = __webpack_require__(1);
 
 var _utils2 = _interopRequireDefault(_utils);
 
+__webpack_require__(9);
+
 var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
@@ -10609,12 +10611,24 @@ if (currentUrl.includes('post-story')) {
     stop.removeAttribute('disabled');
     chunks = [];
     recorder.start();
+    (0, _jquery2.default)('#progress-timer').progressTimer({
+      timeLimit: 300,
+      warningThreshold: 250,
+      baseStyle: 'progress-bar-warning',
+      warningStyle: 'progress-bar-danger',
+      completeStyle: 'progress-bar-info',
+      onFinish: function onFinish() {
+        // console.log("I'm done");
+        stop.click();
+      }
+    });
   };
 
   stop.onclick = function (e) {
     stop.disabled = true;
     recorder.stop();
     start.removeAttribute('disabled');
+    (0, _jquery2.default)('.progress').remove();
   };
 }
 
@@ -10629,7 +10643,7 @@ function makeLink() {
   mt.src = url;
   // hf.href = url;
   // hf.download = `${guid}${media.ext}`;
-  hf.innerHTML = 'download file';
+  hf.innerHTML = 'Save file';
   hf.id = 'audio-file';
   hf.classList.add('btn');
   hf.classList.add('edit-button');
@@ -10640,7 +10654,8 @@ function makeLink() {
   console.log('make download button');
 
   var data = new FormData();
-  data.append('filename', guid + '.mp3');
+  // data.append('action','process')
+  data.append('filename', hf.download);
   data.append('file', blob);
 
   id('audio-file').addEventListener('click', function () {
@@ -10648,24 +10663,82 @@ function makeLink() {
     console.log('click works');
 
     _jquery2.default.ajax({
-      url: 'php/audio-processor.php',
+      url: "php/audio-processor.php",
+      type: 'POST',
       data: data,
       contentType: false,
       processData: false,
       success: function success(data) {
-        console.log('working');
-        console.log(data);
+        alert('data: ' + data);
       },
-      error: function error(data) {
-        console.log('error');
-        console.log(data);
+      error: function error(_error) {
+        alert('error: ' + _error);
       }
     });
+
+    // $.post('php/audio-processor.php',{
+    //   filename: `${guid}.mp3`,
+    //   file: blob
+    // },
+    // function(data, success){
+    //   alert('Data: ' + data + '\nStatus: ' + success)
+    // })
   });
 }
 
 /***/ }),
 /* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(jQuery) {
+
+(function ($) {
+    $.fn.progressTimer = function (options) {
+        var settings = $.extend({}, $.fn.progressTimer.defaults, options);
+
+        this.each(function () {
+            $(this).empty();
+            var barContainer = $("<div>").addClass("progress active progress-striped");
+            var bar = $("<div>").addClass("progress-bar").addClass(settings.baseStyle).attr("role", "progressbar").attr("aria-valuenow", "0").attr("aria-valuemin", "0").attr("aria-valuemax", settings.timeLimit);
+
+            bar.appendTo(barContainer);
+            barContainer.appendTo($(this));
+
+            var start = new Date();
+            var limit = settings.timeLimit * 1000;
+            var interval = window.setInterval(function () {
+                var elapsed = new Date() - start;
+                bar.width(elapsed / limit * 100 + "%");
+
+                if (limit - elapsed <= 5000) bar.removeClass(settings.baseStyle).removeClass(settings.completeStyle).addClass(settings.warningStyle);
+
+                if (elapsed >= limit) {
+                    window.clearInterval(interval);
+
+                    bar.removeClass(settings.baseStyle).removeClass(settings.warningStyle).addClass(settings.completeStyle);
+
+                    settings.onFinish.call(this);
+                }
+            }, 250);
+        });
+
+        return this;
+    };
+
+    $.fn.progressTimer.defaults = {
+        timeLimit: 60, //total number of seconds
+        warningThreshold: 5, //seconds remaining triggering switch to warning color
+        onFinish: function onFinish() {}, //invoked once the timer expires
+        baseStyle: '', //bootstrap progress bar style at the beginning of the timer
+        warningStyle: 'progress-bar-danger', //bootstrap progress bar style in the warning phase
+        completeStyle: 'progress-bar-success' //bootstrap progress bar style at completion of timer
+    };
+})(jQuery);
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Native Javascript for Bootstrap 3 v2.0.13 | © dnp_theme | MIT-License
@@ -12477,10 +12550,10 @@ function makeLink() {
   };
 }));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports) {
 
 var g;

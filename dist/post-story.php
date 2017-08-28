@@ -45,7 +45,9 @@ endif;
 <head>
 	<meta charset="UTF-8">
 	<title>Profile</title>
-	<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+	<!-- <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> -->
+	<link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="css/style.css">
 
 
@@ -147,6 +149,7 @@ endif;
 						      <button type="button" class="btn audio-button" id='start'>Start Recording</button>
 						      <button  type="button"  class="btn delete-button" id='stop'>Stop Recording</button>
 						    </div>
+						    <div id="progress-timer"></div>
 						    <div>
 						      <div  class="list-unstyled" id='ul'></div>
 						    </div>

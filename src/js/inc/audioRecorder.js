@@ -1,4 +1,5 @@
 import utils from './utils';
+import './progressTimer'
 import $ from 'jquery';
 
 'use strict'
@@ -19,7 +20,7 @@ let currentUrl = utils.getUrl()
 if (currentUrl.includes('post-story')){
 
   id('audio-button').onclick = e => {
-    gUMbtn.click()
+    gUMbtn.click() 
   }
 
   gUMbtn.onclick = e => {
@@ -58,6 +59,17 @@ if (currentUrl.includes('post-story')){
     stop.removeAttribute('disabled');
     chunks=[];
     recorder.start();
+    $('#progress-timer').progressTimer({
+        timeLimit: 300,
+        warningThreshold: 250,
+        baseStyle: 'progress-bar-warning',
+        warningStyle: 'progress-bar-danger',
+        completeStyle: 'progress-bar-info',
+        onFinish: function() {
+            // console.log("I'm done");
+            stop.click()
+        }
+    })
   }
 
 
@@ -65,6 +77,7 @@ if (currentUrl.includes('post-story')){
     stop.disabled = true;
     recorder.stop();
     start.removeAttribute('disabled');
+    $('.progress').remove()
   }
 
 }
@@ -81,7 +94,7 @@ function makeLink(){
   mt.src = url;
   // hf.href = url;
   // hf.download = `${guid}${media.ext}`;
-  hf.innerHTML = `download file`;
+  hf.innerHTML = `Save file`;
   hf.id = 'audio-file';
   hf.classList.add('btn');
   hf.classList.add('edit-button');
@@ -92,7 +105,8 @@ function makeLink(){
   console.log('make download button')
 
   let data = new FormData()
-  data.append('filename', `${guid}.mp3`)
+  // data.append('action','process')
+  data.append('filename', hf.download)
   data.append('file',blob)
 
   id('audio-file').addEventListener('click', ()=> {
@@ -100,19 +114,26 @@ function makeLink(){
     console.log('click works')
 
     $.ajax({
-      url: 'php/audio-processor.php',
-      data: data,
-      contentType: false,
-      processData: false,
-      success: (data) => {
-        console.log('working')
-        console.log(data)
-      },
-      error: (data) => {
-        console.log('error')
-        console.log(data)
-      }
-    })
+        url :  "php/audio-processor.php",
+        type: 'POST',
+        data: data,
+        contentType: false,
+        processData: false,
+        success: function(data) {
+          alert('data: ' + data);
+        },    
+        error: function(error) {
+          alert('error: ' + error);
+        }
+      });
+
+    // $.post('php/audio-processor.php',{
+    //   filename: `${guid}.mp3`,
+    //   file: blob
+    // },
+    // function(data, success){
+    //   alert('Data: ' + data + '\nStatus: ' + success)
+    // })
   })
 
 }

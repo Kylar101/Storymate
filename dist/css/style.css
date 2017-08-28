@@ -10317,6 +10317,9 @@ textarea {
     margin-bottom: 40px;
     pointer-events: auto; }
 
+#progress-timer {
+  margin: 10px 0; }
+
 .new-users-location .new-users {
   display: flex;
   margin-top: 2vh; }
