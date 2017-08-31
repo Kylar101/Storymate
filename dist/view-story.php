@@ -9,11 +9,23 @@ $user = mysqli_query($conn,$getID);
 $userRow = mysqli_fetch_array($user);
 $userID = $userRow['userID'];
 
+
 $sql = "SELECT * FROM users WHERE userID = '$userID'";
 $result = mysqli_query($conn,$sql);
 $row = mysqli_fetch_array($result);
 
-$curstoryID = $_GET['story'];
+$curstoryID = $_GET['storyID'];
+
+
+$getAuthor = "SELECT authorID FROM stories WHERE storyID = '$curstoryID'";
+$getAuthorRes = mysqli_query($conn,$getAuthor);
+$getAuthorRow = mysqli_fetch_array($getAuthorRes);
+
+$authorSQL = "SELECT * FROM users WHERE userID = '$getAuthorRow[0]' ";
+$authorRes = mysqli_query($conn,$authorSQL);
+$authorRow = mysqli_fetch_array($authorRes);
+
+
 
 $storySQL = "SELECT * FROM stories WHERE storyID = '$curstoryID'";
 $storyRes = mysqli_query($conn,$storySQL);
@@ -194,7 +206,7 @@ $commRow = mysqli_fetch_array($commRes);
 					</div>
 					<div class="add-comment">
 						<div class="post-form form">
-							<form action="/" method="post">
+							<form action=php/comment_processing.php?storyID=<?php echo $storyRow['storyID'];?> method="post">
 
 								<div class="field-wrap">
 									<label class="post-story">
@@ -207,7 +219,7 @@ $commRow = mysqli_fetch_array($commRes);
 									<label class="post-story text">
 											Comment<span class="req">*</span>
 										</label>
-									<textarea rows="3" name="description" required></textarea>
+									<textarea rows="3" name="comment" required></textarea>
 								</div>
 								<div class="field-wrap">
 								<button type="submit" class="btn view-button"><i class="fa fa-check" aria-hidden="true"></i> Post Comment</button>
@@ -221,8 +233,8 @@ $commRow = mysqli_fetch_array($commRes);
 				<div class="details">
 					<div class="stay">
 						<img src="img/profile-pic.gif" class="profile-picture">
-						<h4 class="author-name">Jack Black</h4>
-						<p class="description">Cookie cake marshmallow cookie chocolate cake dessert jelly-o dragée. Cookie fruitcake cake chocolate.</p>
+						<h4 class="author-name"><?php echo $authorRow['firstName']; echo " "; echo $authorRow['lastName']; ?></h4>
+						<p class="description"><?php echo $storyRow['description']; ?></p>
 						<a href="#" class="btn view-button"><i class="fa fa-eye" aria-hidden="true"></i> Follow</a>
 					</div>
 				</div>
