@@ -57,7 +57,7 @@ $commRow = mysqli_fetch_array($commRes);
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Sound of Silence</title>
+  <title><?php echo $storyRow['title']; ?></title>
   <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/style.css">
 
@@ -200,10 +200,24 @@ $commRow = mysqli_fetch_array($commRes);
 				</div>
 				<div class="story-comments">
 					<h2>Comments</h2>
+
+				<?php 
+
+					while($comment = mysqli_fetch_array($commRes)){
+
+						$comAuthID = $comment['authorID'];
+						$comAuth = "SELECT * FROM users WHERE userID = '$comAuthID'";
+						$comAuthRes = mysqli_query($conn,$comAuth);
+						$comAuthRow = mysqli_fetch_array($comAuthRes);
+				?>
 					<div class="comment">
-						<h4>Dean Winshester</h4>
-						<p class="comment-content">SAMMY!!! Read this story.</p>
+						<h4><?php echo $comAuthRow['firstName'] . " " . $comAuthRow['lastName']; ?></h4>
+						<p class="comment-content"><?php echo $comment['commentBody']; ?></p>
 					</div>
+
+				<?php
+					}
+				?>
 					<div class="add-comment">
 						<div class="post-form form">
 							<form action=php/comment_processing.php?storyID=<?php echo $storyRow['storyID'];?> method="post">
