@@ -42,7 +42,7 @@ if (!$countResult) {
 	<header>
 		<section id="top-bar">
 			<div class="user-bar">
-				<p class="user-name"><?php echo $row['firstName']; echo ' '; echo $row['lastName']; ?></p>
+				<p class="user-name"><?php echo $row['firstName'] .' '. $row['lastName']; ?></p>
 			</div>
 		</section>
 	</header>
@@ -51,7 +51,7 @@ if (!$countResult) {
 	<div id="main-content">
 		<nav id="side-bar">
 			<ul>
-				<li class="manage-story"><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i> My Account</a></li>
+				<li class="profile"><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i> My Account</a></li>
 				<li class="post-story"><a href="post-story.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Post Story</a></li>
 			</ul>
 		</nav>

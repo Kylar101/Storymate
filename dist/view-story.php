@@ -1,14 +1,55 @@
 <?php
 session_start();
 include('php/connector.php');
-$curstoryID = $_GET['story'];
+
+$username = $_SESSION['login_user'];
+
+$getID = "SELECT userID FROM users WHERE email = '$username'";
+$user = mysqli_query($conn,$getID);
+$userRow = mysqli_fetch_array($user);
+$userID = $userRow['userID'];
+
+
+$sql = "SELECT * FROM users WHERE userID = '$userID'";
+$result = mysqli_query($conn,$sql);
+$row = mysqli_fetch_array($result);
+
+$curstoryID = $_GET['storyID'];
+
+
+$getAuthor = "SELECT authorID FROM stories WHERE storyID = '$curstoryID'";
+$getAuthorRes = mysqli_query($conn,$getAuthor);
+$getAuthorRow = mysqli_fetch_array($getAuthorRes);
+
+$authorSQL = "SELECT * FROM users WHERE userID = '$getAuthorRow[0]' ";
+$authorRes = mysqli_query($conn,$authorSQL);
+$authorRow = mysqli_fetch_array($authorRes);
+
+
 
 $storySQL = "SELECT * FROM stories WHERE storyID = '$curstoryID'";
 $storyRes = mysqli_query($conn,$storySQL);
 $storyRow = mysqli_fetch_array($storyRes);
 
-$commentSQL = "SELECT * FROM comments WHERE storyID = $curstoryId";
+if (!$storyRes) {
+	die (mysqli_error($conn));
+}
+
+$contentsSQL = "SELECT * FROM storycontents WHERE storyID = '$curstoryID'";
+$contentsRes = mysqli_query($conn,$contentsSQL);
+$contentsRow = mysqli_fetch_array($contentsRes);
+
+if (!$contentsRes) {
+	die (mysqli_error($conn));
+}
+
+$commentSQL = "SELECT * FROM comments WHERE storyID = $curstoryID";
 $commRes = mysqli_query($conn,$commentSQL);
+
+if (!$commRes) {
+	die (mysqli_error($conn));
+}
+
 $commRow = mysqli_fetch_array($commRes);
 
 ?>
@@ -16,7 +57,7 @@ $commRow = mysqli_fetch_array($commRes);
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Sound of Silence</title>
+  <title><?php echo $storyRow['title']; ?></title>
   <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/style.css">
 
@@ -103,7 +144,7 @@ $commRow = mysqli_fetch_array($commRes);
 	<header>
 		<section id="top-bar">
 			<div class="user-bar">
-				<p class="user-name">Jeffery</p>
+				<p class="user-name"><a href="profile.php"><?php echo $row['firstName'].' '. $row['lastName']; ?></a></p>
 			</div>
 		</section>
 	</header>
@@ -152,21 +193,34 @@ $commRow = mysqli_fetch_array($commRes);
 			        </div>
 			    </div>
 				<div class="story-article">
-					<h1>Sound of Silence</h1>
+					<h1><?php echo $storyRow['title'] ?></h1>
 					<div class="content">
-						<p>Sweet brownie jelly. Candy lollipop donut chocolate cake pudding. Toffee carrot cake croissant. Sweet icing bear claw. Tart halvah icing pastry marshmallow croissant wafer tootsie roll. Sweet roll lemon drops sweet lemon drops sweet roll marzipan. Topping brownie apple pie brownie. </p>
-						<p> Gingerbread cotton candy toffee apple pie croissant. Powder topping powder wafer chocolate bar. Powder chupa chups soufflé sweet roll. Jelly beans halvah toffee cake oat cake fruitcake oat cake caramels jelly. Chupa chups candy jelly beans donut bonbon oat cake muffin apple pie.</p>
+						<p><?php echo $contentsRow['text'] ?></p>
 					</div>
 				</div>
 				<div class="story-comments">
 					<h2>Comments</h2>
+
+				<?php 
+
+					while($comment = mysqli_fetch_array($commRes)){
+
+						$comAuthID = $comment['authorID'];
+						$comAuth = "SELECT * FROM users WHERE userID = '$comAuthID'";
+						$comAuthRes = mysqli_query($conn,$comAuth);
+						$comAuthRow = mysqli_fetch_array($comAuthRes);
+				?>
 					<div class="comment">
-						<h4>Dean Winshester</h4>
-						<p class="comment-content">SAMMY!!! Read this story.</p>
+						<h4><?php echo $comAuthRow['firstName'] . " " . $comAuthRow['lastName']; ?></h4>
+						<p class="comment-content"><?php echo $comment['commentBody']; ?></p>
 					</div>
+
+				<?php
+					}
+				?>
 					<div class="add-comment">
 						<div class="post-form form">
-							<form action="/" method="post">
+							<form action=php/comment_processing.php?storyID=<?php echo $storyRow['storyID'];?> method="post">
 
 								<div class="field-wrap">
 									<label class="post-story">
@@ -179,7 +233,7 @@ $commRow = mysqli_fetch_array($commRes);
 									<label class="post-story text">
 											Comment<span class="req">*</span>
 										</label>
-									<textarea rows="3" name="description" required></textarea>
+									<textarea rows="3" name="comment" required></textarea>
 								</div>
 								<div class="field-wrap">
 								<button type="submit" class="btn view-button"><i class="fa fa-check" aria-hidden="true"></i> Post Comment</button>
@@ -193,8 +247,8 @@ $commRow = mysqli_fetch_array($commRes);
 				<div class="details">
 					<div class="stay">
 						<img src="img/profile-pic.gif" class="profile-picture">
-						<h4 class="author-name">Jack Black</h4>
-						<p class="description">Cookie cake marshmallow cookie chocolate cake dessert jelly-o dragée. Cookie fruitcake cake chocolate.</p>
+						<h4 class="author-name"><?php echo $authorRow['firstName']; echo " "; echo $authorRow['lastName']; ?></h4>
+						<p class="description"><?php echo $storyRow['description']; ?></p>
 						<a href="#" class="btn view-button"><i class="fa fa-eye" aria-hidden="true"></i> Follow</a>
 					</div>
 				</div>
