@@ -43,6 +43,16 @@ if (!$contentsRes) {
 	die (mysqli_error($conn));
 }
 
+$audioID = $contentsRow['audioID'];
+$audioSQL = "SELECT * FROM audio WHERE audioID = '$audioID'";
+$audioRes = mysqli_query($conn, $audioSQL);
+
+if (!$audioRes) {
+	die (mysqli_error($conn));
+}
+
+$audioRow = mysqli_fetch_array($audioRes);
+
 $commentSQL = "SELECT * FROM comments WHERE storyID = $curstoryID";
 $commRes = mysqli_query($conn,$commentSQL);
 
@@ -195,7 +205,8 @@ $commRow = mysqli_fetch_array($commRes);
 				<div class="story-article">
 					<h1><?php echo $storyRow['title'] ?></h1>
 					<div class="content">
-						<p><?php echo $contentsRow['text'] ?></p>
+						<audio controls src="<?php echo $audioRow['audioFile'] ?>"></audio>
+						<p><?php echo $contentsRow['textfield'] ?></p>
 					</div>
 				</div>
 				<div class="story-comments">

@@ -131,7 +131,7 @@ INSERT INTO `stories` (`storyID`, `title`, `description`, `authorID`, `tagID`, `
 CREATE TABLE `storycontents` (
   `contentsID` int(11) NOT NULL,
   `storyID` int(11) NOT NULL,
-  `text` text,
+  `textfield` text,
   `imageID` int(11) NOT NULL,
   `audioID` int(11) NOT NULL,
   `contentWarning` int(11) NOT NULL

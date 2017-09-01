@@ -121,6 +121,7 @@ function makeLink(){
         processData: false,
         success: function(data) {
           utils.savedAudio(data)
+          // alert(data)
         },    
         error: function(error) {
           alert('error: ' + error);

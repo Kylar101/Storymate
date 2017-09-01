@@ -10674,6 +10674,7 @@ function makeLink() {
       processData: false,
       success: function success(data) {
         _utils2.default.savedAudio(data);
+        // alert(data)
       },
       error: function error(_error) {
         alert('error: ' + _error);

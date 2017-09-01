@@ -60,11 +60,15 @@
 		background:rgba($main-light, .1);
 		border-radius:0;
 		transition:border-color .25s ease, box-shadow .25s ease;
+		color: $dark-blue;
 		&:focus {
 			// border-color: $darker-dark-blue;
 			// border: 1px solid #a0b3b0;
 			box-shadow: 0 0 5px $dark-blue;
 		}
+	}
+	#audioID {
+		display: none;
 	}
 	input[type="text"] {
 		height:7vh;
