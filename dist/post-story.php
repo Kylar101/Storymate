@@ -84,9 +84,9 @@ endif;
 				</div>
 				<div class="post-form form">
 					<?php if (!$editMode) : ?>
-					<form action="php/story_processing.php" method="post">
-					<?php else : ?>
-					<form action="php/story_updating.php?story=<?php echo $storyID ?>" method="post">
+					<form action="php/story_processing.php" method="post" enctype="multipart/form-data">
+					<?php else : ?> 
+					<form action="php/story_updating.php?story=<?php echo $storyID ?>" method="post" enctype="multipart/form-data">
 					<?php endif; ?>
 
 						<div class="field-wrap">
@@ -131,7 +131,7 @@ endif;
 							<p class="small-label">
 								Images <span class="req">*</span>
 							</p>
-							<input type="file" name="images" accept="image/*" multiple>
+							<input type="file" name="images[]" accept="image/*" multiple>
 						</div>
 
 

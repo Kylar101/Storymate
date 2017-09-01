@@ -62,6 +62,9 @@ if (!$commRes) {
 
 $commRow = mysqli_fetch_array($commRes);
 
+$imgsql = "SELECT * FROM images WHERE storyID = '$curstoryID'";
+$imgRes = mysqli_query($conn,$imgsql);
+
 ?>
 <!DOCTYPE html>
 <html >
@@ -169,18 +172,17 @@ $commRow = mysqli_fetch_array($commRes);
 			            <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="img/double-tail-spin.svg" />
 			        </div>
 			        <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
+
+			        <?php
+			        	while($imgrow = mysqli_fetch_array($imgRes)){
+
+			        ?>
 			            <div>
-			                <img data-u="image" src="img/story-feature1.jpg" />
+			                <img data-u="image" src=<?php echo "uploads/" . basename($imgrow['imagepath']); ?> />
 			            </div>
-			            <div>
-			                <img data-u="image" src="img/story-feature2.jpg" />
-			            </div>
-			            <div>
-			                <img data-u="image" src="img/story-feature1.jpg" />
-			            </div>
-			            <div>
-			                <img data-u="image" src="img/story-feature2.jpg" />
-			            </div>
+			        <?php
+			    		}
+			        ?>
 			        </div>
 			        <!-- Bullet Navigator -->
 			        <div data-u="navigator" class="jssorb052" style="position:absolute;top:350px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
