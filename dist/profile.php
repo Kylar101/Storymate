@@ -63,7 +63,7 @@ if (!$countResult) {
 					<p class="story-count">You have
 						<?php
 							echo $countRow['num_stories'];
-							if ($countRow['num_stories'] > 1) :
+							if ($countRow['num_stories'] > 1 || $countRow['num_stories'] == 0) :
 	    						echo " stories";
 							else :
 								echo " story";
@@ -110,7 +110,7 @@ if (!$countResult) {
 							<div class="submit-cancel">
 
 							<button type="submit" class="btn view-button submit-changes-btn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Submit Changes</button>
-							<button type="submit" class="btn cancel-button">Cancel</button>
+							<button type="button" class="btn cancel-button change-details-cancel">Cancel</button>
 						</div>
 
 
