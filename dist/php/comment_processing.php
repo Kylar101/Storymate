@@ -11,12 +11,14 @@ $authorRes = mysqli_query($conn,$getID);
 $authorRow = mysqli_fetch_array($authorRes);
 $authorID = $authorRow[0];
 
-
 $storyID = $_GET['storyID'];
 
 $sql = "INSERT INTO comments (storyID, authorID, commentBody) VALUES ('$storyID','$authorID','$comment')";
-mysqli_query($conn,$sql);
+$result = mysqli_query($conn,$sql);
+if (!$result) {
+	die (mysqli_error($conn));
+}
 
-header("location: ../profile.php");
+header("location: ../view-story.php?storyID=".$storyID);
 
 ?>

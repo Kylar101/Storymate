@@ -134,7 +134,7 @@ if (!$countResult) {
 							<img src="img/pizzasheen.gif" class="story-card-image">
 							<h5 class="story-title"><?php echo $title; ?></h5>
 							<div class="story-card-buttons">
-								<a href=view-story.php?story=<?php echo $stories[0] ?> class="view-button card-icons"><i class="fa fa-eye" aria-hidden="true"></i></a>
+								<a href=view-story.php?storyID=<?php echo $stories[0] ?> class="view-button card-icons"><i class="fa fa-eye" aria-hidden="true"></i></a>
 								<a href="#" class="delete-button card-icons"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 								<a href=post-story.php?edit=true&story=<?php echo $stories[0] ?> class="edit-button card-icons"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 							</div>

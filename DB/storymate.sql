@@ -54,7 +54,7 @@ CREATE TABLE `categories` (
 CREATE TABLE `comments` (
   `commentID` int(11) NOT NULL,
   `commentBody` text NOT NULL,
-  `auhtorID` int(11) NOT NULL,
+  `authorID` int(11) NOT NULL,
   `dateCreated` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
