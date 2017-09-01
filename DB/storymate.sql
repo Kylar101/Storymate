@@ -54,7 +54,7 @@ CREATE TABLE `categories` (
 CREATE TABLE `comments` (
   `commentID` int(11) NOT NULL,
   `commentBody` text NOT NULL,
-  `auhtorID` int(11) NOT NULL,
+  `authorID` int(11) NOT NULL,
   `dateCreated` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -131,7 +131,7 @@ INSERT INTO `stories` (`storyID`, `title`, `description`, `authorID`, `tagID`, `
 CREATE TABLE `storycontents` (
   `contentsID` int(11) NOT NULL,
   `storyID` int(11) NOT NULL,
-  `text` text,
+  `textfield` text,
   `imageID` int(11) NOT NULL,
   `audioID` int(11) NOT NULL,
   `contentWarning` int(11) NOT NULL

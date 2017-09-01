@@ -10286,9 +10286,12 @@ textarea {
     padding: 5px 10px;
     background: rgba(5, 169, 251, 0.1);
     border-radius: 0;
-    transition: border-color .25s ease, box-shadow .25s ease; }
+    transition: border-color .25s ease, box-shadow .25s ease;
+    color: #132330; }
     .post-form input[type="text"]:focus, .post-form textarea:focus {
       box-shadow: 0 0 5px #132330; }
+  .post-form #audioID {
+    display: none; }
   .post-form input[type="text"] {
     height: 7vh; }
   .post-form .small-label {
