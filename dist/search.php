@@ -76,10 +76,20 @@ $userRow = mysqli_fetch_array($userRes);
 							}
 						 	$authorResults = mysqli_fetch_array($authorQuery);
 
+						 	$storyID = $stories['storyID'];
+
+							$imageSQL = "SELECT * FROM images WHERE storyID = '$storyID' LIMIT 1";
+							$fetchImage = mysqli_query($conn,$imageSQL);
+							if (!$fetchImage) {
+								die (mysqli_error($conn));
+							}
+							$imagePath = mysqli_fetch_array($fetchImage);
+							$path = $imagePath['imagepath'] ? $imagePath['imagepath'] : 'img/pizzasheen.gif';
+
 
 				?>
 						<div class="first-item">
-							<img src="img/pusheen-burger.jpg">
+							<img src="<?php echo $path; ?>">
 							<div class="story-info">
 								<h3 class="title"><?php echo $stories['title']; ?></h3>
 								<p class="excerpt"><?php echo $stories['description']; ?></p>
@@ -111,9 +121,19 @@ $userRow = mysqli_fetch_array($userRes);
 							}
 						 	$authorResults = mysqli_fetch_array($authorQuery);
 
+						 	$storyID = $stories['storyID'];
+
+							$imageSQL = "SELECT * FROM images WHERE storyID = '$storyID' LIMIT 1";
+							$fetchImage = mysqli_query($conn,$imageSQL);
+							if (!$fetchImage) {
+								die (mysqli_error($conn));
+							}
+							$imagePath = mysqli_fetch_array($fetchImage);
+							$path = $imagePath['imagepath'] ? $imagePath['imagepath'] : 'img/pizzasheen.gif';
+
 					?>
 					<div class="first-item">
-							<img src="img/pusheen-burger.jpg">
+							<img src="<?php echo $path; ?>">
 							<div class="story-info">
 								<h3 class="title"><?php echo $stories['title']; ?></h3>
 								<p class="excerpt"><?php echo $stories['description']; ?></p>

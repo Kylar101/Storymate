@@ -58,7 +58,7 @@ foreach($_FILES['images']['name'] as $k=>$name){
 	$result = mysqli_query($conn,$imgsql);
 
 	if (!$result) {
-    die(mysqli_error($conn));
+	    die(mysqli_error($conn));
 	}
 }
 

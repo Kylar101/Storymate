@@ -25,6 +25,6 @@ const webpackStream = require('webpack-stream');
     	gulp.watch(['./src/img/**/*.{jpg,png,gif,jpeg}'], ['copy-images']);
     });
 
-    gulp.task('build',['copy-html','copy-images','pack']);
+    gulp.task('build',['copy-images','pack']);
 
     gulp.task('default', ['build','watch']);
