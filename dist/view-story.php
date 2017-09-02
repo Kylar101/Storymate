@@ -60,8 +60,6 @@ if (!$commRes) {
 	die (mysqli_error($conn));
 }
 
-$commRow = mysqli_fetch_array($commRes);
-
 $imgsql = "SELECT * FROM images WHERE storyID = '$curstoryID'";
 $imgRes = mysqli_query($conn,$imgsql);
 

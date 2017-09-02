@@ -5,7 +5,7 @@
 
   	$username = $_POST['username'];
   	$password = $_POST['pwd'];
-	$hash = hash('sha512', $password);
+  	$hash = hash('sha512', $password);
 
   	$sql = "SELECT userID from users WHERE email = '$username' AND password = '$hash'";
   	$result = mysqli_query($conn,$sql);

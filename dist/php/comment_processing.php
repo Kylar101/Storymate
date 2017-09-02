@@ -19,6 +19,6 @@ if (!$result) {
 	die (mysqli_error($conn));
 }
 
-header("location: ../view-story.php?storyID=".$storyID);
+// header("location: ../view-story.php?storyID=".$storyID);
 
 ?>
