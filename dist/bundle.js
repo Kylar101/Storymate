@@ -10681,6 +10681,8 @@ function makeLink() {
       }
     });
   });
+
+  id('audio-file').click();
 }
 
 /***/ }),

@@ -13,7 +13,7 @@ $userRow = mysqli_fetch_array($userRes);
 <head>
   <meta charset="UTF-8">
   <title>Search</title>
-  <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/style.css">
 
 
@@ -25,7 +25,7 @@ $userRow = mysqli_fetch_array($userRes);
 	<header>
 		<section id="top-bar">
 			<div class="user-bar">
-				<p class="user-name"><?php echo $userRow['firstName']; ?></p>
+				<p class="user-name"><a href="profile.php"><?php echo $userRow['firstName'].' '.$userRow['lastName']; ?></a></p>
 			</div>
 		</section>
 	</header>
@@ -67,13 +67,23 @@ $userRow = mysqli_fetch_array($userRes);
 					 	$numResults = mysqli_num_rows($searchQuery);
 						
 						while($stories = mysqli_fetch_array($searchQuery)){
+
+							$authorID = $stories['authorID'];
+							$authorSQL = "SELECT * FROM users WHERE userID = '$authorID'";
+							$authorQuery = mysqli_query($conn,$authorSQL);
+							if (!$authorQuery) {
+								die (mysql_error($conn));
+							}
+						 	$authorResults = mysqli_fetch_array($authorQuery);
+
+
 				?>
 						<div class="first-item">
 							<img src="img/pusheen-burger.jpg">
 							<div class="story-info">
 								<h3 class="title"><?php echo $stories['title']; ?></h3>
 								<p class="excerpt"><?php echo $stories['description']; ?></p>
-								<h4 class="author-name"><a href="profile.php?username=joeblogs">Joe Blogs</a></h4>
+								<h4 class="author-name"><?php echo $authorResults['firstName'].' '.$authorResults['lastName'] ?></h4>
 								<div class="story-extra">
 									<div class="likes">27 <span class="feature-likes"> <i class="fa fa-thumbs-up" aria-hidden="true"></span></i></div>
 									<a href=view-story.php?storyID=<?php echo $stories['storyID'];?> class="btn comments-button view-story">View Story</a>
@@ -93,13 +103,21 @@ $userRow = mysqli_fetch_array($userRes);
 						$topRes = mysqli_query($conn,$sql);
 						while($stories = mysqli_fetch_array($topRes)){
 
+							$authorID = $stories['authorID'];
+							$authorSQL = "SELECT * FROM users WHERE userID = '$authorID'";
+							$authorQuery = mysqli_query($conn,$authorSQL);
+							if (!$authorQuery) {
+								die (mysql_error($conn));
+							}
+						 	$authorResults = mysqli_fetch_array($authorQuery);
+
 					?>
 					<div class="first-item">
 							<img src="img/pusheen-burger.jpg">
 							<div class="story-info">
 								<h3 class="title"><?php echo $stories['title']; ?></h3>
 								<p class="excerpt"><?php echo $stories['description']; ?></p>
-								<h4 class="author-name"><a href="profile.php?username=joeblogs">Joe Blogs</a></h4>
+								<h4 class="author-name"><?php echo $authorResults['firstName'].' '.$authorResults['lastName'] ?></h4>
 								<div class="story-extra">
 									<div class="likes">27 <span class="feature-likes"> <i class="fa fa-thumbs-up" aria-hidden="true"></span></i></div>
 									<a href="view-story.php?storyID=1" class="btn comments-button view-story">View Story</a>

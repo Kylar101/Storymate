@@ -24,7 +24,7 @@
   		// session_register("username");
   		$_SESSION['login_user'] = $username;
 		  
-  		header("location: ../profile.php");
+  		header("location: ../search.php");
   	}
   	else
   	{

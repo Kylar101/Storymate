@@ -71,7 +71,7 @@ $imgRes = mysqli_query($conn,$imgsql);
 <head>
   <meta charset="UTF-8">
   <title><?php echo $storyRow['title']; ?></title>
-  <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/style.css">
 
 
@@ -207,7 +207,9 @@ $imgRes = mysqli_query($conn,$imgsql);
 				<div class="story-article">
 					<h1><?php echo $storyRow['title'] ?></h1>
 					<div class="content">
-						<audio controls src="<?php echo $audioRow['audioFile'] ?>"></audio>
+						<?php if ($audioRow['audioFile']) : ?>
+							<audio controls src="<?php echo $audioRow['audioFile'] ?>"></audio>
+						<?php endif; ?>
 						<p><?php echo $contentsRow['textfield'] ?></p>
 					</div>
 				</div>
