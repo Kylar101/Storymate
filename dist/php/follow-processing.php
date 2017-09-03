@@ -16,11 +16,11 @@ if (!$userRes) {
 $userRow = mysqli_fetch_array($userRes);
 $userID = $userRow['userID'];
 
-echo $follow.'<br>';
+echo $follow.'<br><br>';
 
 $sql = '';
 
-if ($follow){
+if ($follow) {
 	$sql = "INSERT INTO following (userID, followingID, follows) VALUES ('$userID', '$authorID', 1)";
 } else {
 	$sql = "DELETE FROM following WHERE userID='$userID' AND followingID='$authorID'";
@@ -28,12 +28,12 @@ if ($follow){
 
 echo $sql;
 
-// $result = mysqli_query($conn, $sql);
-// if (!$result) {
-// 	die(mysqli_error($conn));	
-// }
+$result = mysqli_query($conn, $sql);
+if (!$result) {
+	die(mysqli_error($conn));	
+}
 $sql = '';
 
-// header("location: ../view-story.php?storyID=$storyID");
+header("location: ../view-story.php?storyID=$storyID");
 
 ?>
