@@ -262,7 +262,7 @@ $imgRes = mysqli_query($conn,$imgsql);
 						<img src="img/profile-pic.gif" class="profile-picture">
 						<h4 class="author-name"><?php echo $authorRow['firstName']; echo " "; echo $authorRow['lastName']; ?></h4>
 						<p class="description"><?php echo $storyRow['description']; ?></p>
-						<a href="#" class="btn view-button"><i class="fa fa-eye" aria-hidden="true"></i> Follow</a>
+						<a href="php/follow-processing.php?storyID=<?php echo $curstoryID; ?>&authorID=<?php echo $authorRow['userID']; ?>" class="btn view-button"><i class="fa fa-eye" aria-hidden="true"></i> Follow</a>
 					</div>
 				</div>
 			</div>

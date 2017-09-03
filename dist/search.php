@@ -140,7 +140,7 @@ $userRow = mysqli_fetch_array($userRes);
 								<h4 class="author-name"><?php echo $authorResults['firstName'].' '.$authorResults['lastName'] ?></h4>
 								<div class="story-extra">
 									<div class="likes">27 <span class="feature-likes"> <i class="fa fa-thumbs-up" aria-hidden="true"></span></i></div>
-									<a href="view-story.php?storyID=1" class="btn comments-button view-story">View Story</a>
+									<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" class="btn comments-button view-story">View Story</a>
 								</div>
 							</div>
 						</div>
