@@ -24,8 +24,14 @@ $getAuthorRow = mysqli_fetch_array($getAuthorRes);
 $authorSQL = "SELECT * FROM users WHERE userID = '$getAuthorRow[0]' ";
 $authorRes = mysqli_query($conn,$authorSQL);
 $authorRow = mysqli_fetch_array($authorRes);
+$authorID = $authorRow['userID'];
 
-
+$followingSQL = "SELECT * FROM following WHERE userID='$userID' AND followingID='$authorID'";
+$followingRes = $storyRes = mysqli_query($conn,$followingSQL);
+if (!$followingRes) {
+	die (mysqli_error($conn));
+}
+$followingRow = mysqli_fetch_array($followingRes);
 
 $storySQL = "SELECT * FROM stories WHERE storyID = '$curstoryID'";
 $storyRes = mysqli_query($conn,$storySQL);
@@ -262,7 +268,11 @@ $imgRes = mysqli_query($conn,$imgsql);
 						<img src="img/profile-pic.gif" class="profile-picture">
 						<h4 class="author-name"><?php echo $authorRow['firstName']; echo " "; echo $authorRow['lastName']; ?></h4>
 						<p class="description"><?php echo $storyRow['description']; ?></p>
-						<a href="php/follow-processing.php?storyID=<?php echo $curstoryID; ?>&authorID=<?php echo $authorRow['userID']; ?>" class="btn view-button"><i class="fa fa-eye" aria-hidden="true"></i> Follow</a>
+						<?php if ($followingRow['follows'] != 1) : ?>
+						<a href="php/follow-processing.php?storyID=<?php echo $curstoryID; ?>&authorID=<?php echo $authorRow['userID']; ?>&follow=true" class="btn view-button"><i class="fa fa-eye" aria-hidden="true"></i> Follow</a>
+						<?php else : ?>
+						<a href="php/follow-processing.php?storyID=<?php echo $curstoryID; ?>&authorID=<?php echo $authorRow['userID']; ?>&follow=false" class="btn view-button"><i class="fa fa-eye" aria-hidden="true"></i> Unfollow</a>
+						<?php endif; ?>
 					</div>
 				</div>
 			</div>
