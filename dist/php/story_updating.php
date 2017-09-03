@@ -13,10 +13,17 @@ $Text= mysqli_real_escape_string($conn,$_POST['text']);
 $username = $_SESSION['login_user'];
 
 $sql = "UPDATE stories SET title='$Title', description='$Description' WHERE storyID='$storyID'";
+$sqlcontents = "UPDATE storycontents SET textfield='$Text' WHERE storyID='$storyID'";
 
 $result = mysqli_query($conn,$sql);
 
 if (!$result) {
+    die(mysqli_error($conn));
+}
+
+$resultContents = mysqli_query($conn,$sqlcontents);
+
+if (!$resultContents) {
     die(mysqli_error($conn));
 }
 
