@@ -62,7 +62,7 @@ $userRow = mysqli_fetch_array($userRes);
 					if(isset($_POST['search'])){
 
 						$term = mysqli_real_escape_string($conn, $_POST['search']);
-					 	$sql = "SELECT * FROM stories INNER JOIN users ON stories.authorID = users.userID WHERE title LIKE '%$term%' OR  description LIKE '%$term%'  ORDER BY title";
+					 	$sql = "SELECT * FROM stories INNER JOIN users ON stories.authorID = users.userID WHERE title LIKE '%$term%' OR  description LIKE '%$term%' OR firstName LIKE '%$term%' OR lastName LIKE '%$term%' ORDER BY title";
 					 	$searchQuery = mysqli_query($conn,$sql);
 					 	$numResults = mysqli_num_rows($searchQuery);
 						
