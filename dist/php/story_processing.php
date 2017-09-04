@@ -5,7 +5,7 @@ include('connector.php');
 
 $Title = mysqli_real_escape_string($conn,$_POST['title']);
 $Description = mysqli_real_escape_string($conn,$_POST['description']);
-$Images = mysqli_real_escape_string($conn,$_POST['images']);
+//$Images = mysqli_real_escape_string($conn,$_POST['images']);
 $Text= mysqli_real_escape_string($conn,$_POST['text']);
 #$pubSet = mysqli_real_escape_string($conn,$_POST['public']);
 $AudioID = mysqli_real_escape_string($conn,$_POST['audio']);
@@ -42,6 +42,26 @@ $result = mysqli_query($conn,$sql);
 if (!$result) {
     die(mysqli_error($conn));
 }
+
+
+$target_dir = "../uploads/";
+foreach($_FILES['images']['name'] as $k=>$name){
+
+	$imgname = $_FILES['images']['name'][$k];
+
+	$targetimg = $target_dir . basename($imgname);
+	
+	$tmpname=$_FILES['images']['tmp_name'][$k];
+	move_uploaded_file($tmpname,$targetimg);
+
+	$imgsql = "INSERT INTO images (imagepath, storyID) VALUES ('$targetimg', $storyID)";
+	$result = mysqli_query($conn,$imgsql);
+
+	if (!$result) {
+	    die(mysqli_error($conn));
+	}
+}
+
 
 header("location: ../profile.php");
 

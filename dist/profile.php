@@ -27,7 +27,7 @@ if (!$countResult) {
 <head>
   <meta charset="UTF-8">
   <title>Profile</title>
-  <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"> -->
   <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
   <!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
@@ -127,16 +127,25 @@ if (!$countResult) {
 
 							while($stories = mysqli_fetch_array($fetchStories)){
 
-								$title = $stories[1];
+								$storyID = $stories['storyID'];
+
+								$imageSQL = "SELECT * FROM images WHERE storyID = '$storyID' LIMIT 1";
+								$fetchImage = mysqli_query($conn,$imageSQL);
+								if (!$fetchImage) {
+									die (mysqli_error($conn));
+								}
+								$imagePath = mysqli_fetch_array($fetchImage);
+								$path = $imagePath['imagepath'] ? $imagePath['imagepath'] : 'img/pizzasheen.gif';
+
 
 						?>
 						<div class="story-card">
-							<img src="img/pizzasheen.gif" class="story-card-image">
-							<h5 class="story-title"><?php echo $title; ?></h5>
+							<img src="<?php echo $path; ?>" class="story-card-image">
+							<h5 class="story-title"><?php echo $stories['title']; ?></h5>
 							<div class="story-card-buttons">
-								<a href=view-story.php?storyID=<?php echo $stories[0] ?> class="view-button card-icons"><i class="fa fa-eye" aria-hidden="true"></i></a>
+								<a href=view-story.php?storyID=<?php echo $stories['storyID'] ?> class="view-button card-icons"><i class="fa fa-eye" aria-hidden="true"></i></a>
 								<a href="#" class="delete-button card-icons"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-								<a href=post-story.php?edit=true&story=<?php echo $stories[0] ?> class="edit-button card-icons"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+								<a href=post-story.php?edit=true&story=<?php echo $stories['storyID'] ?> class="edit-button card-icons"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 							</div>
 						</div>
 						<?php

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 31, 2017 at 06:43 AM
--- Server version: 10.1.24-MariaDB
--- PHP Version: 7.1.6
+-- Generation Time: Sep 02, 2017 at 08:33 AM
+-- Server version: 10.1.25-MariaDB
+-- PHP Version: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `audio` (
   `audioID` int(11) NOT NULL,
-  `audioFile` varchar(48) NOT NULL
+  `audioFile` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -53,10 +53,19 @@ CREATE TABLE `categories` (
 
 CREATE TABLE `comments` (
   `commentID` int(11) NOT NULL,
+  `storyID` int(10) NOT NULL,
   `commentBody` text NOT NULL,
   `authorID` int(11) NOT NULL,
   `dateCreated` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`commentID`, `storyID`, `commentBody`, `authorID`, `dateCreated`) VALUES
+(1, 3, 'sdfasd', 3, '0000-00-00'),
+(2, 3, 'sdfasd', 3, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -66,7 +75,8 @@ CREATE TABLE `comments` (
 
 CREATE TABLE `images` (
   `imageID` int(11) NOT NULL,
-  `imageFile` varchar(48) NOT NULL
+  `imagepath` varchar(255) NOT NULL,
+  `storyID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -112,16 +122,6 @@ CREATE TABLE `stories` (
   `dateCreated` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='holds the stories contents';
 
---
--- Dumping data for table `stories`
---
-
-INSERT INTO `stories` (`storyID`, `title`, `description`, `authorID`, `tagID`, `categoryID`, `public`, `dateCreated`) VALUES
-(1, '', 'This is a test story to see if the story functionality has any bugs.', 7, 0, 0, 0, '0000-00-00'),
-(2, 'The testing of the Website', 'This is  short story detailing the testing of this website\'s basic functionality. This story will allow the testing of the follo', 1, 0, 0, 0, '0000-00-00'),
-(3, 'The testing of the Website 3', 'This is  short story detailing the testing of this website\'s basic functionality. This story will allow the testing of the follo', 3, 0, 0, 0, '0000-00-00'),
-(4, 'The testing of the Website 1', 'This is  short story detailing the testing of this website\'s basic functionality. This story will allow the testing of the follo', 1, 0, 0, 0, '0000-00-00');
-
 -- --------------------------------------------------------
 
 --
@@ -132,7 +132,6 @@ CREATE TABLE `storycontents` (
   `contentsID` int(11) NOT NULL,
   `storyID` int(11) NOT NULL,
   `textfield` text,
-  `imageID` int(11) NOT NULL,
   `audioID` int(11) NOT NULL,
   `contentWarning` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='holds the contents of the story';
@@ -268,7 +267,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `audio`
 --
 ALTER TABLE `audio`
-  MODIFY `audioID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `audioID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `categories`
 --
@@ -278,12 +277,12 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `commentID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `commentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `imageID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `imageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `likes`
 --
@@ -298,12 +297,12 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `stories`
 --
 ALTER TABLE `stories`
-  MODIFY `storyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `storyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `storycontents`
 --
 ALTER TABLE `storycontents`
-  MODIFY `contentsID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `contentsID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `tags`
 --
@@ -318,7 +317,7 @@ ALTER TABLE `userroles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;COMMIT;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

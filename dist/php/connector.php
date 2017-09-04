@@ -2,7 +2,7 @@
 
 DEFINE ('dbUser', 'root'); # will change when hosted
 DEFINE ('dbPass', ''); # will change when hosted
-DEFINE ('dbHost', 'localhost:3306'); # will change when hosted
+DEFINE ('dbHost', 'localhost'); # will change when hosted
 DEFINE ('dbName', 'storymate');
 
 

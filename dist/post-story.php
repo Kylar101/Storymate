@@ -24,7 +24,7 @@ if (isset($_GET['edit'])) :
 	$editMode = $_GET['edit'];
 	$storyID = $_GET['story'];
 
-	$getStory = "SELECT * FROM stories WHERE storyID = '$storyID'";
+	$getStory = "SELECT * FROM stories,storycontents WHERE stories.storyID = '$storyID' AND storycontents.storyID = '$storyID'";
 	$storyResult = mysqli_query($conn, $getStory);
 	$storyRow = mysqli_fetch_array($storyResult);
 
@@ -84,9 +84,9 @@ endif;
 				</div>
 				<div class="post-form form">
 					<?php if (!$editMode) : ?>
-					<form action="php/story_processing.php" method="post">
-					<?php else : ?>
-					<form action="php/story_updating.php?story=<?php echo $storyID ?>" method="post">
+					<form action="php/story_processing.php" method="post" enctype="multipart/form-data">
+					<?php else : ?> 
+					<form action="php/story_updating.php?story=<?php echo $storyID ?>" method="post" enctype="multipart/form-data">
 					<?php endif; ?>
 
 						<div class="field-wrap">
@@ -115,23 +115,27 @@ endif;
 							<p class="small-label">
 								Add content <span class="req">*</span>
 							</p>
-              <button type="button" class="btn story-type-button" data-type="text"><span>Text</span></button>
-              <button type="button" class="btn story-type-button" data-type="images"><span>Images</span></button>
+			              <button type="button" class="btn story-type-button" data-type="text"><span>Text</span></button>
+			              <button type="button" class="btn story-type-button" data-type="images"><span>Images</span></button>
 							<button id="audio-button" type="button" class="btn story-type-button" data-type="audio"><span>Audio</span></button>
 						</div>
 
-            <div class="field-wrap story-text">
-              <label class="post-story text">
-                  Text <span class="req">*</span>
-                </label>
-              <textarea rows="8" name="text"></textarea>
-            </div>
+			            <div class="field-wrap story-text">
+			              <label class="post-story text">
+			                  Text <span class="req">*</span>
+			                </label>
+			                <?php if (!$editMode) : ?>
+				             <textarea rows="8" name="text" required></textarea>
+							<?php else : ?>
+							<textarea rows="8" name="text" required><?php echo $storyRow['textfield']?></textarea>
+							<?php endif; ?>
+			            </div>
 
 						<div class="field-wrap story-images">
 							<p class="small-label">
 								Images <span class="req">*</span>
 							</p>
-							<input type="file" name="images" accept="image/*" multiple>
+							<input type="file" name="images[]" accept="image/*" multiple>
 						</div>
 
 

@@ -24,8 +24,14 @@ $getAuthorRow = mysqli_fetch_array($getAuthorRes);
 $authorSQL = "SELECT * FROM users WHERE userID = '$getAuthorRow[0]' ";
 $authorRes = mysqli_query($conn,$authorSQL);
 $authorRow = mysqli_fetch_array($authorRes);
+$authorID = $authorRow['userID'];
 
-
+$followingSQL = "SELECT * FROM following WHERE userID='$userID' AND followingID='$authorID'";
+$followingRes = $storyRes = mysqli_query($conn,$followingSQL);
+if (!$followingRes) {
+	die (mysqli_error($conn));
+}
+$followingRow = mysqli_fetch_array($followingRes);
 
 $storySQL = "SELECT * FROM stories WHERE storyID = '$curstoryID'";
 $storyRes = mysqli_query($conn,$storySQL);
@@ -60,7 +66,8 @@ if (!$commRes) {
 	die (mysqli_error($conn));
 }
 
-$commRow = mysqli_fetch_array($commRes);
+$imgsql = "SELECT * FROM images WHERE storyID = '$curstoryID'";
+$imgRes = mysqli_query($conn,$imgsql);
 
 ?>
 <!DOCTYPE html>
@@ -68,7 +75,7 @@ $commRow = mysqli_fetch_array($commRes);
 <head>
   <meta charset="UTF-8">
   <title><?php echo $storyRow['title']; ?></title>
-  <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/style.css">
 
 
@@ -169,18 +176,17 @@ $commRow = mysqli_fetch_array($commRes);
 			            <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="img/double-tail-spin.svg" />
 			        </div>
 			        <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
+
+			        <?php
+			        	while($imgrow = mysqli_fetch_array($imgRes)){
+
+			        ?>
 			            <div>
-			                <img data-u="image" src="img/story-feature1.jpg" />
+			                <img data-u="image" src=<?php echo "uploads/" . basename($imgrow['imagepath']); ?> />
 			            </div>
-			            <div>
-			                <img data-u="image" src="img/story-feature2.jpg" />
-			            </div>
-			            <div>
-			                <img data-u="image" src="img/story-feature1.jpg" />
-			            </div>
-			            <div>
-			                <img data-u="image" src="img/story-feature2.jpg" />
-			            </div>
+			        <?php
+			    		}
+			        ?>
 			        </div>
 			        <!-- Bullet Navigator -->
 			        <div data-u="navigator" class="jssorb052" style="position:absolute;top:350px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
@@ -205,7 +211,9 @@ $commRow = mysqli_fetch_array($commRes);
 				<div class="story-article">
 					<h1><?php echo $storyRow['title'] ?></h1>
 					<div class="content">
-						<audio controls src="<?php echo $audioRow['audioFile'] ?>"></audio>
+						<?php if ($audioRow['audioFile']) : ?>
+							<audio controls src="<?php echo $audioRow['audioFile'] ?>"></audio>
+						<?php endif; ?>
 						<p><?php echo $contentsRow['textfield'] ?></p>
 					</div>
 				</div>
@@ -260,7 +268,11 @@ $commRow = mysqli_fetch_array($commRes);
 						<img src="img/profile-pic.gif" class="profile-picture">
 						<h4 class="author-name"><?php echo $authorRow['firstName']; echo " "; echo $authorRow['lastName']; ?></h4>
 						<p class="description"><?php echo $storyRow['description']; ?></p>
-						<a href="#" class="btn view-button"><i class="fa fa-eye" aria-hidden="true"></i> Follow</a>
+						<?php if ($followingRow['follows'] != 1) : ?>
+						<a href="php/follow-processing.php?storyID=<?php echo $curstoryID; ?>&authorID=<?php echo $authorRow['userID']; ?>&follow=1" class="btn view-button"><i class="fa fa-eye" aria-hidden="true"></i> Follow</a>
+						<?php else : ?>
+						<a href="php/follow-processing.php?storyID=<?php echo $curstoryID; ?>&authorID=<?php echo $authorRow['userID']; ?>&follow=0" class="btn view-button"><i class="fa fa-eye" aria-hidden="true"></i> Unfollow</a>
+						<?php endif; ?>
 					</div>
 				</div>
 			</div>
