@@ -10331,6 +10331,13 @@ textarea {
 #progress-timer {
   margin: 10px 0; }
 
+.edit-image-wrapper {
+  clear: both;
+  margin-bottom: 20px; }
+  .edit-image-wrapper .edit-story-image {
+    margin-right: 5%;
+    width: 20%; }
+
 .new-users-location .new-users {
   display: flex;
   margin-top: 2vh; }

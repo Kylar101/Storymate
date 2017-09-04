@@ -32,6 +32,12 @@ if (isset($_GET['edit'])) :
 		die(mysqli_error($conn));
 	}
 
+	$imgsql = "SELECT * FROM images WHERE storyID = '$storyID'";
+	$imgRes = mysqli_query($conn,$imgsql);
+	if (!$imgRes) {
+		die(mysqli_error($conn));
+	}
+
 	if ($editMode) {
 		$storyActive = 'active';
 	}
@@ -125,9 +131,9 @@ endif;
 			                  Text <span class="req">*</span>
 			                </label>
 			                <?php if (!$editMode) : ?>
-				             <textarea rows="8" name="text" required></textarea>
+				             <textarea rows="8" name="text"></textarea>
 							<?php else : ?>
-							<textarea rows="8" name="text" required><?php echo $storyRow['textfield']?></textarea>
+							<textarea rows="8" name="text"><?php echo $storyRow['textfield']?></textarea>
 							<?php endif; ?>
 			            </div>
 
@@ -135,6 +141,27 @@ endif;
 							<p class="small-label">
 								Images <span class="req">*</span>
 							</p>
+
+							<div class="edit-image-wrapper">
+						        <?php
+					        	if ($editMode): 
+					        		?> 
+					        		<h4>Current Images</h4>
+					        		<p>Please select the images you would like to remove</p>
+					        		<input type="checkbox" name="image-updated[]" value="0" style="display: none;" checked="checked">
+					        	<?php
+						        	while($imgrow = mysqli_fetch_array($imgRes)){
+
+						        ?>	
+							        <!-- <div class="container"> -->
+						                <input type="checkbox" name="image-updated[]" value="<?php echo $imgrow['imageID']; ?>">
+						                <img class="edit-story-image" src=<?php echo "uploads/" . basename($imgrow['imagepath']); ?> />
+					                <!-- </div> -->
+						        <?php
+						    		}
+					    		endif;
+						        ?>
+					        </div>
 							<input type="file" name="images[]" accept="image/*" multiple>
 						</div>
 

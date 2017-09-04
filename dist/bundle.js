@@ -10616,8 +10616,8 @@ if (currentUrl.includes('post-story')) {
     chunks = [];
     recorder.start();
     (0, _jquery2.default)('#progress-timer').progressTimer({
-      timeLimit: 300,
-      warningThreshold: 250,
+      timeLimit: 180,
+      warningThreshold: 120,
       baseStyle: 'progress-bar-warning',
       warningStyle: 'progress-bar-danger',
       completeStyle: 'progress-bar-info',
