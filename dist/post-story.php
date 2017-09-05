@@ -76,7 +76,7 @@ endif;
 			<ul>
         <li class="profile"><a href="profile.php"><i class="fa fa-list-ul" aria-hidden="true"></i> My Account</a></li>
         <li class="post-story active"><a href="post-story.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Post Story</a></li>
-
+        <li class="profile"><a href="search.php"><i class="fa fa-search" aria-hidden="true"></i> Search Stories</a></li>
 			</ul>
 		</nav>
 		<article id="page-content">
@@ -91,7 +91,7 @@ endif;
 				<div class="post-form form">
 					<?php if (!$editMode) : ?>
 					<form action="php/story_processing.php" method="post" enctype="multipart/form-data">
-					<?php else : ?> 
+					<?php else : ?>
 					<form action="php/story_updating.php?story=<?php echo $storyID ?>" method="post" enctype="multipart/form-data">
 					<?php endif; ?>
 
@@ -144,15 +144,15 @@ endif;
 
 							<div class="edit-image-wrapper">
 						        <?php
-					        	if ($editMode): 
-					        		?> 
+					        	if ($editMode):
+					        		?>
 					        		<h4>Current Images</h4>
 					        		<p>Please select the images you would like to remove</p>
 					        		<input type="checkbox" name="image-updated[]" value="0" style="display: none;" checked="checked">
 					        	<?php
 						        	while($imgrow = mysqli_fetch_array($imgRes)){
 
-						        ?>	
+						        ?>
 							        <!-- <div class="container"> -->
 						                <input type="checkbox" name="image-updated[]" value="<?php echo $imgrow['imageID']; ?>">
 						                <img class="edit-story-image" src=<?php echo "uploads/" . basename($imgrow['imagepath']); ?> />
