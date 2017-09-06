@@ -35,16 +35,18 @@ $userRow = mysqli_fetch_array($userRes);
 		<article id="front-content search">
 			<div class="search-header">
 				<div class="search-options">
-					<form class="form" action="search.php" method="POST">
+
+          <form class="form" action="search.php" method="POST">
 						<div class="field-wrap">
 			            	<label>
-			                	Search
+			                	Search our stories
 			            	</label>
 			            	<input class="search-bar" type="text" autocomplete="off" name="search"/>
-			            </div>
+	          </div>
 						<button class="search-button edit-button"><i class="fa fa-search" aria-hidden="true"></i></button>
 					</form>
-					<div class="search-advanced">
+
+          <div class="search-advanced">
 						<p class="advance-button">Advanced Search</p>
 						<div class="advanced-search-options">
 							<div class="categories">
@@ -65,7 +67,7 @@ $userRow = mysqli_fetch_array($userRes);
 					 	$sql = "SELECT * FROM stories INNER JOIN users ON stories.authorID = users.userID WHERE title LIKE '%$term%' OR  description LIKE '%$term%' OR firstName LIKE '%$term%' OR lastName LIKE '%$term%' ORDER BY title";
 					 	$searchQuery = mysqli_query($conn,$sql);
 					 	$numResults = mysqli_num_rows($searchQuery);
-						
+
 						while($stories = mysqli_fetch_array($searchQuery)){
 
 						 	$storyID = $stories['storyID'];
@@ -99,7 +101,7 @@ $userRow = mysqli_fetch_array($userRes);
 					else{
 
 				?>
-					
+
 					<?php
 						$sql = "SELECT * FROM stories INNER JOIN users ON stories.authorID = users.userID ORDER BY storyID Desc LIMIT 10";
 						$topRes = mysqli_query($conn,$sql);
@@ -134,11 +136,11 @@ $userRow = mysqli_fetch_array($userRes);
 							}
 						?>
 					</div>
-					
+
 					<?php
 						}
 					?>
-				
+
 			</div>
 		</article>
 	</div>
