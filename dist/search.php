@@ -4,7 +4,7 @@ include('php/connector.php');
 $curUser = $_SESSION['login_user'];
 $usersql = "SELECT * FROM users WHERE email = '$curUser'";
 $userRes = mysqli_query($conn,$usersql);
-$userRow = mysqli_fetch_array($userRes);
+$row = mysqli_fetch_array($userRes);
 
 ?>
 
@@ -19,11 +19,7 @@ $userRow = mysqli_fetch_array($userRes);
 
 	<!-- Top bar -->
 	<header>
-		<section id="top-bar">
-			<div class="user-bar">
-				<p class="user-name"><a href="profile.php"><?php echo $userRow['firstName'].' '.$userRow['lastName']; ?></a></p>
-			</div>
-		</section>
+		<?php include 'includes/top-bar.php'; ?>
 	</header>
 
 	<!-- Main content -->

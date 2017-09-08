@@ -10546,6 +10546,10 @@ textarea {
   height: 55vh;
   display: block;
   position: relative; }
+  @media (max-width: 500px) {
+    .search-header {
+      width: 144vw;
+      height: 40vh; } }
   .search-header .search-options {
     position: absolute;
     top: 25vh;
@@ -10622,6 +10626,9 @@ textarea {
 .search-content .search-wrapper {
   width: 75vw;
   margin: 0 auto; }
+  @media (max-width: 500px) {
+    .search-content .search-wrapper {
+      width: 90vw; } }
 
 .search-content .first-item {
   display: flex;

@@ -74,6 +74,7 @@ $imgRes = mysqli_query($conn,$imgsql);
 <html >
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
   <title><?php echo $storyRow['title']; ?></title>
   <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/style.css">
