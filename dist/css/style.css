@@ -9840,24 +9840,33 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 50px; }
-  .story-card-location .story-card {
-    width: 48%;
-    height: 45vh;
-    background: #ddd;
-    display: block;
-    margin-bottom: 3vh;
-    border-radius: 10px; }
-    .story-card-location .story-card:nth-of-type(2n) {
-      margin-left: 4%; }
-    .story-card-location .story-card .story-title {
-      text-align: center;
-      margin-top: 2vh; }
-    .story-card-location .story-card .story-card-image {
-      margin-top: 2vh;
-      width: 50%;
-      height: 50%;
-      margin-left: 25%;
-      border-radius: 500px; }
+  @media (min-width: 401px) {
+    .story-card-location .story-card {
+      width: 48%;
+      height: 45vh;
+      background: #ddd;
+      display: block;
+      margin-bottom: 3vh;
+      border-radius: 10px; }
+      .story-card-location .story-card:nth-of-type(2n) {
+        margin-left: 4%; } }
+  @media (max-width: 400px) {
+    .story-card-location .story-card {
+      width: 100%;
+      height: 50vh;
+      background: #ddd;
+      display: block;
+      margin-bottom: 3vh;
+      border-radius: 10px; } }
+  .story-card-location .story-card .story-title {
+    text-align: center;
+    margin-top: 2vh; }
+  .story-card-location .story-card .story-card-image {
+    margin-top: 2vh;
+    width: 50%;
+    height: 50%;
+    margin-left: 25%;
+    border-radius: 500px; }
 
 .search-story-card-location {
   margin-top: 5vh;
@@ -9903,6 +9912,9 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   margin-top: 6vh;
   margin-left: 15vw;
   overflow: hidden; }
+  @media (max-width: 400px) {
+    #page-content {
+      margin-left: 0; } }
 
 .title {
   font-size: 25x;
@@ -9924,6 +9936,9 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
       text-align: right;
       padding: 1vh 0;
       margin-right: 2vw; }
+      @media (max-width: 400px) {
+        #top-bar .user-bar .user-name {
+          font-size: 1em; } }
       #top-bar .user-bar .user-name a {
         color: #fff; }
       #top-bar .user-bar .user-name:before {
@@ -9938,6 +9953,9 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   width: 15vw;
   position: fixed;
   z-index: 100; }
+  @media (max-width: 400px) {
+    #side-bar {
+      display: none; } }
   #side-bar a {
     color: #fff;
     display: block;
@@ -9978,6 +9996,9 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   height: 50vh;
   display: block;
   position: relative; }
+  @media (max-width: 400px) {
+    .profile-header {
+      width: 100vw; } }
   .profile-header .profile-picture {
     border-radius: 75px;
     height: 150px;
@@ -9989,6 +10010,9 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
     position: absolute;
     top: 80%;
     left: 40%; }
+    @media (max-width: 400px) {
+      .profile-header .count-bg {
+        left: 30%; } }
     .profile-header .count-bg .story-count {
       color: #fff;
       font-size: 1.4em; }
@@ -9997,6 +10021,10 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   width: 50vw;
   margin-left: 17vw;
   margin-top: 50px; }
+  @media (max-width: 400px) {
+    .profile-details {
+      width: 80vw;
+      margin-left: 10vw; } }
 
 .profile-heading {
   font-size: 25px;

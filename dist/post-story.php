@@ -72,13 +72,7 @@ endif;
 
 	<!-- Main content -->
 	<div id="main-content">
-		<nav id="side-bar">
-			<ul>
-        <li class="profile"><a href="profile.php"><i class="fa fa-list-ul" aria-hidden="true"></i> My Account</a></li>
-        <li class="post-story active"><a href="post-story.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Post Story</a></li>
-        <li class="profile"><a href="search.php"><i class="fa fa-search" aria-hidden="true"></i> Search Stories</a></li>
-			</ul>
-		</nav>
+		<?php include('php/side-bar.php'); ?>
 		<article id="page-content">
 			<div id="post-story">
 				<div class="title-wrapper">

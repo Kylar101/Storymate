@@ -26,6 +26,7 @@ if (!$countResult) {
 <html >
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
   <title>Profile</title>
   <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"> -->
@@ -49,13 +50,9 @@ if (!$countResult) {
 
 	<!-- Main content -->
 	<div id="main-content">
-		<nav id="side-bar">
-			<ul>
-				<li class="profile"><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i> My Account</a></li>
-				<li class="post-story"><a href="post-story.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Post Story</a></li>
-				<li class="post-story"><a href="search.php"><i class="fa fa-search" aria-hidden="true"></i> Search Stories</a></li>
-			</ul>
-		</nav>
+
+		<?php include('php/side-bar.php'); ?>
+
 		<article id="page-content">
 			<div class="profile-header">
 				<img src="img/profile-pic.gif" class="profile-picture">
@@ -141,7 +138,7 @@ if (!$countResult) {
 
 						?>
 						<div class="story-card">
-							<img src="<?php echo $path; ?>" class="story-card-image">
+							<a href=view-story.php?storyID=<?php echo $stories['storyID'] ?>> <img src="<?php echo $path; ?>" class="story-card-image"> </a>
 							<h5 class="story-title"><?php echo $stories['title']; ?></h5>
 							<div class="story-card-buttons">
 								<a href=view-story.php?storyID=<?php echo $stories['storyID'] ?> class="view-button card-icons"><i class="fa fa-eye" aria-hidden="true"></i></a>

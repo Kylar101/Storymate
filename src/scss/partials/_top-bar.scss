@@ -12,6 +12,9 @@
 			text-align: right;
 			padding: 1vh 0;
 			margin-right: 2vw;
+			@media (max-width: 400px) {
+				font-size: 1em;
+			}
 			a {
 				color: #fff;
 			}
