@@ -44,7 +44,7 @@ if (!$result) {
 }
 
 
-$target_dir = "../uploads/";
+$target_dir = "./uploads/";
 foreach($_FILES['images']['name'] as $k=>$name){
 
 	$imgname = $_FILES['images']['name'][$k];

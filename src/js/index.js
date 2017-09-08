@@ -12,6 +12,24 @@ var currentUrl = utils.getUrl();
 // apply active dashboard class
 window.onload = function() {
   utils.activeDashabordItem(currentUrl);
+
+  $( ".cross" ).hide();
+  $( "#side-bar-mobile" ).hide();
+  $( ".hamburger" ).click(function() {
+    $( "#side-bar-mobile" ).slideToggle( "slow", function() {
+      $( ".hamburger" ).hide();
+      $( ".cross" ).show();
+    });
+  });
+
+  $( ".cross" ).click(function() {
+    $( "#side-bar-mobile" ).slideToggle( "slow", function() {
+      $( ".cross" ).hide();
+      $( ".hamburger" ).show();
+    });
+  });
+
+  
 }
 
 

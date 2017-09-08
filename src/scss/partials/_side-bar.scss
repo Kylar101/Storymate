@@ -32,3 +32,35 @@
 		}
 	}
 }
+
+#side-bar-mobile {
+	background: $dark-blue;
+	margin-top: 6vh;
+	height: 94vh;
+	width: 100vw;
+	position: fixed;
+	z-index: 100;
+	a {
+		color: #fff;
+		display: block;
+		padding: 5px 25px;
+		&:hover {
+			text-decoration: none;
+			background: $main-dark;
+			color: $dark-blue;
+		}	
+	}
+	ul {
+		list-style-type: none;
+		padding-left: 0;
+		margin-top: 5vh;
+	}
+	.active a {
+		background: $main;
+		color: $dark-blue;
+		&:hover {
+			color: #fff;
+			background: $main-light;
+		}
+	}
+}

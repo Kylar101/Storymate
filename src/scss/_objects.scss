@@ -114,22 +114,24 @@
 	margin-bottom: 50px;
 	.story-card {
 		@media (min-width: 401px) {
-			@include card(48%, 45vh, $gray);
+			@include card(48%, auto, $gray);
 			&:nth-of-type(2n) {
 				@include not-first-card(4%);
 			}	
 		}
 		@media (max-width: 400px) {
-			@include card(100%, 50vh, $gray);		
+			@include card(100%, auto, $gray);		
 		}
 		.story-title {
 			text-align: center;
 			margin-top: 2vh;
 		}
 		.story-card-image {
-			margin-top: 2vh;
-			// width: 50%;
-			// height: 50%;
+			// margin-top: 2vh;
+			width: 100%;
+			height: auto;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
 			// margin-left: 25%;
 			// border-radius: 500px;
 		}

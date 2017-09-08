@@ -10394,6 +10394,22 @@ var currentUrl = _utils2.default.getUrl();
 // apply active dashboard class
 window.onload = function () {
   _utils2.default.activeDashabordItem(currentUrl);
+
+  $(".cross").hide();
+  $("#side-bar-mobile").hide();
+  $(".hamburger").click(function () {
+    $("#side-bar-mobile").slideToggle("slow", function () {
+      $(".hamburger").hide();
+      $(".cross").show();
+    });
+  });
+
+  $(".cross").click(function () {
+    $("#side-bar-mobile").slideToggle("slow", function () {
+      $(".cross").hide();
+      $(".hamburger").show();
+    });
+  });
 };
 
 if (currentUrl.includes('profile')) {

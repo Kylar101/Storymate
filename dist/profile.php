@@ -43,6 +43,10 @@ if (!$countResult) {
 	<header>
 		<section id="top-bar">
 			<div class="user-bar">
+				<div id="hamburger-menu">
+					<button class="hamburger">&#9776;</button>
+					<button class="cross">&#735;</button>
+				</div>
 				<p class="user-name"><?php echo $row['firstName'] .' '. $row['lastName']; ?></p>
 			</div>
 		</section>
