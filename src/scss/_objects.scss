@@ -128,10 +128,10 @@
 		}
 		.story-card-image {
 			margin-top: 2vh;
-			width: 50%;
-			height: 50%;
-			margin-left: 25%;
-			border-radius: 500px;
+			// width: 50%;
+			// height: 50%;
+			// margin-left: 25%;
+			// border-radius: 500px;
 		}
 	}
 }
@@ -146,13 +146,6 @@
 		&:hover {
 			background: $dark-search-blue;
 		}
-		&:nth-of-type(2n) {
-			@include not-first-card(5%);
-		}
-
-		&:nth-of-type(3n) {
-			@include not-first-card(5%);
-		}
 		.story-title {
 			text-align: center;
 			margin-top: 2vh;
@@ -160,13 +153,6 @@
 		.author-name {
 			text-align: center;
 			font-size: 1.3em;
-		}
-		.story-card-image {
-			margin-top: 2vh;
-			width: 50%;
-			height: 50%;
-			margin-left: 25%;
-			border-radius: 500px;
 		}
 		.story-extra {
 			display: flex;

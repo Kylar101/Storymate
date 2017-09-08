@@ -9862,11 +9862,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
     text-align: center;
     margin-top: 2vh; }
   .story-card-location .story-card .story-card-image {
-    margin-top: 2vh;
-    width: 50%;
-    height: 50%;
-    margin-left: 25%;
-    border-radius: 500px; }
+    margin-top: 2vh; }
 
 .search-story-card-location {
   margin-top: 5vh;
@@ -9882,22 +9878,12 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
     border-radius: 10px; }
     .search-story-card-location .story-card:hover {
       background: #64c0ed; }
-    .search-story-card-location .story-card:nth-of-type(2n) {
-      margin-left: 5%; }
-    .search-story-card-location .story-card:nth-of-type(3n) {
-      margin-left: 5%; }
     .search-story-card-location .story-card .story-title {
       text-align: center;
       margin-top: 2vh; }
     .search-story-card-location .story-card .author-name {
       text-align: center;
       font-size: 1.3em; }
-    .search-story-card-location .story-card .story-card-image {
-      margin-top: 2vh;
-      width: 50%;
-      height: 50%;
-      margin-left: 25%;
-      border-radius: 500px; }
     .search-story-card-location .story-card .story-extra {
       display: flex;
       width: 61%;
