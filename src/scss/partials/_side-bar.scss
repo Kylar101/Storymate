@@ -44,6 +44,9 @@
 		color: #fff;
 		display: block;
 		padding: 5px 25px;
+		@media (max-width: 400px) {
+			font-size: 2em;
+		}
 		&:hover {
 			text-decoration: none;
 			background: $main-dark;

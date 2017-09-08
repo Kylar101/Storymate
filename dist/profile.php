@@ -55,7 +55,7 @@ if (!$countResult) {
 	<!-- Main content -->
 	<div id="main-content">
 
-		<?php include('php/side-bar.php'); ?>
+		<?php include('includes/side-bar.php'); ?>
 
 		<article id="page-content">
 			<div class="profile-header">

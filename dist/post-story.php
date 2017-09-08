@@ -72,7 +72,7 @@ endif;
 
 	<!-- Main content -->
 	<div id="main-content">
-		<?php include('php/side-bar.php'); ?>
+		<?php include('includes/side-bar.php'); ?>
 		<article id="page-content">
 			<div id="post-story">
 				<div class="title-wrapper">

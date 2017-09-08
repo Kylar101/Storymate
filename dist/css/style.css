@@ -10008,6 +10008,9 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
     color: #fff;
     display: block;
     padding: 5px 25px; }
+    @media (max-width: 400px) {
+      #side-bar-mobile a {
+        font-size: 2em; } }
     #side-bar-mobile a:hover {
       text-decoration: none;
       background: #036597;
