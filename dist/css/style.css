@@ -9850,7 +9850,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
       border-radius: 10px; }
       .story-card-location .story-card:nth-of-type(2n) {
         margin-left: 4%; } }
-  @media (max-width: 400px) {
+  @media (max-width: 500px) {
     .story-card-location .story-card {
       width: 100%;
       height: auto;
@@ -9901,7 +9901,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   margin-top: 6vh;
   margin-left: 15vw;
   overflow: hidden; }
-  @media (max-width: 400px) {
+  @media (max-width: 500px) {
     #page-content {
       margin-left: 0; } }
 
@@ -9917,17 +9917,23 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   height: 6vh;
   position: fixed;
   z-index: 100; }
+  @media (max-width: 500px) {
+    #top-bar {
+      height: 10vh; } }
   #top-bar .user-bar {
     width: 70%;
     margin: 0 auto;
     color: #fff; }
+    @media (max-width: 500px) {
+      #top-bar .user-bar {
+        width: 90%; } }
     #top-bar .user-bar .user-name {
       text-align: right;
       padding: 1vh 0;
       margin-right: 2vw; }
-      @media (max-width: 400px) {
+      @media (max-width: 500px) {
         #top-bar .user-bar .user-name {
-          font-size: 1em; } }
+          font-size: 1.5em; } }
       #top-bar .user-bar .user-name a {
         color: #fff; }
       #top-bar .user-bar .user-name:before {
@@ -9938,25 +9944,25 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 #hamburger-menu .hamburger {
   background: none;
   position: absolute;
-  top: -10px;
+  top: -5px;
   left: 0;
   line-height: 45px;
   padding: 5px 15px 0px 15px;
   color: #fff;
   border: 0;
-  font-size: 1.4em;
+  font-size: 1.5em;
   font-weight: bold;
   cursor: pointer;
   outline: none;
   z-index: 10000000000000; }
-  @media (min-width: 401px) {
+  @media (min-width: 501px) {
     #hamburger-menu .hamburger {
       display: none; } }
 
 #hamburger-menu .cross {
   background: none;
   position: absolute;
-  top: -10px;
+  top: -5px;
   left: 0;
   padding: 7px 15px 0px 15px;
   color: #fff;
@@ -9975,7 +9981,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   width: 15vw;
   position: fixed;
   z-index: 100; }
-  @media (max-width: 400px) {
+  @media (max-width: 500px) {
     #side-bar {
       display: none; } }
   #side-bar a {
@@ -9999,7 +10005,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 
 #side-bar-mobile {
   background: #132330;
-  margin-top: 6vh;
+  margin-top: 9vh;
   height: 94vh;
   width: 100vw;
   position: fixed;
@@ -10008,7 +10014,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
     color: #fff;
     display: block;
     padding: 5px 25px; }
-    @media (max-width: 400px) {
+    @media (max-width: 500px) {
       #side-bar-mobile a {
         font-size: 2em; } }
     #side-bar-mobile a:hover {
@@ -10047,7 +10053,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   height: 50vh;
   display: block;
   position: relative; }
-  @media (max-width: 400px) {
+  @media (max-width: 500px) {
     .profile-header {
       width: 100vw; } }
   .profile-header .profile-picture {
@@ -10061,7 +10067,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
     position: absolute;
     top: 80%;
     left: 40%; }
-    @media (max-width: 400px) {
+    @media (max-width: 500px) {
       .profile-header .count-bg {
         left: 30%; } }
     .profile-header .count-bg .story-count {
@@ -10072,7 +10078,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   width: 50vw;
   margin-left: 17vw;
   margin-top: 50px; }
-  @media (max-width: 400px) {
+  @media (max-width: 500px) {
     .profile-details {
       width: 80vw;
       margin-left: 10vw; } }
@@ -10317,12 +10323,24 @@ textarea {
 #post-story {
   margin-left: 13vw;
   width: 55vw; }
+  @media (max-width: 500px) {
+    #post-story {
+      margin-left: 10vw;
+      width: 80vw; } }
+  @media (max-width: 500px) {
+    #post-story .title-wrapper {
+      padding-top: 10px; } }
 
 .story-type-button {
   background: #132330;
   color: #fff;
   cursor: pointer;
   width: 125px; }
+  @media (max-width: 500px) {
+    .story-type-button {
+      width: 100%;
+      margin-bottom: 5px;
+      font-size: 1.5em; } }
   .story-type-button:hover {
     background: #294b67;
     color: #fff; }
@@ -10365,7 +10383,7 @@ textarea {
   .post-form #audioID {
     display: none; }
   .post-form input[type="text"] {
-    height: 7vh; }
+    height: 6vh; }
   .post-form .small-label {
     font-size: 22px; }
     .post-form .small-label .req {
@@ -10406,9 +10424,17 @@ textarea {
 .edit-image-wrapper {
   clear: both;
   margin-bottom: 20px; }
+  .edit-image-wrapper .image-wrapper {
+    display: flex;
+    flex-wrap: wrap; }
+    .edit-image-wrapper .image-wrapper .image-container {
+      width: 50%; }
+      @media (max-width: 500px) {
+        .edit-image-wrapper .image-wrapper .image-container {
+          width: 100%;
+          margin-bottom: 5px; } }
   .edit-image-wrapper .edit-story-image {
-    margin-right: 5%;
-    width: 20%; }
+    width: 90%; }
 
 .new-users-location .new-users {
   display: flex;

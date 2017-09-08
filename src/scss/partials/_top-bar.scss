@@ -2,18 +2,24 @@
 	background: $dark-blue;
 	width: 100%;
 	height: 6vh;
+	@media (max-width: 500px ) {
+		height: 10vh;
+	}
 	position: fixed;
 	z-index: 100;
 	.user-bar {
 		width: 70%;
+		@media (max-width: 500px ) {
+			width: 90%;
+		}
 		margin: 0 auto;
 		color: #fff;
 		.user-name {
 			text-align: right;
 			padding: 1vh 0;
 			margin-right: 2vw;
-			@media (max-width: 400px) {
-				font-size: 1em;
+			@media (max-width: 500px) {
+				font-size: 1.5em;
 			}
 			a {
 				color: #fff;
@@ -29,18 +35,18 @@
 
 #hamburger-menu {
 	.hamburger{
-		@media (min-width: 401px) {
+		@media (min-width: 501px) {
 			display: none;
 		}
 		background:none;
 		position:absolute;
-		top:-10px;
+		top:-5px;
 		left:0;
 		line-height:45px;
 		padding:5px 15px 0px 15px;
 		color:#fff;
 		border:0;
-		font-size:1.4em;
+		font-size:1.5em;
 		font-weight:bold;
 		cursor:pointer;
 		outline:none;
@@ -49,7 +55,7 @@
 	.cross{
 		background:none;
 		position:absolute;
-		top:-10px;
+		top:-5px;
 		left:0;
 		padding:7px 15px 0px 15px;
 		color:#fff;

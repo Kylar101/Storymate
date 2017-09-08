@@ -24,32 +24,15 @@ if (!$countResult) {
 
 <!DOCTYPE html>
 <html >
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Profile</title>
-  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"> -->
-  <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
-  <!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
-  <link rel="stylesheet" href="css/style.css">
 
-
-</head>
+<html>
+	<?php include 'includes/head.php'; ?>
 
 <body>
 
 	<!-- Top bar -->
 	<header>
-		<section id="top-bar">
-			<div class="user-bar">
-				<div id="hamburger-menu">
-					<button class="hamburger">&#9776;</button>
-					<button class="cross">&#735;</button>
-				</div>
-				<p class="user-name"><?php echo $row['firstName'] .' '. $row['lastName']; ?></p>
-			</div>
-		</section>
+		<?php include('includes/top-bar.php'); ?>
 	</header>
 
 	<!-- Main content -->

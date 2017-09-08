@@ -1,9 +1,16 @@
 #post-story {
 	margin-left: 13vw;
 	width: 55vw;
+	@media (max-width: 500px) {
+		margin-left: 10vw;
+		width: 80vw;
+	}
+	.title-wrapper {
+		@media (max-width: 500px) {
+			padding-top: 10px;
+		}
+	}
 }
-
-//Added by renzo for button "Save Draft"
 
 
 
@@ -12,6 +19,11 @@
 	color: #fff;
 	cursor: pointer;
 	width: 125px;
+	@media (max-width: 500px) {
+		width: 100%;
+		margin-bottom: 5px;
+		font-size: 1.5em;
+	}
 	&:hover {
 		background: $lighter-dark-blue;
 		color: #fff;
@@ -71,7 +83,7 @@
 		display: none;
 	}
 	input[type="text"] {
-		height:7vh;
+		height:6vh;
 	}
 	.small-label {
 		font-size:22px;
@@ -127,8 +139,19 @@
 .edit-image-wrapper {
 	clear: both;
 	margin-bottom: 20px;
+	.image-wrapper {
+		display: flex;
+		flex-wrap:wrap;
+		.image-container {
+			width: 50%;
+			@media (max-width: 500px) {
+				width: 100%;
+				margin-bottom: 5px;
+			}
+		}
+	}
 	.edit-story-image {
-		margin-right: 5%;
-		width: 20%;
+		// margin-right: 5%;
+		width: 90%;
 	}
 }
