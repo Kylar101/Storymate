@@ -1,6 +1,24 @@
 #front-content {
 	display: flex;
 	// flex-wrap: wrap;
+	position: relative;
+	.to-search {
+		position: absolute;
+		top: 8vh;
+		@media (max-width:500px) {
+			top: 13vh;
+		}
+		left: 3vw;
+		z-index: 9999;
+		a {
+			color: #fff;
+		}
+		&:before {
+			content: '\f060';
+			color: #fff;
+			font-family: 'FontAwesome';
+		}
+	}
 }
 
 .story-content {
@@ -18,7 +36,7 @@
 	.slider {
 		padding-top: 6vh;
 		@media (max-width: 500px) {
-			padding-top: 8vh;
+			padding-top: 12vh;
 		}
 		button.slick-prev.slick-arrow {
 			left: 20px;

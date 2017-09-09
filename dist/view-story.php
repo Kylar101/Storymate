@@ -115,6 +115,9 @@ $imgRes = mysqli_query($conn,$imgsql);
 				</div>
 			</div>
 		<article id="front-content">
+			<div class="to-search">
+				<a href="search.php">Back to search</a>
+			</div>
 			<div class="story-content">
 			<div class="slider">
 			        <?php
