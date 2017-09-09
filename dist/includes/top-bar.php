@@ -12,6 +12,6 @@
 						<button class="cross">&#735;</button>
 					</div>
 				<?php endif; ?>
-				<p class="user-name"><?php echo $row['firstName'] .' '. $row['lastName']; ?></p>
+				<p class="user-name"><a href="profile.php"><?php echo $row['firstName'] .' '. $row['lastName']; ?></a></p>
 			</div>
 		</section>

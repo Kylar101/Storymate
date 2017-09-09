@@ -39,7 +39,7 @@ $row = mysqli_fetch_array($userRes);
 					</form>
 
           <div class="search-advanced">
-						<p class="advance-button">Advanced Search</p>
+						<!-- <p class="advance-button">Advanced Search</p> -->
 						<div class="advanced-search-options">
 							<div class="categories">
 								<button type="button" class="btn advanced-options-button" data-type="lifestyle"><span>Lifestyle</span></button>
@@ -75,9 +75,9 @@ $row = mysqli_fetch_array($userRes);
 
 				?>
 						<div class="first-item">
-							<img src="<?php echo $path; ?>">
+							<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" ><img src="<?php echo $path; ?>"></a>
 							<div class="story-info">
-								<h3 class="title"><?php echo $stories['title']; ?></h3>
+								<h3 class="story-title"><?php echo $stories['title']; ?></h3>
 								<p class="excerpt"><?php echo $stories['description']; ?></p>
 								<h4 class="author-name"><?php echo $stories['firstName'].' '.$stories['lastName'] ?></h4>
 								<div class="story-extra">
@@ -111,7 +111,7 @@ $row = mysqli_fetch_array($userRes);
 
 					?>
 					<div class="first-item">
-							<img src="<?php echo $path; ?>">
+							<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" ><img src="<?php echo $path; ?>"></a>
 							<div class="story-info">
 								<h3 class="title"><?php echo $stories['title']; ?></h3>
 								<p class="excerpt"><?php echo $stories['description']; ?></p>
