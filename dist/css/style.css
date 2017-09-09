@@ -10145,7 +10145,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
         font-family: 'FontAwesome';
         margin-right: 5px; }
 
-#hamburger-menu .hamburger {
+#hamburger-menu .hamburger, #hamburger-menu .author-hamburger, #author-hamburger-menu .hamburger, #author-hamburger-menu .author-hamburger {
   background: none;
   position: absolute;
   top: -5px;
@@ -10160,10 +10160,10 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   outline: none;
   z-index: 10000000000000; }
   @media (min-width: 501px) {
-    #hamburger-menu .hamburger {
+    #hamburger-menu .hamburger, #hamburger-menu .author-hamburger, #author-hamburger-menu .hamburger, #author-hamburger-menu .author-hamburger {
       display: none; } }
 
-#hamburger-menu .cross {
+#hamburger-menu .cross, #hamburger-menu .author-cross, #author-hamburger-menu .cross, #author-hamburger-menu .author-cross {
   background: none;
   position: absolute;
   top: -5px;
@@ -10741,23 +10741,31 @@ textarea {
     width: 100%;
     max-height: 500px; }
 
-.author-details {
+@media (max-width: 500px) {
+  .author-details {
+    display: none; } }
+
+.author-details, #author-mobile {
   width: 25vw;
   position: relative;
   text-align: center; }
   @media (max-width: 500px) {
-    .author-details {
-      width: 100vw; } }
-  .author-details .details {
+    .author-details, #author-mobile {
+      width: 100vw;
+      z-index: 999; } }
+  .author-details .details, #author-mobile .details {
     position: absolute;
     top: 25vh;
     left: 1vw; }
-    .author-details .details .description {
+    .author-details .details .description, #author-mobile .details .description {
       width: 75%;
       margin: 0 auto; }
-    .author-details .details .stay {
+    .author-details .details .stay, #author-mobile .details .stay {
       position: fixed; }
-  .author-details img {
+      @media (max-width: 500px) {
+        .author-details .details .stay, #author-mobile .details .stay {
+          position: static; } }
+  .author-details img, #author-mobile img {
     border-radius: 50px;
     width: 100px;
     height: auto; }

@@ -88,6 +88,10 @@ $imgRes = mysqli_query($conn,$imgsql);
 	<header>
 		<section id="top-bar">
 			<div class="user-bar">
+				<div id="author-hamburger-menu">
+					<button class="author-hamburger">&#9776;</button>
+					<button class="author-cross">&#735;</button>
+				</div>
 				<p class="user-name"><a href="profile.php"><?php echo $row['firstName'].' '. $row['lastName']; ?></a></p>
 			</div>
 		</section>
@@ -95,6 +99,21 @@ $imgRes = mysqli_query($conn,$imgsql);
 
 	<!-- Main content -->
 	<div id="main-content-front">
+
+			<div id="author-mobile">
+				<div class="details">
+					<div class="stay">
+						<img src="img/profile-pic.gif" class="profile-picture">
+						<h4 class="author-name"><?php echo $authorRow['firstName']; echo " "; echo $authorRow['lastName']; ?></h4>
+						<p class="description"><?php echo $storyRow['description']; ?></p>
+						<?php if ($followingRow['follows'] != 1) : ?>
+						<a href="php/follow-processing.php?storyID=<?php echo $curstoryID; ?>&authorID=<?php echo $authorRow['userID']; ?>&follow=1" class="btn view-button"><i class="fa fa-eye" aria-hidden="true"></i> Follow</a>
+						<?php else : ?>
+						<a href="php/follow-processing.php?storyID=<?php echo $curstoryID; ?>&authorID=<?php echo $authorRow['userID']; ?>&follow=0" class="btn view-button"><i class="fa fa-eye" aria-hidden="true"></i> Unfollow</a>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
 		<article id="front-content">
 			<div class="story-content">
 			<div class="slider">

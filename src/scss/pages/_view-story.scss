@@ -64,9 +64,16 @@
 }
 
 .author-details {
+	@media (max-width: 500px) {
+		display: none;
+	}
+}
+
+.author-details, #author-mobile {
 	width: 25vw;
 	@media (max-width: 500px) {
 		width: 100vw;
+		z-index: 999;
 	}
 	position: relative;
 	text-align: center;
@@ -80,6 +87,9 @@
 		}
 		.stay {
 			position: fixed;
+			@media (max-width: 500px) {
+				position: static;
+			}
 		}
 	}
 	img {

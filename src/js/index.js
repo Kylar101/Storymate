@@ -38,6 +38,8 @@ if (currentUrl.includes('view-story')) {
     autoplay: true,
     autoplaySpeed: 5000,
   });
+  $( ".author-cross" ).hide();
+  // $( "#author-mobile" ).hide();
 }
 
 
