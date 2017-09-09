@@ -10516,6 +10516,13 @@ textarea {
   .forgot a {
     color: #fff; }
 
+.incorrect {
+  margin-top: -20px;
+  margin-bottom: 30px;
+  font-size: 1.2em;
+  text-align: center;
+  color: #fff; }
+
 .terms-conditions-link {
   color: #0498e2;
   cursor: pointer; }

@@ -2,6 +2,10 @@
 session_start();
 include('php/connector.php');
 
+if (!isset($_SESSION['login_user'])) {
+	header('location: ./index.php');
+}
+
 $username = $_SESSION['login_user'];
 
 $getID = "SELECT userID FROM users WHERE email = '$username'";
@@ -116,7 +120,7 @@ $imgRes = mysqli_query($conn,$imgsql);
 			</div>
 		<article id="front-content">
 			<div class="to-search">
-				<a href="search.php">Back to search</a>
+				<a onclick="window.history.go(-1); return false;">Back to search</a>
 			</div>
 			<div class="story-content">
 			<div class="slider">
