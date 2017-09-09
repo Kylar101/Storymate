@@ -28,7 +28,8 @@
   	}
   	else
   	{
-  		$error = "Your username or pasword is invalid";
+  		$echo = "Your username or pasword is invalid";
+      header("location: ../index.php?login=true");
   	}
 
 ?>

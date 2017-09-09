@@ -102,7 +102,6 @@ if (!$countResult) {
 						</form>
 					</div>
 				</div>
-				<hr/>
 				<div class="my-stories">
 					<h2 class="profile-heading">My Stories</h2>
 					<div class="story-card-location">
