@@ -43,22 +43,22 @@ if ($old_images != null) {
 
 $target_dir = "./uploads/";
 foreach($_FILES['images']['name'] as $k=>$name){
+
 	$imgname = $_FILES['images']['name'][$k];
 
-	$targetimg = $target_dir . basename($imgname);
+	$targetimg = basename($imgname);
 	
 	$tmpname=$_FILES['images']['tmp_name'][$k];
-	move_uploaded_file($tmpname,$targetimg);
-
+	move_uploaded_file('.'.$target_dir.$tmpname,$targetimg);
 	if ($_FILES['images']['name'][$k] != '') {
-		$imgsql = "INSERT INTO images (imagepath, storyID) VALUES ('$targetimg', $storyID)";
+		$filepath = $target_dir.$targetimg;
+		$imgsql = "INSERT INTO images (imagepath, storyID) VALUES ('$filepath', $storyID)";
 		$result = mysqli_query($conn,$imgsql);
 
 		if (!$result) {
 		    die(mysqli_error($conn));
 		}
 	}
-	
 }
 
 
