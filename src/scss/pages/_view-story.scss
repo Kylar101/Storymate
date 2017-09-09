@@ -22,7 +22,7 @@
 		}
 		button.slick-prev.slick-arrow {
 			left: 20px;
-			z-index: 999;
+			z-index: 9;
 		}
 		button.slick-next.slick-arrow {
 		    right: 15px;
@@ -80,15 +80,26 @@
 	.details {
 		position: absolute;
 		top: 25vh;
-		left: 1vw;
+		left: 7vw;
+		@media (max-width: 500px) {
+		    top: 8vh;
+		    width: 100vw;
+		    height: 70vw;
+		    background: $dark-blue;
+		    z-index: 9999999999999;
+		    left: 0;
+		}
 		.description {
 			width: 75%;
 			margin: 0 auto;
+			margin-bottom: 10px;
 		}
 		.stay {
 			position: fixed;
 			@media (max-width: 500px) {
 				position: static;
+				margin-top: 5vh;
+				color: #fff;
 			}
 		}
 	}
