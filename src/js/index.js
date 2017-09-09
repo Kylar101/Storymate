@@ -2,6 +2,7 @@ var $ = require("jquery");
 import utils from './inc/utils.js';
 import bsn from 'bootstrap.native';
 import './inc/audioRecorder';
+import './inc/slick.min';
 
 // -----------------------------------------------------------
 // ---------------------- Functionality ----------------------
@@ -12,6 +13,31 @@ var currentUrl = utils.getUrl();
 // apply active dashboard class
 window.onload = function() {
   utils.activeDashabordItem(currentUrl);
+
+  $( ".cross" ).hide();
+  $( "#side-bar-mobile" ).hide();
+  $( ".hamburger" ).click(function() {
+    $( "#side-bar-mobile" ).slideToggle( "slow", function() {
+      $( ".hamburger" ).hide();
+      $( ".cross" ).show();
+    });
+  });
+
+  $( ".cross" ).click(function() {
+    $( "#side-bar-mobile" ).slideToggle( "slow", function() {
+      $( ".cross" ).hide();
+      $( ".hamburger" ).show();
+    });
+  });
+
+  
+}
+
+if (currentUrl.includes('view-story')) {
+  $('.slider').slick({
+    autoplay: true,
+    autoplaySpeed: 5000,
+  });
 }
 
 
@@ -25,6 +51,12 @@ if (currentUrl.includes('profile')) {
     document.querySelector('#change-user-details').classList.remove('show')
     document.querySelector('.my-details').classList.remove('hide')
   })
+}
+
+if (currentUrl.includes('search')) {
+  $(".excerpt").text(function(index, currentText) {
+     return currentText.substr(0, 50);
+  });
 }
 
 // adds float labels

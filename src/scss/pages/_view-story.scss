@@ -1,10 +1,33 @@
 #front-content {
 	display: flex;
+	// flex-wrap: wrap;
 }
 
 .story-content {
 	width: 75vw;
+	@media (max-width: 500px) {
+		width: 100vw;
+	}
 	height: auto;
+	.slider-image {
+		height: 60vh;
+		@media (max-width: 500px) {
+			height: 30vh;
+		}
+	}
+	.slider {
+		padding-top: 6vh;
+		@media (max-width: 500px) {
+			padding-top: 8vh;
+		}
+		button.slick-prev.slick-arrow {
+			left: 20px;
+			z-index: 999;
+		}
+		button.slick-next.slick-arrow {
+		    right: 15px;
+		}
+	}
 	.story-article {
 		h1 {
 			color: $dark-blue;
@@ -42,6 +65,9 @@
 
 .author-details {
 	width: 25vw;
+	@media (max-width: 500px) {
+		width: 100vw;
+	}
 	position: relative;
 	text-align: center;
 	.details {

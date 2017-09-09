@@ -47,38 +47,18 @@ endif;
 ?>
 
 <html>
-
-<head>
-	<meta charset="UTF-8">
-	<title>Profile</title>
-	<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
-	<!-- <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> -->
-	<link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="css/style.css">
-
-
-</head>
+	<?php include 'includes/head.php'; ?>
 
 <body>
 
 	<!-- Top bar -->
 	<header>
-		<section id="top-bar">
-			<div class="user-bar">
-				<p class="user-name"><a href="profile.php"><?php echo $row['firstName'].' '. $row['lastName']; ?></a></p>
-			</div>
-		</section>
+		<?php include('includes/top-bar.php'); ?>
 	</header>
 
 	<!-- Main content -->
 	<div id="main-content">
-		<nav id="side-bar">
-			<ul>
-        <li class="profile"><a href="profile.php"><i class="fa fa-list-ul" aria-hidden="true"></i> My Account</a></li>
-        <li class="post-story active"><a href="post-story.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Post Story</a></li>
-        <li class="profile"><a href="search.php"><i class="fa fa-search" aria-hidden="true"></i> Search Stories</a></li>
-			</ul>
-		</nav>
+		<?php include('includes/side-bar.php'); ?>
 		<article id="page-content">
 			<div id="post-story">
 				<div class="title-wrapper">
@@ -121,8 +101,8 @@ endif;
 							<p class="small-label">
 								Add content <span class="req">*</span>
 							</p>
-			              <button type="button" class="btn story-type-button" data-type="text"><span>Text</span></button>
-			              <button type="button" class="btn story-type-button" data-type="images"><span>Images</span></button>
+			            	<button type="button" class="btn story-type-button" data-type="text"><span>Text</span></button>
+			            	<button type="button" class="btn story-type-button" data-type="images"><span>Images</span></button>
 							<button id="audio-button" type="button" class="btn story-type-button" data-type="audio"><span>Audio</span></button>
 						</div>
 
@@ -149,16 +129,21 @@ endif;
 					        		<h4>Current Images</h4>
 					        		<p>Please select the images you would like to remove</p>
 					        		<input type="checkbox" name="image-updated[]" value="0" style="display: none;" checked="checked">
+					        		<div class="image-wrapper">
 					        	<?php
+
 						        	while($imgrow = mysqli_fetch_array($imgRes)){
 
 						        ?>
-							        <!-- <div class="container"> -->
-						                <input type="checkbox" name="image-updated[]" value="<?php echo $imgrow['imageID']; ?>">
-						                <img class="edit-story-image" src=<?php echo "uploads/" . basename($imgrow['imagepath']); ?> />
-					                <!-- </div> -->
+								        <div class="image-container">
+							                <input type="checkbox" name="image-updated[]" value="<?php echo $imgrow['imageID']; ?>">
+							                <img class="edit-story-image" src=<?php echo "uploads/" . basename($imgrow['imagepath']); ?> />
+						                </div>
 						        <?php
 						    		}
+						    		?>
+									</div>
+						    		<?php
 					    		endif;
 						        ?>
 					        </div>

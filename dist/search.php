@@ -4,30 +4,22 @@ include('php/connector.php');
 $curUser = $_SESSION['login_user'];
 $usersql = "SELECT * FROM users WHERE email = '$curUser'";
 $userRes = mysqli_query($conn,$usersql);
-$userRow = mysqli_fetch_array($userRes);
+$row = mysqli_fetch_array($userRes);
 
 ?>
 
 <!DOCTYPE html>
 <html >
 <head>
-  <meta charset="UTF-8">
-  <title>Search</title>
-  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="css/style.css">
 
-
-</head>
+<html>
+	<?php include 'includes/head.php'; ?>
 
 <body>
 
 	<!-- Top bar -->
 	<header>
-		<section id="top-bar">
-			<div class="user-bar">
-				<p class="user-name"><a href="profile.php"><?php echo $userRow['firstName'].' '.$userRow['lastName']; ?></a></p>
-			</div>
-		</section>
+		<?php include 'includes/top-bar.php'; ?>
 	</header>
 
 	<!-- Main content -->
@@ -47,7 +39,7 @@ $userRow = mysqli_fetch_array($userRes);
 					</form>
 
           <div class="search-advanced">
-						<p class="advance-button">Advanced Search</p>
+						<!-- <p class="advance-button">Advanced Search</p> -->
 						<div class="advanced-search-options">
 							<div class="categories">
 								<button type="button" class="btn advanced-options-button" data-type="lifestyle"><span>Lifestyle</span></button>
@@ -83,9 +75,9 @@ $userRow = mysqli_fetch_array($userRes);
 
 				?>
 						<div class="first-item">
-							<img src="<?php echo $path; ?>">
+							<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" ><img src="<?php echo $path; ?>"></a>
 							<div class="story-info">
-								<h3 class="title"><?php echo $stories['title']; ?></h3>
+								<h3 class="story-title"><?php echo $stories['title']; ?></h3>
 								<p class="excerpt"><?php echo $stories['description']; ?></p>
 								<h4 class="author-name"><?php echo $stories['firstName'].' '.$stories['lastName'] ?></h4>
 								<div class="story-extra">
@@ -119,7 +111,7 @@ $userRow = mysqli_fetch_array($userRes);
 
 					?>
 					<div class="first-item">
-							<img src="<?php echo $path; ?>">
+							<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" ><img src="<?php echo $path; ?>"></a>
 							<div class="story-info">
 								<h3 class="title"><?php echo $stories['title']; ?></h3>
 								<p class="excerpt"><?php echo $stories['description']; ?></p>

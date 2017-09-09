@@ -113,20 +113,27 @@
 	flex-wrap: wrap;
 	margin-bottom: 50px;
 	.story-card {
-		@include card(48%, 45vh, $gray);
-		&:nth-of-type(2n) {
-			@include not-first-card(4%);
+		@media (min-width: 401px) {
+			@include card(48%, auto, $gray);
+			&:nth-of-type(2n) {
+				@include not-first-card(4%);
+			}	
+		}
+		@media (max-width: 500px) {
+			@include card(100%, auto, $gray);		
 		}
 		.story-title {
 			text-align: center;
 			margin-top: 2vh;
 		}
 		.story-card-image {
-			margin-top: 2vh;
-			width: 50%;
-			height: 50%;
-			margin-left: 25%;
-			border-radius: 500px;
+			// margin-top: 2vh;
+			width: 100%;
+			height: auto;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+			// margin-left: 25%;
+			// border-radius: 500px;
 		}
 	}
 }
@@ -141,13 +148,6 @@
 		&:hover {
 			background: $dark-search-blue;
 		}
-		&:nth-of-type(2n) {
-			@include not-first-card(5%);
-		}
-
-		&:nth-of-type(3n) {
-			@include not-first-card(5%);
-		}
 		.story-title {
 			text-align: center;
 			margin-top: 2vh;
@@ -155,13 +155,6 @@
 		.author-name {
 			text-align: center;
 			font-size: 1.3em;
-		}
-		.story-card-image {
-			margin-top: 2vh;
-			width: 50%;
-			height: 50%;
-			margin-left: 25%;
-			border-radius: 500px;
 		}
 		.story-extra {
 			display: flex;
@@ -182,6 +175,9 @@
 #page-content {
 	margin-top: 6vh;
 	margin-left: 15vw;
+	@media (max-width: 500px) {
+		margin-left: 0;
+	}
 	overflow: hidden;
 }
 

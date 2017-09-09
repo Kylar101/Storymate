@@ -9,6 +9,9 @@
 	background-size: cover;
 	background-position: center;
 	width: 85vw;
+	@media (max-width: 500px) {
+		width: 100vw;
+	}
 	height: 50vh;
 	display: block;
 	position: relative;
@@ -24,6 +27,9 @@
 		position: absolute;
 		top: 80%;
 		left: 40%;
+		@media (max-width: 500px) {
+			left: 30%;
+		}
 		.story-count {
 			color: #fff;
 			font-size: 1.4em;
@@ -35,6 +41,10 @@
 .profile-details {
 	width: 50vw;
 	margin-left: 17vw;
+	@media (max-width: 500px) {
+		width: 80vw;
+		margin-left: 10vw;
+	}
 	margin-top: 50px;
 }
 
@@ -162,10 +172,3 @@
 	    flex-wrap: wrap;
 }
 
-.story-card-image {
-    margin-top: 2vh;
-    /* width: 50%; */
-    height: 50%;
-    margin-left: 25%;
-    border-radius: 500px;
-}

@@ -8,10 +8,18 @@
 	height: 55vh;
 	display: block;
 	position: relative;
+	@media (max-width: 500px) {
+		width: 144vw;
+		height: 40vh;
+	}
 	.search-options {
 		position: absolute;
 	    top: 25vh;
 	    left: 30vw;
+	    @media (max-width: 500px) {
+		    top: 20vh;
+		    left: 15vw;
+	    }
 		.form {
 			display: flex;
 		}
@@ -48,6 +56,9 @@
 		}
 		.search-button {
 		    width: 3vw;
+		    @media (max-width: 500px) {
+		    	width: 10vw;
+		    }
 		    border: none;
 		    border-top-right-radius: 5px;
 		    border-bottom-right-radius: 5px;
@@ -109,6 +120,9 @@
 .search-content {
 	.search-wrapper {
 		width: 75vw;
+		@media (max-width: 500px) {
+			width: 144vw;
+		}
 		margin: 0 auto;
 	}
 	.first-item {
@@ -122,6 +136,9 @@
 		}
 		.story-info {
 			margin-left: 4vw;
+			.story-title {
+				margin-top: 5px;
+			}
 			.author-name {
 				&:hover {
 					color: $darker-dark-blue;
@@ -131,6 +148,9 @@
 					text-decoration: none;
 				}
 			}
+			.excerpt {
+
+			}
 			.story-extra {
 				display: flex;
 				.likes .feature-likes {
@@ -139,6 +159,7 @@
 				}
 				.view-story {
 					margin-left: 2vw;
+					margin-bottom: 2vh;
 				}
 			}
 		}
