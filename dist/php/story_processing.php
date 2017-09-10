@@ -44,13 +44,18 @@ if (!$result) {
 }
 
 
-$target_dir = "./uploads/";
+$target_dir = "../uploads/";
 foreach($_FILES['images']['name'] as $k=>$name){
 
 	$imgname = $_FILES['images']['name'][$k];
 
+<<<<<<< HEAD
+	$targetimg = $target_dir . basename($imgname);
+
+=======
 	$targetimg = basename($imgname);
 	
+>>>>>>> renzolocal
 	$tmpname=$_FILES['images']['tmp_name'][$k];
 	move_uploaded_file('.'.$target_dir.$tmpname,$targetimg);
 	if ($_FILES['images']['name'][$k] != '') {

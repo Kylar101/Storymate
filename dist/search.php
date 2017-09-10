@@ -26,6 +26,26 @@ $row = mysqli_fetch_array($userRes);
 	<div id="main-content-front">
 		<article id="front-content search">
 			<div class="search-header">
+
+					<!-- button linked to post story page -->
+					<div class="post-story-search-link">
+						<a href="post-story.php" class="post-story-search-link-button">Post Story</a>
+					</div>
+
+					<!-- Scroll button -->
+					<a href="#title-search-content"><div class="wrap">
+						<div class="circle">
+
+							<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+							viewBox="0 0 25 25" style="enable-background:new 0 0 25 25;" xml:space="preserve">
+							<path class="arrow" d="M21.9644928,8.3267822l-8.0706987,8.0706997c-0.7697706,0.7697716-2.0178175,0.7697716-2.7875881,0
+							L3.0355062,8.3267822"/>
+							</svg>
+						</div>
+					</div>
+				</a>
+
+				<!-- Search bar -->
 				<div class="search-options">
 
           <form class="form" action="search.php" method="POST">
@@ -48,9 +68,14 @@ $row = mysqli_fetch_array($userRes);
 							</div>
 						</div>
 					</div>
+
 				</div>
+
 			</div>
 			<div class="search-content">
+				<div id="title-search-content">
+					<h1>Our Stories</h1>
+				</div>
 				<div class="search-wrapper">
 				<?php
 					if(isset($_POST['search'])){
@@ -77,9 +102,9 @@ $row = mysqli_fetch_array($userRes);
 						<div class="first-item">
 							<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" ><img src="<?php echo $path; ?>"></a>
 							<div class="story-info">
-								<h3 class="story-title"><?php echo $stories['title']; ?></h3>
+								<h2 class="story-title"><?php echo $stories['title']; ?></h2>
 								<p class="excerpt"><?php echo $stories['description']; ?></p>
-								<h4 class="author-name"><?php echo $stories['firstName'].' '.$stories['lastName'] ?></h4>
+								<h5 class="author-name"><?php echo $stories['firstName'].' '.$stories['lastName'] ?></h5>
 								<div class="story-extra">
 									<div class="likes">27 <span class="feature-likes"> <i class="fa fa-thumbs-up" aria-hidden="true"></span></i></div>
 									<a href=view-story.php?storyID=<?php echo $stories['storyID'];?> class="btn comments-button view-story">View Story</a>
@@ -113,12 +138,13 @@ $row = mysqli_fetch_array($userRes);
 					<div class="first-item">
 							<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" ><img src="<?php echo $path; ?>"></a>
 							<div class="story-info">
-								<h3 class="title"><?php echo $stories['title']; ?></h3>
+								<h2 class="title"><?php echo $stories['title']; ?></h2>
 								<p class="excerpt"><?php echo $stories['description']; ?></p>
-								<h4 class="author-name"><?php echo $stories['firstName'].' '.$stories['lastName'] ?></h4>
+								<hr>
+								<h5 class="author-name"><?php echo $stories['firstName'].' '.$stories['lastName'] ?></h5>
 								<div class="story-extra">
 									<div class="likes">27 <span class="feature-likes"> <i class="fa fa-thumbs-up" aria-hidden="true"></span></i></div>
-									<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" class="btn comments-button view-story">View Story</a>
+									<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" class="btn view-button-searched view-story">View Story</a>
 								</div>
 							</div>
 						</div>
@@ -142,8 +168,7 @@ $row = mysqli_fetch_array($userRes);
 		<!-- <p class="copyright">Communify 2017</p> -->
 	</footer>
 
-
-
   <script src="bundle.js"></script>
+
 </body>
 </html>

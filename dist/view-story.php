@@ -119,9 +119,11 @@ $imgRes = mysqli_query($conn,$imgsql);
 				</div>
 			</div>
 		<article id="front-content">
+			<!-- Go back button -->
 			<div class="to-search">
 				<a onclick="window.history.go(-1); return false;">Back to search</a>
 			</div>
+
 			<div class="story-content">
 			<div class="slider">
 			        <?php
@@ -142,10 +144,13 @@ $imgRes = mysqli_query($conn,$imgsql);
 						<p><?php echo $contentsRow['textfield'] ?></p>
 					</div>
 				</div>
+
+
+
 				<div class="story-comments">
 					<h2>Comments</h2>
 
-				<?php 
+				<?php
 
 					while($comment = mysqli_fetch_array($commRes)){
 
@@ -162,6 +167,9 @@ $imgRes = mysqli_query($conn,$imgsql);
 				<?php
 					}
 				?>
+					<hr class="sections-divider">
+					<!-- Add comment form -->
+					<h4>Write a comment</h4>
 					<div class="add-comment">
 						<div class="post-form form">
 							<form action=php/comment_processing.php?storyID=<?php echo $storyRow['storyID'];?> method="post">
@@ -175,7 +183,7 @@ $imgRes = mysqli_query($conn,$imgsql);
 
 								<div class="field-wrap">
 									<label class="post-story text">
-											Comment<span class="req">*</span>
+											Write your comment<span class="req">*</span>
 										</label>
 									<textarea rows="3" name="comment" required></textarea>
 								</div>
@@ -185,7 +193,9 @@ $imgRes = mysqli_query($conn,$imgsql);
 							</form>
 						</div>
 					</div>
-				</div>	
+				</div>
+
+
 			</div>
 			<div class="author-details">
 				<div class="details">
@@ -202,7 +212,7 @@ $imgRes = mysqli_query($conn,$imgsql);
 				</div>
 			</div>
 
-			
+
 		</article>
 	</div>
 

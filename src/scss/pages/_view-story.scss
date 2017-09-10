@@ -56,6 +56,12 @@
 	}
 }
 
+
+.sections-divider{
+	margin-top: 40px;
+	margin-bottom: 50px;
+}
+
 .story-comments {
 	margin: 0 5vw;
 	.comment {
@@ -67,12 +73,12 @@
 		}
 	}
 	.add-comment {
-		margin-top: 20px;
+		margin-top: 30px;
 	}
 }
 
 .story-header {
-	height: 500px; 
+	height: 500px;
 	margin: 6vh 0;
 	display: block;
 	.story-feature-image {
