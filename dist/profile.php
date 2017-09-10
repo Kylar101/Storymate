@@ -106,7 +106,7 @@ if (!$countResult) {
 					<h2 class="profile-heading">My Stories</h2>
 					<div class="story-card-location">
 						<?php
-							$storySQL = "SELECT * FROM stories where authorID = '$currentUser'";
+							$storySQL = "SELECT * FROM stories WHERE authorID = '$currentUser' AND trash = '0'";
 							$fetchStories = mysqli_query($conn,$storySQL);
 
 							while($stories = mysqli_fetch_array($fetchStories)){
@@ -128,7 +128,7 @@ if (!$countResult) {
 							<h5 class="story-title"><?php echo $stories['title']; ?></h5>
 							<div class="story-card-buttons">
 								<a href=view-story.php?storyID=<?php echo $stories['storyID'] ?> class="view-button card-icons"><i class="fa fa-eye" aria-hidden="true"></i></a>
-								<a href="#" class="delete-button card-icons"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+								<a href=php/delete_story.php?storyID=<?php echo $stories['storyID'] ?> class="delete-button card-icons"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 								<a href=post-story.php?edit=true&story=<?php echo $stories['storyID'] ?> class="edit-button card-icons"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 							</div>
 						</div>
