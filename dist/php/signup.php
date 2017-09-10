@@ -19,7 +19,7 @@ if($count > 0)
 	}
 	else 
 	{
-		$sql = "INSERT INTO users (firstName, lastName, email, password) VALUES ('$fName', '$lName', '$email', '$hash')";
+		$sql = "INSERT INTO users (userRole, firstName, lastName, email, password) VALUES ('2','$fName', '$lName', '$email', '$hash')";
 
 		if(mysqli_query($conn,$sql))
 		{

@@ -23,7 +23,6 @@ if (!$countResult) {
 ?>
 
 <!DOCTYPE html>
-<html >
 
 <html>
 	<?php include 'includes/head.php'; ?>
