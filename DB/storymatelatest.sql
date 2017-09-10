@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 10, 2017 at 07:01 AM
--- Server version: 10.1.24-MariaDB
--- PHP Version: 7.1.6
+-- Generation Time: Sep 10, 2017 at 08:14 AM
+-- Server version: 10.1.25-MariaDB
+-- PHP Version: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `storymatelatest`
+-- Database: `storymate`
 --
 
 -- --------------------------------------------------------
@@ -70,6 +70,20 @@ INSERT INTO `comments` (`commentID`, `storyID`, `commentBody`, `authorID`, `date
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `following`
+--
+
+CREATE TABLE `following` (
+  `followID` int(11) NOT NULL,
+  `userID` int(10) NOT NULL,
+  `followingID` text NOT NULL,
+  `follows` int(11) NOT NULL,
+  `dateCreated` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `images`
 --
 
@@ -78,6 +92,15 @@ CREATE TABLE `images` (
   `imagepath` varchar(255) NOT NULL,
   `storyID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `images`
+--
+
+INSERT INTO `images` (`imageID`, `imagepath`, `storyID`) VALUES
+(10, './uploads/profile-background-v1.jpg', 21),
+(11, './uploads/story-feature1.jpg', 21),
+(12, './uploads/story-feature2.jpg', 21);
 
 -- --------------------------------------------------------
 
@@ -123,6 +146,13 @@ CREATE TABLE `stories` (
   `trash` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='holds the stories contents';
 
+--
+-- Dumping data for table `stories`
+--
+
+INSERT INTO `stories` (`storyID`, `title`, `description`, `authorID`, `tagID`, `categoryID`, `public`, `dateCreated`, `trash`) VALUES
+(21, 'asdjflak djfbalk dsjfalsdjh', 'la jfdalsdjfh alskdjf', 3, 0, 0, 0, '0000-00-00', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -136,6 +166,13 @@ CREATE TABLE `storycontents` (
   `audioID` int(11) NOT NULL,
   `contentWarning` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='holds the contents of the story';
+
+--
+-- Dumping data for table `storycontents`
+--
+
+INSERT INTO `storycontents` (`contentsID`, `storyID`, `textfield`, `audioID`, `contentWarning`) VALUES
+(15, 21, '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -283,7 +320,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `imageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `imageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `likes`
 --
@@ -298,12 +335,12 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `stories`
 --
 ALTER TABLE `stories`
-  MODIFY `storyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `storyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `storycontents`
 --
 ALTER TABLE `storycontents`
-  MODIFY `contentsID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `contentsID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `tags`
 --
