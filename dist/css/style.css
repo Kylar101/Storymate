@@ -10756,12 +10756,16 @@ textarea {
   .story-content .content {
     margin: 0 5vw; }
 
+.sections-divider {
+  margin-top: 40px;
+  margin-bottom: 50px; }
+
 .story-comments {
   margin: 0 5vw; }
   .story-comments .comment h4 {
     color: #404040; }
   .story-comments .add-comment {
-    margin-top: 20px; }
+    margin-top: 30px; }
 
 .story-header {
   height: 500px;
