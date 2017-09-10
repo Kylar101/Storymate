@@ -10832,7 +10832,7 @@ textarea {
   .search-header .search-options {
     position: absolute;
     top: 25vh;
-    left: 30; }
+    left: 30vw; }
     @media (max-width: 700px) {
       .search-header .search-options {
         top: 20vh;
