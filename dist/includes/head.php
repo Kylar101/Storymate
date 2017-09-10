@@ -1,5 +1,9 @@
 <?php 
 
+if (!isset($_SESSION['login_user'])) {
+	header('location: ./index.php');
+}
+
  $url = $_SERVER['REQUEST_URI'];
  $pattern = "/([a-z-]+).php/";
 

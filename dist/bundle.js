@@ -10419,6 +10419,21 @@ if (currentUrl.includes('view-story')) {
     autoplay: true,
     autoplaySpeed: 5000
   });
+  $(".author-cross").hide();
+  $("#author-mobile").hide();
+  $(".author-hamburger").click(function () {
+    $("#author-mobile").slideToggle("slow", function () {
+      $(".author-hamburger").hide();
+      $(".author-cross").show();
+    });
+  });
+
+  $(".author-cross").click(function () {
+    $("#author-mobile").slideToggle("slow", function () {
+      $(".author-cross").hide();
+      $(".author-hamburger").show();
+    });
+  });
 }
 
 if (currentUrl.includes('profile')) {
