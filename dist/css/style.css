@@ -10718,6 +10718,7 @@ textarea {
   #front-content .to-search {
     position: absolute;
     top: 8vh;
+    cursor: pointer;
     left: 3vw;
     z-index: 9999; }
     @media (max-width: 500px) {
@@ -10725,6 +10726,9 @@ textarea {
         top: 13vh; } }
     #front-content .to-search a {
       color: #fff; }
+      #front-content .to-search a:hover {
+        text-decoration: none;
+        color: #0498e2; }
     #front-content .to-search:before {
       content: '\F060';
       color: #fff;
@@ -10751,8 +10755,14 @@ textarea {
       z-index: 9; }
     .story-content .slider button.slick-next.slick-arrow {
       right: 15px; }
-  .story-content .story-article h1 {
-    color: #132330; }
+  .story-content .story-article {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f7f7f7; }
+    .story-content .story-article h1 {
+      color: #132330;
+      margin-left: 5vw;
+      text-align: left; }
   .story-content .content {
     margin: 0 5vw; }
 
@@ -10761,11 +10771,27 @@ textarea {
   margin-bottom: 50px; }
 
 .story-comments {
-  margin: 0 5vw; }
-  .story-comments .comment h4 {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 5vw; }
+  .story-comments h4 {
+    margin-bottom: 40px; }
+  .story-comments .comment h6 {
     color: #404040; }
+  .story-comments .comment-content {
+    display: block;
+    margin-bottom: 25px;
+    background-color: #f7f7f7;
+    color: #404040;
+    font-size: 13px;
+    border: none;
+    resize: none;
+    word-wrap: break-word;
+    padding: 5px;
+    width: 60%; }
   .story-comments .add-comment {
-    margin-top: 30px; }
+    margin-top: 30px;
+    width: 60%; }
 
 .story-header {
   height: 500px;
@@ -10814,6 +10840,10 @@ textarea {
     border-radius: 50px;
     width: 100px;
     height: auto; }
+
+.field-wrap .post-story {
+  border: none;
+  font-size: 14px; }
 
 #front-content {
   display: flex; }
