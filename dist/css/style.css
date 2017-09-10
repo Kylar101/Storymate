@@ -9822,6 +9822,14 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
     background: #404040;
     color: #fff; }
 
+.view-button-searched {
+  background: #0498e2;
+  color: #fff;
+  cursor: pointer; }
+  .view-button-searched:hover {
+    background: #036597;
+    color: #fff; }
+
 .story-card-buttons {
   width: 50%;
   margin: 5vh auto;
@@ -10768,13 +10776,13 @@ textarea {
 .search-header {
   background-image: url("../img/story-feature2.jpg");
   background-size: cover;
-  height: 55vh;
+  height: 90vh;
   display: block;
   position: relative; }
   @media (max-width: 500px) {
     .search-header {
       width: 144vw;
-      height: 40vh; } }
+      height: 90vh; } }
   .search-header .search-options {
     position: absolute;
     top: 25vh;
@@ -10855,6 +10863,31 @@ textarea {
     opacity: 1;
     transform: translateX(5); }
 
+.post-story-search-link {
+  width: 100%;
+  height: auto;
+  text-align: center;
+  top: 55vh;
+  position: absolute; }
+
+.post-story-search-link-button {
+  text-align: center;
+  padding: 15px;
+  color: white;
+  font-size: 20px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  letter-spacing: 3px;
+  background: #0ac10a; }
+  .post-story-search-link-button:hover {
+    transition: opacity .2s;
+    background: #079107;
+    text-decoration: none;
+    color: white; }
+  .post-story-search-link-button:focus {
+    transition: opacity .2s; }
+
 .search-content .search-wrapper {
   width: 75vw;
   margin: 0 auto; }
@@ -10865,7 +10898,7 @@ textarea {
 .search-content .first-item {
   display: flex;
   margin: 5px 0;
-  background: #a9dcf5; }
+  background: #f7f7f7; }
   .search-content .first-item img {
     width: 300px;
     height: auto;
@@ -10888,8 +10921,58 @@ textarea {
         margin-left: 2vw;
         margin-bottom: 2vh; }
   .search-content .first-item:hover {
-    background: #64c0ed;
+    background: rgba(5, 169, 251, 0.1);
     transition: background .2s; }
+
+#title-search-content {
+  height: 60px;
+  width: 100%;
+  margin-top: 95px;
+  margin-bottom: 70px;
+  width: 100%; }
+  #title-search-content h1 {
+    padding-top: 20px;
+    color: black; }
+
+.circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #0098cd;
+  position: relative;
+  top: 85vh;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+  margin: 0 auto;
+  cursor: pointer;
+  transition: all .1s ease;
+  padding: 28px 25px 25px 25px; }
+
+.circle:hover {
+  top: 81vh;
+  background: #008cbd;
+  transition: all .1s ease; }
+
+.wrap {
+  width: 100%;
+  position: relative;
+  animation: bounce 3s infinite; }
+
+.arrow {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round; }
+
+@keyframes bounce {
+  50% {
+    top: 0px; }
+  53.75% {
+    top: 5px; }
+  61.25% {
+    top: -5px; }
+  65% {
+    top: 0px; } }
 
 html, body {
   height: 100%; }

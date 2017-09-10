@@ -63,12 +63,24 @@
 	}
 }
 
+
 .comments-button {
 	background: #000;
 	color: #fff;
 	cursor: pointer;
 	&:hover {
 		background: $light-black;
+		color: #fff;
+	}
+}
+
+//view stories button in search page
+.view-button-searched {
+	background: $main;
+	color: #fff;
+	cursor: pointer;
+	&:hover {
+		background: $main-dark;
 		color: #fff;
 	}
 }
@@ -117,10 +129,10 @@
 			@include card(48%, auto, $gray);
 			&:nth-of-type(2n) {
 				@include not-first-card(4%);
-			}	
+			}
 		}
 		@media (max-width: 500px) {
-			@include card(100%, auto, $gray);		
+			@include card(100%, auto, $gray);
 		}
 		.story-title {
 			text-align: center;
