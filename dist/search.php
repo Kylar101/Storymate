@@ -54,7 +54,7 @@ $row = mysqli_fetch_array($userRes);
 			                	Search our stories
 			            	</label>
 			            	<input class="search-bar" type="text" autocomplete="off" name="search"/>
-	          </div>
+			            </div>
 						<button class="search-button edit-button"><i class="fa fa-search" aria-hidden="true"></i></button>
 					</form>
 

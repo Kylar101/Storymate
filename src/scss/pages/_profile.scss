@@ -8,11 +8,12 @@
 	background-image: url('../img/profile-background-v1.jpg');
 	background-size: cover;
 	background-position: center;
-	width: 85vw;
-	@media (max-width: 500px) {
-		width: 100vw;
-	}
+	width: 85vw; 
 	height: 50vh;
+	@media (max-width: 700px) {
+		width: 100vw;
+		height: 70vh;
+	}
 	display: block;
 	position: relative;
 	.profile-picture {
@@ -27,7 +28,7 @@
 		position: absolute;
 		top: 80%;
 		left: 40%;
-		@media (max-width: 500px) {
+		@media (max-width: 700px) {
 			left: 30%;
 		}
 		.story-count {
@@ -41,7 +42,7 @@
 .profile-details {
 	width: 50vw;
 	margin-left: 17vw;
-	@media (max-width: 500px) {
+	@media (max-width: 700px) {
 		width: 80vw;
 		margin-left: 10vw;
 	}

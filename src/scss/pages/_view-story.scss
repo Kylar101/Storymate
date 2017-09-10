@@ -5,7 +5,7 @@
 	.to-search {
 		position: absolute;
 		top: 8vh;
-		@media (max-width:500px) {
+		@media (max-width:700px) {
 			top: 13vh;
 		}
 		left: 3vw;
@@ -23,19 +23,19 @@
 
 .story-content {
 	width: 75vw;
-	@media (max-width: 500px) {
+	@media (max-width: 700px) {
 		width: 100vw;
 	}
 	height: auto;
 	.slider-image {
 		height: 60vh;
-		@media (max-width: 500px) {
+		@media (max-width: 700px) {
 			height: 30vh;
 		}
 	}
 	.slider {
 		padding-top: 6vh;
-		@media (max-width: 500px) {
+		@media (max-width: 700px) {
 			padding-top: 12vh;
 		}
 		button.slick-prev.slick-arrow {
@@ -78,24 +78,24 @@
 }
 
 .story-header {
-	height: 500px;
+	height: 700px;
 	margin: 6vh 0;
 	display: block;
 	.story-feature-image {
 		width: 100%;
-		max-height: 500px;
+		max-height: 700px;
 	}
 }
 
 .author-details {
-	@media (max-width: 500px) {
+	@media (max-width: 700px) {
 		display: none;
 	}
 }
 
 .author-details, #author-mobile {
 	width: 25vw;
-	@media (max-width: 500px) {
+	@media (max-width: 700px) {
 		width: 100vw;
 		z-index: 999;
 	}
@@ -105,7 +105,7 @@
 		position: absolute;
 		top: 25vh;
 		left: 7vw;
-		@media (max-width: 500px) {
+		@media (max-width: 700px) {
 		    top: 8vh;
 		    width: 100vw;
 		    height: 70vw;
@@ -120,7 +120,7 @@
 		}
 		.stay {
 			position: fixed;
-			@media (max-width: 500px) {
+			@media (max-width: 700px) {
 				position: static;
 				margin-top: 5vh;
 				color: #fff;
