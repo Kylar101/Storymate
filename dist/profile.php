@@ -12,7 +12,7 @@ $sql = "SELECT * FROM users WHERE userID = '$currentUser'";
 $result = mysqli_query($conn,$sql);
 $row = mysqli_fetch_array($result);
 
-$storyNum = "SELECT count(storyID) AS num_stories FROM stories WHERE authorID = '$currentUser'";
+$storyNum = "SELECT count(storyID) AS num_stories FROM stories WHERE authorID = '$currentUser' AND trash = '0'";
 $countResult = mysqli_query($conn,$storyNum);
 $countRow = mysqli_fetch_array($countResult);
 
@@ -23,7 +23,6 @@ if (!$countResult) {
 ?>
 
 <!DOCTYPE html>
-<html >
 
 <html>
 	<?php include 'includes/head.php'; ?>
