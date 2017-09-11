@@ -10448,7 +10448,7 @@ if (currentUrl.includes('profile')) {
   });
 }
 
-if (!currentUrl.includes('index')) {
+if (currentUrl.includes('index')) {
 
   // Terms and conditions modal
   var tcModal = document.getElementById('tc-modal');
