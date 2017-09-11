@@ -68,10 +68,19 @@ if (currentUrl.includes('profile')) {
   })
 }
 
-if (currentUrl.includes('search')) {
-  $(".excerpt").text(function(index, currentText) {
-     return currentText.substr(0, 50);
-  });
+if (!currentUrl.includes('index')) {
+
+  // Terms and conditions modal
+  let tcModal = document.getElementById('tc-modal')
+  let tcModalActive = new bsn.Modal(tcModal)
+
+  let tcButton = document.querySelector('#tc-index')
+  tcButton.addEventListener('click', () => {
+
+    tcModalActive.show()
+
+  })
+
 }
 
 // adds float labels
@@ -151,20 +160,6 @@ $('.tab a').on('click', function (e) {
   $(target).fadeIn(600);
 
 });
-
-if (currentUrl.includes('index')) {
-  // Terms and conditions modal
-  let tcModal = document.getElementById('tc-modal')
-  let tcModalActive = new bsn.Modal(tcModal)
-
-  let tcButton = document.querySelector('#tc-index')
-  tcButton.addEventListener('click', () => {
-
-    tcModalActive.show()
-
-  })
-
-}
 
 
 // Scrolling animation

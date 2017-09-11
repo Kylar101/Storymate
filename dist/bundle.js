@@ -10344,7 +10344,7 @@ exports.default = {
 	},
 
 	activeDashabordItem: function activeDashabordItem(item) {
-		$('.' + item).addClass('active');
+		$("." + item).addClass('active');
 	},
 
 	guid: function guid() {
@@ -10448,9 +10448,16 @@ if (currentUrl.includes('profile')) {
   });
 }
 
-if (currentUrl.includes('search')) {
-  $(".excerpt").text(function (index, currentText) {
-    return currentText.substr(0, 50);
+if (!currentUrl.includes('index')) {
+
+  // Terms and conditions modal
+  var tcModal = document.getElementById('tc-modal');
+  var tcModalActive = new _bootstrap2.default.Modal(tcModal);
+
+  var tcButton = document.querySelector('#tc-index');
+  tcButton.addEventListener('click', function () {
+
+    tcModalActive.show();
   });
 }
 
@@ -10527,18 +10534,6 @@ $('.tab a').on('click', function (e) {
 
   $(target).fadeIn(600);
 });
-
-if (currentUrl.includes('index')) {
-  // Terms and conditions modal
-  var tcModal = document.getElementById('tc-modal');
-  var tcModalActive = new _bootstrap2.default.Modal(tcModal);
-
-  var tcButton = document.querySelector('#tc-index');
-  tcButton.addEventListener('click', function () {
-
-    tcModalActive.show();
-  });
-}
 
 // Scrolling animation
 $(document).ready(function () {

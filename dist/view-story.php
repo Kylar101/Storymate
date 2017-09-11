@@ -37,6 +37,13 @@ if (!$followingRes) {
 }
 $followingRow = mysqli_fetch_array($followingRes);
 
+$flagSQL = "SELECT * FROM flags WHERE userID='$userID' AND storyID='$curstoryID'";
+$flagRes = $storyRes = mysqli_query($conn,$flagSQL);
+if (!$flagRes) {
+	die (mysqli_error($conn));
+}
+$flagRow = mysqli_fetch_array($flagRes);
+
 $storySQL = "SELECT * FROM stories WHERE storyID = '$curstoryID'";
 $storyRes = mysqli_query($conn,$storySQL);
 $storyRow = mysqli_fetch_array($storyRes);
@@ -211,6 +218,11 @@ $imgRes = mysqli_query($conn,$imgsql);
 						<a href="php/follow-processing.php?storyID=<?php echo $curstoryID; ?>&authorID=<?php echo $authorRow['userID']; ?>&follow=1" class="btn view-button"><i class="fa fa-eye" aria-hidden="true"></i> Follow</a>
 						<?php else : ?>
 						<a href="php/follow-processing.php?storyID=<?php echo $curstoryID; ?>&authorID=<?php echo $authorRow['userID']; ?>&follow=0" class="btn view-button"><i class="fa fa-eye" aria-hidden="true"></i> Unfollow</a>
+						<?php endif; ?>
+						<?php if (!$flagRow['flagID']) : ?>
+						<a href="php/flag-processing.php?storyID=<?php echo $curstoryID; ?>&flag=1" class="btn delete-button"><i class="fa fa-eye" aria-hidden="true"></i> Flag as inappropiate</a>
+						<?php else : ?>
+							<a href="php/flag-processing.php?storyID=<?php echo $curstoryID; ?>&flag=0" class="btn delete-button"><i class="fa fa-eye" aria-hidden="true"></i> Unflag as inappropiate</a>
 						<?php endif; ?>
 					</div>
 				</div>

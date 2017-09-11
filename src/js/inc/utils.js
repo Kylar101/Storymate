@@ -6,7 +6,7 @@ export default {
 	},
 
 	activeDashabordItem : (item) => {
-	  $('.' + item).addClass('active');
+	  $("." + item).addClass('active');
 	},
 
 	guid : () => {
