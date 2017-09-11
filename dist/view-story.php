@@ -201,9 +201,11 @@ $imgRes = mysqli_query($conn,$imgsql);
 				<div class="details">
 					<div class="stay">
 						<img src="img/profile-pic.gif" class="profile-picture">
-						<h4 class="author-name"><?php echo $authorRow['firstName']; echo " "; echo $authorRow['lastName']; ?></h4>
+						<h4 class="author-name"><?php echo $authorRow['firstName'].' '.$authorRow['lastName']; ?></h4>
 						<p class="description"><?php echo $storyRow['description']; ?></p>
-						<?php if ($followingRow['follows'] != 1) : ?>
+						<?php if (($authorRow['firstName'].' '.$authorRow['lastName']) == $row['firstName'] .' '. $row['lastName']) : ?>
+
+						<?php elseif ($followingRow['follows'] != 1) : ?>
 						<a href="php/follow-processing.php?storyID=<?php echo $curstoryID; ?>&authorID=<?php echo $authorRow['userID']; ?>&follow=1" class="btn view-button"><i class="fa fa-eye" aria-hidden="true"></i> Follow</a>
 						<?php else : ?>
 						<a href="php/follow-processing.php?storyID=<?php echo $curstoryID; ?>&authorID=<?php echo $authorRow['userID']; ?>&follow=0" class="btn view-button"><i class="fa fa-eye" aria-hidden="true"></i> Unfollow</a>
