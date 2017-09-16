@@ -10850,26 +10850,26 @@ textarea {
   display: flex; }
 
 .search-header {
-  background-image: url("../img/story-feature2.jpg");
+  background-image: url("../img/dreamers.jpg");
   background-size: cover;
-  height: 90vh;
+  height: 45vh;
   display: block;
   position: relative; }
   @media (max-width: 700px) {
     .search-header {
       width: 150vw;
-      height: 80vh; } }
+      height: 35vh; } }
   .search-header .search-options {
     position: absolute;
-    top: 25vh;
+    top: 20vh;
     left: 30vw; }
     @media (max-width: 700px) {
       .search-header .search-options {
-        top: 20vh;
+        top: 17vh;
         left: 25%; } }
     @media (max-width: 500px) {
       .search-header .search-options {
-        top: 20vh;
+        top: 15vh;
         left: 15%; } }
     .search-header .search-options .form {
       display: flex; }
@@ -10950,11 +10950,11 @@ textarea {
   width: 100%;
   height: auto;
   text-align: center;
-  top: 55vh;
+  top: 45vh;
   position: absolute; }
   @media (max-width: 700px) {
     .post-story-search-link {
-      top: 40vh; } }
+      top: 33vh; } }
 
 .post-story-search-link-button {
   text-align: center;
@@ -10979,7 +10979,7 @@ textarea {
   margin: 0 auto; }
   @media (max-width: 700px) {
     .search-content .search-wrapper {
-      width: 144vw; } }
+      width: 150vw; } }
 
 .search-content .first-item {
   display: flex;
@@ -10987,7 +10987,7 @@ textarea {
   background: #f7f7f7; }
   .search-content .first-item img {
     width: 300px;
-    height: auto;
+    height: 100%;
     max-height: 250px; }
   .search-content .first-item .story-info {
     margin-left: 4vw; }
