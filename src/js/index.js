@@ -68,7 +68,7 @@ if (currentUrl.includes('profile')) {
   })
 }
 
-if (!currentUrl.includes('index')) {
+if (currentUrl.includes('index')) {
 
   // Terms and conditions modal
   let tcModal = document.getElementById('tc-modal')
