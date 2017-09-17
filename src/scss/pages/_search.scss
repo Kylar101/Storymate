@@ -163,24 +163,36 @@
 
 .search-content {
 	.search-wrapper {
+		display: flex;
+		flex-wrap: wrap;
 		width: 75vw;
 		@media (max-width: 700px) {
 			width: 150vw;
 		}
 		margin: 0 auto;
 	}
-	.first-item {
-		display: flex;
-		margin: 5px 0;
-		// background: $search-blue;
+	.story-tile {
+		// display: flex;
+		width: 30%;
+		@media (max-width: 700px) {
+			width: 100%;
+			margin-left: 4%;
+			margin-right: 0;
+		}
+		margin: 10px 0;
+		margin-right: 3%;
 		background: #f7f7f7;
 		img {
-			width: 300px;
-			height: 100%;
-			max-height: 250px;
+			width: 100%;
+			height: auto;
+			// max-height: 250px;
 		}
 		.story-info {
-			margin-left: 4vw;
+			@media (max-width: 700px) {
+				margin-left: 10vw;
+				margin-right: 10vw;
+			}
+			margin-left: 2vw;
 			.story-title {
 				margin-top: 5px;
 			}

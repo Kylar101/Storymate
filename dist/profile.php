@@ -41,7 +41,7 @@ if (!$countResult) {
 
 		<article id="page-content">
 			<div class="profile-header">
-				<img src="img/profile-pic.gif" class="profile-picture">
+				<img src="img/profile.jpg" class="profile-picture">
 				<div class="count-bg">
 					<!-- <p class="story-count">You have <?php echo $countRow['num_stories']; ?> stories</p> -->
 					<p class="story-count">You have

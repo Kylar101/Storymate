@@ -120,6 +120,7 @@ function makeLink(){
         contentType: false,
         processData: false,
         success: function(data) {
+          id('audio-file').style.display = 'none';
           utils.savedAudio(data)
           // alert(data)
         },    

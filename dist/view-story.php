@@ -60,15 +60,20 @@ if (!$contentsRes) {
 	die (mysqli_error($conn));
 }
 
+
+$asql = "SELECT * FROM audio WHERE storyID = '$curstoryID'";
+$ares = mysqli_query($conn,$asql);
+$audioRow = mysqli_fetch_array($ares);
+
 $audioID = $contentsRow['audioID'];
+
 $audioSQL = "SELECT * FROM audio WHERE audioID = '$audioID'";
 $audioRes = mysqli_query($conn, $audioSQL);
+$audioRowV2 = mysqli_fetch_array($audioRes);
 
-if (!$audioRes) {
+if (!$ares || !$audioRes) {
 	die (mysqli_error($conn));
 }
-
-$audioRow = mysqli_fetch_array($audioRes);
 
 $commentSQL = "SELECT * FROM comments WHERE storyID = $curstoryID";
 $commRes = mysqli_query($conn,$commentSQL);
@@ -80,6 +85,15 @@ if (!$commRes) {
 $imgsql = "SELECT * FROM images WHERE storyID = '$curstoryID'";
 $imgRes = mysqli_query($conn,$imgsql);
 
+
+######TEMP SOLUTION FRO LIKE CHECK#########
+
+$likechecksql = "SELECT * FROM likes WHERE storyID = $curstoryID AND userID = $userID";
+$likecheckres = mysqli_query($conn,$likechecksql);
+$numlikes = mysqli_num_rows($likecheckres);
+
+
+#################
 ?>
 <!DOCTYPE html>
 <html >
@@ -114,7 +128,7 @@ $imgRes = mysqli_query($conn,$imgsql);
 			<div id="author-mobile">
 				<div class="details">
 					<div class="stay">
-						<img src="img/profile-pic.gif" class="profile-picture">
+						<img src="img/profile.jpg" class="profile-picture">
 						<h4 class="author-name"><?php echo $authorRow['firstName']; echo " "; echo $authorRow['lastName']; ?></h4>
 						<p class="description"><?php echo $storyRow['description']; ?></p>
 						<?php if (($authorRow['firstName'].' '.$authorRow['lastName']) == $row['firstName'] .' '. $row['lastName']) : ?>
@@ -144,6 +158,7 @@ $imgRes = mysqli_query($conn,$imgsql);
 			    		}
 			        ?>
 		        </div>
+
 				<div class="story-article">
 					<h1><?php echo $storyRow['title'] ?></h1>
 					<div class="content">
@@ -151,6 +166,9 @@ $imgRes = mysqli_query($conn,$imgsql);
 							<audio controls src="<?php echo $audioRow['audioFile'] ?>"></audio>
 						<?php endif; ?>
 						<p class="content-text-area"><?php echo $contentsRow['textfield'] ?></p>
+						<?php if ($audioRowV2['audioFile']) : ?>
+							<audio controls src="<?php echo $audioRowV2['audioFile'] ?>"></audio>
+						<?php endif; ?>
 					</div>
 				</div>
 
@@ -158,8 +176,11 @@ $imgRes = mysqli_query($conn,$imgsql);
 
 				<!-- Previous comments -->
 				<div class="story-comments">
-					<!-- <hr class="sections-divider"> -->
-					<h4>Previous Comments</h4>
+					<form action=php/like_processing.php?storyID=<?php echo $curstoryID; ?> method="post">
+						<button id="like" type="submit" class="btn"><i class="fa fa-thumbs-up" aria-hidden="true"></span></i> Like Story</button>
+					</form>
+
+					<h2>Comments</h2>
 
 				<?php
 
@@ -204,6 +225,7 @@ $imgRes = mysqli_query($conn,$imgsql);
 							</form>
 						</div>
 					</div>
+
 				</div>
 
 
@@ -239,7 +261,13 @@ $imgRes = mysqli_query($conn,$imgsql);
 		<!-- <p class="copyright">Communify 2017</p> -->
 	</footer>
 
-
+<?php
+	if( $numlikes >= 1){ 
+?>
+<script> document.getElementById("like").disabled = true; </script>
+<?php
+}
+?>
   <script src="bundle.js"></script>
 </body>
 </html>

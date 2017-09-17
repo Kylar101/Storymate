@@ -23,6 +23,9 @@
 </head>
 
 <body>
+  <div class="logo-wrapper">
+    <img class="login-logo" src="img/logo.png">
+  </div>
   <div class="form login-form">
 
       <ul class="tab-group">

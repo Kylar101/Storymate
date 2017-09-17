@@ -9,8 +9,6 @@ $row = mysqli_fetch_array($userRes);
 ?>
 
 <!DOCTYPE html>
-<html >
-<head>
 
 <html>
 	<?php include 'includes/head.php'; ?>
@@ -19,7 +17,7 @@ $row = mysqli_fetch_array($userRes);
 
 	<!-- Top bar -->
 	<header>
-		<?php include 'includes/top-bar.php'; ?>
+		<?php include('includes/top-bar.php'); ?>
 	</header>
 
 	<!-- Main content -->
@@ -81,7 +79,7 @@ $row = mysqli_fetch_array($userRes);
 					if(isset($_POST['search'])){
 
 						$term = mysqli_real_escape_string($conn, $_POST['search']);
-					 	$sql = "SELECT * FROM stories INNER JOIN users ON stories.authorID = users.userID WHERE (title LIKE '%$term%' OR  description LIKE '%$term%' OR firstName LIKE '%$term%' OR lastName LIKE '%$term%') AND stories.trash = '0' ORDER BY title";
+					 	$sql = "SELECT * FROM stories INNER JOIN users ON stories.authorID = users.userID WHERE (title LIKE '%$term%' OR  description LIKE '%$term%' OR firstName LIKE '%$term%' OR lastName LIKE '%$term%') AND stories.trash = '0' AND stories.draft = '0' ORDER BY title";
 					 	$searchQuery = mysqli_query($conn,$sql);
 					 	$numResults = mysqli_num_rows($searchQuery);
 
@@ -97,16 +95,20 @@ $row = mysqli_fetch_array($userRes);
 							$imagePath = mysqli_fetch_array($fetchImage);
 							$path = $imagePath['imagepath'] ? $imagePath['imagepath'] : 'img/pizzasheen.gif';
 
+							$likesql = "SELECT * FROM likes WHERE storyID = '$storyID'";
+							$likeres = mysqli_query($conn,$likesql);
+							$likesqty = mysqli_num_rows($likeres);
+
 
 				?>
-						<div class="first-item">
+						<div class="story-tile">
 							<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" ><img src="<?php echo $path; ?>"></a>
 							<div class="story-info">
 								<h2 class="story-title"><?php echo $stories['title']; ?></h2>
 								<p class="excerpt"><?php echo $stories['description']; ?></p>
 								<h5 class="author-name"><?php echo $stories['firstName'].' '.$stories['lastName'] ?></h5>
 								<div class="story-extra">
-									<div class="likes">27 <span class="feature-likes"> <i class="fa fa-thumbs-up" aria-hidden="true"></span></i></div>
+									<div class="likes"><?php echo $likesqty; ?> <span class="feature-likes"> <i class="fa fa-thumbs-up" aria-hidden="true"></span></i></div>
 									<a href=view-story.php?storyID=<?php echo $stories['storyID'];?> class="btn comments-button view-story">View Story</a>
 								</div>
 							</div>
@@ -120,7 +122,7 @@ $row = mysqli_fetch_array($userRes);
 				?>
 
 					<?php
-						$sql = "SELECT * FROM stories INNER JOIN users ON stories.authorID = users.userID WHERE stories.trash = '0' ORDER BY storyID Desc LIMIT 10";
+						$sql = "SELECT * FROM stories INNER JOIN users ON stories.authorID = users.userID WHERE stories.trash = '0' AND stories.draft = '0' ORDER BY storyID Desc LIMIT 10";
 						$topRes = mysqli_query($conn,$sql);
 						while($stories = mysqli_fetch_array($topRes)){
 
@@ -134,8 +136,12 @@ $row = mysqli_fetch_array($userRes);
 							$imagePath = mysqli_fetch_array($fetchImage);
 							$path = $imagePath['imagepath'] ? $imagePath['imagepath'] : 'img/pizzasheen.gif';
 
+							$likesql = "SELECT * FROM likes WHERE storyID = '$storyID'";
+							$likeres = mysqli_query($conn,$likesql);
+							$likesqty = mysqli_num_rows($likeres);
+
 					?>
-					<div class="first-item">
+					<div class="story-tile">
 							<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" ><img src="<?php echo $path; ?>"></a>
 							<div class="story-info">
 								<h2 class="title"><?php echo $stories['title']; ?></h2>
@@ -143,7 +149,7 @@ $row = mysqli_fetch_array($userRes);
 								<hr>
 								<h5 class="author-name"><?php echo $stories['firstName'].' '.$stories['lastName'] ?></h5>
 								<div class="story-extra">
-									<div class="likes">27 <span class="feature-likes"> <i class="fa fa-thumbs-up" aria-hidden="true"></span></i></div>
+									<div class="likes" id="likecoutner"><?php echo $likesqty; ?> <span class="feature-likes"> <i class="fa fa-thumbs-up" aria-hidden="true"></span></i></div>
 									<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" class="btn view-button-searched view-story">View Story</a>
 								</div>
 							</div>
