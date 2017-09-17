@@ -84,6 +84,15 @@ if (!$commRes) {
 $imgsql = "SELECT * FROM images WHERE storyID = '$curstoryID'";
 $imgRes = mysqli_query($conn,$imgsql);
 
+
+######TEMP SOLUTION FRO LIKE CHECK#########
+
+$likechecksql = "SELECT * FROM likes WHERE storyID = $curstoryID AND userID = $userID";
+$likecheckres = mysqli_query($conn,$likechecksql);
+$numlikes = mysqli_num_rows($likecheckres);
+
+
+#################
 ?>
 <!DOCTYPE html>
 <html >
@@ -208,7 +217,7 @@ $imgRes = mysqli_query($conn,$imgsql);
 					</div>
 
 					<form action=php/like_processing.php?storyID=<?php echo $curstoryID; ?> method="post">
-						<button type="submit" class="btn view-button"><i class="fa fa-check" aria-hidden="true"></i> Like</button>
+						<button id="like" type="submit" class="btn view-button"><i class="fa fa-check" aria-hidden="true"></i> Like</button>
 					</form>
 
 				</div>
@@ -246,7 +255,13 @@ $imgRes = mysqli_query($conn,$imgsql);
 		<!-- <p class="copyright">Communify 2017</p> -->
 	</footer>
 
-
+<?php
+	if( $numlikes >= 1){ 
+?>
+<script> document.getElementById("like").disabled = true; </script>
+<?php
+}
+?>
   <script src="bundle.js"></script>
 </body>
 </html>
