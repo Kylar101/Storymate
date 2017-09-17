@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 15, 2017 at 11:52 AM
--- Server version: 10.1.25-MariaDB
--- PHP Version: 7.1.7
+-- Generation Time: Sep 17, 2017 at 03:37 AM
+-- Server version: 10.1.24-MariaDB
+-- PHP Version: 7.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `storymate`
+-- Database: `storymatelatest`
 --
 
 -- --------------------------------------------------------
@@ -30,7 +30,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `audio` (
   `audioID` int(11) NOT NULL,
-  `audioFile` varchar(255) NOT NULL
+  `audioFile` varchar(255) NOT NULL,
+  `storyID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -58,6 +59,14 @@ CREATE TABLE `comments` (
   `authorID` int(11) NOT NULL,
   `dateCreated` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`commentID`, `storyID`, `commentBody`, `authorID`, `dateCreated`) VALUES
+(1, 3, 'sdfasd', 3, '0000-00-00'),
+(2, 3, 'sdfasd', 3, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -96,7 +105,6 @@ CREATE TABLE `images` (
   `imagepath` varchar(255) NOT NULL,
   `storyID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 
 -- --------------------------------------------------------
 
@@ -141,7 +149,6 @@ CREATE TABLE `stories` (
   `dateCreated` date NOT NULL,
   `trash` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='holds the stories contents';
-
 
 -- --------------------------------------------------------
 
@@ -212,11 +219,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userID`, `userRole`, `firstName`, `lastName`, `email`, `phone`, `activated`, `dateCreated`, `password`) VALUES
-(1, 1, 'Nate', 'Johns', 'nathan.johns@qut.edu.au', 0, 1, '2017-07-01', 'B109F3BBBC244EB82441917ED06D618B9008DD09B3BEFD1B5E07394C706A8BB980B1D7785E5976EC049B46DF5F1326AF5A2EA6D103FD07C95385FFAB0CACBC86'),
+(1, 0, 'Nate', 'Johns', 'nathan.johns@qut.edu.au', 0, 1, '2017-07-01', 'B109F3BBBC244EB82441917ED06D618B9008DD09B3BEFD1B5E07394C706A8BB980B1D7785E5976EC049B46DF5F1326AF5A2EA6D103FD07C95385FFAB0CACBC86'),
 (2, 0, 'jack', 'pilsken', 'jack@gmail.com', 0, 0, '0000-00-00', 'b109f3bbbc244eb82441917ed06d618b9008dd09b3befd1b5e07394c706a8bb980b1d7785e5976ec049b46df5f1326af5a2ea6d103fd07c95385ffab0cacbc86'),
-(3, 1, 'Ben', 'Lowbridge', 'lowbridge.ba@gmail.com', 0, 1, '2017-08-16', 'B109F3BBBC244EB82441917ED06D618B9008DD09B3BEFD1B5E07394C706A8BB980B1D7785E5976EC049B46DF5F1326AF5A2EA6D103FD07C95385FFAB0CACBC86'),
-(4, 1, 'Renzo', 'Alvarado', 'renzo@gmail.com', 0, 1, '2017-08-16', 'B109F3BBBC244EB82441917ED06D618B9008DD09B3BEFD1B5E07394C706A8BB980B1D7785E5976EC049B46DF5F1326AF5A2EA6D103FD07C95385FFAB0CACBC86'),
-(5, 2, 'Ashleigh', 'Wilson', 'ashleigh@gmail.com', 0, 1, '2017-08-16', 'B109F3BBBC244EB82441917ED06D618B9008DD09B3BEFD1B5E07394C706A8BB980B1D7785E5976EC049B46DF5F1326AF5A2EA6D103FD07C95385FFAB0CACBC86');
+(3, 0, 'Ben', 'Lowbridge', 'lowbridge.ba@gmail.com', 0, 1, '2017-08-16', 'B109F3BBBC244EB82441917ED06D618B9008DD09B3BEFD1B5E07394C706A8BB980B1D7785E5976EC049B46DF5F1326AF5A2EA6D103FD07C95385FFAB0CACBC86'),
+(4, 0, 'Renzo', 'Alvarado', 'renzo@gmail.com', 0, 1, '2017-08-16', 'B109F3BBBC244EB82441917ED06D618B9008DD09B3BEFD1B5E07394C706A8BB980B1D7785E5976EC049B46DF5F1326AF5A2EA6D103FD07C95385FFAB0CACBC86'),
+(5, 0, 'Ashleigh', 'Wilson', 'ashleigh@gmail.com', 0, 1, '2017-08-16', 'B109F3BBBC244EB82441917ED06D618B9008DD09B3BEFD1B5E07394C706A8BB980B1D7785E5976EC049B46DF5F1326AF5A2EA6D103FD07C95385FFAB0CACBC86');
 
 --
 -- Indexes for dumped tables
