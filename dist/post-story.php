@@ -116,6 +116,17 @@ endif;
 							<textarea rows="8" name="text"><?php echo $storyRow['textfield']?></textarea>
 							<?php endif; ?>
 			            </div>
+			            
+
+			            <!--##############-->
+			           	<div class="field-wrap story-audio">
+							<p class="small-label">
+								Audio <span class="req">*</span>
+							</p>
+							<input type="file" name="audio[]" accept="audio/*">
+						</div>
+						<!--##############-->
+
 
 						<div class="field-wrap story-images">
 							<p class="small-label">

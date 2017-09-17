@@ -16,7 +16,7 @@ $authorResult = mysqli_query($conn,$getID);
 $authorRow = mysqli_fetch_array($authorResult);
 $authorID = $authorRow['userID'];
 
-if(isset($_POST['draft'];)){
+if(isset($_POST['draft'])){
 	$draft = 1;
 
 }else{
@@ -74,11 +74,11 @@ foreach($_FILES['images']['name'] as $k=>$name){
 }
 ##################################################
 
-foreach($_FILES['aduio']['name'] as $k=>$name){
+foreach($_FILES['audio']['name'] as $k=>$name){
 
 	$audname = $_FILES['audio']['name'][$k];	
 	$targetaud = basename($audname);
-	$tmpname = $_FILES['aduio']['tmp_name'][$k];
+	$tmpname = $_FILES['audio']['tmp_name'][$k];
 	echo '.'.$target_dir.$tmpname.'<br>';
 	if (move_uploaded_file( $tmpname,'.'.$target_dir . $targetaud )) {
 		 echo "working";
@@ -87,7 +87,7 @@ foreach($_FILES['aduio']['name'] as $k=>$name){
 	}
 	if ($_FILES['audio']['name'][$k] != '') {
 		$filepath = $target_dir.$targetaud;
-		$audsql = "INSERT INTO audio(audiopath, storyID) VALUES ('$filepath', $storyID)";
+		$audsql = "INSERT INTO audio(audioFile, storyID) VALUES ('$filepath', $storyID)";
 		$result = mysqli_query($conn,$audsql);
 
 		if (!$result) {
