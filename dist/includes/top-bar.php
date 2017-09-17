@@ -1,6 +1,9 @@
 
 		<section id="top-bar">
 			<div class="user-bar">
+				<div class="top-logo-wrapper">
+					<img class="logo" src="img/logo.png">
+				</div>
 				<?php 
 
 				$url = $_SERVER['REQUEST_URI'];

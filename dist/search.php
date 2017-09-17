@@ -9,8 +9,6 @@ $row = mysqli_fetch_array($userRes);
 ?>
 
 <!DOCTYPE html>
-<html >
-<head>
 
 <html>
 	<?php include 'includes/head.php'; ?>
@@ -19,7 +17,7 @@ $row = mysqli_fetch_array($userRes);
 
 	<!-- Top bar -->
 	<header>
-		<?php include 'includes/top-bar.php'; ?>
+		<?php include('includes/top-bar.php'); ?>
 	</header>
 
 	<!-- Main content -->

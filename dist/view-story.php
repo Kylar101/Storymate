@@ -128,7 +128,7 @@ $numlikes = mysqli_num_rows($likecheckres);
 			<div id="author-mobile">
 				<div class="details">
 					<div class="stay">
-						<img src="img/profile-pic.gif" class="profile-picture">
+						<img src="img/profile.jpg" class="profile-picture">
 						<h4 class="author-name"><?php echo $authorRow['firstName']; echo " "; echo $authorRow['lastName']; ?></h4>
 						<p class="description"><?php echo $storyRow['description']; ?></p>
 						<?php if (($authorRow['firstName'].' '.$authorRow['lastName']) == $row['firstName'] .' '. $row['lastName']) : ?>
