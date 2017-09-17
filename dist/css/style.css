@@ -11013,15 +11013,6 @@ textarea {
   margin: 10px 0;
   margin-right: 3%;
   background: #f7f7f7; }
-<<<<<<< HEAD
-  .search-content .first-item img {
-    width: 300px;
-    height: 100%;
-    max-height: 250px; }
-  .search-content .first-item .story-info {
-    margin-left: 4vw; }
-    .search-content .first-item .story-info .story-title {
-=======
   @media (max-width: 700px) {
     .search-content .story-tile {
       width: 100%;
@@ -11037,7 +11028,6 @@ textarea {
         margin-left: 10vw;
         margin-right: 10vw; } }
     .search-content .story-tile .story-info .story-title {
->>>>>>> master
       margin-top: 5px; }
     .search-content .story-tile .story-info .author-name:hover {
       color: black;
