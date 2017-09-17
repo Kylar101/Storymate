@@ -30,11 +30,17 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `audio` (
   `audioID` int(11) NOT NULL,
-  `audioFile` varchar(255) NOT NULL,
+  `audioFile` varchar(48) NOT NULL,
   `storyID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `audio`
+--
 
+INSERT INTO `audio` (`audioID`, `audioFile`, `storyID`) VALUES
+(1, './uploads/04 Brooklyn Zoo.mp3', 64),
+(2, './uploads/04 Brooklyn Zoo.mp3', 65);
 
 -- --------------------------------------------------------
 
@@ -62,6 +68,15 @@ CREATE TABLE `comments` (
   `storyID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`commentID`, `commentBody`, `authorID`, `dateCreated`, `storyID`) VALUES
+(1, 'abcabc', 1, '0000-00-00', 41),
+(2, 'Testing commment upload feature', 1, '0000-00-00', 41),
+(5, 'Working to resolve authorID passing issues in comment_processing.php', 1, '0000-00-00', 41),
+(6, 'AuthorID passing issues resolved.', 1, '0000-00-00', 41);
 
 -- --------------------------------------------------------
 
@@ -101,6 +116,15 @@ CREATE TABLE `images` (
   `imagepath` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `images`
+--
+
+INSERT INTO `images` (`imageID`, `storyID`, `imagepath`) VALUES
+(9, 62, '../uploads/14613136744_69599d1d26_o.jpg'),
+(10, 62, '../uploads/14721969260_3361274dea_z.jpg'),
+(11, 62, '../uploads/14721969260_c455a59252_o.jpg'),
+(12, 62, '../uploads/14788794355_99b128acec_z.jpg');
 
 -- --------------------------------------------------------
 
@@ -114,6 +138,25 @@ CREATE TABLE `likes` (
   `userID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `likes`
+--
+
+INSERT INTO `likes` (`likeID`, `storyID`, `userID`) VALUES
+(1, 65, 0),
+(2, 65, 0),
+(3, 65, 1),
+(4, 65, 1),
+(5, 65, 1),
+(6, 65, 1),
+(7, 65, 1),
+(8, 65, 1),
+(9, 65, 1),
+(10, 65, 1),
+(11, 65, 1),
+(12, 65, 1),
+(13, 65, 1),
+(14, 65, 1);
 
 -- --------------------------------------------------------
 
@@ -126,7 +169,7 @@ CREATE TABLE `notifications` (
   `userID` int(11) NOT NULL,
   `storyID` int(11) NOT NULL,
   `authorID` int(11) NOT NULL,
-  `seen` tinyint(1) NOT NULL COMMENT 'tells whether or not the notifcation has been sseen'
+  `seen` tinyint(1) NOT NULL COMMENT 'tells wheatther or not hte notifcation has been sseen'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='notications about stories';
 
 -- --------------------------------------------------------
@@ -150,6 +193,46 @@ CREATE TABLE `stories` (
   `draft` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='holds the stories contents';
 
+--
+-- Dumping data for table `stories`
+--
+
+INSERT INTO `stories` (`storyID`, `title`, `description`, `authorID`, `tagID`, `categoryID`, `public`, `dateCreated`, `storyText`, `approved`, `trash`, `draft`) VALUES
+(2, 'The testing of the Website', 'This is  short story detailing the testing of this website\'s basic functionality. This story will allow the testing of the follo', 1, 0, 0, 0, '0000-00-00', '', 0, 1, 0),
+(4, 'The testing of the Website 1', 'This is  short story detailing the testing of this website\'s basic functionality. This story will allow the testing of the follo', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(9, 'Testing multi image upload', 'Testing multi image', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(39, 'IMAGES', 'IMAGES', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(40, '5 IMAGES', '5 IMAGES', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(41, 'audio test', 'audio upload test', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(42, 'audio test 2', 'audio upload test 2', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(43, 'testing image upload multiple', 'testing image upload multiple', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(44, 'testing image upload multiple', 'testing image upload multiple', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(45, 'testing image upload multiple', 'testing image upload multiple', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(46, 'testing image upload multiple', 'testing image upload multiple', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(47, 'testing image upload multipletesting image uploa', 'testing image upload multipletesting image upload multiple', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(48, 'blah', 'blah', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(49, 'sgbdb', 'sdfgbnrfd', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(50, 'sgbdb', 'sdfgbnrfd', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(51, 'sgbdb', 'sdfgbnrfd', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(52, 'dfb', 'dbfg', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(53, 'dfb', 'dbfg', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(54, 'dgfnxfgn', 'fdsgnfhn', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(55, 'dgfnxfgn', 'fdsgnfhn', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(56, 'dgfnxfgn', 'fdsgnfhn', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(57, 'dgfnxfgn', 'fdsgnfhn', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(58, 'dgfnxfgn', 'fdsgnfhn', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(59, 'szdvdsfb', 'sfbvdsfb', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(60, 'testing image string upload', 'this should put all the image locations into link in the database', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(61, 'asdgffasdg', 'sadfsadfgva', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(62, 'tdhsfdgnh', 'gfnfn', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(63, 'testing the audio upload', 'testing the audio upload', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(64, 'testing the audio upload 2', 'testing the audio upload 2', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(65, 'testing the audio upload 3', 'testing the audio upload 3', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(66, 'Testing draft functionality', 'Testing draft functionality', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(67, 'Testing save draft functionality', 'Testing save draft functionality', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(68, 'Testing save draft functionality', 'Testing save draft functionality', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(69, 'Testing save draft functionality 2', 'Testing save draft functionality 2', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(70, 'Testing save draft functionality SUCCESS', 'Testing save draft functionality SUCCESS', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -166,6 +249,36 @@ CREATE TABLE `storycontents` (
   `contentWarning` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='holds the contents of the story';
 
+--
+-- Dumping data for table `storycontents`
+--
+
+INSERT INTO `storycontents` (`contentsID`, `storyID`, `textfield`, `imageID`, `audioID`, `contentWarning`) VALUES
+(1, 46, '', 0, 0, 0),
+(2, 47, '', 0, 0, 0),
+(3, 48, '', 0, 0, 0),
+(4, 49, '', 0, 0, 0),
+(5, 50, '', 0, 0, 0),
+(6, 51, '', 0, 0, 0),
+(7, 52, '', 0, 0, 0),
+(8, 53, '', 0, 0, 0),
+(9, 54, '', 0, 0, 0),
+(10, 55, '', 0, 0, 0),
+(11, 56, '', 0, 0, 0),
+(12, 57, '', 0, 0, 0),
+(13, 58, '', 0, 0, 0),
+(14, 59, '', 0, 0, 0),
+(15, 60, '', 0, 0, 0),
+(16, 61, '', 0, 0, 0),
+(17, 62, '', 0, 0, 0),
+(18, 63, '', 0, 0, 0),
+(19, 64, '', 0, 0, 0),
+(20, 65, '', 0, 0, 0),
+(29, 66, '', 0, 0, 0),
+(30, 67, '', 0, 0, 0),
+(31, 68, '', 0, 0, 0),
+(32, 69, '', 0, 0, 0),
+(33, 70, '', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -222,11 +335,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userID`, `userRole`, `firstName`, `lastName`, `email`, `phone`, `activated`, `dateCreated`, `password`) VALUES
-(1, 0, 'Nate', 'Johns', 'nathan.johns@qut.edu.au', 0, 1, '2017-07-01', 'B109F3BBBC244EB82441917ED06D618B9008DD09B3BEFD1B5E07394C706A8BB980B1D7785E5976EC049B46DF5F1326AF5A2EA6D103FD07C95385FFAB0CACBC86'),
-(2, 0, 'jack', 'pilsken', 'jack@gmail.com', 0, 0, '0000-00-00', 'b109f3bbbc244eb82441917ed06d618b9008dd09b3befd1b5e07394c706a8bb980b1d7785e5976ec049b46df5f1326af5a2ea6d103fd07c95385ffab0cacbc86'),
-(3, 0, 'Ben', 'Lowbridge', 'lowbridge.ba@gmail.com', 0, 1, '2017-08-16', 'B109F3BBBC244EB82441917ED06D618B9008DD09B3BEFD1B5E07394C706A8BB980B1D7785E5976EC049B46DF5F1326AF5A2EA6D103FD07C95385FFAB0CACBC86'),
-(4, 0, 'Renzo', 'Alvarado', 'renzo@gmail.com', 0, 1, '2017-08-16', 'B109F3BBBC244EB82441917ED06D618B9008DD09B3BEFD1B5E07394C706A8BB980B1D7785E5976EC049B46DF5F1326AF5A2EA6D103FD07C95385FFAB0CACBC86'),
-(5, 0, 'Ashleigh', 'Wilson', 'ashleigh@gmail.com', 0, 1, '2017-08-16', 'B109F3BBBC244EB82441917ED06D618B9008DD09B3BEFD1B5E07394C706A8BB980B1D7785E5976EC049B46DF5F1326AF5A2EA6D103FD07C95385FFAB0CACBC86');
+(1, 0, 'Nate', 'Johns', 'nathan.johns@qut.edu.au', '0452012790', 1, '2017-07-01', 'b109f3bbbc244eb82441917ed06d618b9008dd09b3befd1b5e07394c706a8bb980b1d7785e5976ec049b46df5f1326af5a2ea6d103fd07c95385ffab0cacbc86'),
+(2, 0, 'jack', 'pilsken', 'jack@gmail.com', '0', 0, '0000-00-00', 'b109f3bbbc244eb82441917ed06d618b9008dd09b3befd1b5e07394c706a8bb980b1d7785e5976ec049b46df5f1326af5a2ea6d103fd07c95385ffab0cacbc86');
 
 --
 -- Indexes for dumped tables

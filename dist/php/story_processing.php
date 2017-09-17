@@ -16,6 +16,13 @@ $authorResult = mysqli_query($conn,$getID);
 $authorRow = mysqli_fetch_array($authorResult);
 $authorID = $authorRow['userID'];
 
+if(isset($_POST['draft'])){
+	$draft = 1;
+	echo "draft";
+
+}else{
+	$draft = 0;
+}
 
 /*
 $catname = mysqli_real_escape_string($conn,$_POST['category']);
@@ -27,7 +34,7 @@ $getTagID = "SELECT categoryID FROM categories WHERE tagName = '$tagName'";
 $tagID = mysqli_query($conn,$getTagID);
 */
 
-$sql = "INSERT INTO stories (title, description, authorID) VALUES ('$Title', '$Description', '$authorID')";
+$sql = "INSERT INTO stories (title, description, authorID, draft) VALUES ('$Title', '$Description', '$authorID', '$draft')";
 $result = mysqli_query($conn,$sql);
 
 if (!$result) {
@@ -52,9 +59,9 @@ foreach($_FILES['images']['name'] as $k=>$name){
 	$tmpname = $_FILES['images']['tmp_name'][$k];
 	echo '.'.$target_dir.$tmpname.'<br>';
 	if (move_uploaded_file( $tmpname,'.'.$target_dir . $targetimg )) {
-		 echo "woking";
+		 echo "working";
 	} else {
-		echo "not wokring";
+		echo "not working";
 	}
 	if ($_FILES['images']['name'][$k] != '') {
 		$filepath = $target_dir.$targetimg;
@@ -66,6 +73,31 @@ foreach($_FILES['images']['name'] as $k=>$name){
 		}
 	}
 }
+##################################################
+
+foreach($_FILES['audio']['name'] as $k=>$name){
+
+	$audname = $_FILES['audio']['name'][$k];	
+	$targetaud = basename($audname);
+	$tmpname = $_FILES['audio']['tmp_name'][$k];
+	echo '.'.$target_dir.$tmpname.'<br>';
+	if (move_uploaded_file( $tmpname,'.'.$target_dir . $targetaud )) {
+		 echo "working";
+	} else {
+		echo "not working";
+	}
+	if ($_FILES['audio']['name'][$k] != '') {
+		$filepath = $target_dir.$targetaud;
+		$audsql = "INSERT INTO audio(audioFile, storyID) VALUES ('$filepath', $storyID)";
+		$result = mysqli_query($conn,$audsql);
+
+		if (!$result) {
+		    die(mysqli_error($conn));
+		}
+	}
+}
+
+###################################################
 
 
 header("location: ../profile.php");

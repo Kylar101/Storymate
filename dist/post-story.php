@@ -117,6 +117,7 @@ endif;
 							<?php endif; ?>
 			            </div>
 
+
 						<div class="field-wrap story-images">
 							<p class="small-label">
 								Images <span class="req">*</span>
@@ -151,6 +152,15 @@ endif;
 						</div>
 
 
+						 <!--##############-->
+			           	<div class="field-wrap story-audio">
+							<p class="small-label">
+								Audio <span class="req">*</span>
+							</p>
+							<input type="file" name="audio[]" accept="audio/*">
+						</div>
+						<!--##############-->
+
 
 						<div class="field-wrap story-audio">
 							<div id='gUMArea'>
@@ -174,7 +184,7 @@ endif;
 
 						<div class="field-wrap">
 							<?php if (!$editMode) : ?>
-							<button type="submit" class="btn draft-button">Save Draft</button>
+							<button type="submit" name="draft" class="btn draft-button">Save Draft</button>
               <button type="submit" class="btn view-button"><i class="fa fa-check" aria-hidden="true"></i> Post Story</button>
 
 							<?php else : ?>

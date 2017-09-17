@@ -10740,6 +10740,7 @@ function makeLink() {
       contentType: false,
       processData: false,
       success: function success(data) {
+        id('audio-file').style.display = 'none';
         _utils2.default.savedAudio(data);
         // alert(data)
       },

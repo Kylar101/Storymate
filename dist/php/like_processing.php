@@ -3,13 +3,19 @@
 session_start();
 include('connector.php');
 
-$username = get_current_user();
+$username = $_SESSION['login_user'];
 
-$getID = "SELECT userID FROM users WHERE username = '$username'";
-$userD = mysqli_query($conn,$getID);
+$getID = "SELECT userID FROM users WHERE email = '$username'";
+$userres = mysqli_query($conn,$getID);
+$userrow = mysqli_fetch_array($userres);
+$userID = $userrow['userID'];
 
-$sql = " INSERT INTO likes (StoryID, userID) VALUES ('$storyID','$userID')";
+$storyID= $_GET['storyID'];
+
+$sql = " INSERT INTO likes (storyID, userID) VALUES ('$storyID','$userID')";
 
 mysqli_query($conn,$sql);
+
+header("Location: ../view-story.php?storyID=$storyID");
 
 ?>
