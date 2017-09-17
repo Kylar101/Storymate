@@ -150,7 +150,7 @@ $imgRes = mysqli_query($conn,$imgsql);
 						<?php if ($audioRow['audioFile']) : ?>
 							<audio controls src="<?php echo $audioRow['audioFile'] ?>"></audio>
 						<?php endif; ?>
-						<p><?php echo $contentsRow['textfield'] ?></p>
+						<p class="content-text-area"><?php echo $contentsRow['textfield'] ?></p>
 					</div>
 				</div>
 

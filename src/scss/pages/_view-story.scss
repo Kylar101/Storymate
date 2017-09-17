@@ -61,10 +61,12 @@
 			margin-left: 5vw;
 			text-align: left;
 		}
+
+		.content {
+			margin: 0 5vw;
+		}
 	}
-	.content {
-		margin: 0 5vw;
-	}
+
 }
 
 
@@ -96,6 +98,13 @@
 			word-wrap: break-word;
 		 	padding: 5px;
 			width:60%;
+			@media (max-width: 768px) {
+				width: 100%;
+			}
+
+
+
+
 		}
 	}
 	.add-comment {
@@ -171,4 +180,14 @@
 	// .comment-text-area{
 	// 	border: 1px;
 	// }
+}
+
+.content-text-area {
+	display: block;
+	font-size: 14px;
+	color: black;
+	border: none;
+	resize: none;
+	word-wrap: break-word;
+	padding: 5px;
 }
