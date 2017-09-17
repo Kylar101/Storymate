@@ -126,7 +126,7 @@ CREATE TABLE `notifications` (
   `userID` int(11) NOT NULL,
   `storyID` int(11) NOT NULL,
   `authorID` int(11) NOT NULL,
-  `seen` tinyint(1) NOT NULL COMMENT 'tells wheatther or not hte notifcation has been sseen'
+  `seen` tinyint(1) NOT NULL COMMENT 'tells whether or not the notifcation has been sseen'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='notications about stories';
 
 -- --------------------------------------------------------
