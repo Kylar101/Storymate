@@ -206,6 +206,11 @@ $imgRes = mysqli_query($conn,$imgsql);
 							</form>
 						</div>
 					</div>
+
+					<form action=php/like_processing.php?storyID=<?php echo $curstoryID; ?> method="post">
+						<button type="submit" class="btn view-button"><i class="fa fa-check" aria-hidden="true"></i> Like</button>
+					</form>
+
 				</div>
 
 

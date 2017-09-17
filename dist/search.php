@@ -97,6 +97,10 @@ $row = mysqli_fetch_array($userRes);
 							$imagePath = mysqli_fetch_array($fetchImage);
 							$path = $imagePath['imagepath'] ? $imagePath['imagepath'] : 'img/pizzasheen.gif';
 
+							$likesql = "SELECT * FROM likes WHERE storyID = '$storyID'";
+							$likeres = mysqli_query($conn,$likesql);
+							$likesqty = mysqli_num_rows($likeres);
+
 
 				?>
 						<div class="story-tile">
@@ -106,7 +110,7 @@ $row = mysqli_fetch_array($userRes);
 								<p class="excerpt"><?php echo $stories['description']; ?></p>
 								<h5 class="author-name"><?php echo $stories['firstName'].' '.$stories['lastName'] ?></h5>
 								<div class="story-extra">
-									<div class="likes">27 <span class="feature-likes"> <i class="fa fa-thumbs-up" aria-hidden="true"></span></i></div>
+									<div class="likes"><?php echo $likesqty; ?> <span class="feature-likes"> <i class="fa fa-thumbs-up" aria-hidden="true"></span></i></div>
 									<a href=view-story.php?storyID=<?php echo $stories['storyID'];?> class="btn comments-button view-story">View Story</a>
 								</div>
 							</div>
@@ -134,6 +138,10 @@ $row = mysqli_fetch_array($userRes);
 							$imagePath = mysqli_fetch_array($fetchImage);
 							$path = $imagePath['imagepath'] ? $imagePath['imagepath'] : 'img/pizzasheen.gif';
 
+							$likesql = "SELECT * FROM likes WHERE storyID = '$storyID'";
+							$likeres = mysqli_query($conn,$likesql);
+							$likesqty = mysqli_num_rows($likeres);
+
 					?>
 					<div class="story-tile">
 							<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" ><img src="<?php echo $path; ?>"></a>
@@ -143,7 +151,7 @@ $row = mysqli_fetch_array($userRes);
 								<hr>
 								<h5 class="author-name"><?php echo $stories['firstName'].' '.$stories['lastName'] ?></h5>
 								<div class="story-extra">
-									<div class="likes">27 <span class="feature-likes"> <i class="fa fa-thumbs-up" aria-hidden="true"></span></i></div>
+									<div class="likes" id="likecoutner"><?php echo $likesqty; ?> <span class="feature-likes"> <i class="fa fa-thumbs-up" aria-hidden="true"></span></i></div>
 									<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" class="btn view-button-searched view-story">View Story</a>
 								</div>
 							</div>
