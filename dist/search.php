@@ -31,7 +31,7 @@ $row = mysqli_fetch_array($userRes);
 					</div>
 
 					<!-- Scroll button -->
-					<a href="#title-search-content" id="scrolling-link"><div class="wrap">
+					<!-- <a href="#title-search-content" id="scrolling-link"><div class="wrap">
 						<div class="circle">
 
 							<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -41,7 +41,7 @@ $row = mysqli_fetch_array($userRes);
 							</svg>
 						</div>
 					</div>
-				</a>
+				</a> -->
 
 				<!-- Search bar -->
 				<div class="search-options">

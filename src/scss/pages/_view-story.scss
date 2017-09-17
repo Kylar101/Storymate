@@ -5,6 +5,7 @@
 	.to-search {
 		position: absolute;
 		top: 8vh;
+		cursor:pointer;
 		@media (max-width:700px) {
 			top: 13vh;
 		}
@@ -12,6 +13,10 @@
 		z-index: 9999;
 		a {
 			color: #fff;
+			&:hover{
+				text-decoration: none;
+				color: #0498e2;
+			}
 		}
 		&:before {
 			content: '\f060';
@@ -47,8 +52,14 @@
 		}
 	}
 	.story-article {
+		padding-top: 40px;
+		padding-bottom: 40px;
+		background-color: #f7f7f7;
+
 		h1 {
 			color: $dark-blue;
+			margin-left: 5vw;
+			text-align: left;
 		}
 	}
 	.content {
@@ -63,17 +74,33 @@
 }
 
 .story-comments {
-	margin: 0 5vw;
+	margin-top:50px;
+	margin-bottom:50px;
+	margin-left: 5vw;
+	// margin: 0 5vw;
+	h4{
+		margin-bottom: 40px;
+	}
 	.comment {
-		h4 {
+		h6 {
 			color: $light-black;
 		}
 		&-content {
-
+			display: block;
+			margin-bottom: 25px;
+			background-color: #f7f7f7;
+			color: $light-black;
+			font-size: 13px;
+			border: none;
+			resize: none;
+			word-wrap: break-word;
+		 	padding: 5px;
+			width:60%;
 		}
 	}
 	.add-comment {
 		margin-top: 30px;
+		width:60%;
 	}
 }
 
@@ -133,4 +160,15 @@
 		height: auto;
 	}
 
+}
+
+.field-wrap{
+
+	.post-story{
+		border: none;
+		font-size: 14px;
+	}
+	// .comment-text-area{
+	// 	border: 1px;
+	// }
 }

@@ -3,25 +3,25 @@
 }
 
 .search-header {
-	background-image: url('../img/story-feature2.jpg');
+	background-image: url('../img/dreamers.jpg');
 	background-size: cover;
-	height: 90vh;
+	height: 45vh;
 	display: block;
 	position: relative;
 	@media (max-width: 700px) {
 		width: 150vw;
-		height:80vh;
+		height:35vh;
 	}
 	.search-options {
 		position: absolute;
-	    top: 25vh;
+	    top: 20vh;
 	    left: 30vw;
 	    @media (max-width: 700px) {
-		    top: 20vh;
+		    top: 17vh;
 		    left: 25%;
 	    }
 	    @media (max-width: 500px) {
-		    top: 20vh;
+		    top: 15vh;
 		    left: 15%;
 	    }
 		.form {
@@ -127,9 +127,9 @@
 	width: 100%;
 	height: auto;
 	text-align: center;
-	top: 55vh;
+	top: 45vh;
 	@media (max-width: 700px) {
-		top: 40vh;
+		top: 33vh;
 	}
 	position: absolute;
 }
@@ -167,7 +167,7 @@
 		flex-wrap: wrap;
 		width: 75vw;
 		@media (max-width: 700px) {
-			width: 144vw;
+			width: 150vw;
 		}
 		margin: 0 auto;
 	}

@@ -174,6 +174,7 @@ $numlikes = mysqli_num_rows($likecheckres);
 
 
 
+				<!-- Previous comments -->
 				<div class="story-comments">
 					<form action=php/like_processing.php?storyID=<?php echo $curstoryID; ?> method="post">
 						<button id="like" type="submit" class="btn"><i class="fa fa-thumbs-up" aria-hidden="true"></span></i> Like Story</button>
@@ -191,8 +192,8 @@ $numlikes = mysqli_num_rows($likecheckres);
 						$comAuthRow = mysqli_fetch_array($comAuthRes);
 				?>
 					<div class="comment">
-						<h4><?php echo $comAuthRow['firstName'] . " " . $comAuthRow['lastName']; ?></h4>
-						<p class="comment-content"><?php echo $comment['commentBody']; ?></p>
+						<h6><?php echo $comAuthRow['firstName'] . " " . $comAuthRow['lastName'] . " said:"; ?></h6>
+						<p class="comment-content" disabled><?php echo $comment['commentBody']; ?></p>
 					</div>
 
 				<?php
@@ -200,7 +201,7 @@ $numlikes = mysqli_num_rows($likecheckres);
 				?>
 					<hr class="sections-divider">
 					<!-- Add comment form -->
-					<h4>Write a comment</h4>
+					<!-- <h4>Write a comment</h4> -->
 					<div class="add-comment">
 						<div class="post-form form">
 							<form action=php/comment_processing.php?storyID=<?php echo $storyRow['storyID'];?> method="post">
@@ -214,9 +215,9 @@ $numlikes = mysqli_num_rows($likecheckres);
 
 								<div class="field-wrap">
 									<label class="post-story text">
-											Write your comment<span class="req">*</span>
+											Write your comment here<span class="req">*</span>
 										</label>
-									<textarea rows="3" name="comment" required></textarea>
+									<textarea rows="3" name="comment" class="comment-text-area" required> </textarea>
 								</div>
 								<div class="field-wrap">
 								<button type="submit" class="btn view-button"><i class="fa fa-check" aria-hidden="true"></i> Post Comment</button>

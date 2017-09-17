@@ -10744,6 +10744,7 @@ textarea {
   #front-content .to-search {
     position: absolute;
     top: 8vh;
+    cursor: pointer;
     left: 3vw;
     z-index: 9999; }
     @media (max-width: 700px) {
@@ -10751,6 +10752,9 @@ textarea {
         top: 13vh; } }
     #front-content .to-search a {
       color: #fff; }
+      #front-content .to-search a:hover {
+        text-decoration: none;
+        color: #0498e2; }
     #front-content .to-search:before {
       content: '\F060';
       color: #fff;
@@ -10777,8 +10781,14 @@ textarea {
       z-index: 9; }
     .story-content .slider button.slick-next.slick-arrow {
       right: 15px; }
-  .story-content .story-article h1 {
-    color: #132330; }
+  .story-content .story-article {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f7f7f7; }
+    .story-content .story-article h1 {
+      color: #132330;
+      margin-left: 5vw;
+      text-align: left; }
   .story-content .content {
     margin: 0 5vw; }
 
@@ -10787,11 +10797,27 @@ textarea {
   margin-bottom: 50px; }
 
 .story-comments {
-  margin: 0 5vw; }
-  .story-comments .comment h4 {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 5vw; }
+  .story-comments h4 {
+    margin-bottom: 40px; }
+  .story-comments .comment h6 {
     color: #404040; }
+  .story-comments .comment-content {
+    display: block;
+    margin-bottom: 25px;
+    background-color: #f7f7f7;
+    color: #404040;
+    font-size: 13px;
+    border: none;
+    resize: none;
+    word-wrap: break-word;
+    padding: 5px;
+    width: 60%; }
   .story-comments .add-comment {
-    margin-top: 30px; }
+    margin-top: 30px;
+    width: 60%; }
 
 .story-header {
   height: 700px;
@@ -10841,30 +10867,34 @@ textarea {
     width: 100px;
     height: auto; }
 
+.field-wrap .post-story {
+  border: none;
+  font-size: 14px; }
+
 #front-content {
   display: flex; }
 
 .search-header {
-  background-image: url("../img/story-feature2.jpg");
+  background-image: url("../img/dreamers.jpg");
   background-size: cover;
-  height: 90vh;
+  height: 45vh;
   display: block;
   position: relative; }
   @media (max-width: 700px) {
     .search-header {
       width: 150vw;
-      height: 80vh; } }
+      height: 35vh; } }
   .search-header .search-options {
     position: absolute;
-    top: 25vh;
+    top: 20vh;
     left: 30vw; }
     @media (max-width: 700px) {
       .search-header .search-options {
-        top: 20vh;
+        top: 17vh;
         left: 25%; } }
     @media (max-width: 500px) {
       .search-header .search-options {
-        top: 20vh;
+        top: 15vh;
         left: 15%; } }
     .search-header .search-options .form {
       display: flex; }
@@ -10945,11 +10975,11 @@ textarea {
   width: 100%;
   height: auto;
   text-align: center;
-  top: 55vh;
+  top: 45vh;
   position: absolute; }
   @media (max-width: 700px) {
     .post-story-search-link {
-      top: 40vh; } }
+      top: 33vh; } }
 
 .post-story-search-link-button {
   text-align: center;
@@ -10976,7 +11006,7 @@ textarea {
   margin: 0 auto; }
   @media (max-width: 700px) {
     .search-content .search-wrapper {
-      width: 144vw; } }
+      width: 150vw; } }
 
 .search-content .story-tile {
   width: 30%;
