@@ -99,7 +99,7 @@ $row = mysqli_fetch_array($userRes);
 
 
 				?>
-						<div class="first-item">
+						<div class="story-tile">
 							<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" ><img src="<?php echo $path; ?>"></a>
 							<div class="story-info">
 								<h2 class="story-title"><?php echo $stories['title']; ?></h2>
@@ -135,7 +135,7 @@ $row = mysqli_fetch_array($userRes);
 							$path = $imagePath['imagepath'] ? $imagePath['imagepath'] : 'img/pizzasheen.gif';
 
 					?>
-					<div class="first-item">
+					<div class="story-tile">
 							<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" ><img src="<?php echo $path; ?>"></a>
 							<div class="story-info">
 								<h2 class="title"><?php echo $stories['title']; ?></h2>

@@ -10945,38 +10945,49 @@ textarea {
     transition: opacity .2s; }
 
 .search-content .search-wrapper {
+  display: flex;
+  flex-wrap: wrap;
   width: 75vw;
   margin: 0 auto; }
   @media (max-width: 700px) {
     .search-content .search-wrapper {
       width: 144vw; } }
 
-.search-content .first-item {
-  display: flex;
-  margin: 5px 0;
+.search-content .story-tile {
+  width: 30%;
+  margin: 10px 0;
+  margin-right: 3%;
   background: #f7f7f7; }
-  .search-content .first-item img {
-    width: 300px;
-    height: auto;
-    max-height: 250px; }
-  .search-content .first-item .story-info {
-    margin-left: 4vw; }
-    .search-content .first-item .story-info .story-title {
+  @media (max-width: 700px) {
+    .search-content .story-tile {
+      width: 100%;
+      margin-left: 4%;
+      margin-right: 0; } }
+  .search-content .story-tile img {
+    width: 100%;
+    height: auto; }
+  .search-content .story-tile .story-info {
+    margin-left: 2vw; }
+    @media (max-width: 700px) {
+      .search-content .story-tile .story-info {
+        margin-left: 10vw;
+        margin-right: 10vw; } }
+    .search-content .story-tile .story-info .story-title {
       margin-top: 5px; }
-    .search-content .first-item .story-info .author-name:hover {
+    .search-content .story-tile .story-info .author-name:hover {
       color: black;
       transition: color .2s; }
-    .search-content .first-item .story-info .author-name a:hover {
+    .search-content .story-tile .story-info .author-name a:hover {
       text-decoration: none; }
-    .search-content .first-item .story-info .story-extra {
+    .search-content .story-tile .story-info .story-extra {
       display: flex; }
-      .search-content .first-item .story-info .story-extra .likes .feature-likes {
+      .search-content .story-tile .story-info .story-extra .likes .feature-likes {
         margin-left: 1vw;
         font-size: 1.2em; }
-      .search-content .first-item .story-info .story-extra .view-story {
+      .search-content .story-tile .story-info .story-extra .view-story {
         margin-left: 2vw;
         margin-bottom: 2vh; }
-  .search-content .first-item:hover {
+  .search-content .story-tile:hover {
     background: rgba(5, 169, 251, 0.1);
     transition: background .2s; }
 
