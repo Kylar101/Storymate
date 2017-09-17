@@ -10789,8 +10789,8 @@ textarea {
       color: #132330;
       margin-left: 5vw;
       text-align: left; }
-  .story-content .content {
-    margin: 0 5vw; }
+    .story-content .story-article .content {
+      margin: 0 5vw; }
 
 .sections-divider {
   margin-top: 40px;
@@ -10815,6 +10815,9 @@ textarea {
     word-wrap: break-word;
     padding: 5px;
     width: 60%; }
+    @media (max-width: 768px) {
+      .story-comments .comment-content {
+        width: 100%; } }
   .story-comments .add-comment {
     margin-top: 30px;
     width: 60%; }
@@ -10870,6 +10873,15 @@ textarea {
 .field-wrap .post-story {
   border: none;
   font-size: 14px; }
+
+.content-text-area {
+  display: block;
+  font-size: 14px;
+  color: black;
+  border: none;
+  resize: none;
+  word-wrap: break-word;
+  padding: 5px; }
 
 #front-content {
   display: flex; }

@@ -168,7 +168,7 @@ $numlikes = mysqli_num_rows($likecheckres);
 						<?php if ($audioRowV2['audioFile']) : ?>
 							<audio controls src="<?php echo $audioRowV2['audioFile'] ?>"></audio>
 						<?php endif; ?>
-						<p><?php echo $contentsRow['textfield'] ?></p>
+						<p class="content-text-area"><?php echo $contentsRow['textfield'] ?></p>
 					</div>
 				</div>
 
