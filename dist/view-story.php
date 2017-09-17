@@ -113,6 +113,9 @@ $numlikes = mysqli_num_rows($likecheckres);
 	<header>
 		<section id="top-bar">
 			<div class="user-bar">
+				<div class="top-logo-wrapper">
+					<img class="logo" src="img/logo.png">
+				</div>
 				<div id="author-hamburger-menu">
 					<button class="author-hamburger">&#9776;</button>
 					<button class="author-cross">&#735;</button>
