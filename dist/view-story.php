@@ -165,10 +165,10 @@ $numlikes = mysqli_num_rows($likecheckres);
 						<?php if ($audioRow['audioFile']) : ?>
 							<audio controls src="<?php echo $audioRow['audioFile'] ?>"></audio>
 						<?php endif; ?>
-						<p class="content-text-area"><?php echo $contentsRow['textfield'] ?></p>
 						<?php if ($audioRowV2['audioFile']) : ?>
 							<audio controls src="<?php echo $audioRowV2['audioFile'] ?>"></audio>
 						<?php endif; ?>
+						<p class="content-text-area"><?php echo $contentsRow['textfield'] ?></p>
 					</div>
 				</div>
 
