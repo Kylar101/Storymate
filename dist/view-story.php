@@ -60,15 +60,19 @@ if (!$contentsRes) {
 	die (mysqli_error($conn));
 }
 
-$audioID = $contentsRow['audioID'];
-$audioSQL = "SELECT * FROM audio WHERE audioID = '$audioID'";
-$audioRes = mysqli_query($conn, $audioSQL);
 
-if (!$audioRes) {
+$asql = "SELECT * FROM audio WHERE storyID = '$curstoryID'";
+$ares = mysqli_query($conn,$asql);
+$audioRow = mysqli_fetch_array($ares);
+//$audioID = $arow['aduioFILE'];
+//$audioSQL = "SELECT * FROM audio WHERE audioID = '$audioID'";
+//$audioRes = mysqli_query($conn, $audioSQL);
+
+if (!$ares) {
 	die (mysqli_error($conn));
 }
 
-$audioRow = mysqli_fetch_array($audioRes);
+//$audioRow = mysqli_fetch_array($audioRes);
 
 $commentSQL = "SELECT * FROM comments WHERE storyID = $curstoryID";
 $commRes = mysqli_query($conn,$commentSQL);
