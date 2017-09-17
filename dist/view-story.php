@@ -64,15 +64,16 @@ if (!$contentsRes) {
 $asql = "SELECT * FROM audio WHERE storyID = '$curstoryID'";
 $ares = mysqli_query($conn,$asql);
 $audioRow = mysqli_fetch_array($ares);
-//$audioID = $arow['aduioFILE'];
-//$audioSQL = "SELECT * FROM audio WHERE audioID = '$audioID'";
-//$audioRes = mysqli_query($conn, $audioSQL);
 
-if (!$ares) {
+$audioID = $contentsRow['audioID'];
+
+$audioSQL = "SELECT * FROM audio WHERE audioID = '$audioID'";
+$audioRes = mysqli_query($conn, $audioSQL);
+$audioRowV2 = mysqli_fetch_array($audioRes);
+
+if (!$ares || !$audioRes) {
 	die (mysqli_error($conn));
 }
-
-//$audioRow = mysqli_fetch_array($audioRes);
 
 $commentSQL = "SELECT * FROM comments WHERE storyID = $curstoryID";
 $commRes = mysqli_query($conn,$commentSQL);
@@ -143,7 +144,7 @@ $numlikes = mysqli_num_rows($likecheckres);
 		<article id="front-content">
 			<!-- Go back button -->
 			<div class="to-search">
-				<a onclick="window.history.go(-1); return false;">Back to search</a>
+				<a onclick="window.history.go(-1); return false;">Go Back</a>
 			</div>
 
 			<div class="story-content">
@@ -157,11 +158,15 @@ $numlikes = mysqli_num_rows($likecheckres);
 			    		}
 			        ?>
 		        </div>
+
 				<div class="story-article">
 					<h1><?php echo $storyRow['title'] ?></h1>
 					<div class="content">
 						<?php if ($audioRow['audioFile']) : ?>
 							<audio controls src="<?php echo $audioRow['audioFile'] ?>"></audio>
+						<?php endif; ?>
+						<?php if ($audioRowV2['audioFile']) : ?>
+							<audio controls src="<?php echo $audioRowV2['audioFile'] ?>"></audio>
 						<?php endif; ?>
 						<p><?php echo $contentsRow['textfield'] ?></p>
 					</div>
@@ -170,6 +175,10 @@ $numlikes = mysqli_num_rows($likecheckres);
 
 
 				<div class="story-comments">
+					<form action=php/like_processing.php?storyID=<?php echo $curstoryID; ?> method="post">
+						<button id="like" type="submit" class="btn"><i class="fa fa-thumbs-up" aria-hidden="true"></span></i> Like Story</button>
+					</form>
+
 					<h2>Comments</h2>
 
 				<?php
@@ -196,12 +205,12 @@ $numlikes = mysqli_num_rows($likecheckres);
 						<div class="post-form form">
 							<form action=php/comment_processing.php?storyID=<?php echo $storyRow['storyID'];?> method="post">
 
-								<div class="field-wrap">
+								<!-- <div class="field-wrap">
 									<label class="post-story">
 											Your Name<span class="req">*</span>
 										</label>
 									<input type="text" required autocomplete="off" />
-								</div>
+								</div> -->
 
 								<div class="field-wrap">
 									<label class="post-story text">
@@ -215,10 +224,6 @@ $numlikes = mysqli_num_rows($likecheckres);
 							</form>
 						</div>
 					</div>
-
-					<form action=php/like_processing.php?storyID=<?php echo $curstoryID; ?> method="post">
-						<button id="like" type="submit" class="btn view-button"><i class="fa fa-check" aria-hidden="true"></i> Like</button>
-					</form>
 
 				</div>
 

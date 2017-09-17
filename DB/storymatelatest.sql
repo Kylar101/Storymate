@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 17, 2017 at 03:37 AM
+-- Generation Time: Sep 17, 2017 at 05:54 AM
 -- Server version: 10.1.24-MariaDB
 -- PHP Version: 7.1.6
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `storymatelatest`
+-- Database: `storymate`
 --
 
 -- --------------------------------------------------------
@@ -33,6 +33,8 @@ CREATE TABLE `audio` (
   `audioFile` varchar(255) NOT NULL,
   `storyID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
 
 -- --------------------------------------------------------
 
@@ -54,19 +56,12 @@ CREATE TABLE `categories` (
 
 CREATE TABLE `comments` (
   `commentID` int(11) NOT NULL,
-  `storyID` int(10) NOT NULL,
   `commentBody` text NOT NULL,
   `authorID` int(11) NOT NULL,
-  `dateCreated` date NOT NULL
+  `dateCreated` date NOT NULL,
+  `storyID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `comments`
---
-
-INSERT INTO `comments` (`commentID`, `storyID`, `commentBody`, `authorID`, `dateCreated`) VALUES
-(1, 3, 'sdfasd', 3, '0000-00-00'),
-(2, 3, 'sdfasd', 3, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -102,9 +97,10 @@ CREATE TABLE `following` (
 
 CREATE TABLE `images` (
   `imageID` int(11) NOT NULL,
-  `imagepath` varchar(255) NOT NULL,
-  `storyID` int(10) NOT NULL
+  `storyID` int(10) NOT NULL,
+  `imagepath` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -114,9 +110,10 @@ CREATE TABLE `images` (
 
 CREATE TABLE `likes` (
   `likeID` int(11) NOT NULL,
-  `StoryID` int(11) NOT NULL,
+  `storyID` int(11) NOT NULL,
   `userID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
@@ -147,8 +144,12 @@ CREATE TABLE `stories` (
   `categoryID` int(11) NOT NULL,
   `public` tinyint(1) NOT NULL,
   `dateCreated` date NOT NULL,
-  `trash` int(1) NOT NULL
+  `storyText` longtext NOT NULL,
+  `approved` int(1) NOT NULL,
+  `trash` int(1) NOT NULL,
+  `draft` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='holds the stories contents';
+
 
 -- --------------------------------------------------------
 
@@ -160,9 +161,11 @@ CREATE TABLE `storycontents` (
   `contentsID` int(11) NOT NULL,
   `storyID` int(11) NOT NULL,
   `textfield` text,
+  `imageID` int(11) NOT NULL,
   `audioID` int(11) NOT NULL,
   `contentWarning` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='holds the contents of the story';
+
 
 -- --------------------------------------------------------
 
@@ -208,7 +211,7 @@ CREATE TABLE `users` (
   `firstName` varchar(48) NOT NULL,
   `lastName` varchar(48) NOT NULL,
   `email` varchar(48) NOT NULL,
-  `phone` int(10) NOT NULL,
+  `phone` varchar(10) NOT NULL,
   `activated` tinyint(1) NOT NULL COMMENT 'wheather the user''s account has been approved by an admin.',
   `dateCreated` date NOT NULL COMMENT 'date the account was created.',
   `password` varchar(128) NOT NULL
@@ -309,7 +312,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `audio`
 --
 ALTER TABLE `audio`
-  MODIFY `audioID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `audioID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `categories`
 --
@@ -319,7 +322,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `commentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `commentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `flags`
 --
@@ -334,7 +337,7 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `likeID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `likeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `notifications`
 --
@@ -344,12 +347,12 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `stories`
 --
 ALTER TABLE `stories`
-  MODIFY `storyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `storyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 --
 -- AUTO_INCREMENT for table `storycontents`
 --
 ALTER TABLE `storycontents`
-  MODIFY `contentsID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `contentsID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT for table `tags`
 --
