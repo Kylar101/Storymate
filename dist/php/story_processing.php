@@ -18,6 +18,7 @@ $authorID = $authorRow['userID'];
 
 if(isset($_POST['draft'])){
 	$draft = 1;
+	echo "draft";
 
 }else{
 	$draft = 0;
@@ -33,7 +34,7 @@ $getTagID = "SELECT categoryID FROM categories WHERE tagName = '$tagName'";
 $tagID = mysqli_query($conn,$getTagID);
 */
 
-$sql = "INSERT INTO stories (title, description, authorID) VALUES ('$Title', '$Description', '$authorID')";
+$sql = "INSERT INTO stories (title, description, authorID, draft) VALUES ('$Title', '$Description', '$authorID', '$draft')";
 $result = mysqli_query($conn,$sql);
 
 if (!$result) {
