@@ -32,6 +32,8 @@ if (isset($_GET['edit'])) :
 		die(mysqli_error($conn));
 	}
 
+	$draft = $storyRow['draft'];
+
 	$imgsql = "SELECT * FROM images WHERE storyID = '$storyID'";
 	$imgRes = mysqli_query($conn,$imgsql);
 	if (!$imgRes) {
@@ -184,11 +186,13 @@ endif;
 
 						<div class="field-wrap">
 							<?php if (!$editMode) : ?>
-							<button type="submit" name="draft" class="btn draft-button">Save Draft</button>
-              <button type="submit" class="btn view-button"><i class="fa fa-check" aria-hidden="true"></i> Post Story</button>
-
+								<button type="submit" name="draft" class="btn draft-button">Save Draft</button>
+					            <button type="submit" class="btn view-button"><i class="fa fa-check" aria-hidden="true"></i> Post Story</button>
+							<?php elseif ($editMode && $draft) : ?>
+								<button type="submit" class="btn draft-button"><i class="fa fa-check" aria-hidden="true"></i> Update Story</button>
+								<button type="submit" name="draft" class="btn view-button"><i class="fa fa-check" aria-hidden="true"></i> Publish Story</button>
 							<?php else : ?>
-							<button type="submit" class="btn view-button"><i class="fa fa-check" aria-hidden="true"></i> Update Story</button>
+								<button type="submit" class="btn view-button"><i class="fa fa-check" aria-hidden="true"></i> Update Story</button>
 							<?php endif; ?>
 						</div>
 
