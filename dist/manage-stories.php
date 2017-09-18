@@ -40,7 +40,7 @@ $row = mysqli_fetch_array($result);
 							$flagSQL = "SELECT * FROM flags";
 							$fetchflags = mysqli_query($conn,$flagSQL);
 
-							while($flags = mysqli_fetch_array($fetchflags)){
+							while($flags = mysqli_fetch_array($fetchflags)) :
 
 								$storyID = $flags['storyID'];
 
@@ -72,7 +72,7 @@ $row = mysqli_fetch_array($result);
 							</div>
 						</div>
 						<?php
-							}
+							endwhile;
 						?>
 
 					</div>
