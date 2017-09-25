@@ -34,15 +34,23 @@ $row = mysqli_fetch_array($result);
 			<div class="profile-details">
 				
 				<div class="my-stories">
-					<h2 class="title">All Stories</h2>
+					<h2 class="title">All Potentially Stories</h2>
 					<div class="story-card-location">
 						<?php
-							$storySQL = "SELECT * FROM stories";
-							$fetchStories = mysqli_query($conn,$storySQL);
+							$flagSQL = "SELECT * FROM flags";
+							$fetchflags = mysqli_query($conn,$flagSQL);
 
-							while($stories = mysqli_fetch_array($fetchStories)){
+							while($flags = mysqli_fetch_array($fetchflags)) :
 
-								$storyID = $stories['storyID'];
+								$storyID = $flags['storyID'];
+
+								$storySQL = "SELECT * FROM stories WHERE storyID='$storyID'";
+								$fetchStory = mysqli_query($conn, $storySQL);
+								if (!$fetchStory) {
+									die (mysqli_error($conn));
+								}
+
+								$stories = mysqli_fetch_array($fetchStory);
 
 								$imageSQL = "SELECT * FROM images WHERE storyID = '$storyID' LIMIT 1";
 								$fetchImage = mysqli_query($conn,$imageSQL);
@@ -64,7 +72,7 @@ $row = mysqli_fetch_array($result);
 							</div>
 						</div>
 						<?php
-							}
+							endwhile;
 						?>
 
 					</div>
