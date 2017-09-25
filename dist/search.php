@@ -29,19 +29,21 @@ $row = mysqli_fetch_array($userRes);
 					<div class="post-story-search-link">
 						<a href="post-story.php" class="post-story-search-link-button">Post Story</a>
 					</div>
-
+<div class="slogan">
+					<span>Your space to share your stories</span>
+</div>
 					<!-- Scroll button -->
-					<!-- <a href="#title-search-content" id="scrolling-link"><div class="wrap">
+					<a href="#title-search-content" id="scrolling-link"><div class="wrap">
 						<div class="circle">
-
-							<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+							<!-- <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 							viewBox="0 0 25 25" style="enable-background:new 0 0 25 25;" xml:space="preserve">
 							<path class="arrow" d="M21.9644928,8.3267822l-8.0706987,8.0706997c-0.7697706,0.7697716-2.0178175,0.7697716-2.7875881,0
 							L3.0355062,8.3267822"/>
-							</svg>
+							</svg> -->
+							<i class="fa fa-angle-down" aria-hidden="true"></i>
 						</div>
 					</div>
-				</a> -->
+				</a>
 
 				<!-- Search bar -->
 				<div class="search-options">

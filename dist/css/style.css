@@ -10125,7 +10125,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 #top-bar {
   background: #132330;
   width: 100%;
-  height: 6vh;
+  height: 10vh;
   position: fixed;
   z-index: 100; }
   @media (max-width: 700px) {
@@ -10141,26 +10141,27 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
       #top-bar .user-bar {
         width: 90%; } }
     #top-bar .user-bar .top-logo-wrapper {
-      margin-top: 1vh;
+      margin-top: 2vh;
       width: 48%; }
       @media (max-width: 700px) {
         #top-bar .user-bar .top-logo-wrapper {
           width: 30%; } }
       #top-bar .user-bar .top-logo-wrapper .logo {
         width: auto;
-        height: 4vh; }
+        height: 6vh; }
         @media (max-width: 700px) {
           #top-bar .user-bar .top-logo-wrapper .logo {
-            height: 6vh;
+            height: 7vh;
             margin-left: 20px; } }
     #top-bar .user-bar .user-name {
       text-align: right;
-      padding: 1vh 0;
+      padding-top: 30px;
+      padding-bottom: 30px;
       width: 50%; }
       @media (max-width: 700px) {
         #top-bar .user-bar .user-name {
           width: 70%;
-          font-size: 1.3em; } }
+          font-size: 1.1em; } }
       #top-bar .user-bar .user-name a {
         color: #fff; }
       #top-bar .user-bar .user-name:before {
@@ -10888,13 +10889,13 @@ textarea {
 .search-header {
   background-image: url("../img/dreamers.jpg");
   background-size: cover;
-  height: 45vh;
+  height: 100vh;
   display: block;
   position: relative; }
   @media (max-width: 700px) {
     .search-header {
       width: 150vw;
-      height: 35vh; } }
+      height: 100vh; } }
   .search-header .search-options {
     position: absolute;
     top: 20vh;
@@ -11070,35 +11071,21 @@ textarea {
 .circle {
   width: 70px;
   height: 70px;
-  border-radius: 50%;
-  background: #0098cd;
+  color: white;
+  font-size: 48px;
   position: relative;
-  top: 85vh;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+  top: 70vh;
   margin: 0 auto;
   cursor: pointer;
-  transition: all .1s ease;
-  padding: 28px 25px 25px 25px; }
+  transition: all .1s ease; }
   @media (max-width: 700px) {
     .circle {
       top: 65vh; } }
 
-.circle:hover {
-  top: 81vh;
-  background: #008cbd;
-  transition: all .1s ease; }
-
 .wrap {
   width: 100%;
   position: relative;
-  animation: bounce 3s infinite; }
-
-.arrow {
-  fill: none;
-  stroke: #ffffff;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round; }
+  animation: bounce 2s infinite; }
 
 @keyframes bounce {
   50% {
@@ -11109,6 +11096,21 @@ textarea {
     top: -5px; }
   65% {
     top: 0px; } }
+
+.slogan {
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 48px;
+  position: relative;
+  top: 60vh;
+  margin: auto;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: all .1s ease; }
+  @media (max-width: 700px) {
+    .slogan {
+      top: 65vh; } }
 
 html, body {
   height: 100%; }
