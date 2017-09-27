@@ -104,13 +104,16 @@ $row = mysqli_fetch_array($userRes);
 						<div class="story-tile">
 							<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" ><img src="<?php echo $path; ?>"></a>
 							<div class="story-info">
-								<h2 class="story-title"><?php echo $stories['title']; ?></h2>
-								<p class="excerpt"><?php echo $stories['description']; ?></p>
-								<h5 class="author-name"><?php echo $stories['firstName'].' '.$stories['lastName'] ?></h5>
-								<div class="story-extra">
-									<div class="likes"><?php echo $likesqty; ?> <span class="feature-likes"> <i class="fa fa-thumbs-up" aria-hidden="true"></span></i></div>
-									<a href=view-story.php?storyID=<?php echo $stories['storyID'];?> class="btn comments-button view-story">View Story</a>
-								</div>
+            		<!-- <h3 class="story-title"><?php echo $stories['title']; ?></h3> -->
+								<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" class="title-link"><h3><?php echo $stories['title']; ?></h3></a>
+								<div class="story-tile-bottom">
+									<div class="excerpt"><?php echo $stories['description']; ?></div>
+									<h5 class="author-name"><?php echo $stories['firstName'].' '.$stories['lastName'] ?></h5>
+									<div class="story-extra">
+										<div class="likes"><?php echo $likesqty; ?> <span class="feature-likes"> <i class="fa fa-thumbs-up" aria-hidden="true"></span></i></div>
+										<a href=view-story.php?storyID=<?php echo $stories['storyID'];?> class="btn comments-button view-story">View Story</a>
+									</div>
+							</div>
 							</div>
 						</div>
 
@@ -141,19 +144,23 @@ $row = mysqli_fetch_array($userRes);
 							$likesqty = mysqli_num_rows($likeres);
 
 					?>
+
 					<div class="story-tile">
 							<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" ><img src="<?php echo $path; ?>"></a>
 							<div class="story-info">
-								<h2 class="title"><?php echo $stories['title']; ?></h2>
+								<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" class="title-link"><h3><?php echo $stories['title']; ?></h3></a>
 								<p class="excerpt"><?php echo $stories['description']; ?></p>
-								<hr>
-								<h5 class="author-name"><?php echo $stories['firstName'].' '.$stories['lastName'] ?></h5>
-								<div class="story-extra">
-									<div class="likes" id="likecoutner"><?php echo $likesqty; ?> <span class="feature-likes"> <i class="fa fa-thumbs-up" aria-hidden="true"></span></i></div>
-									<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" class="btn view-button-searched view-story">View Story</a>
-								</div>
-							</div>
+								<hr class="divider-line">
+								<div class="story-tile-bottom">
+									<h6 class="author-name"><?php echo $stories['firstName'].' '.$stories['lastName'] ?></h6>
+									<div class="story-extra">
+										<div class="likes" id="likecoutner"><?php echo $likesqty; ?> <span class="feature-likes"> <i class="fa fa-thumbs-up" aria-hidden="true"></span></i></div>
+										<!-- <a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" class="btn view-button-searched view-story">View Story</a> -->
+									</div>
+							 </div>
+						 </div>
 						</div>
+						
 
 
 						<?php
