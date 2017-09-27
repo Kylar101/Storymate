@@ -10891,57 +10891,54 @@ textarea {
   background-size: cover;
   height: 100vh;
   display: block;
-  position: relative; }
+  position: relative;
+  width: 100%; }
   @media (max-width: 700px) {
     .search-header {
       width: 150vw;
       height: 100vh; } }
-  .search-header .search-options {
-    position: absolute;
-    top: 20vh;
-    left: 30vw; }
+  .search-header .search-stories-tool {
+    width: 60%;
+    position: relative;
+    margin: auto;
+    top: 20vh; }
+  .search-header .search-options .form {
+    display: flex;
+    width: 482px;
+    margin: auto; }
+  .search-header .search-options .field-wrap {
+    margin-bottom: 0;
+    height: 50px;
+    font-size: 48px; }
+  .search-header .search-options .search-bar {
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+    opacity: .5;
+    width: 450px;
+    -webkit-border-top-left-radius: 10px;
+    -moz-border-top-left-radius: 10px;
+    border-top-left-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 10px; }
     @media (max-width: 700px) {
-      .search-header .search-options {
-        top: 17vh;
-        left: 25%; } }
-    @media (max-width: 500px) {
-      .search-header .search-options {
-        top: 15vh;
-        left: 15%; } }
-    .search-header .search-options .form {
-      display: flex; }
-    .search-header .search-options .field-wrap {
-      margin-bottom: 0;
-      height: 50px; }
-    .search-header .search-options .search-bar {
-      border-top: 1px solid white;
-      border-bottom: 1px solid white;
-      border-left: 1px solid white;
-      opacity: .5;
-      width: 450px;
-      -webkit-border-top-left-radius: 10px;
-      -moz-border-top-left-radius: 10px;
-      border-top-left-radius: 10px;
-      -webkit-border-bottom-left-radius: 10px;
-      -moz-border-bottom-left-radius: 10px;
-      border-bottom-left-radius: 10px; }
-      @media (max-width: 700px) {
-        .search-header .search-options .search-bar {
-          width: 400px; } }
-      .search-header .search-options .search-bar:focus {
-        opacity: 1;
-        transition: opacity .2s; }
-      .search-header .search-options .search-bar:hover {
-        opacity: 1;
-        transition: opacity .2s; }
-    .search-header .search-options .search-button {
-      width: 3vw;
-      border: none;
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px; }
-      @media (max-width: 700px) {
-        .search-header .search-options .search-button {
-          width: 10vw; } }
+      .search-header .search-options .search-bar {
+        width: 350px; } }
+    .search-header .search-options .search-bar:focus {
+      opacity: 1;
+      transition: opacity .2s; }
+    .search-header .search-options .search-bar:hover {
+      opacity: 1;
+      transition: opacity .2s; }
+  .search-header .search-options .search-button {
+    width: 4vw;
+    border: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px; }
+    @media (max-width: 700px) {
+      .search-header .search-options .search-button {
+        width: 4vw; } }
   .search-header .search-advanced {
     margin-top: 10px;
     color: #fff; }
@@ -10987,7 +10984,7 @@ textarea {
   width: 100%;
   height: auto;
   text-align: center;
-  top: 45vh;
+  top: 40vh;
   position: absolute; }
   @media (max-width: 700px) {
     .post-story-search-link {
@@ -11032,7 +11029,7 @@ textarea {
       margin-right: 0; } }
   .search-content .story-tile img {
     width: 100%;
-    height: auto; }
+    height: 200px; }
   .search-content .story-tile .story-info {
     margin-left: 2vw; }
     @media (max-width: 700px) {
@@ -11059,9 +11056,8 @@ textarea {
     transition: background .2s; }
 
 #title-search-content {
-  height: 60px;
   width: 100%;
-  margin-top: 95px;
+  padding-top: 95px;
   margin-bottom: 70px;
   width: 100%; }
   #title-search-content h1 {
@@ -11074,13 +11070,14 @@ textarea {
   color: white;
   font-size: 48px;
   position: relative;
-  top: 70vh;
+  top: 60vh;
+  text-align: center;
   margin: 0 auto;
   cursor: pointer;
   transition: all .1s ease; }
   @media (max-width: 700px) {
     .circle {
-      top: 65vh; } }
+      top: 60vh; } }
 
 .wrap {
   width: 100%;
@@ -11103,14 +11100,15 @@ textarea {
   color: white;
   font-size: 48px;
   position: relative;
-  top: 60vh;
+  top: 50vh;
   margin: auto;
   margin: 0 auto;
   cursor: pointer;
   transition: all .1s ease; }
   @media (max-width: 700px) {
     .slogan {
-      top: 65vh; } }
+      top: 45vh;
+      font-size: 18px; } }
 
 html, body {
   height: 100%; }
