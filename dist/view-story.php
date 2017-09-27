@@ -114,7 +114,7 @@ $numlikes = mysqli_num_rows($likecheckres);
 		<section id="top-bar">
 			<div class="user-bar">
 				<div class="top-logo-wrapper">
-					<img class="logo" src="img/logo.png">
+					<a href="search.php"><img class="logo" src="img/logo.png"></a>
 				</div>
 				<div id="author-hamburger-menu">
 					<button class="author-hamburger">&#9776;</button>
@@ -147,7 +147,7 @@ $numlikes = mysqli_num_rows($likecheckres);
 		<article id="front-content">
 			<!-- Go back button -->
 			<div class="to-search">
-				<a onclick="window.history.go(-1); return false;">Go Back</a>
+				<a onclick="window.history.go(-1); return false;">Back</a>
 			</div>
 
 			<div class="story-content">
@@ -163,7 +163,14 @@ $numlikes = mysqli_num_rows($likecheckres);
 		        </div>
 
 				<div class="story-article">
+
 					<h1><?php echo $storyRow['title'] ?></h1>
+					<div class="like-btn-box">
+						<form action=php/like_processing.php?storyID=<?php echo $curstoryID; ?> method="post">
+							<button id="like" type="submit" class="btn like-btn"><i class="fa fa-thumbs-up" aria-hidden="true"></span></i> Like</button>
+						</form>
+					</div>
+
 					<div class="content">
 						<?php if ($audioRow['audioFile']) : ?>
 							<audio controls src="<?php echo $audioRow['audioFile'] ?>"></audio>
@@ -173,15 +180,14 @@ $numlikes = mysqli_num_rows($likecheckres);
 						<?php endif; ?>
 						<p class="content-text-area"><?php echo $contentsRow['textfield'] ?></p>
 					</div>
+
 				</div>
 
 
 
 				<!-- Previous comments -->
 				<div class="story-comments">
-					<form action=php/like_processing.php?storyID=<?php echo $curstoryID; ?> method="post">
-						<button id="like" type="submit" class="btn"><i class="fa fa-thumbs-up" aria-hidden="true"></span></i> Like Story</button>
-					</form>
+
 
 					<h2>Comments</h2>
 
@@ -265,7 +271,7 @@ $numlikes = mysqli_num_rows($likecheckres);
 	</footer>
 
 <?php
-	if( $numlikes >= 1){ 
+	if( $numlikes >= 1){
 ?>
 <script> document.getElementById("like").disabled = true; </script>
 <?php

@@ -10742,8 +10742,11 @@ textarea {
   display: flex;
   position: relative; }
   #front-content .to-search {
+    background-color: #0498e2;
+    padding: 5px 15px;
+    border-radius: 5px;
     position: absolute;
-    top: 8vh;
+    top: 12vh;
     cursor: pointer;
     left: 3vw;
     z-index: 9999; }
@@ -10754,11 +10757,7 @@ textarea {
       color: #fff; }
       #front-content .to-search a:hover {
         text-decoration: none;
-        color: #0498e2; }
-    #front-content .to-search:before {
-      content: '\F060';
-      color: #fff;
-      font-family: 'FontAwesome'; }
+        padding: 5px 15px; }
 
 .story-content {
   width: 75vw;
@@ -10788,7 +10787,14 @@ textarea {
     .story-content .story-article h1 {
       color: #132330;
       margin-left: 5vw;
+      margin-bottom: 2vw;
       text-align: left; }
+    .story-content .story-article .like-btn-box {
+      width: 100%; }
+      .story-content .story-article .like-btn-box form {
+        margin-left: 11vh; }
+        .story-content .story-article .like-btn-box form .like-btn {
+          margin-bottom: 3vh; }
     .story-content .story-article .content {
       margin: 0 5vw; }
 
@@ -10800,7 +10806,7 @@ textarea {
   margin-top: 50px;
   margin-bottom: 50px;
   margin-left: 5vw; }
-  .story-comments h4 {
+  .story-comments h2 {
     margin-bottom: 40px; }
   .story-comments .comment h6 {
     color: #404040; }

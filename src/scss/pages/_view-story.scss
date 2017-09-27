@@ -3,26 +3,32 @@
 	// flex-wrap: wrap;
 	position: relative;
 	.to-search {
-		position: absolute;
-		top: 8vh;
-		cursor:pointer;
 		@media (max-width:700px) {
 			top: 13vh;
 		}
+		background-color: #0498e2;
+		padding:5px 15px;
+
+		border-radius: 5px;
+		position: absolute;
+		top: 12vh;
+		cursor:pointer;
 		left: 3vw;
 		z-index: 9999;
 		a {
 			color: #fff;
 			&:hover{
 				text-decoration: none;
-				color: #0498e2;
+				// background-color: $main-dark;
+				padding:5px 15px;
+
 			}
 		}
-		&:before {
-			content: '\f060';
-			color: #fff;
-			font-family: 'FontAwesome';
-		}
+		// &:before {
+		// 	content: '\f060';
+		// 	color: #fff;
+		// 	font-family: 'FontAwesome';
+		// }
 	}
 }
 
@@ -59,7 +65,17 @@
 		h1 {
 			color: $dark-blue;
 			margin-left: 5vw;
+			margin-bottom: 2vw;
 			text-align: left;
+		}
+		.like-btn-box{
+			width: 100%;
+			form{
+				margin-left: 11vh;
+				.like-btn{
+					margin-bottom: 3vh;
+				}
+			}
 		}
 
 		.content {
@@ -80,7 +96,7 @@
 	margin-bottom:50px;
 	margin-left: 5vw;
 	// margin: 0 5vw;
-	h4{
+	h2{
 		margin-bottom: 40px;
 	}
 	.comment {
