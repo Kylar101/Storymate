@@ -99,6 +99,29 @@ endif;
 							<?php endif; ?>
 						</div>
 
+						<div class="">
+							<p class="small-label">
+								Add Categories
+							</p>
+
+							<div class="categories">
+							<?php 
+
+								$cat = "SELECT * FROM categories";
+								$fetchCats = mysqli_query($conn,$cat);
+								
+
+								while($cats = mysqli_fetch_array($fetchCats)) :
+
+								?>
+
+								<span class="story-cat"><input type="checkbox" name="categories[]" class="" value="<?php echo $cats['categoryID'] ?>"> <?php echo $cats['categoryName'] ?></span>
+
+							<?php endwhile; ?>
+
+							</div>
+						</div>
+
 						<div class="field-wrap">
 							<p class="small-label">
 								Add content <span class="req">*</span>
