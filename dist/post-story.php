@@ -101,7 +101,7 @@ endif;
 
 						<div class="">
 							<p class="small-label">
-								Add Categories
+								Add Category
 							</p>
 
 							<div class="categories">
@@ -115,7 +115,7 @@ endif;
 
 								?>
 
-								<span class="story-cat"><input type="checkbox" name="categories[]" class="" value="<?php echo $cats['categoryID'] ?>"> <?php echo $cats['categoryName'] ?></span>
+								<span class="story-cat"><input type="radio" name="category" class="" value="<?php echo $cats['categoryID'] ?>"> <?php echo $cats['categoryName'] ?></span>
 
 							<?php endwhile; ?>
 
