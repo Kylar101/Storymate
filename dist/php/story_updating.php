@@ -21,8 +21,6 @@ if(isset($_POST['draft'])){
 	$draft = 0;
 }
 
-die();
-
 $sql = "UPDATE stories SET title='$Title', description='$Description' WHERE storyID='$storyID'";
 $sqlcontents = "UPDATE storycontents SET textfield='$Text' WHERE storyID='$storyID'";
 
@@ -76,6 +74,6 @@ foreach($_FILES['images']['name'] as $k=>$name){
 }
 
 
-// header("location: ../profile.php");
+header("location: ../profile.php");
 
 ?>
