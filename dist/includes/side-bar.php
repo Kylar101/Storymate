@@ -13,6 +13,7 @@
 		<li class="logout"><a href="./php/log_out.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout </a></li>
 		<?php if ($userRole == 1) : ?>
 		<li class="manage-stories"><a href="manage-stories.php"><i class="fa fa-list-ul" aria-hidden="true"></i> Manage Stories</a></li>
+		<li class="manage-categories"><a href="manage-categories.php"><i class="fa fa-list-ul" aria-hidden="true"></i> Manage Categories</a></li>
 		<?php endif; ?>
 	</ul>
 </nav>
@@ -24,6 +25,7 @@
 		<li class="logout"><a href="./php/log_out.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout </a></li>
 		<?php if ($userRole == 1) : ?>
 		<li class="manage-stories"><a href="manage-stories.php"><i class="fa fa-list-ul" aria-hidden="true"></i> Manage Stories</a></li>
+		<li class="manage-categories"><a href="manage-categories.php"><i class="fa fa-list-ul" aria-hidden="true"></i> Manage Categories</a></li>
 		<?php endif; ?>
 	</ul>
 </nav>
