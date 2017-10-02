@@ -52,8 +52,7 @@ $row = mysqli_fetch_array($result);
 								<p class="user-email"><?php echo $cats['categoryDescription']; ?></p>
 							</div>
 							<div class="user-buttons">
-								<a href="php/update-categories.php?status=delete&catID=<?php echo $cats['categoryID'] ?>" class="delete-button user-icons"><i class="fa fa-times" aria-hidden="true"></i></a>
-								<a href="php/update-categories.php?status=edit&catID=<?php echo $cats['categoryID'] ?>" class="edit-button user-icons"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+								<a href="php/update-categories.php?catID=<?php echo $cats['categoryID'] ?>" class="delete-button user-icons"><i class="fa fa-times" aria-hidden="true"></i></a>
 							</div>
 						</div>
 
