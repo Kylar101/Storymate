@@ -9,6 +9,9 @@
 		@media (max-width:700px) {
 			top: 13vh;
 		}
+		background: $transparent-dark-blue;
+		padding: 5px;
+		border-radius: 5px;
 		left: 3vw;
 		z-index: 9999;
 		a {

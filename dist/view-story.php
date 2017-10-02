@@ -147,7 +147,7 @@ $numlikes = mysqli_num_rows($likecheckres);
 		<article id="front-content">
 			<!-- Go back button -->
 			<div class="to-search">
-				<a onclick="window.history.go(-1); return false;">Go Back</a>
+				<a href="search.php">Go to Search</a>
 			</div>
 
 			<div class="story-content">
