@@ -58,6 +58,9 @@ $row = mysqli_fetch_array($result);
 
 						?>
 						<div class="story-card">
+							<a href=view-story.php?storyID=<?php echo $stories['storyID'] ?>>
+								<img src="<?php echo $path; ?>" class="story-card-image">
+							</a>
 							<?php if($isDeleted) : ?>
 								<div class="deleted">
 									Deleted
@@ -68,9 +71,6 @@ $row = mysqli_fetch_array($result);
 									Draft
 								</div>
 							<?php endif; ?>
-							<a href=view-story.php?storyID=<?php echo $stories['storyID'] ?>>
-								<img src="<?php echo $path; ?>" class="story-card-image">
-							</a>
 							<h5 class="story-title"><?php echo $stories['title']; ?></h5>
 							<div class="story-card-buttons">
 								<a href=view-story.php?storyID=<?php echo $stories['storyID'] ?> class="view-button card-icons"><i class="fa fa-eye" aria-hidden="true"></i></a>

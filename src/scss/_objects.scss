@@ -136,20 +136,18 @@
 		.deleted {
 			z-index: 1000;
 			background: red;
-			padding: 10 0px;
-			border-top-left-radius: 5px;
-			border-top-right-radius: 5px;
+			padding: 10px 0;
 			color: #fff;
 			text-align: center;
+			font-size: 1.1em;
 		}
 		.draft {
 			z-index: 1000;
 			background: $dark-blue;
-			padding: 10 0px;
-			border-top-left-radius: 5px;
-			border-top-right-radius: 5px;
+			padding: 10px 0;
 			color: #fff;
 			text-align: center;
+			font-size: 1.1em;
 		}
 		.story-title {
 			text-align: center;

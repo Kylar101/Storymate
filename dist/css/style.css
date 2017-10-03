@@ -9869,19 +9869,17 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   .story-card-location .story-card .deleted {
     z-index: 1000;
     background: red;
-    padding: 10 0px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    padding: 10px 0;
     color: #fff;
-    text-align: center; }
+    text-align: center;
+    font-size: 1.1em; }
   .story-card-location .story-card .draft {
     z-index: 1000;
     background: #132330;
-    padding: 10 0px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    padding: 10px 0;
     color: #fff;
-    text-align: center; }
+    text-align: center;
+    font-size: 1.1em; }
   .story-card-location .story-card .story-title {
     text-align: center;
     margin-top: 2vh; }
