@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 session_start();
 include('php/connector.php');
@@ -8,10 +9,8 @@ $row = mysqli_fetch_array($userRes);
 
 ?>
 
-<!DOCTYPE html>
-
 <html>
-	<?php include 'includes/head.php'; ?>
+	<?php include('includes/head.php'); ?>
 
 <body>
 
@@ -39,16 +38,26 @@ $row = mysqli_fetch_array($userRes);
 							<button class="search-button edit-button"><i class="fa fa-search" aria-hidden="true"></i></button>
 						</form>
 						<!-- Advanced Search -->
-	          <div class="search-advanced">
-							<!-- <p class="advance-button">Advanced Search</p> -->
-							<div class="advanced-search-options">
-								<div class="categories">
-									<button type="button" class="btn advanced-options-button" data-type="lifestyle"><span>Lifestyle</span></button>
-									<button type="button" class="btn advanced-options-button" data-type="health"><span>Health</span></button>
-									<button type="button" class="btn advanced-options-button" data-type="time"><span>Time</span></button>
-								</div>
+	          
+          <div class="search-advanced">
+						<p class="advance-button">Advanced Search</p>
+						<div class="advanced-search-options">
+							<div class="categories">
+								<?php 
+
+								$cat = "SELECT * FROM categories";
+								$fetchCats = mysqli_query($conn,$cat);
+								
+
+								while($cats = mysqli_fetch_array($fetchCats)) :
+
+								?>
+								<button type="button" name="advanced" class="btn advanced-options-button" data-type="<?php echo $cats['categoryName'] ?>" value="<?php echo $cats['categoryID'] ?>"><span><?php echo $cats['categoryName'] ?></span></button>
+
+							<?php endwhile; ?>
 							</div>
 						</div>
+					</div>
 					</div>
 			</div>
 				<!-- Post story Button -->
@@ -70,6 +79,9 @@ $row = mysqli_fetch_array($userRes);
 		</div>
 
 
+				</div>
+
+			</div>
 			<div class="search-content" id="search-content-area">
 				<div id="title-search-content">
 					<h1>Our Stories</h1>

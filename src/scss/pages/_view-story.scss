@@ -199,11 +199,17 @@
 }
 
 .content-text-area {
+	word-wrap: break-word;
+}
+
+pre {
 	display: block;
 	font-size: 14px;
 	color: black;
 	border: none;
 	resize: none;
-	word-wrap: break-word;
 	padding: 5px;
+	white-space: pre-wrap;
+	word-wrap: break-word; 
 }
+

@@ -10414,6 +10414,11 @@ window.onload = function () {
   });
 };
 
+if (currentUrl.includes('post')) {
+  var category = document.getElementById('storyCategory').value;
+  document.querySelector('.' + category).checked = true;
+}
+
 if (currentUrl.includes('view-story')) {
   $('.slider').slick({
     autoplay: true,

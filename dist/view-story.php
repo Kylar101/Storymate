@@ -147,7 +147,7 @@ $numlikes = mysqli_num_rows($likecheckres);
 		<article id="front-content">
 			<!-- Go back button -->
 			<div class="to-search">
-				<a onclick="window.history.go(-1); return false;">Back</a>
+				<a href="search.php">Go to Search</a>
 			</div>
 
 			<div class="story-content">
@@ -178,7 +178,7 @@ $numlikes = mysqli_num_rows($likecheckres);
 						<?php if ($audioRowV2['audioFile']) : ?>
 							<audio controls src="<?php echo $audioRowV2['audioFile'] ?>"></audio>
 						<?php endif; ?>
-						<p class="content-text-area"><?php echo $contentsRow['textfield'] ?></p>
+						<p class="content-text-area"><pre><?php echo $contentsRow['textfield'] ?></pre></p>
 					</div>
 
 				</div>

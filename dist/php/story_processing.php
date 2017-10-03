@@ -9,6 +9,8 @@ $Description = mysqli_real_escape_string($conn,$_POST['description']);
 $Text= mysqli_real_escape_string($conn,$_POST['text']);
 #$pubSet = mysqli_real_escape_string($conn,$_POST['public']);
 $AudioID = mysqli_real_escape_string($conn,$_POST['audio']);
+$categoryID = mysqli_real_escape_string($conn,$_POST['category']);
+
 $username = $_SESSION['login_user'];
 
 $getID = "SELECT userID FROM users WHERE email = '$username'";
@@ -34,7 +36,7 @@ $getTagID = "SELECT categoryID FROM categories WHERE tagName = '$tagName'";
 $tagID = mysqli_query($conn,$getTagID);
 */
 
-$sql = "INSERT INTO stories (title, description, authorID, draft) VALUES ('$Title', '$Description', '$authorID', '$draft')";
+$sql = "INSERT INTO stories (title, description, authorID, categoryID, draft) VALUES ('$Title', '$Description', '$authorID', '$categoryID', '$draft')";
 $result = mysqli_query($conn,$sql);
 
 if (!$result) {
