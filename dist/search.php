@@ -54,15 +54,25 @@ $row = mysqli_fetch_array($userRes);
 			            	<input class="search-bar" type="text" autocomplete="off" name="search"/>
 			            </div>
 						<button class="search-button edit-button"><i class="fa fa-search" aria-hidden="true"></i></button>
-					</form>
+						
+			</form>
 
           <div class="search-advanced">
-						<!-- <p class="advance-button">Advanced Search</p> -->
+						<p class="advance-button">Advanced Search</p>
 						<div class="advanced-search-options">
 							<div class="categories">
-								<button type="button" class="btn advanced-options-button" data-type="lifestyle"><span>Lifestyle</span></button>
-								<button type="button" class="btn advanced-options-button" data-type="health"><span>Health</span></button>
-								<button type="button" class="btn advanced-options-button" data-type="time"><span>Time</span></button>
+								<?php 
+
+								$cat = "SELECT * FROM categories";
+								$fetchCats = mysqli_query($conn,$cat);
+								
+
+								while($cats = mysqli_fetch_array($fetchCats)) :
+
+								?>
+								<button type="button" name="advanced" class="btn advanced-options-button" data-type="<?php echo $cats['categoryName'] ?>" value="<?php echo $cats['categoryID'] ?>"><span><?php echo $cats['categoryName'] ?></span></button>
+
+							<?php endwhile; ?>
 							</div>
 						</div>
 					</div>
