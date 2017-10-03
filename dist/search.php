@@ -22,29 +22,52 @@ $row = mysqli_fetch_array($userRes);
 
 	<!-- Main content -->
 	<div id="main-content-front">
+
 		<article id="front-content search">
+
 			<div class="search-header">
-
-					<!-- button linked to post story page -->
-					<div class="post-story-search-link">
-						<a href="post-story.php" class="post-story-search-link-button">Post Story</a>
-					</div>
-
-					<!-- Scroll button -->
-					<!-- <a href="#title-search-content" id="scrolling-link"><div class="wrap">
-						<div class="circle">
-
-							<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-							viewBox="0 0 25 25" style="enable-background:new 0 0 25 25;" xml:space="preserve">
-							<path class="arrow" d="M21.9644928,8.3267822l-8.0706987,8.0706997c-0.7697706,0.7697716-2.0178175,0.7697716-2.7875881,0
-							L3.0355062,8.3267822"/>
-							</svg>
+				<!-- Search bar -->
+				<div class="search-stories-tool">
+					<div class="search-options">
+						<form class="form" action="search.php" method="POST">
+							<div class="field-wrap">
+								<label>
+				        	Search our stories
+				        </label>
+								<input class="search-bar" type="text" autocomplete="off" name="search"/>
+				      </div>
+							<button class="search-button edit-button"><i class="fa fa-search" aria-hidden="true"></i></button>
+						</form>
+						<!-- Advanced Search -->
+	          <div class="search-advanced">
+							<!-- <p class="advance-button">Advanced Search</p> -->
+							<div class="advanced-search-options">
+								<div class="categories">
+									<button type="button" class="btn advanced-options-button" data-type="lifestyle"><span>Lifestyle</span></button>
+									<button type="button" class="btn advanced-options-button" data-type="health"><span>Health</span></button>
+									<button type="button" class="btn advanced-options-button" data-type="time"><span>Time</span></button>
+								</div>
+							</div>
 						</div>
 					</div>
-				</a> -->
+			</div>
+				<!-- Post story Button -->
+				<div class="post-story-search-link">
+					<a href="post-story.php" class="post-story-search-link-button">Post Story</a>
+				</div>
+				<div class="slogan">
+					<span>Your Stories, Our Community</span>
+				</div>
+				<!-- Scroll button -->
+				<a href="#search-content-area" id="scrolling-link">
+					<div class="wrap">
+						<div class="circle">
+							<i class="fa fa-angle-down" aria-hidden="true"></i>
+						</div>
+					</div>
+				</a>
 
-				<!-- Search bar -->
-				<div class="search-options">
+		</div>
 
           <form class="form" action="search.php" method="POST">
 						<div class="field-wrap">
@@ -114,13 +137,16 @@ $row = mysqli_fetch_array($userRes);
 						<div class="story-tile">
 							<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" ><img src="<?php echo $path; ?>"></a>
 							<div class="story-info">
-								<h2 class="story-title"><?php echo $stories['title']; ?></h2>
-								<p class="excerpt"><?php echo $stories['description']; ?></p>
-								<h5 class="author-name"><?php echo $stories['firstName'].' '.$stories['lastName'] ?></h5>
-								<div class="story-extra">
-									<div class="likes"><?php echo $likesqty; ?> <span class="feature-likes"> <i class="fa fa-thumbs-up" aria-hidden="true"></span></i></div>
-									<a href=view-story.php?storyID=<?php echo $stories['storyID'];?> class="btn comments-button view-story">View Story</a>
-								</div>
+            		<!-- <h3 class="story-title"><?php echo $stories['title']; ?></h3> -->
+								<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" class="title-link"><h3><?php echo $stories['title']; ?></h3></a>
+								<div class="story-tile-bottom">
+									<div class="excerpt"><?php echo $stories['description']; ?></div>
+									<h5 class="author-name"><?php echo $stories['firstName'].' '.$stories['lastName'] ?></h5>
+									<div class="story-extra">
+										<div class="likes"><?php echo $likesqty; ?> <span class="feature-likes"> <i class="fa fa-thumbs-up" aria-hidden="true"></span></i></div>
+										<a href=view-story.php?storyID=<?php echo $stories['storyID'];?> class="btn comments-button view-story">View Story</a>
+									</div>
+							</div>
 							</div>
 						</div>
 
@@ -151,19 +177,23 @@ $row = mysqli_fetch_array($userRes);
 							$likesqty = mysqli_num_rows($likeres);
 
 					?>
+
 					<div class="story-tile">
 							<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" ><img src="<?php echo $path; ?>"></a>
 							<div class="story-info">
-								<h2 class="title"><?php echo $stories['title']; ?></h2>
+								<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" class="title-link"><h3><?php echo $stories['title']; ?></h3></a>
 								<p class="excerpt"><?php echo $stories['description']; ?></p>
-								<hr>
-								<h5 class="author-name"><?php echo $stories['firstName'].' '.$stories['lastName'] ?></h5>
-								<div class="story-extra">
-									<div class="likes" id="likecoutner"><?php echo $likesqty; ?> <span class="feature-likes"> <i class="fa fa-thumbs-up" aria-hidden="true"></span></i></div>
-									<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" class="btn view-button-searched view-story">View Story</a>
-								</div>
-							</div>
+								<hr class="divider-line">
+								<div class="story-tile-bottom">
+									<h6 class="author-name"><?php echo $stories['firstName'].' '.$stories['lastName'] ?></h6>
+									<div class="story-extra">
+										<div class="likes" id="likecoutner"><?php echo $likesqty; ?> <span class="feature-likes"> <i class="fa fa-thumbs-up" aria-hidden="true"></span></i></div>
+										<!-- <a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" class="btn view-button-searched view-story">View Story</a> -->
+									</div>
+							 </div>
+						 </div>
 						</div>
+						
 
 
 						<?php

@@ -5,31 +5,48 @@
 .search-header {
 	background-image: url('../img/dreamers.jpg');
 	background-size: cover;
-	height: 45vh;
+	height: 100vh;
 	display: block;
 	position: relative;
+	width: 100%;
 	@media (max-width: 700px) {
 		width: 150vw;
-		height:35vh;
+		height:100vh;
 	}
+
+
+.search-stories-tool{
+	width: 60%;
+	position: relative;
+	margin: auto;
+	top: 20vh;
+	// margin-bottom: 30px;
+}
+
+
+
 	.search-options {
-		position: absolute;
-	    top: 20vh;
-	    left: 30vw;
-	    @media (max-width: 700px) {
-		    top: 17vh;
-		    left: 25%;
-	    }
-	    @media (max-width: 500px) {
-		    top: 15vh;
-		    left: 15%;
-	    }
+		// position: relative;
+	  //   top: 20vh;
+		// 	text-align: center;
+	    // left: 30vw;
+	    // @media (max-width: 700px) {
+		  //   top: 17vh;
+		  //   left: 25%;
+	    // }
+	    // @media (max-width: 500px) {
+		  //   top: 15vh;
+		  //   left: 15%;
+	    // }
 		.form {
 			display: flex;
+			width: 482px;
+			margin: auto;
 		}
 		.field-wrap {
 			margin-bottom: 0;
 			height: 50px;
+			font-size: 48px;
 		}
 		.search-bar {
 			// background: $main-light;
@@ -39,7 +56,7 @@
 			opacity: .5;
 			width: 450px;
 			@media (max-width: 700px) {
-				width: 400px;
+				width: 350px;
 			}
 			//border-top-left
 			-webkit-border-top-left-radius: 10px;
@@ -59,15 +76,16 @@
 			}
 		}
 		.search-button {
-		    width: 3vw;
+		    width: 4vw;
 		    @media (max-width: 700px) {
-		    	width: 10vw;
+		    	width: 4vw;
 		    }
 		    border: none;
 		    border-top-right-radius: 5px;
 		    border-bottom-right-radius: 5px;
 		}
 	}
+
 	.search-advanced {
 		margin-top: 10px;
 		color: #fff;
@@ -127,7 +145,7 @@
 	width: 100%;
 	height: auto;
 	text-align: center;
-	top: 45vh;
+	top: 40vh;
 	@media (max-width: 700px) {
 		top: 33vh;
 	}
@@ -174,64 +192,129 @@
 	.story-tile {
 		// display: flex;
 		width: 30%;
+		margin: 10px 0;
+		margin-right: 3%;
+		background: #f7f7f7;
 		@media (max-width: 700px) {
 			width: 100%;
 			margin-left: 4%;
 			margin-right: 0;
-		}
-		margin: 10px 0;
-		margin-right: 3%;
-		background: #f7f7f7;
-		img {
-			width: 100%;
-			height: auto;
-			// max-height: 250px;
-		}
-		.story-info {
-			@media (max-width: 700px) {
-				margin-left: 10vw;
-				margin-right: 10vw;
-			}
-			margin-left: 2vw;
-			.story-title {
-				margin-top: 5px;
-			}
-			.author-name {
-				&:hover {
-					color: $darker-dark-blue;
-					transition: color .2s;
-				}
-				a:hover {
-					text-decoration: none;
-				}
-			}
-			.excerpt {
-
-			}
-			.story-extra {
-				display: flex;
-				.likes .feature-likes {
-					margin-left: 1vw;
-					font-size: 1.2em;
-				}
-				.view-story {
-					margin-left: 2vw;
-					margin-bottom: 2vh;
-				}
-			}
 		}
 		&:hover {
 			// background: $dark-search-blue;
 			background: rgba($main-light, .1);
 			transition: background .2s;
 		}
+
+		img {
+			width: 100%;
+			height: 200px;
+			// height: auto;
+			// max-height: 250px;
+		}
+
+
+
+		.story-info {
+			@media (max-width: 700px) {
+				margin-left: 10vw;
+				margin-right: 10vw;
+			}
+			// margin-left: 1vw;
+	    position: relative;
+	    padding-bottom: 3vh;
+
+			// .story-title {
+			// 	margin-top: 5px;
+			// }
+
+			.title-link{
+				text-decoration: none;
+				color: #0498e2;
+				margin-top: 2vh;
+				&:hover{
+					// opacity: 1;
+					transition: opacity .2s;
+					// background: $darker-edit-green;
+					text-decoration: none;
+					font-weight: 600;
+					color: $dark-blue;
+				}
+				h3{
+					margin-top: 2vh;
+					margin-left: 2vh;
+				}
+			}
+			.divider-line{
+				width: 85%;
+				// margin-left: auto;
+			}
+			$font-size: 16px;
+			$line-height: 1.1;
+			$lines-to-show: 2;
+
+			.excerpt {
+				// white-space: nowrap;
+				// width: 14em;
+				// height: 3em;
+				// margin-right: 5px;
+				width: 90%;
+
+				margin-left: 2vh;
+				display: -webkit-box;
+				// padding-right: 5px;
+				// max-width: 12em;
+				height: $font-size*$line-height*$lines-to-show; /* Fallback for non-webkit */
+				// margin: 0 auto;
+				// font-size: $font-size;
+				line-height: $line-height;
+				-webkit-line-clamp: $lines-to-show;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				}
+
+			.story-tile-bottom{
+				bottom: 2;
+				position: relative;
+				// height: 20vh;
+				margin-left: 2vh;
+				.author-name {
+					&:hover {
+						color: $darker-dark-blue;
+						transition: color .2s;
+					}
+					a:hover {
+						text-decoration: none;
+					}
+				}
+					.story-extra {
+						display: flex;
+						.likes .feature-likes {
+							margin-left: 1vw;
+							font-size: 1.2em;
+						}
+						.view-story {
+							margin-left: 2vw;
+							margin-bottom: 2vh;
+						}
+					}
+			}
+
+
+
+
+		}
+		// close story info
 	}
+	// close story-tile
 }
+// close search-content
 
 #title-search-content{
-	height: 60px;
+	// height: 60px;
 	width: 100%;
-	margin-top: 95px;
+	padding-top: 95px;
 	margin-bottom: 70px;
 	width: 100%;
 	h1{
@@ -244,39 +327,42 @@
 .circle {
   width: 70px;
   height: 70px;
-  border-radius: 50%;
-  background: #0098cd;
+  // border-radius: 50%;
+  // background: #0098cd;
+	color: white;
+	font-size: 48px;
   position: relative;
-  top: 85vh;
+  top: 60vh;
+	text-align: center;
   @media (max-width: 700px ) {
-  	top: 65vh;
+  	top: 60vh;
   }
-  box-shadow: 0px 2px 8px rgba(0,0,0,.25);
+  // box-shadow: 0px 2px 8px rgba(0,0,0,.25);
   margin: 0 auto;
   cursor: pointer;
   transition: all .1s ease;
-  padding: 28px 25px 25px 25px;
+  // padding: 28px 25px 25px 25px;
 }
 
 .circle:hover {
-	top: 81vh;
-  background: #008cbd;
-  transition: all .1s ease;
+	// top: 73vh;
+  // background: #008cbd;
+  // transition: all .1s ease;
 }
 
 .wrap {
   width: 100%;
   position: relative;
-  animation: bounce 3s infinite;
+  animation: bounce 2s infinite;
 }
 
-.arrow {
-  fill: none;
-  stroke: #ffffff;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
+// .arrow {
+//   fill: none;
+//   stroke: #ffffff;
+//   stroke-width: 2;
+//   stroke-linecap: round;
+//   stroke-linejoin: round;
+// }
 
 @keyframes bounce {
     50% {
@@ -291,4 +377,29 @@
     65% {
     top: 0px;
     }
+}
+
+.slogan{
+
+	  width: 100%;
+	  // height: 70px;
+	  // border-radius: 50%;
+	  // background: #0098cd;
+		text-align: center;
+		color: white;
+		font-size: 48px;
+	  position: relative;
+	  top: 50vh;
+		margin: auto;
+
+	  // box-shadow: 0px 2px 8px rgba(0,0,0,.25);
+	  margin: 0 auto;
+	  cursor: pointer;
+	  transition: all .1s ease;
+	  // padding: 28px 25px 25px 25px;
+		@media (max-width: 700px ) {
+	  	top: 45vh;
+			font-size: 18px;
+	  }
+
 }

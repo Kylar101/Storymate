@@ -10139,7 +10139,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 #top-bar {
   background: #132330;
   width: 100%;
-  height: 6vh;
+  height: 10vh;
   position: fixed;
   z-index: 100; }
   @media (max-width: 700px) {
@@ -10155,26 +10155,27 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
       #top-bar .user-bar {
         width: 90%; } }
     #top-bar .user-bar .top-logo-wrapper {
-      margin-top: 1vh;
+      margin-top: 2vh;
       width: 48%; }
       @media (max-width: 700px) {
         #top-bar .user-bar .top-logo-wrapper {
           width: 30%; } }
       #top-bar .user-bar .top-logo-wrapper .logo {
         width: auto;
-        height: 4vh; }
+        height: 6vh; }
         @media (max-width: 700px) {
           #top-bar .user-bar .top-logo-wrapper .logo {
-            height: 6vh;
+            height: 7vh;
             margin-left: 20px; } }
     #top-bar .user-bar .user-name {
       text-align: right;
-      padding: 1vh 0;
+      padding-top: 30px;
+      padding-bottom: 30px;
       width: 50%; }
       @media (max-width: 700px) {
         #top-bar .user-bar .user-name {
           width: 70%;
-          font-size: 1.3em; } }
+          font-size: 1.1em; } }
       #top-bar .user-bar .user-name a {
         color: #fff; }
       #top-bar .user-bar .user-name:before {
@@ -10763,8 +10764,11 @@ textarea {
   display: flex;
   position: relative; }
   #front-content .to-search {
+    background-color: #0498e2;
+    padding: 5px 15px;
+    border-radius: 5px;
     position: absolute;
-    top: 8vh;
+    top: 12vh;
     cursor: pointer;
     background: rgba(19, 35, 48, 0.5);
     padding: 5px;
@@ -10778,11 +10782,7 @@ textarea {
       color: #fff; }
       #front-content .to-search a:hover {
         text-decoration: none;
-        color: #0498e2; }
-    #front-content .to-search:before {
-      content: '\F060';
-      color: #fff;
-      font-family: 'FontAwesome'; }
+        padding: 5px 15px; }
 
 .story-content {
   width: 75vw;
@@ -10812,7 +10812,14 @@ textarea {
     .story-content .story-article h1 {
       color: #132330;
       margin-left: 5vw;
+      margin-bottom: 2vw;
       text-align: left; }
+    .story-content .story-article .like-btn-box {
+      width: 100%; }
+      .story-content .story-article .like-btn-box form {
+        margin-left: 11vh; }
+        .story-content .story-article .like-btn-box form .like-btn {
+          margin-bottom: 3vh; }
     .story-content .story-article .content {
       margin: 0 5vw; }
 
@@ -10824,7 +10831,7 @@ textarea {
   margin-top: 50px;
   margin-bottom: 50px;
   margin-left: 5vw; }
-  .story-comments h4 {
+  .story-comments h2 {
     margin-bottom: 40px; }
   .story-comments .comment h6 {
     color: #404040; }
@@ -10917,59 +10924,56 @@ pre {
 .search-header {
   background-image: url("../img/dreamers.jpg");
   background-size: cover;
-  height: 45vh;
+  height: 100vh;
   display: block;
-  position: relative; }
+  position: relative;
+  width: 100%; }
   @media (max-width: 700px) {
     .search-header {
       width: 150vw;
-      height: 35vh; } }
-  .search-header .search-options {
-    position: absolute;
-    top: 20vh;
-    left: 30vw; }
+      height: 100vh; } }
+  .search-header .search-stories-tool {
+    width: 60%;
+    position: relative;
+    margin: auto;
+    top: 20vh; }
+  .search-header .search-options .form {
+    display: flex;
+    width: 482px;
+    margin: auto; }
+  .search-header .search-options .field-wrap {
+    margin-bottom: 0;
+    height: 50px;
+    font-size: 48px; }
+  .search-header .search-options .search-bar {
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+    opacity: .5;
+    width: 450px;
+    -webkit-border-top-left-radius: 10px;
+    -moz-border-top-left-radius: 10px;
+    border-top-left-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 10px; }
     @media (max-width: 700px) {
-      .search-header .search-options {
-        top: 17vh;
-        left: 25%; } }
-    @media (max-width: 500px) {
-      .search-header .search-options {
-        top: 15vh;
-        left: 15%; } }
-    .search-header .search-options .form {
-      display: flex; }
-    .search-header .search-options .field-wrap {
-      margin-bottom: 0;
-      height: 50px; }
-    .search-header .search-options .search-bar {
-      border-top: 1px solid white;
-      border-bottom: 1px solid white;
-      border-left: 1px solid white;
-      opacity: .5;
-      width: 450px;
-      -webkit-border-top-left-radius: 10px;
-      -moz-border-top-left-radius: 10px;
-      border-top-left-radius: 10px;
-      -webkit-border-bottom-left-radius: 10px;
-      -moz-border-bottom-left-radius: 10px;
-      border-bottom-left-radius: 10px; }
-      @media (max-width: 700px) {
-        .search-header .search-options .search-bar {
-          width: 400px; } }
-      .search-header .search-options .search-bar:focus {
-        opacity: 1;
-        transition: opacity .2s; }
-      .search-header .search-options .search-bar:hover {
-        opacity: 1;
-        transition: opacity .2s; }
-    .search-header .search-options .search-button {
-      width: 3vw;
-      border: none;
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px; }
-      @media (max-width: 700px) {
-        .search-header .search-options .search-button {
-          width: 10vw; } }
+      .search-header .search-options .search-bar {
+        width: 350px; } }
+    .search-header .search-options .search-bar:focus {
+      opacity: 1;
+      transition: opacity .2s; }
+    .search-header .search-options .search-bar:hover {
+      opacity: 1;
+      transition: opacity .2s; }
+  .search-header .search-options .search-button {
+    width: 4vw;
+    border: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px; }
+    @media (max-width: 700px) {
+      .search-header .search-options .search-button {
+        width: 4vw; } }
   .search-header .search-advanced {
     margin-top: 10px;
     color: #fff; }
@@ -11015,7 +11019,7 @@ pre {
   width: 100%;
   height: auto;
   text-align: center;
-  top: 45vh;
+  top: 40vh;
   position: absolute; }
   @media (max-width: 700px) {
     .post-story-search-link {
@@ -11058,38 +11062,65 @@ pre {
       width: 100%;
       margin-left: 4%;
       margin-right: 0; } }
+  .search-content .story-tile:hover {
+    background: rgba(5, 169, 251, 0.1);
+    transition: background .2s; }
   .search-content .story-tile img {
     width: 100%;
-    height: auto; }
+    height: 200px; }
   .search-content .story-tile .story-info {
-    margin-left: 2vw; }
+    position: relative;
+    padding-bottom: 3vh; }
     @media (max-width: 700px) {
       .search-content .story-tile .story-info {
         margin-left: 10vw;
         margin-right: 10vw; } }
-    .search-content .story-tile .story-info .story-title {
-      margin-top: 5px; }
-    .search-content .story-tile .story-info .author-name:hover {
-      color: black;
-      transition: color .2s; }
-    .search-content .story-tile .story-info .author-name a:hover {
-      text-decoration: none; }
-    .search-content .story-tile .story-info .story-extra {
-      display: flex; }
-      .search-content .story-tile .story-info .story-extra .likes .feature-likes {
-        margin-left: 1vw;
-        font-size: 1.2em; }
-      .search-content .story-tile .story-info .story-extra .view-story {
-        margin-left: 2vw;
-        margin-bottom: 2vh; }
-  .search-content .story-tile:hover {
-    background: rgba(5, 169, 251, 0.1);
-    transition: background .2s; }
+    .search-content .story-tile .story-info .title-link {
+      text-decoration: none;
+      color: #0498e2;
+      margin-top: 2vh; }
+      .search-content .story-tile .story-info .title-link:hover {
+        transition: opacity .2s;
+        text-decoration: none;
+        font-weight: 600;
+        color: #132330; }
+      .search-content .story-tile .story-info .title-link h3 {
+        margin-top: 2vh;
+        margin-left: 2vh; }
+    .search-content .story-tile .story-info .divider-line {
+      width: 85%; }
+    .search-content .story-tile .story-info .excerpt {
+      width: 90%;
+      margin-left: 2vh;
+      display: -webkit-box;
+      height: 35.2px;
+      /* Fallback for non-webkit */
+      line-height: 1.1;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+    .search-content .story-tile .story-info .story-tile-bottom {
+      bottom: 2;
+      position: relative;
+      margin-left: 2vh; }
+      .search-content .story-tile .story-info .story-tile-bottom .author-name:hover {
+        color: black;
+        transition: color .2s; }
+      .search-content .story-tile .story-info .story-tile-bottom .author-name a:hover {
+        text-decoration: none; }
+      .search-content .story-tile .story-info .story-tile-bottom .story-extra {
+        display: flex; }
+        .search-content .story-tile .story-info .story-tile-bottom .story-extra .likes .feature-likes {
+          margin-left: 1vw;
+          font-size: 1.2em; }
+        .search-content .story-tile .story-info .story-tile-bottom .story-extra .view-story {
+          margin-left: 2vw;
+          margin-bottom: 2vh; }
 
 #title-search-content {
-  height: 60px;
   width: 100%;
-  margin-top: 95px;
+  padding-top: 95px;
   margin-bottom: 70px;
   width: 100%; }
   #title-search-content h1 {
@@ -11099,35 +11130,22 @@ pre {
 .circle {
   width: 70px;
   height: 70px;
-  border-radius: 50%;
-  background: #0098cd;
+  color: white;
+  font-size: 48px;
   position: relative;
-  top: 85vh;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+  top: 60vh;
+  text-align: center;
   margin: 0 auto;
   cursor: pointer;
-  transition: all .1s ease;
-  padding: 28px 25px 25px 25px; }
+  transition: all .1s ease; }
   @media (max-width: 700px) {
     .circle {
-      top: 65vh; } }
-
-.circle:hover {
-  top: 81vh;
-  background: #008cbd;
-  transition: all .1s ease; }
+      top: 60vh; } }
 
 .wrap {
   width: 100%;
   position: relative;
-  animation: bounce 3s infinite; }
-
-.arrow {
-  fill: none;
-  stroke: #ffffff;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round; }
+  animation: bounce 2s infinite; }
 
 @keyframes bounce {
   50% {
@@ -11138,6 +11156,22 @@ pre {
     top: -5px; }
   65% {
     top: 0px; } }
+
+.slogan {
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 48px;
+  position: relative;
+  top: 50vh;
+  margin: auto;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: all .1s ease; }
+  @media (max-width: 700px) {
+    .slogan {
+      top: 45vh;
+      font-size: 18px; } }
 
 html, body {
   height: 100%; }
