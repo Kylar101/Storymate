@@ -9,6 +9,7 @@ $Title = mysqli_real_escape_string($conn,$_POST['title']);
 $Description = mysqli_real_escape_string($conn,$_POST['description']);
 // $Images = mysqli_real_escape_string($conn,$_POST['images']);
 $Text= mysqli_real_escape_string($conn,$_POST['text']);
+$categoryID = mysqli_real_escape_string($conn,$_POST['category']);
 $old_images = $_POST['image-updated'] ? $_POST['image-updated'] : null;
 
 $username = $_SESSION['login_user'];
@@ -21,7 +22,7 @@ if(isset($_POST['draft'])){
 	$draft = 0;
 }
 
-$sql = "UPDATE stories SET title='$Title', description='$Description' WHERE storyID='$storyID'";
+$sql = "UPDATE stories SET title='$Title', description='$Description', categoryID='$categoryID' WHERE storyID='$storyID'";
 $sqlcontents = "UPDATE storycontents SET textfield='$Text' WHERE storyID='$storyID'";
 
 $result = mysqli_query($conn,$sql);

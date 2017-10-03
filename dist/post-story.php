@@ -18,6 +18,7 @@ $row = mysqli_fetch_array($result);
 $editMode = '';
 $storyID = '';
 $storyActive = '';
+$categoryName = '';
 
 if (isset($_GET['edit'])) :
 
@@ -30,6 +31,14 @@ if (isset($_GET['edit'])) :
 
 	if (!$storyResult) {
 		die(mysqli_error($conn));
+	}
+
+	if ($storyRow['categoryID'] != 0 ) {
+		$catID = $storyRow['categoryID'];
+		$getCat = "SELECT * FROM categories WHERE categoryID='$catID'";
+		$catResult = mysqli_query($conn, $getCat);
+		$catResult = mysqli_fetch_array($catResult);
+		$categoryName = $catResult['categoryName'];
 	}
 
 	$draft = $storyRow['draft'];
@@ -104,6 +113,8 @@ endif;
 								Add Category
 							</p>
 
+							<input id="storyCategory" type="hidden" name="categoryName" value="<?php echo $categoryName; ?>">
+
 							<div class="categories">
 							<?php 
 
@@ -115,7 +126,7 @@ endif;
 
 								?>
 
-								<span class="story-cat"><input type="radio" name="category" class="" value="<?php echo $cats['categoryID'] ?>"> <?php echo $cats['categoryName'] ?></span>
+								<span class="story-cat"><input type="radio" name="category" class="<?php echo $cats['categoryName'] ?>" value="<?php echo $cats['categoryID'] ?>"> <?php echo $cats['categoryName'] ?></span>
 
 							<?php endwhile; ?>
 
