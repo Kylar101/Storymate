@@ -10770,9 +10770,6 @@ textarea {
     position: absolute;
     top: 12vh;
     cursor: pointer;
-    background: rgba(19, 35, 48, 0.5);
-    padding: 5px;
-    border-radius: 5px;
     left: 3vw;
     z-index: 9999; }
     @media (max-width: 700px) {
@@ -10976,6 +10973,7 @@ pre {
         width: 4vw; } }
   .search-header .search-advanced {
     margin-top: 10px;
+    margin-left: 150px;
     color: #fff; }
     .search-header .search-advanced .advance-button {
       cursor: pointer; }
@@ -11019,11 +11017,11 @@ pre {
   width: 100%;
   height: auto;
   text-align: center;
-  top: 40vh;
+  top: 50vh;
   position: absolute; }
   @media (max-width: 700px) {
     .post-story-search-link {
-      top: 33vh; } }
+      top: 40vh; } }
 
 .post-story-search-link-button {
   text-align: center;
