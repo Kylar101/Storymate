@@ -9866,6 +9866,22 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
       display: block;
       margin-bottom: 3vh;
       border-radius: 10px; } }
+  .story-card-location .story-card .deleted {
+    z-index: 1000;
+    background: red;
+    padding: 10 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #fff;
+    text-align: center; }
+  .story-card-location .story-card .draft {
+    z-index: 1000;
+    background: #132330;
+    padding: 10 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #fff;
+    text-align: center; }
   .story-card-location .story-card .story-title {
     text-align: center;
     margin-top: 2vh; }

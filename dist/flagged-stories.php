@@ -37,12 +37,20 @@ $row = mysqli_fetch_array($result);
 					<h2 class="title">All Flagged Stories</h2>
 					<div class="story-card-location">
 						<?php
-							$storySQL = "SELECT * FROM stories";
-							$fetchstories = mysqli_query($conn,$storySQL);
+							$flagSQL = "SELECT * FROM flags";
+							$fetchflags = mysqli_query($conn,$flagSQL);
 
-							while($stories = mysqli_fetch_array($fetchstories)) :
+							while($flags = mysqli_fetch_array($fetchflags)) :
 
-								$storyID = $stories['storyID'];
+								$storyID = $flags['storyID'];
+
+								$storySQL = "SELECT * FROM stories WHERE storyID='$storyID'";
+								$fetchStory = mysqli_query($conn, $storySQL);
+								if (!$fetchStory) {
+									die (mysqli_error($conn));
+								}
+
+								$stories = mysqli_fetch_array($fetchStory);
 
 								$imageSQL = "SELECT * FROM images WHERE storyID = '$storyID' LIMIT 1";
 								$fetchImage = mysqli_query($conn,$imageSQL);
@@ -52,25 +60,10 @@ $row = mysqli_fetch_array($result);
 								$imagePath = mysqli_fetch_array($fetchImage);
 								$path = $imagePath['imagepath'] ? $imagePath['imagepath'] : 'img/pizzasheen.gif';
 
-								$isDeleted = $stories['trash'];
-								$isDraft = $stories['draft'];
-
 
 						?>
 						<div class="story-card">
-							<?php if($isDeleted) : ?>
-								<div class="deleted">
-									Deleted
-								</div>
-							<?php endif; ?>
-							<?php if($isDraft) : ?>
-								<div class="draft">
-									Draft
-								</div>
-							<?php endif; ?>
-							<a href=view-story.php?storyID=<?php echo $stories['storyID'] ?>>
-								<img src="<?php echo $path; ?>" class="story-card-image">
-							</a>
+							<a href=view-story.php?storyID=<?php echo $stories['storyID'] ?>> <img src="<?php echo $path; ?>" class="story-card-image"> </a>
 							<h5 class="story-title"><?php echo $stories['title']; ?></h5>
 							<div class="story-card-buttons">
 								<a href=view-story.php?storyID=<?php echo $stories['storyID'] ?> class="view-button card-icons"><i class="fa fa-eye" aria-hidden="true"></i></a>

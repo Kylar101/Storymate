@@ -133,6 +133,24 @@
 		@media (max-width: 700px) {
 			@include card(100%, auto, $gray);
 		}
+		.deleted {
+			z-index: 1000;
+			background: red;
+			padding: 10 0px;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+			color: #fff;
+			text-align: center;
+		}
+		.draft {
+			z-index: 1000;
+			background: $dark-blue;
+			padding: 10 0px;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+			color: #fff;
+			text-align: center;
+		}
 		.story-title {
 			text-align: center;
 			margin-top: 2vh;
