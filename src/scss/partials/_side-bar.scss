@@ -18,6 +18,11 @@
 			color: $dark-blue;
 		}	
 	}
+	h5 {
+		color: #fff;
+		display: block;
+		padding: 5px 25px;
+	}
 	ul {
 		list-style-type: none;
 		padding-left: 0;
@@ -52,6 +57,12 @@
 			background: $main-dark;
 			color: $dark-blue;
 		}	
+	}
+	
+	h5 {
+		color: #fff;
+		display: block;
+		padding: 5px 25px;
 	}
 	ul {
 		list-style-type: none;

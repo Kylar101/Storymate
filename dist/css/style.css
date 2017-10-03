@@ -10219,6 +10219,10 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
       text-decoration: none;
       background: #036597;
       color: #132330; }
+  #side-bar h5 {
+    color: #fff;
+    display: block;
+    padding: 5px 25px; }
   #side-bar ul {
     list-style-type: none;
     padding-left: 0;
@@ -10248,6 +10252,10 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
       text-decoration: none;
       background: #036597;
       color: #132330; }
+  #side-bar-mobile h5 {
+    color: #fff;
+    display: block;
+    padding: 5px 25px; }
   #side-bar-mobile ul {
     list-style-type: none;
     padding-left: 0;
