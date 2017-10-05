@@ -10414,7 +10414,7 @@ window.onload = function () {
   });
 };
 
-if (currentUrl.includes('post')) {
+if (currentUrl.includes('post') && currentUrl.includes('edit')) {
   var category = document.getElementById('storyCategory').value;
   document.querySelector('.' + category).checked = true;
 }
