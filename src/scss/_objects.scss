@@ -165,39 +165,6 @@
 	}
 }
 
-.search-story-card-location {
-	margin-top: 5vh;
-	display: flex;
-	flex-wrap: wrap;
-	margin-bottom: 50px;
-	.story-card {
-		@include card(30%, 45vh, $search-blue);
-		&:hover {
-			background: $dark-search-blue;
-		}
-		.story-title {
-			text-align: center;
-			margin-top: 2vh;
-		}
-		.author-name {
-			text-align: center;
-			font-size: 1.3em;
-		}
-		.story-extra {
-			display: flex;
-			width: 61%;
-		    margin: 0 auto;
-			.likes .feature-likes {
-				margin-left: 1vw;
-				font-size: 1.2em;
-			}
-			.view-story {
-				margin-left: 2vw;
-			}
-		}
-	}
-}
-
 // layout
 #page-content {
 	margin-top: 6vh;
@@ -209,7 +176,7 @@
 }
 
 #front-content {
-	// margin-top: 6vh;
+	margin-top: 6vh;
 	// margin-left: 15vw;
 	// overflow: hidden;
 }

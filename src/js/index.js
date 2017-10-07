@@ -73,20 +73,20 @@ if (currentUrl.includes('profile')) {
   })
 }
 
-if (currentUrl.includes('index')) {
+// if (currentUrl.includes('index')) {
 
-  // Terms and conditions modal
-  let tcModal = document.getElementById('tc-modal')
-  let tcModalActive = new bsn.Modal(tcModal)
+//   // Terms and conditions modal
+//   let tcModal = document.getElementById('tc-modal')
+//   let tcModalActive = new bsn.Modal(tcModal)
 
-  let tcButton = document.querySelector('#tc-index')
-  tcButton.addEventListener('click', () => {
+//   let tcButton = document.querySelector('#tc-index')
+//   tcButton.addEventListener('click', () => {
 
-    tcModalActive.show()
+//     tcModalActive.show()
 
-  })
+//   })
 
-}
+// }
 
 // adds float labels
 $('.form').find('input, textarea').on('keyup blur focus', function (e) {
@@ -168,27 +168,27 @@ $('.tab a').on('click', function (e) {
 
 
 // Scrolling animation
-$(document).ready(function(){
-  // Add smooth scrolling to all links
-  $("#scrolling-link").on('click', function(event) {
+// $(document).ready(function(){
+//   // Add smooth scrolling to all links
+//   $("#scrolling-link").on('click', function(event) {
 
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
+//     // Make sure this.hash has a value before overriding default behavior
+//     if (this.hash !== "") {
+//       // Prevent default anchor click behavior
+//       event.preventDefault();
 
-      // Store hash
-      var hash = this.hash;
+//       // Store hash
+//       var hash = this.hash;
 
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 800, function(){
+//       // Using jQuery's animate() method to add smooth page scroll
+//       // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+//       $('html, body').animate({
+//         scrollTop: $(hash).offset().top
+//       }, 800, function(){
 
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    } // End if
-  });
-});
+//         // Add hash (#) to URL when done scrolling (default click behavior)
+//         window.location.hash = hash;
+//       });
+//     } // End if
+//   });
+// });
