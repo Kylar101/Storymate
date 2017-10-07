@@ -9858,7 +9858,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
       border-radius: 10px; }
       .story-card-location .story-card:nth-of-type(2n) {
         margin-left: 4%; } }
-  @media (max-width: 700px) {
+  @media (max-width: 400px) {
     .story-card-location .story-card {
       width: 100%;
       height: auto;
@@ -10170,7 +10170,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   cursor: pointer;
   outline: none;
   z-index: 10000000000000; }
-  @media (min-width: 701px) {
+  @media (min-width: 1025px) {
     #hamburger-menu .hamburger, #hamburger-menu .author-hamburger, #author-hamburger-menu .hamburger, #author-hamburger-menu .author-hamburger {
       display: none; } }
 
@@ -10196,7 +10196,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   width: 15vw;
   position: fixed;
   z-index: 100; }
-  @media (max-width: 700px) {
+  @media (max-width: 1024px) {
     #side-bar {
       display: none; } }
   #side-bar a {
