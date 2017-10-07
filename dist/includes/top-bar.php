@@ -8,7 +8,7 @@
 
 				$url = $_SERVER['REQUEST_URI'];
 
-				if (strpos($url, 'profile') == true || strpos($url, 'post-story') == true || strpos($url, 'stories') == true || strpos($url, 'categories') == true) :
+				if (strpos($url, 'profile') == true || strpos($url, 'post-story') == true || strpos($url, 'stories') == true || strpos($url, 'categories') == true || strpos($url, 'users') == true) :
 					?>
 					<div id="hamburger-menu">
 						<button class="hamburger">&#9776;</button>
