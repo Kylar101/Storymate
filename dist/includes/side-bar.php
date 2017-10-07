@@ -16,6 +16,7 @@
 		<li class="flagged-stories"><a href="flagged-stories.php"><i class="fa fa-flag" aria-hidden="true"></i> Flagged Stories</a></li>
 		<li class="manage-stories"><a href="manage-stories.php"><i class="fa fa-book" aria-hidden="true"></i> Manage Stories</a></li>
 		<li class="manage-categories"><a href="manage-categories.php"><i class="fa fa-list-alt" aria-hidden="true"></i> Manage Categories</a></li>
+		<li class="all-users"><a href="all-users.php"><i class="fa fa-users" aria-hidden="true"></i> All Users</a></li>
 		<?php endif; ?>
 	</ul>
 </nav>
@@ -30,6 +31,7 @@
 		<li class="flagged-stories"><a href="flagged-stories.php"><i class="fa fa-flag" aria-hidden="true"></i> Flagged Stories</a></li>
 		<li class="manage-stories"><a href="manage-stories.php"><i class="fa fa-book" aria-hidden="true"></i> Manage Stories</a></li>
 		<li class="manage-categories"><a href="manage-categories.php"><i class="fa fa-list-alt" aria-hidden="true"></i> Manage Categories</a></li>
+		<li class="all-users"><a href="all-users.php"><i class="fa fa-users" aria-hidden="true"></i> All Users</a></li>
 		<?php endif; ?>
 	</ul>
 </nav>

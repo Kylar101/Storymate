@@ -1,5 +1,14 @@
-#front-content {
-	display: flex;
+// #front-content {
+// 	display: flex;
+// }
+
+.search-top-bar {
+	#top-bar {
+		width: 100vw;
+		.username {
+
+		}
+	}
 }
 
 .search-header {
@@ -9,10 +18,10 @@
 	display: block;
 	position: relative;
 	width: 100%;
-	@media (max-width: 700px) {
-		width: 150vw;
-		height:100vh;
-	}
+	// @media (max-width: 700px) {
+	// 	width: 150vw;
+	// 	height:100vh;
+	// }
 
 
 .search-stories-tool{
@@ -58,6 +67,9 @@
 			@media (max-width: 700px) {
 				width: 350px;
 			}
+			@media (max-width: 400px) {
+				width: 200px;
+			}
 			//border-top-left
 			-webkit-border-top-left-radius: 10px;
 			-moz-border-top-left-radius: 10px;
@@ -78,7 +90,7 @@
 		.search-button {
 		    width: 4vw;
 		    @media (max-width: 700px) {
-		    	width: 4vw;
+		    	width: 8vw;
 		    }
 		    border: none;
 		    border-top-right-radius: 5px;
@@ -88,7 +100,7 @@
 
 	.search-advanced {
 		margin-top: 10px;
-		margin-left: 150px;
+		// margin-left: 150px;
 		color: #fff;
 		.advance-button {
 			cursor: pointer;
@@ -112,7 +124,9 @@
 	background: $main;
 	color: #fff;
 	cursor: pointer;
-	width: 125px;
+	@media (min-width: 700px) {
+		width: 125px;	
+	}
 	&:hover {
 		background: $lighter-dark-blue;
 		color: #fff;
@@ -146,9 +160,9 @@
 	width: 100%;
 	height: auto;
 	text-align: center;
-	top: 50vh;
+	top: 50%;
 	@media (max-width: 700px) {
-		top: 40vh;
+		top: 60%;
 	}
 	position: absolute;
 }
@@ -179,14 +193,13 @@
 	}
 }
 
-
 .search-content {
 	.search-wrapper {
 		display: flex;
 		flex-wrap: wrap;
 		width: 75vw;
 		@media (max-width: 700px) {
-			width: 150vw;
+			width: 100vw;
 		}
 		margin: 0 auto;
 	}
@@ -195,10 +208,14 @@
 		width: 30%;
 		margin: 10px 0;
 		margin-right: 3%;
-		background: #f7f7f7;
 		@media (max-width: 700px) {
+			width: 46%;
+			margin-right: 4%;
+		}
+		background: #f7f7f7;
+		@media (max-width: 400px) {
 			width: 100%;
-			margin-left: 4%;
+			margin-left: 0;
 			margin-right: 0;
 		}
 		&:hover {
@@ -209,9 +226,9 @@
 
 		img {
 			width: 100%;
-			height: 200px;
-			// height: auto;
-			// max-height: 250px;
+			// height: 200px;
+			height: auto;
+			max-height: 250px;
 		}
 
 
@@ -353,31 +370,7 @@
 
 .wrap {
   width: 100%;
-  position: relative;
-  animation: bounce 2s infinite;
-}
-
-// .arrow {
-//   fill: none;
-//   stroke: #ffffff;
-//   stroke-width: 2;
-//   stroke-linecap: round;
-//   stroke-linejoin: round;
-// }
-
-@keyframes bounce {
-    50% {
-    top: 0px;
-    }
-    53.75% {
-    top: 5px;
-    }
-   61.25% {
-    top: -5px;
-    }
-    65% {
-    top: 0px;
-    }
+  // position: relative;
 }
 
 .slogan{
@@ -399,7 +392,7 @@
 	  transition: all .1s ease;
 	  // padding: 28px 25px 25px 25px;
 		@media (max-width: 700px ) {
-	  	top: 45vh;
+	  	// top: 45vh;
 			font-size: 18px;
 	  }
 

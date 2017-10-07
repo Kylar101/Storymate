@@ -9858,7 +9858,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
       border-radius: 10px; }
       .story-card-location .story-card:nth-of-type(2n) {
         margin-left: 4%; } }
-  @media (max-width: 700px) {
+  @media (max-width: 400px) {
     .story-card-location .story-card {
       width: 100%;
       height: auto;
@@ -9889,36 +9889,6 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px; }
 
-.search-story-card-location {
-  margin-top: 5vh;
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 50px; }
-  .search-story-card-location .story-card {
-    width: 30%;
-    height: 45vh;
-    background: #a9dcf5;
-    display: block;
-    margin-bottom: 3vh;
-    border-radius: 10px; }
-    .search-story-card-location .story-card:hover {
-      background: #64c0ed; }
-    .search-story-card-location .story-card .story-title {
-      text-align: center;
-      margin-top: 2vh; }
-    .search-story-card-location .story-card .author-name {
-      text-align: center;
-      font-size: 1.3em; }
-    .search-story-card-location .story-card .story-extra {
-      display: flex;
-      width: 61%;
-      margin: 0 auto; }
-      .search-story-card-location .story-card .story-extra .likes .feature-likes {
-        margin-left: 1vw;
-        font-size: 1.2em; }
-      .search-story-card-location .story-card .story-extra .view-story {
-        margin-left: 2vw; }
-
 #page-content {
   margin-top: 6vh;
   margin-left: 15vw;
@@ -9926,6 +9896,9 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   @media (max-width: 700px) {
     #page-content {
       margin-left: 0; } }
+
+#front-content {
+  margin-top: 6vh; }
 
 .title {
   font-size: 25x;
@@ -10197,7 +10170,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   cursor: pointer;
   outline: none;
   z-index: 10000000000000; }
-  @media (min-width: 701px) {
+  @media (min-width: 1025px) {
     #hamburger-menu .hamburger, #hamburger-menu .author-hamburger, #author-hamburger-menu .hamburger, #author-hamburger-menu .author-hamburger {
       display: none; } }
 
@@ -10223,7 +10196,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   width: 15vw;
   position: fixed;
   z-index: 100; }
-  @media (max-width: 700px) {
+  @media (max-width: 1024px) {
     #side-bar {
       display: none; } }
   #side-bar a {
@@ -10915,8 +10888,8 @@ pre {
   white-space: pre-wrap;
   word-wrap: break-word; }
 
-#front-content {
-  display: flex; }
+.search-top-bar #top-bar {
+  width: 100vw; }
 
 .search-header {
   background-image: url("../img/dreamers.jpg");
@@ -10925,10 +10898,6 @@ pre {
   display: block;
   position: relative;
   width: 100%; }
-  @media (max-width: 700px) {
-    .search-header {
-      width: 150vw;
-      height: 100vh; } }
   .search-header .search-stories-tool {
     width: 60%;
     position: relative;
@@ -10957,6 +10926,9 @@ pre {
     @media (max-width: 700px) {
       .search-header .search-options .search-bar {
         width: 350px; } }
+    @media (max-width: 400px) {
+      .search-header .search-options .search-bar {
+        width: 200px; } }
     .search-header .search-options .search-bar:focus {
       opacity: 1;
       transition: opacity .2s; }
@@ -10970,10 +10942,9 @@ pre {
     border-bottom-right-radius: 5px; }
     @media (max-width: 700px) {
       .search-header .search-options .search-button {
-        width: 4vw; } }
+        width: 8vw; } }
   .search-header .search-advanced {
     margin-top: 10px;
-    margin-left: 150px;
     color: #fff; }
     .search-header .search-advanced .advance-button {
       cursor: pointer; }
@@ -10990,8 +10961,10 @@ pre {
 .advanced-options-button {
   background: #0498e2;
   color: #fff;
-  cursor: pointer;
-  width: 125px; }
+  cursor: pointer; }
+  @media (min-width: 700px) {
+    .advanced-options-button {
+      width: 125px; } }
   .advanced-options-button:hover {
     background: #294b67;
     color: #fff; }
@@ -11017,11 +10990,11 @@ pre {
   width: 100%;
   height: auto;
   text-align: center;
-  top: 50vh;
+  top: 50%;
   position: absolute; }
   @media (max-width: 700px) {
     .post-story-search-link {
-      top: 40vh; } }
+      top: 60%; } }
 
 .post-story-search-link-button {
   text-align: center;
@@ -11048,7 +11021,7 @@ pre {
   margin: 0 auto; }
   @media (max-width: 700px) {
     .search-content .search-wrapper {
-      width: 150vw; } }
+      width: 100vw; } }
 
 .search-content .story-tile {
   width: 30%;
@@ -11057,15 +11030,20 @@ pre {
   background: #f7f7f7; }
   @media (max-width: 700px) {
     .search-content .story-tile {
+      width: 46%;
+      margin-right: 4%; } }
+  @media (max-width: 400px) {
+    .search-content .story-tile {
       width: 100%;
-      margin-left: 4%;
+      margin-left: 0;
       margin-right: 0; } }
   .search-content .story-tile:hover {
     background: rgba(5, 169, 251, 0.1);
     transition: background .2s; }
   .search-content .story-tile img {
     width: 100%;
-    height: 200px; }
+    height: auto;
+    max-height: 250px; }
   .search-content .story-tile .story-info {
     position: relative;
     padding-bottom: 3vh; }
@@ -11141,19 +11119,7 @@ pre {
       top: 60vh; } }
 
 .wrap {
-  width: 100%;
-  position: relative;
-  animation: bounce 2s infinite; }
-
-@keyframes bounce {
-  50% {
-    top: 0px; }
-  53.75% {
-    top: 5px; }
-  61.25% {
-    top: -5px; }
-  65% {
-    top: 0px; } }
+  width: 100%; }
 
 .slogan {
   width: 100%;
@@ -11168,7 +11134,6 @@ pre {
   transition: all .1s ease; }
   @media (max-width: 700px) {
     .slogan {
-      top: 45vh;
       font-size: 18px; } }
 
 html, body {

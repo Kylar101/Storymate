@@ -12,6 +12,8 @@ $sql = "SELECT * FROM users WHERE userID = '$currentUser'";
 $result = mysqli_query($conn,$sql);
 $row = mysqli_fetch_array($result);
 
+include 'includes/admin.php';
+
 ?>
 
 
@@ -60,11 +62,19 @@ $row = mysqli_fetch_array($result);
 								$imagePath = mysqli_fetch_array($fetchImage);
 								$path = $imagePath['imagepath'] ? $imagePath['imagepath'] : 'img/pizzasheen.gif';
 
+								$authorID = $stories['authorID'];
+								$authorSQL = "SELECT * from users WHERE userID = '$authorID'";
+								$fetchAuthor = mysqli_query($conn,$authorSQL);
+								if (!$fetchAuthor) {
+									die (mysqli_error($conn));
+								}
+								$authorDets = mysqli_fetch_array($fetchAuthor);
 
 						?>
 						<div class="story-card">
 							<a href=view-story.php?storyID=<?php echo $stories['storyID'] ?>> <img src="<?php echo $path; ?>" class="story-card-image"> </a>
-							<h5 class="story-title"><?php echo $stories['title']; ?></h5>
+							<h3 class="story-title"><?php echo $stories['title']; ?></h3>
+							<h6 class="story-title"><?php echo $authorDets['firstName'].' '.$authorDets['lastName']; ?></h6>
 							<div class="story-card-buttons">
 								<a href=view-story.php?storyID=<?php echo $stories['storyID'] ?> class="view-button card-icons"><i class="fa fa-eye" aria-hidden="true"></i></a>
 								<a href=php/delete_story.php?storyID=<?php echo $stories['storyID'] ?> class="delete-button card-icons"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
