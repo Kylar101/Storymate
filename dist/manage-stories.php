@@ -12,6 +12,8 @@ $sql = "SELECT * FROM users WHERE userID = '$currentUser'";
 $result = mysqli_query($conn,$sql);
 $row = mysqli_fetch_array($result);
 
+include 'includes/admin.php';
+
 ?>
 
 
