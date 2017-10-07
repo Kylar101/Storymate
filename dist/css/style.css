@@ -10888,6 +10888,9 @@ pre {
   white-space: pre-wrap;
   word-wrap: break-word; }
 
+.search-top-bar #top-bar {
+  width: 100vw; }
+
 .search-header {
   background-image: url("../img/dreamers.jpg");
   background-size: cover;
@@ -10958,8 +10961,10 @@ pre {
 .advanced-options-button {
   background: #0498e2;
   color: #fff;
-  cursor: pointer;
-  width: 125px; }
+  cursor: pointer; }
+  @media (min-width: 700px) {
+    .advanced-options-button {
+      width: 125px; } }
   .advanced-options-button:hover {
     background: #294b67;
     color: #fff; }
@@ -10989,7 +10994,7 @@ pre {
   position: absolute; }
   @media (max-width: 700px) {
     .post-story-search-link {
-      top: 40%; } }
+      top: 60%; } }
 
 .post-story-search-link-button {
   text-align: center;
@@ -11129,7 +11134,6 @@ pre {
   transition: all .1s ease; }
   @media (max-width: 700px) {
     .slogan {
-      top: 45vh;
       font-size: 18px; } }
 
 html, body {

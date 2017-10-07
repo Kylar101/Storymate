@@ -41,7 +41,7 @@ if (!isset($_SESSION['login_user'])) {
 <body>
 
 	<!-- Top bar -->
-	<header class="search-header">
+	<header class="search-top-bar">
 		<?php include('includes/top-bar.php'); ?>
 	</header>
 

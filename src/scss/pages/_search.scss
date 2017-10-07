@@ -2,6 +2,15 @@
 // 	display: flex;
 // }
 
+.search-top-bar {
+	#top-bar {
+		width: 100vw;
+		.username {
+
+		}
+	}
+}
+
 .search-header {
 	background-image: url('../img/dreamers.jpg');
 	background-size: cover;
@@ -115,7 +124,9 @@
 	background: $main;
 	color: #fff;
 	cursor: pointer;
-	width: 125px;
+	@media (min-width: 700px) {
+		width: 125px;	
+	}
 	&:hover {
 		background: $lighter-dark-blue;
 		color: #fff;
@@ -151,7 +162,7 @@
 	text-align: center;
 	top: 50%;
 	@media (max-width: 700px) {
-		top: 40%;
+		top: 60%;
 	}
 	position: absolute;
 }
@@ -381,7 +392,7 @@
 	  transition: all .1s ease;
 	  // padding: 28px 25px 25px 25px;
 		@media (max-width: 700px ) {
-	  	top: 45vh;
+	  	// top: 45vh;
 			font-size: 18px;
 	  }
 
