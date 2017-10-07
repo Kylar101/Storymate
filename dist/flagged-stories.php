@@ -45,6 +45,7 @@ include 'includes/admin.php';
 							while($flags = mysqli_fetch_array($fetchflags)) :
 
 								$storyID = $flags['storyID'];
+								$flaggedBy = $flags['userID'];
 
 								$storySQL = "SELECT * FROM stories WHERE storyID='$storyID'";
 								$fetchStory = mysqli_query($conn, $storySQL);
@@ -70,15 +71,25 @@ include 'includes/admin.php';
 								}
 								$authorDets = mysqli_fetch_array($fetchAuthor);
 
+								$flagger = "SELECT * from users WHERE userID = '$flaggedBy'";
+								$fetchFlager = mysqli_query($conn,$flagger);
+								if (!$fetchFlager) {
+									die (mysqli_error($conn));
+								}
+								$flaggerDets = mysqli_fetch_array($fetchFlager);
+
 						?>
 						<div class="story-card">
 							<a href=view-story.php?storyID=<?php echo $stories['storyID'] ?>> <img src="<?php echo $path; ?>" class="story-card-image"> </a>
+								<div class="deleted">
+									<?php echo $flaggerDets['firstName'].' '.$flaggerDets['lastName']; ?>
+								</div>
 							<h3 class="story-title"><?php echo $stories['title']; ?></h3>
 							<h6 class="story-title"><?php echo $authorDets['firstName'].' '.$authorDets['lastName']; ?></h6>
 							<div class="story-card-buttons">
 								<a href=view-story.php?storyID=<?php echo $stories['storyID'] ?> class="view-button card-icons"><i class="fa fa-eye" aria-hidden="true"></i></a>
 								<a href=php/delete_story.php?storyID=<?php echo $stories['storyID'] ?> class="delete-button card-icons"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-								<!-- <a href=post-story.php?edit=true&story=<?php echo $stories['storyID'] ?> class="edit-button card-icons"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> -->
+								<a href=post-story.php?edit=true&story=<?php echo $stories['storyID'] ?> class="edit-button card-icons"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 							</div>
 						</div>
 						<?php
