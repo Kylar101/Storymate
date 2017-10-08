@@ -14,7 +14,7 @@ include('php/fetch_notifications.php');
 ?>
 
 <html>
-	<?php 
+	<?php
 
 if (!isset($_SESSION['login_user'])) {
 	header('location: ./index.php');
@@ -28,7 +28,7 @@ if (!isset($_SESSION['login_user'])) {
  $title = str_replace(".php", "", $title);
  $title = str_replace("-", " ", $title);
  $title = ucwords($title);
- 
+
 ?>
 
 
@@ -61,24 +61,24 @@ if (!isset($_SESSION['login_user'])) {
 						<form class="form" action="search.php" method="POST">
 							<div class="field-wrap">
 								<label>
-				        	Search our stories
+				        	Search
 				        </label>
 								<input class="search-bar" type="text" autocomplete="off" name="search"/>
 				      </div>
 							<button class="search-button edit-button"><i class="fa fa-search" aria-hidden="true"></i></button>
 						</form>
 						<!-- Advanced Search -->
-	          
+
           <div class="search-advanced">
 						<p class="advance-button">Advanced Search</p>
 						
 						<div class="advanced-search-options">
 							<div class="categories">
-								<?php 
+								<?php
 
 								$cat = "SELECT * FROM categories";
 								$fetchCats = mysqli_query($conn,$cat);
-								
+
 
 								while($cats = mysqli_fetch_array($fetchCats)) :
 
@@ -227,7 +227,7 @@ if (!isset($_SESSION['login_user'])) {
 							 </div>
 						 </div>
 						</div>
-						
+
 
 
 						<?php

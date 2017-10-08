@@ -45,7 +45,7 @@
 		}
 	}
 	.slider {
-		padding-top: 6vh;
+		padding-top: 10vh;
 		@media (max-width: 700px) {
 			padding-top: 12vh;
 		}
@@ -65,8 +65,12 @@
 		h1 {
 			color: $dark-blue;
 			margin-left: 5vw;
-			margin-bottom: 2vw;
+			margin-bottom: 1vh;
+			margin-top: 5vh;
 			text-align: left;
+		}
+		.description-story-content{
+			margin-left: 5vw;
 		}
 		.like-btn-box{
 			width: 100%;
@@ -147,6 +151,7 @@
 
 .author-details, #author-mobile {
 	width: 25vw;
+	right:5vh;
 	@media (max-width: 700px) {
 		width: 100vw;
 		z-index: 999;
@@ -210,6 +215,5 @@ pre {
 	resize: none;
 	padding: 5px;
 	white-space: pre-wrap;
-	word-wrap: break-word; 
+	word-wrap: break-word;
 }
-

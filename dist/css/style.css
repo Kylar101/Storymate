@@ -10778,7 +10778,7 @@ textarea {
       .story-content .slider-image {
         height: 30vh; } }
   .story-content .slider {
-    padding-top: 6vh; }
+    padding-top: 10vh; }
     @media (max-width: 700px) {
       .story-content .slider {
         padding-top: 12vh; } }
@@ -10794,8 +10794,11 @@ textarea {
     .story-content .story-article h1 {
       color: #132330;
       margin-left: 5vw;
-      margin-bottom: 2vw;
+      margin-bottom: 1vh;
+      margin-top: 5vh;
       text-align: left; }
+    .story-content .story-article .description-story-content {
+      margin-left: 5vw; }
     .story-content .story-article .like-btn-box {
       width: 100%; }
       .story-content .story-article .like-btn-box form {
@@ -10849,6 +10852,7 @@ textarea {
 
 .author-details, #author-mobile {
   width: 25vw;
+  right: 5vh;
   position: relative;
   text-align: center; }
   @media (max-width: 700px) {
@@ -10904,9 +10908,9 @@ pre {
   width: 100vw; }
 
 .search-header {
-  background-image: url("../img/dreamers.jpg");
+  background-image: url("../img/communifyexterior.jpg");
   background-size: cover;
-  height: 100vh;
+  height: 98vh;
   display: block;
   position: relative;
   width: 100%; }
@@ -10956,6 +10960,9 @@ pre {
       .search-header .search-options .search-button {
         width: 8vw; } }
   .search-header .search-advanced {
+    width: 40%;
+    text-align: center;
+    margin: auto;
     margin-top: 10px;
     color: #fff; }
     .search-header .search-advanced .advance-button {
@@ -11040,9 +11047,9 @@ pre {
   margin: 10px 0;
   margin-right: 3%;
   background: #f7f7f7; }
-  @media (max-width: 700px) {
+  @media (max-width: 768px) {
     .search-content .story-tile {
-      width: 46%;
+      width: 45%;
       margin-right: 4%; } }
   @media (max-width: 400px) {
     .search-content .story-tile {
@@ -11054,7 +11061,7 @@ pre {
     transition: background .2s; }
   .search-content .story-tile img {
     width: 100%;
-    height: auto;
+    height: 185px;
     max-height: 250px; }
   .search-content .story-tile .story-info {
     position: relative;
