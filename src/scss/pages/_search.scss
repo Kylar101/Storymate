@@ -12,12 +12,14 @@
 }
 
 .search-header {
-	background-image: url('../img/dreamers.jpg');
+	background-image: url('../img/communifyexterior.jpg');
 	background-size: cover;
-	height: 100vh;
+	height: 98vh;
 	display: block;
 	position: relative;
 	width: 100%;
+	// filter: grayscale(100%);
+
 	// @media (max-width: 700px) {
 	// 	width: 150vw;
 	// 	height:100vh;
@@ -125,7 +127,7 @@
 	color: #fff;
 	cursor: pointer;
 	@media (min-width: 700px) {
-		width: 125px;	
+		width: 125px;
 	}
 	&:hover {
 		background: $lighter-dark-blue;
