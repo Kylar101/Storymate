@@ -92,7 +92,8 @@ $likechecksql = "SELECT * FROM likes WHERE storyID = $curstoryID AND userID = $u
 $likecheckres = mysqli_query($conn,$likechecksql);
 $numlikes = mysqli_num_rows($likecheckres);
 
-
+$currentUser = $userID;
+include('php/fetch_notifications.php');
 #################
 ?>
 <!DOCTYPE html>

@@ -66,7 +66,7 @@
 			border-left: 1px solid white;
 			opacity: .5;
 			width: 450px;
-			@media (max-width: 700px) {
+			@media (max-width: 800px) {
 				width: 350px;
 			}
 			@media (max-width: 400px) {
@@ -91,7 +91,7 @@
 		}
 		.search-button {
 		    width: 4vw;
-		    @media (max-width: 700px) {
+		    @media (max-width: 800px) {
 		    	width: 8vw;
 		    }
 		    border: none;
@@ -167,7 +167,7 @@
 	height: auto;
 	text-align: center;
 	top: 50%;
-	@media (max-width: 700px) {
+	@media (max-width: 800px) {
 		top: 60%;
 	}
 	position: absolute;
@@ -204,7 +204,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		width: 75vw;
-		@media (max-width: 700px) {
+		@media (max-width: 800px) {
 			width: 100vw;
 		}
 		margin: 0 auto;
@@ -241,7 +241,7 @@
 
 
 		.story-info {
-			@media (max-width: 700px) {
+			@media (max-width: 800px) {
 				margin-left: 10vw;
 				margin-right: 10vw;
 			}

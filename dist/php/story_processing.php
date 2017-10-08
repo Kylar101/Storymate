@@ -102,6 +102,28 @@ foreach($_FILES['audio']['name'] as $k=>$name){
 ###################################################
 
 
+##handle notifications##
+$storytitle = $Title;
+
+$senderID = $authorID;
+$storyID = $storyID;
+
+$stdnotif = ' Has posted a new story, ';
+$notifmsg = $username . $stdnotif . $storytitle;
+
+$followsql = "SELECT * FROM following WHERE followingID = $authorID";
+$followers = mysqli_query($conn,$followsql);
+
+$rows = mysqli_num_rows($followers);
+
+while($follow = mysqli_fetch_array($followers)){
+
+$recieverID = $follow['userID'];
+
+
+include('create_notification.php');
+
+}
 header("location: ../profile.php");
 
 ?>

@@ -10451,6 +10451,10 @@ if (currentUrl.includes('profile')) {
     document.querySelector('#change-user-details').classList.remove('show');
     document.querySelector('.my-details').classList.remove('hide');
   });
+
+  $('.notifications').on('click', function () {
+    $('.all-notifications').toggleClass('show');
+  });
 }
 
 // if (currentUrl.includes('index')) {

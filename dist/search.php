@@ -2,10 +2,14 @@
 <?php
 session_start();
 include('php/connector.php');
+
 $curUser = $_SESSION['login_user'];
 $usersql = "SELECT * FROM users WHERE email = '$curUser'";
 $userRes = mysqli_query($conn,$usersql);
 $row = mysqli_fetch_array($userRes);
+
+$currentUser = $row['userID'];
+include('php/fetch_notifications.php');
 
 ?>
 
@@ -67,6 +71,7 @@ if (!isset($_SESSION['login_user'])) {
 
           <div class="search-advanced">
 						<p class="advance-button">Advanced Search</p>
+						
 						<div class="advanced-search-options">
 							<div class="categories">
 								<?php
@@ -78,11 +83,12 @@ if (!isset($_SESSION['login_user'])) {
 								while($cats = mysqli_fetch_array($fetchCats)) :
 
 								?>
-								<button type="button" name="advanced" class="btn advanced-options-button" data-type="<?php echo $cats['categoryName'] ?>" value="<?php echo $cats['categoryID'] ?>"><span><?php echo $cats['categoryName'] ?></span></button>
+								<button name="<?php echo $cats['categoryName'] ?>" class="btn advanced-options-button" data-type="<?php echo $cats['categoryName'] ?>" value="<?php echo $cats['categoryID'] ?>"><span><?php echo $cats['categoryName'] ?></span></button>
 
 							<?php endwhile; ?>
 							</div>
 						</div>
+
 					</div>
 					</div>
 			</div>
@@ -108,11 +114,8 @@ if (!isset($_SESSION['login_user'])) {
 				</div>
 
 			</div>
+			<!-- check for any results -->
 			<div class="search-content" id="search-content-area">
-				<div id="title-search-content">
-					<h1>Our Stories</h1>
-				</div>
-				<div class="search-wrapper">
 				<?php
 					if(isset($_POST['search'])){
 
@@ -121,6 +124,29 @@ if (!isset($_SESSION['login_user'])) {
 					 	$searchQuery = mysqli_query($conn,$sql);
 					 	$numResults = mysqli_num_rows($searchQuery);
 
+					 ?>
+
+			
+
+				<?php if($numResults == 0) { ?>
+
+					<div id="title-search-content">
+					<h1>No Results Found</h1>
+				</div>
+
+
+				<?php } else { ?>
+
+				<div id="title-search-content">
+					<h1><?php echo $numResults ?> Stories Found</h1>
+				</div>
+				<?php } ?>
+				<div class="search-wrapper">
+
+
+
+
+					 <?php
 						while($stories = mysqli_fetch_array($searchQuery)){
 
 						 	$storyID = $stories['storyID'];
@@ -136,7 +162,6 @@ if (!isset($_SESSION['login_user'])) {
 							$likesql = "SELECT * FROM likes WHERE storyID = '$storyID'";
 							$likeres = mysqli_query($conn,$likesql);
 							$likesqty = mysqli_num_rows($likeres);
-
 
 				?>
 						<div class="story-tile">
@@ -161,6 +186,10 @@ if (!isset($_SESSION['login_user'])) {
 					else{
 
 				?>
+				<div id="title-search-content">
+					<h1>Our Stories</h1>
+				</div>
+				<div class="search-wrapper">
 
 					<?php
 						$sql = "SELECT * FROM stories INNER JOIN users ON stories.authorID = users.userID WHERE stories.trash = '0' AND stories.draft = '0' ORDER BY storyID Desc LIMIT 10";

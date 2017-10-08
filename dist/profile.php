@@ -19,7 +19,8 @@ $countRow = mysqli_fetch_array($countResult);
 if (!$countResult) {
 	die (mysql_error($countResult));
 }
-
+include('php/fetch_notifications.php');
+// $notifications = mysqli_fetch_array($notesres);
 ?>
 
 <!DOCTYPE html>
