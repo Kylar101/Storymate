@@ -8,6 +8,9 @@ $usersql = "SELECT * FROM users WHERE email = '$curUser'";
 $userRes = mysqli_query($conn,$usersql);
 $row = mysqli_fetch_array($userRes);
 
+$currentUser = $row['userID'];
+include('php/fetch_notifications.php');
+
 ?>
 
 <html>

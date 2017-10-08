@@ -55,6 +55,9 @@ if (isset($_GET['edit'])) :
 
 endif;
 
+$currentUser = $userID;
+include('php/fetch_notifications.php');
+
 ?>
 
 <html>

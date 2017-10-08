@@ -20,7 +20,7 @@
 
 				while($notice = mysqli_fetch_array($notesres)){
 					$msg = $notice['notification'];
-					echo $msg;
+					#echo $msg;
 				
 				?>
 
