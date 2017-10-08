@@ -165,6 +165,7 @@ $numlikes = mysqli_num_rows($likecheckres);
 				<div class="story-article">
 
 					<h1><?php echo $storyRow['title'] ?></h1>
+					<p class="description-story-content"><?php echo $storyRow['description']; ?></p>
 					<div class="like-btn-box">
 						<form action=php/like_processing.php?storyID=<?php echo $curstoryID; ?> method="post">
 							<button id="like" type="submit" class="btn like-btn"><i class="fa fa-thumbs-up" aria-hidden="true"></span></i> Like</button>
@@ -244,7 +245,7 @@ $numlikes = mysqli_num_rows($likecheckres);
 					<div class="stay">
 						<img src="img/profile-pic.gif" class="profile-picture">
 						<h4 class="author-name"><?php echo $authorRow['firstName'].' '.$authorRow['lastName']; ?></h4>
-						<p class="description"><?php echo $storyRow['description']; ?></p>
+						<p class="description"><?php echo $storyRow['title']; ?></p>
 						<?php if (($authorRow['firstName'].' '.$authorRow['lastName']) == $row['firstName'] .' '. $row['lastName']) : ?>
 
 						<?php elseif ($followingRow['follows'] != 1) : ?>
