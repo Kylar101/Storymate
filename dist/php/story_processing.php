@@ -111,13 +111,14 @@ $storyID = $storyID;
 $stdnotif = ' Has posted a new story, ';
 $notifmsg = $username . $stdnotif . $storytitle;
 
-$followsql = "SELECT * from following WHERE followingID = atuhorID";
-$followres = mysqli_query($conn,$followsql);
+$followsql = "SELECT * FROM following WHERE followingID = $authorID";
+$followers = mysqli_query($conn,$followsql);
 
+$rows = mysqli_num_rows($followers);
 
-while(mysqli_fetch_array($followsql)){
+while($follow = mysqli_fetch_array($followers)){
 
-$recieverID = $followsql['userID'];
+$recieverID = $follow['userID'];
 
 
 include('create_notification.php');
