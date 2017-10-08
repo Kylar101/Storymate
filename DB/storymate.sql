@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 17, 2017 at 05:54 AM
--- Server version: 10.1.24-MariaDB
--- PHP Version: 7.1.6
+-- Generation Time: Oct 08, 2017 at 09:49 AM
+-- Server version: 10.1.25-MariaDB
+-- PHP Version: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `audio` (
   `audioID` int(11) NOT NULL,
-  `audioFile` varchar(48) NOT NULL,
+  `audioFile` varchar(255) NOT NULL,
   `storyID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -39,8 +39,11 @@ CREATE TABLE `audio` (
 --
 
 INSERT INTO `audio` (`audioID`, `audioFile`, `storyID`) VALUES
-(1, './uploads/04 Brooklyn Zoo.mp3', 64),
-(2, './uploads/04 Brooklyn Zoo.mp3', 65);
+(3, './uploads/E01416A3-8AB3-487F-8B31-353E17107C38.m', 0),
+(4, './uploads/508BD7C5-CF1E-4469-A18A-F1D7311334B5.mp3', 0),
+(5, './uploads/1C986382-CD3A-43F8-8B23-26B444D15A54.mp3', 75),
+(6, './uploads/8DCD807F-4AE2-47C3-AA66-1FB1495B87BB.mp3', 0),
+(7, './uploads/01224CAA-CA3A-43EF-A107-3550DC156A1E.mp3', 0);
 
 -- --------------------------------------------------------
 
@@ -53,6 +56,14 @@ CREATE TABLE `categories` (
   `categoryName` varchar(48) NOT NULL,
   `categoryDescription` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`categoryID`, `categoryName`, `categoryDescription`) VALUES
+(1, 'Lifestyle', 'A description'),
+(4, 'health', 'asodfhvihfvashvd[a sidvja ');
 
 -- --------------------------------------------------------
 
@@ -68,16 +79,6 @@ CREATE TABLE `comments` (
   `storyID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `comments`
---
-
-INSERT INTO `comments` (`commentID`, `commentBody`, `authorID`, `dateCreated`, `storyID`) VALUES
-(1, 'abcabc', 1, '0000-00-00', 41),
-(2, 'Testing commment upload feature', 1, '0000-00-00', 41),
-(5, 'Working to resolve authorID passing issues in comment_processing.php', 1, '0000-00-00', 41),
-(6, 'AuthorID passing issues resolved.', 1, '0000-00-00', 41);
-
 -- --------------------------------------------------------
 
 --
@@ -89,6 +90,13 @@ CREATE TABLE `flags` (
   `storyID` int(11) NOT NULL,
   `userID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `flags`
+--
+
+INSERT INTO `flags` (`flagID`, `storyID`, `userID`) VALUES
+(1, 73, 3);
 
 -- --------------------------------------------------------
 
@@ -121,10 +129,12 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`imageID`, `storyID`, `imagepath`) VALUES
-(9, 62, '../uploads/14613136744_69599d1d26_o.jpg'),
-(10, 62, '../uploads/14721969260_3361274dea_z.jpg'),
-(11, 62, '../uploads/14721969260_c455a59252_o.jpg'),
-(12, 62, '../uploads/14788794355_99b128acec_z.jpg');
+(35, 71, './uploads/profile-pic.gif'),
+(36, 71, './uploads/story-feature1.jpg'),
+(37, 71, './uploads/story-feature2backup.jpg'),
+(38, 72, './uploads/profile-background-v1.jpg'),
+(39, 72, './uploads/story-feature1.jpg'),
+(40, 76, './uploads/persian-cats-and-kittens-1.jpg');
 
 -- --------------------------------------------------------
 
@@ -143,20 +153,8 @@ CREATE TABLE `likes` (
 --
 
 INSERT INTO `likes` (`likeID`, `storyID`, `userID`) VALUES
-(1, 65, 0),
-(2, 65, 0),
-(3, 65, 1),
-(4, 65, 1),
-(5, 65, 1),
-(6, 65, 1),
-(7, 65, 1),
-(8, 65, 1),
-(9, 65, 1),
-(10, 65, 1),
-(11, 65, 1),
-(12, 65, 1),
-(13, 65, 1),
-(14, 65, 1);
+(15, 71, 3),
+(16, 75, 3);
 
 -- --------------------------------------------------------
 
@@ -166,10 +164,11 @@ INSERT INTO `likes` (`likeID`, `storyID`, `userID`) VALUES
 
 CREATE TABLE `notifications` (
   `notificationID` int(11) NOT NULL,
+  `receiverID` int(11) NOT NULL,
+  `senderID` int(11) NOT NULL,
   `userID` int(11) NOT NULL,
-  `storyID` int(11) NOT NULL,
-  `authorID` int(11) NOT NULL,
-  `seen` tinyint(1) NOT NULL COMMENT 'tells wheatther or not hte notifcation has been sseen'
+  `seen` tinyint(1) NOT NULL COMMENT 'tells wheatther or not hte notifcation has been sseen',
+  `notification` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='notications about stories';
 
 -- --------------------------------------------------------
@@ -198,41 +197,13 @@ CREATE TABLE `stories` (
 --
 
 INSERT INTO `stories` (`storyID`, `title`, `description`, `authorID`, `tagID`, `categoryID`, `public`, `dateCreated`, `storyText`, `approved`, `trash`, `draft`) VALUES
-(2, 'The testing of the Website', 'This is  short story detailing the testing of this website\'s basic functionality. This story will allow the testing of the follo', 1, 0, 0, 0, '0000-00-00', '', 0, 1, 0),
-(4, 'The testing of the Website 1', 'This is  short story detailing the testing of this website\'s basic functionality. This story will allow the testing of the follo', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(9, 'Testing multi image upload', 'Testing multi image', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(39, 'IMAGES', 'IMAGES', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(40, '5 IMAGES', '5 IMAGES', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(41, 'audio test', 'audio upload test', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(42, 'audio test 2', 'audio upload test 2', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(43, 'testing image upload multiple', 'testing image upload multiple', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(44, 'testing image upload multiple', 'testing image upload multiple', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(45, 'testing image upload multiple', 'testing image upload multiple', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(46, 'testing image upload multiple', 'testing image upload multiple', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(47, 'testing image upload multipletesting image uploa', 'testing image upload multipletesting image upload multiple', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(48, 'blah', 'blah', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(49, 'sgbdb', 'sdfgbnrfd', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(50, 'sgbdb', 'sdfgbnrfd', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(51, 'sgbdb', 'sdfgbnrfd', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(52, 'dfb', 'dbfg', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(53, 'dfb', 'dbfg', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(54, 'dgfnxfgn', 'fdsgnfhn', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(55, 'dgfnxfgn', 'fdsgnfhn', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(56, 'dgfnxfgn', 'fdsgnfhn', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(57, 'dgfnxfgn', 'fdsgnfhn', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(58, 'dgfnxfgn', 'fdsgnfhn', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(59, 'szdvdsfb', 'sfbvdsfb', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(60, 'testing image string upload', 'this should put all the image locations into link in the database', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(61, 'asdgffasdg', 'sadfsadfgva', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(62, 'tdhsfdgnh', 'gfnfn', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(63, 'testing the audio upload', 'testing the audio upload', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(64, 'testing the audio upload 2', 'testing the audio upload 2', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(65, 'testing the audio upload 3', 'testing the audio upload 3', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(66, 'Testing draft functionality', 'Testing draft functionality', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(67, 'Testing save draft functionality', 'Testing save draft functionality', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(68, 'Testing save draft functionality', 'Testing save draft functionality', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(69, 'Testing save draft functionality 2', 'Testing save draft functionality 2', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
-(70, 'Testing save draft functionality SUCCESS', 'Testing save draft functionality SUCCESS', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 1);
+(71, 'gegst', 'efa hspodfh aposdfhapjdj', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(72, 'aaishfbals fj', 'wjf asodfh', 3, 0, 0, 0, '0000-00-00', '', 0, 0, 1),
+(73, 'a isdfuoiasduhf oaiu', 'posd hpsug', 1, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(74, 'asd fasdf asdf', 'adsf asdf asdf', 3, 0, 0, 0, '0000-00-00', '', 0, 1, 0),
+(75, 'kasjdjhf aosdif', 'ajdhfg laskdhuf', 3, 0, 0, 0, '0000-00-00', '', 0, 1, 0),
+(76, 'g', 'sdf', 3, 0, 0, 0, '0000-00-00', '', 0, 0, 0),
+(78, '.zsdjzn', 'akwjef', 3, 0, 3, 0, '0000-00-00', '', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -254,31 +225,14 @@ CREATE TABLE `storycontents` (
 --
 
 INSERT INTO `storycontents` (`contentsID`, `storyID`, `textfield`, `imageID`, `audioID`, `contentWarning`) VALUES
-(1, 46, '', 0, 0, 0),
-(2, 47, '', 0, 0, 0),
-(3, 48, '', 0, 0, 0),
-(4, 49, '', 0, 0, 0),
-(5, 50, '', 0, 0, 0),
-(6, 51, '', 0, 0, 0),
-(7, 52, '', 0, 0, 0),
-(8, 53, '', 0, 0, 0),
-(9, 54, '', 0, 0, 0),
-(10, 55, '', 0, 0, 0),
-(11, 56, '', 0, 0, 0),
-(12, 57, '', 0, 0, 0),
-(13, 58, '', 0, 0, 0),
-(14, 59, '', 0, 0, 0),
-(15, 60, '', 0, 0, 0),
-(16, 61, '', 0, 0, 0),
-(17, 62, '', 0, 0, 0),
-(18, 63, '', 0, 0, 0),
-(19, 64, '', 0, 0, 0),
-(20, 65, '', 0, 0, 0),
-(29, 66, '', 0, 0, 0),
-(30, 67, '', 0, 0, 0),
-(31, 68, '', 0, 0, 0),
-(32, 69, '', 0, 0, 0),
-(33, 70, '', 0, 0, 0);
+(34, 71, '', 0, 0, 0),
+(35, 72, 'lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf lakwehf lasudhfl ajdhfl asdhf alksjdf ', 0, 0, 0),
+(36, 73, '', 0, 3, 0),
+(37, 74, '', 0, 4, 0),
+(38, 75, '', 0, 0, 0),
+(39, 76, '\r\nFruitcake carrot cake gingerbread sweet roll apple pie dragÃ©e gummi bears. Pastry cookie gummies halvah lollipop bonbon. DragÃ©e carrot cake carrot cake topping gummi bears toffee. Muffin marshmallow dragÃ©e croissant sweet liquorice gummies oat cake chupa chups. Pudding gummi bears bonbon cake dragÃ©e. Cupcake ice cream toffee pudding marzipan tart tiramisu apple pie. Cupcake pie candy cookie gingerbread. Cake lollipop marshmallow carrot cake marzipan chocolate cake brownie marzipan sweet. Candy gummies croissant donut pie cheesecake gummies. Cake lollipop caramels gummies. Pudding bonbon cake marshmallow jelly muffin sweet candy. Cake pie pudding. Gummi bears ice cream apple pie.\r\nIcing chupa chups cupcake gummi bears tootsie roll oat cake pudding halvah. Cheesecake soufflÃ© candy canes brownie. Ice cream chocolate cake sweet roll lemon drops pudding oat cake fruitcake. Cake pastry wafer macaroon brownie sesame snaps lemon drops gummi bears cupcake. Jelly beans powder cookie. Biscuit cheesecake carrot cake gingerbread bear claw cake. Donut icing cake soufflÃ©. DragÃ©e tiramisu sweet caramels tootsie roll cake dessert marzipan. Fruitcake caramels macaroon liquorice. Cupcake brownie tiramisu pastry macaroon cookie. Biscuit sweet jujubes powder jelly-o brownie. Jujubes muffin croissant apple pie macaroon cotton candy dessert. Apple pie cotton candy jelly beans.', 0, 0, 0),
+(40, 77, '', 0, 0, 0),
+(41, 78, '', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -335,8 +289,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userID`, `userRole`, `firstName`, `lastName`, `email`, `phone`, `activated`, `dateCreated`, `password`) VALUES
-(1, 0, 'Nate', 'Johns', 'nathan.johns@qut.edu.au', '0452012790', 1, '2017-07-01', 'b109f3bbbc244eb82441917ed06d618b9008dd09b3befd1b5e07394c706a8bb980b1d7785e5976ec049b46df5f1326af5a2ea6d103fd07c95385ffab0cacbc86'),
-(2, 0, 'jack', 'pilsken', 'jack@gmail.com', '0', 0, '0000-00-00', 'b109f3bbbc244eb82441917ed06d618b9008dd09b3befd1b5e07394c706a8bb980b1d7785e5976ec049b46df5f1326af5a2ea6d103fd07c95385ffab0cacbc86');
+(1, 1, 'Nate', 'Johns', 'nathan.johns@qut.edu.au', '0', 1, '2017-07-01', 'B109F3BBBC244EB82441917ED06D618B9008DD09B3BEFD1B5E07394C706A8BB980B1D7785E5976EC049B46DF5F1326AF5A2EA6D103FD07C95385FFAB0CACBC86'),
+(3, 1, 'Ben', 'Lowbridge', 'lowbridge.ba@gmail.com', '0', 1, '2017-08-16', 'B109F3BBBC244EB82441917ED06D618B9008DD09B3BEFD1B5E07394C706A8BB980B1D7785E5976EC049B46DF5F1326AF5A2EA6D103FD07C95385FFAB0CACBC86'),
+(4, 2, 'Renzo', 'Alvarado', 'renzo@gmail.com', '0', 1, '2017-08-16', 'B109F3BBBC244EB82441917ED06D618B9008DD09B3BEFD1B5E07394C706A8BB980B1D7785E5976EC049B46DF5F1326AF5A2EA6D103FD07C95385FFAB0CACBC86'),
+(5, 2, 'Ashleigh', 'Wilson', 'ashleigh@gmail.com', '0', 1, '2017-08-16', 'B109F3BBBC244EB82441917ED06D618B9008DD09B3BEFD1B5E07394C706A8BB980B1D7785E5976EC049B46DF5F1326AF5A2EA6D103FD07C95385FFAB0CACBC86');
 
 --
 -- Indexes for dumped tables
@@ -422,32 +378,32 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `audio`
 --
 ALTER TABLE `audio`
-  MODIFY `audioID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `audioID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `categoryID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `categoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `commentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `commentID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `flags`
 --
 ALTER TABLE `flags`
-  MODIFY `flagID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `flagID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `imageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `imageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 --
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `likeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `likeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `notifications`
 --
@@ -457,12 +413,12 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `stories`
 --
 ALTER TABLE `stories`
-  MODIFY `storyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `storyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 --
 -- AUTO_INCREMENT for table `storycontents`
 --
 ALTER TABLE `storycontents`
-  MODIFY `contentsID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `contentsID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 --
 -- AUTO_INCREMENT for table `tags`
 --
