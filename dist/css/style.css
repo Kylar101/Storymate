@@ -10158,7 +10158,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
     #top-bar .user-bar .all-notifications {
       opacity: 0;
       position: absolute;
-      bottom: -37px;
+      bottom: -6px;
       right: 15px;
       background: #132330; }
       #top-bar .user-bar .all-notifications.show {
