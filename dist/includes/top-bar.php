@@ -14,21 +14,23 @@
 						<button class="cross">&#735;</button>
 					</div>
 				<?php endif; ?>
-				<p class="user-name"><a href="profile.php"><?php echo $row['firstName'] .' '. $row['lastName']; ?></a></p>
+				<p class="user-name">
+					<!-- <span class="notifications"><i class="fa fa-commenting-o" aria-hidden="true"></i></span> -->
 
-				<?php 
+					<?php 
 
-				while($notice = mysqli_fetch_array($notesres)){
-					$msg = $notice['notification'];
-					#echo $msg;
-				
-				?>
+					while($notice = mysqli_fetch_array($notesres)) :
+						$msg = $notice['notification'];
+					
+					?>
 
-				<!-- do fancy html stuff here-->
+					<!-- do fancy html stuff here-->
 
-				<?php
-					}
-				?>
+					<?php
+						endwhile;
+					?>
+					<a href="profile.php">    <i class="fa fa-user" aria-hidden="true"></i>  <?php echo $row['firstName'] .' '. $row['lastName']; ?></a>
+				</p>
 
 			</div>
 		</section>

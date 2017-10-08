@@ -10145,16 +10145,14 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
       padding-top: 30px;
       padding-bottom: 30px;
       width: 50%; }
+      #top-bar .user-bar .user-name .notifications {
+        cursor: pointer; }
       @media (max-width: 700px) {
         #top-bar .user-bar .user-name {
           width: 70%;
           font-size: 1.1em; } }
       #top-bar .user-bar .user-name a {
         color: #fff; }
-      #top-bar .user-bar .user-name:before {
-        content: '\F007';
-        font-family: 'FontAwesome';
-        margin-right: 5px; }
 
 #hamburger-menu .hamburger, #hamburger-menu .author-hamburger, #author-hamburger-menu .hamburger, #author-hamburger-menu .author-hamburger {
   background: none;

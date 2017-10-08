@@ -1,7 +1,10 @@
 <?php
 
-$notesql = "SELECT * FROM notifications WHERE recieverID = $currentUser";
+$notesql = "SELECT * FROM notifications WHERE receiverID = $currentUser";
 $notesres = mysqli_query($conn, $notesql);
-$notifications = mysqli_fetch_array($notesres);
+if (!$notesres) {
+	die (mysql_error($conn));
+}
+// $notifications = mysqli_fetch_array($notesres);
 
 ?>

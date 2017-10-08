@@ -39,17 +39,15 @@
 			padding-bottom: 30px;
 			// margin-right: 2vw;
 			width: 50%;
+			.notifications {
+				cursor: pointer;
+			}
 			@media (max-width: 700px) {
 				width: 70%;
 				font-size: 1.1em;
 			}
 			a {
 				color: #fff;
-			}
-			&:before {
-				content: '\f007';
-				font-family: 'FontAwesome';
-				margin-right: 5px;
 			}
 		}
 	}
