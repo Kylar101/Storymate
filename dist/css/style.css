@@ -10120,7 +10120,8 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
     margin: 0 auto;
     color: #fff;
     display: flex;
-    flex-wrap: wrap; }
+    flex-wrap: wrap;
+    position: relative; }
     @media (max-width: 700px) {
       #top-bar .user-bar {
         width: 90%; } }
@@ -10143,13 +10144,29 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
       padding-bottom: 30px;
       width: 50%; }
       #top-bar .user-bar .user-name .notifications {
-        cursor: pointer; }
+        cursor: pointer;
+        font-size: 1.3em;
+        transition: .3s color; }
+        #top-bar .user-bar .user-name .notifications:hover {
+          color: #0498e2; }
       @media (max-width: 700px) {
         #top-bar .user-bar .user-name {
           width: 70%;
           font-size: 1.1em; } }
       #top-bar .user-bar .user-name a {
         color: #fff; }
+    #top-bar .user-bar .all-notifications {
+      opacity: 0;
+      position: absolute;
+      bottom: -37px;
+      right: 15px;
+      background: #132330; }
+      #top-bar .user-bar .all-notifications.show {
+        opacity: 1;
+        transition: .3s opacity; }
+      #top-bar .user-bar .all-notifications p {
+        min-width: 150px;
+        padding-left: 15px; }
 
 #hamburger-menu .hamburger, #hamburger-menu .author-hamburger, #author-hamburger-menu .hamburger, #author-hamburger-menu .author-hamburger {
   background: none;

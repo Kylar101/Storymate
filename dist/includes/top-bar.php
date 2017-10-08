@@ -15,22 +15,26 @@
 					</div>
 				<?php endif; ?>
 				<p class="user-name">
-					<!-- <span class="notifications"><i class="fa fa-commenting-o" aria-hidden="true"></i></span> -->
+					<span class="notifications"><i class="fa fa-commenting-o" aria-hidden="true"></i></span>
 
+					<a href="profile.php">    <i class="fa fa-user" aria-hidden="true"></i>  <?php echo $row['firstName'] .' '. $row['lastName']; ?></a>
+				</p>
+
+
+					<div class="all-notifications">
 					<?php 
 
 					while($notice = mysqli_fetch_array($notesres)) :
 						$msg = $notice['notification'];
-					
 					?>
 
-					<!-- do fancy html stuff here-->
+						<p><?php echo $msg; ?></p>
 
 					<?php
 						endwhile;
 					?>
-					<a href="profile.php">    <i class="fa fa-user" aria-hidden="true"></i>  <?php echo $row['firstName'] .' '. $row['lastName']; ?></a>
-				</p>
+					
+					</div>
 
 			</div>
 		</section>
