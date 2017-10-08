@@ -19,6 +19,22 @@ if (!$result) {
 	die (mysqli_error($conn));
 }
 
+##handle notifications##
+$storysql = "SELECT * FROM stories where storyID = $storyID";
+$story = mysqli_query($conn, $storysql);
+$storyrow = mysqli_fetch_array($story);
+$storytitle = $storyrow['title'];
+
+$recieverID = $storyrow['authorID'];
+$senderID = $authorID;
+$storyID = $storyID;
+
+$stdnotif = ' Has commented on your story, ';
+$notifmsg = $username . $stdnotif . $storytitle;
+
+include('create_notification.php');
+
+
 header("location: ../view-story.php?storyID=".$storyID);
 
 ?>
