@@ -68,9 +68,9 @@ include 'includes/admin.php';
 
 						?>
 						<div class="story-card">
-							<a href=view-story.php?storyID=<?php echo $stories['storyID'] ?>>
+							<!-- <a href=view-story.php?storyID=<?php echo $stories['storyID'] ?>>
 								<img src="<?php echo $path; ?>" class="story-card-image">
-							</a>
+							</a> -->
 							<?php if($isDeleted) : ?>
 								<div class="deleted">
 									Deleted

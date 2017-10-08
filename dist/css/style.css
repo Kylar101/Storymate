@@ -9893,7 +9893,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   margin-top: 6vh;
   margin-left: 15vw;
   overflow: hidden; }
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     #page-content {
       margin-left: 0; } }
 
@@ -10128,13 +10128,13 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
     #top-bar .user-bar .top-logo-wrapper {
       margin-top: 2vh;
       width: 48%; }
-      @media (max-width: 700px) {
+      @media (max-width: 800px) {
         #top-bar .user-bar .top-logo-wrapper {
           width: 30%; } }
       #top-bar .user-bar .top-logo-wrapper .logo {
         width: auto;
         height: 6vh; }
-        @media (max-width: 700px) {
+        @media (max-width: 800px) {
           #top-bar .user-bar .top-logo-wrapper .logo {
             height: 7vh;
             margin-left: 20px; } }
@@ -10149,7 +10149,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
         transition: .3s color; }
         #top-bar .user-bar .user-name .notifications:hover {
           color: #0498e2; }
-      @media (max-width: 700px) {
+      @media (max-width: 800px) {
         #top-bar .user-bar .user-name {
           width: 70%;
           font-size: 1.1em; } }
@@ -10245,7 +10245,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
     color: #fff;
     display: block;
     padding: 5px 25px; }
-    @media (max-width: 700px) {
+    @media (max-width: 800px) {
       #side-bar-mobile a {
         font-size: 2em; } }
     #side-bar-mobile a:hover {
@@ -10288,7 +10288,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   height: 50vh;
   display: block;
   position: relative; }
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     .profile-header {
       width: 100vw;
       height: 70vh; } }
@@ -10303,7 +10303,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
     position: absolute;
     top: 80%;
     left: 40%; }
-    @media (max-width: 700px) {
+    @media (max-width: 800px) {
       .profile-header .count-bg {
         left: 30%; } }
     .profile-header .count-bg .story-count {
@@ -10314,7 +10314,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   width: 50vw;
   margin-left: 17vw;
   margin-top: 50px; }
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     .profile-details {
       width: 80vw;
       margin-left: 10vw; } }
@@ -10575,11 +10575,11 @@ textarea {
 #post-story {
   margin-left: 13vw;
   width: 55vw; }
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     #post-story {
       margin-left: 10vw;
       width: 80vw; } }
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     #post-story .title-wrapper {
       padding-top: 10px; } }
 
@@ -10588,7 +10588,7 @@ textarea {
   color: #fff;
   cursor: pointer;
   width: 125px; }
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     .story-type-button {
       width: 100%;
       margin-bottom: 5px;
@@ -10681,7 +10681,7 @@ textarea {
     flex-wrap: wrap; }
     .edit-image-wrapper .image-wrapper .image-container {
       width: 50%; }
-      @media (max-width: 700px) {
+      @media (max-width: 800px) {
         .edit-image-wrapper .image-wrapper .image-container {
           width: 100%;
           margin-bottom: 5px; } }
@@ -10757,7 +10757,7 @@ textarea {
     cursor: pointer;
     left: 3vw;
     z-index: 9999; }
-    @media (max-width: 700px) {
+    @media (max-width: 800px) {
       #front-content .to-search {
         top: 13vh; } }
     #front-content .to-search a {
@@ -10769,17 +10769,17 @@ textarea {
 .story-content {
   width: 75vw;
   height: auto; }
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     .story-content {
       width: 100vw; } }
   .story-content .slider-image {
     height: 60vh; }
-    @media (max-width: 700px) {
+    @media (max-width: 800px) {
       .story-content .slider-image {
         height: 30vh; } }
   .story-content .slider {
     padding-top: 10vh; }
-    @media (max-width: 700px) {
+    @media (max-width: 800px) {
       .story-content .slider {
         padding-top: 12vh; } }
     .story-content .slider button.slick-prev.slick-arrow {
@@ -10846,7 +10846,7 @@ textarea {
     width: 100%;
     max-height: 700px; }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   .author-details {
     display: none; } }
 
@@ -10855,7 +10855,7 @@ textarea {
   right: 5vh;
   position: relative;
   text-align: center; }
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     .author-details, #author-mobile {
       width: 100vw;
       z-index: 999; } }
@@ -10863,7 +10863,7 @@ textarea {
     position: absolute;
     top: 25vh;
     left: 7vw; }
-    @media (max-width: 700px) {
+    @media (max-width: 800px) {
       .author-details .details, #author-mobile .details {
         top: 8vh;
         width: 100vw;
@@ -10877,7 +10877,7 @@ textarea {
       margin-bottom: 10px; }
     .author-details .details .stay, #author-mobile .details .stay {
       position: fixed; }
-      @media (max-width: 700px) {
+      @media (max-width: 800px) {
         .author-details .details .stay, #author-mobile .details .stay {
           position: static;
           margin-top: 5vh;
@@ -10939,7 +10939,7 @@ pre {
     -webkit-border-bottom-left-radius: 10px;
     -moz-border-bottom-left-radius: 10px;
     border-bottom-left-radius: 10px; }
-    @media (max-width: 700px) {
+    @media (max-width: 800px) {
       .search-header .search-options .search-bar {
         width: 350px; } }
     @media (max-width: 400px) {
@@ -10956,7 +10956,7 @@ pre {
     border: none;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px; }
-    @media (max-width: 700px) {
+    @media (max-width: 800px) {
       .search-header .search-options .search-button {
         width: 8vw; } }
   .search-header .search-advanced {
@@ -11011,7 +11011,7 @@ pre {
   text-align: center;
   top: 50%;
   position: absolute; }
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     .post-story-search-link {
       top: 60%; } }
 
@@ -11038,7 +11038,7 @@ pre {
   flex-wrap: wrap;
   width: 75vw;
   margin: 0 auto; }
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     .search-content .search-wrapper {
       width: 100vw; } }
 
@@ -11066,7 +11066,7 @@ pre {
   .search-content .story-tile .story-info {
     position: relative;
     padding-bottom: 3vh; }
-    @media (max-width: 700px) {
+    @media (max-width: 800px) {
       .search-content .story-tile .story-info {
         margin-left: 10vw;
         margin-right: 10vw; } }

@@ -1,12 +1,12 @@
 #post-story {
 	margin-left: 13vw;
 	width: 55vw;
-	@media (max-width: 700px) {
+	@media (max-width: 800px) {
 		margin-left: 10vw;
 		width: 80vw;
 	}
 	.title-wrapper {
-		@media (max-width: 700px) {
+		@media (max-width: 800px) {
 			padding-top: 10px;
 		}
 	}
@@ -19,7 +19,7 @@
 	color: #fff;
 	cursor: pointer;
 	width: 125px;
-	@media (max-width: 700px) {
+	@media (max-width: 800px) {
 		width: 100%;
 		margin-bottom: 5px;
 		font-size: 1.5em;
@@ -144,7 +144,7 @@
 		flex-wrap:wrap;
 		.image-container {
 			width: 50%;
-			@media (max-width: 700px) {
+			@media (max-width: 800px) {
 				width: 100%;
 				margin-bottom: 5px;
 			}
