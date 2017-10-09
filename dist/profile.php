@@ -117,8 +117,17 @@ include('php/fetch_notifications.php');
 								if (!$fetchImage) {
 									die (mysqli_error($conn));
 								}
+								$catID = $stories['categoryID'];
+								$catSQL = "SELECT * FROM categories WHERE categoryID = '$catID'";
+								$fetchCat = mysqli_query($conn,$catSQL);
+								if (!$fetchCat) {
+									die (mysqli_error($conn));
+								}
+								$catImage = mysqli_fetch_array($fetchCat);
+								$default = $catImage['categoryName'] ? $catImage['categoryName'] : 'story';
+
 								$imagePath = mysqli_fetch_array($fetchImage);
-								$path = $imagePath['imagepath'] ? $imagePath['imagepath'] : 'img/pizzasheen.gif';
+								$path = $imagePath['imagepath'] ? $imagePath['imagepath'] : 'img/cat/'.$default.'.jpg';
 
 
 						?>
