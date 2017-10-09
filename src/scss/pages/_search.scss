@@ -102,7 +102,7 @@
 
 	.search-advanced {
 
-    width: 40%;
+	   width: 70%;
 	  text-align: center;
 	  margin: auto;
 		margin-top: 10px;
@@ -117,6 +117,7 @@
 		.advanced-search-options {
 			opacity: 0;
 			pointer-events: none;
+			// width: 400px;
 			&.show {
 				opacity: 1;
 				pointer-events: auto;
@@ -151,7 +152,7 @@
 		}
 	}
 }
-
+ 
 .advanced-active span {
 	margin: 0 10px 0 0;
 	&:after {
@@ -166,10 +167,7 @@
 	width: 100%;
 	height: auto;
 	text-align: center;
-	top: 50%;
-	@media (max-width: 800px) {
-		top: 60%;
-	}
+	top: 60%;
 	position: absolute;
 }
 
@@ -357,11 +355,8 @@
 	color: white;
 	font-size: 48px;
   position: relative;
-  top: 60vh;
+  top: 50vh;
 	text-align: center;
-  @media (max-width: 700px ) {
-  	top: 60vh;
-  }
   // box-shadow: 0px 2px 8px rgba(0,0,0,.25);
   margin: 0 auto;
   cursor: pointer;

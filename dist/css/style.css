@@ -10158,7 +10158,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
     #top-bar .user-bar .all-notifications {
       opacity: 0;
       position: absolute;
-      bottom: -6px;
+      bottom: 5px;
       right: 15px;
       background: #132330; }
       #top-bar .user-bar .all-notifications.show {
@@ -10960,7 +10960,7 @@ pre {
       .search-header .search-options .search-button {
         width: 8vw; } }
   .search-header .search-advanced {
-    width: 40%;
+    width: 70%;
     text-align: center;
     margin: auto;
     margin-top: 10px;
@@ -11009,11 +11009,8 @@ pre {
   width: 100%;
   height: auto;
   text-align: center;
-  top: 50%;
+  top: 60%;
   position: absolute; }
-  @media (max-width: 800px) {
-    .post-story-search-link {
-      top: 60%; } }
 
 .post-story-search-link-button {
   text-align: center;
@@ -11128,14 +11125,11 @@ pre {
   color: white;
   font-size: 48px;
   position: relative;
-  top: 60vh;
+  top: 50vh;
   text-align: center;
   margin: 0 auto;
   cursor: pointer;
   transition: all .1s ease; }
-  @media (max-width: 700px) {
-    .circle {
-      top: 60vh; } }
 
 .wrap {
   width: 100%; }
