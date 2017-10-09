@@ -167,6 +167,7 @@ CREATE TABLE `notifications` (
   `receiverID` int(11) NOT NULL,
   `senderID` int(11) NOT NULL,
   `userID` int(11) NOT NULL,
+  `storyID` int(11) NOT NULL,
   `seen` tinyint(1) NOT NULL COMMENT 'tells wheatther or not hte notifcation has been sseen',
   `notification` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='notications about stories';
