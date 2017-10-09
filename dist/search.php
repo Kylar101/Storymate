@@ -157,14 +157,16 @@ if (!isset($_SESSION['login_user'])) {
 								die (mysqli_error($conn));
 							}
 							$catID = $stories['categoryID'];
-							$fetchCat = mysqli_query($conn,$imageSQL);
+							$catSQL = "SELECT * FROM categories WHERE categoryID = '$catID'";
+							$fetchCat = mysqli_query($conn,$catSQL);
 							if (!$fetchCat) {
 								die (mysqli_error($conn));
 							}
 							$catImage = mysqli_fetch_array($fetchCat);
+							$default = $catImage['categoryName'] ? $catImage['categoryName'] : 'story';
 
 							$imagePath = mysqli_fetch_array($fetchImage);
-							$path = $imagePath['imagepath'] ? $imagePath['imagepath'] : 'img/'.$catImage["categoryName"].'.jpg';
+							$path = $imagePath['imagepath'] ? $imagePath['imagepath'] : 'img/cat/'.$default.'.jpg';
 
 							$likesql = "SELECT * FROM likes WHERE storyID = '$storyID'";
 							$likeres = mysqli_query($conn,$likesql);
@@ -181,7 +183,6 @@ if (!isset($_SESSION['login_user'])) {
 									<h5 class="author-name"><?php echo $stories['firstName'].' '.$stories['lastName'] ?></h5>
 									<div class="story-extra">
 										<div class="likes"><?php echo $likesqty; ?> <span class="feature-likes"> <i class="fa fa-thumbs-up" aria-hidden="true"></span></i></div>
-										<a href=view-story.php?storyID=<?php echo $stories['storyID'];?> class="btn comments-button view-story">View Story</a>
 									</div>
 							</div>
 							</div>
