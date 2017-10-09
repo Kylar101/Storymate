@@ -121,7 +121,32 @@ include('php/fetch_notifications.php');
 					<button class="author-hamburger">&#9776;</button>
 					<button class="author-cross">&#735;</button>
 				</div>
-				<p class="user-name"><a href="profile.php"><?php echo $row['firstName'].' '. $row['lastName']; ?></a></p>
+				<p class="user-name">
+					<span class="notifications"><i class="fa fa-commenting-o" aria-hidden="true"></i></span>
+
+					<a href="profile.php">    <i class="fa fa-user" aria-hidden="true"></i>  <?php echo $row['firstName'] .' '. $row['lastName']; ?></a>
+				</p>
+
+
+					<div class="all-notifications">
+					<?php 
+					if (!mysqli_num_rows($notesres)) :
+						?>
+						<p>No Notifications</p>
+						<?php
+					else :
+					while($notice = mysqli_fetch_array($notesres)) :
+						$msg = $notice['notification'];
+					?>
+
+						<p><?php echo $msg; ?></p>
+
+					<?php
+						endwhile;
+					endif;
+					?>
+					
+					</div>
 			</div>
 		</section>
 	</header>
