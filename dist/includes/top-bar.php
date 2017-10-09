@@ -23,7 +23,11 @@
 
 					<div class="all-notifications">
 					<?php 
-
+					if (!mysqli_num_rows($notesres)) :
+						?>
+						<p>No Notifications</p>
+						<?php
+					else :
 					while($notice = mysqli_fetch_array($notesres)) :
 						$msg = $notice['notification'];
 					?>
@@ -32,6 +36,7 @@
 
 					<?php
 						endwhile;
+					endif;
 					?>
 					
 					</div>

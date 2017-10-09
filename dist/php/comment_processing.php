@@ -25,7 +25,7 @@ $story = mysqli_query($conn, $storysql);
 $storyrow = mysqli_fetch_array($story);
 $storytitle = $storyrow['title'];
 
-$recieverID = $storyrow['authorID'];
+$receiverID = $storyrow['authorID']; 
 $senderID = $authorID;
 $storyID = $storyID;
 
