@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+\<!DOCTYPE html>
 
 <?php
   include ('php/connector.php');
@@ -218,7 +218,11 @@ include('php/fetch_notifications.php');
 						    <div>
 						      <div  class="list-unstyled" id='ul'></div>
 						    </div>
+						    <?php if (!$editMode) : ?>
 						    <input id="audioID" type="text" name="audio">
+						    <?php else : ?>
+							<input id="audioID" type="text" name="audio" value="<?php echo $storyRow['audioID']; ?>">
+						    <?php endif; ?>
 						</div>
 
 						<div class="field-wrap">
