@@ -138,7 +138,7 @@ if (!isset($_SESSION['login_user'])) {
 				<?php } else { ?>
 
 				<div id="title-search-content">
-					<h1><?php echo $numResults ?> Stories Found</h1>
+					<h1><?php echo $numResults ?> Stories Found related to "<?php echo $term . '"'; ?></h1>
 				</div>
 				<?php } ?>
 				<div class="search-wrapper">
@@ -200,7 +200,7 @@ if (!isset($_SESSION['login_user'])) {
 				<div class="search-wrapper">
 
 					<?php
-						$sql = "SELECT * FROM stories INNER JOIN users ON stories.authorID = users.userID WHERE stories.trash = '0' AND stories.draft = '0' ORDER BY storyID Desc LIMIT 10";
+						$sql = "SELECT * FROM stories INNER JOIN users ON stories.authorID = users.userID WHERE stories.trash = '0' AND stories.draft = '0' ORDER BY storyID Desc LIMIT 9";
 						$topRes = mysqli_query($conn,$sql);
 						while($stories = mysqli_fetch_array($topRes)){
 
