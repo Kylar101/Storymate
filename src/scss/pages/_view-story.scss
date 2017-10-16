@@ -14,7 +14,7 @@
 		top: 12vh;
 		cursor:pointer;
 		left: 3vw;
-		z-index: 9999;
+		z-index: 1;
 		a {
 			color: #fff;
 			&:hover{
@@ -29,6 +29,14 @@
 		// 	color: #fff;
 		// 	font-family: 'FontAwesome';
 		// }
+	}
+}
+.titleWarning {
+	display: flex;
+	.contentWarning {
+		margin-top: 6vh;
+		margin-left: 4vw;
+		color: red;
 	}
 }
 

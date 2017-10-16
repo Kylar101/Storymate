@@ -10,6 +10,8 @@ $Description = mysqli_real_escape_string($conn,$_POST['description']);
 // $Images = mysqli_real_escape_string($conn,$_POST['images']);
 $Text= mysqli_real_escape_string($conn,$_POST['text']);
 $categoryID = mysqli_real_escape_string($conn,$_POST['category']);
+$warning = mysqli_real_escape_string($conn,$_POST['warning']);
+$AudioID = mysqli_real_escape_string($conn,$_POST['audio']);
 $old_images = $_POST['image-updated'] ? $_POST['image-updated'] : null;
 
 $username = $_SESSION['login_user'];
@@ -23,7 +25,7 @@ if(isset($_POST['draft'])){
 }
 
 $sql = "UPDATE stories SET title='$Title', description='$Description', categoryID='$categoryID' WHERE storyID='$storyID'";
-$sqlcontents = "UPDATE storycontents SET textfield='$Text' WHERE storyID='$storyID'";
+$sqlcontents = "UPDATE storycontents SET textfield='$Text', audioID='$audioID', contentWarning='$warning' WHERE storyID='$storyID'";
 
 $result = mysqli_query($conn,$sql);
 

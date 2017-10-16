@@ -189,8 +189,12 @@ include('php/fetch_notifications.php');
 		        </div>
 
 				<div class="story-article">
-
-					<h1><?php echo $storyRow['title'] ?></h1>
+					<div class="titleWarning">
+						<h1><?php echo $storyRow['title'] ?></h1>
+						<?php if($contentsRow['contentWarning']) : ?>
+						<span class="contentWarning"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> This story contains mature content</span>
+						<?php endif; ?>
+					</div>
 					<p class="description-story-content"><?php echo $storyRow['description']; ?></p>
 					<div class="like-btn-box">
 						<form action=php/like_processing.php?storyID=<?php echo $curstoryID; ?> method="post">
