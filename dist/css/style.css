@@ -10756,7 +10756,7 @@ textarea {
     top: 12vh;
     cursor: pointer;
     left: 3vw;
-    z-index: 9999; }
+    z-index: 1; }
     @media (max-width: 800px) {
       #front-content .to-search {
         top: 13vh; } }
@@ -10765,6 +10765,13 @@ textarea {
       #front-content .to-search a:hover {
         text-decoration: none;
         padding: 5px 15px; }
+
+.titleWarning {
+  display: flex; }
+  .titleWarning .contentWarning {
+    margin-top: 6vh;
+    margin-left: 4vw;
+    color: red; }
 
 .story-content {
   width: 75vw;

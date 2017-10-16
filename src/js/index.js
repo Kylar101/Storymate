@@ -9,6 +9,7 @@ import './inc/slick.min';
 // -----------------------------------------------------------
 
 var currentUrl = utils.getUrl();
+var wholeUrl = utils.getWholeUrl();
 
 // apply active dashboard class
 window.onload = function() {
@@ -32,10 +33,18 @@ window.onload = function() {
 
 
 }
+if (currentUrl.includes('post') && wholeUrl.includes('edit')) {
+  let category = document.getElementById('storyCategory').value;
+  if (category != 'noCats') {
+    document.querySelector(`.${category}`).checked = true; 
+  }
+}
 
-if (currentUrl.includes('post') && currentUrl.includes('edit')) {
-  let category = document.getElementById('storyCategory').value
-  document.querySelector(`.${category}`).checked = true
+if (currentUrl.includes('post') && wholeUrl.includes('edit')) {
+  let warning = document.getElementById('storyWarning').value;
+  if (warning != 'noWarning') {
+    document.querySelector(`.${warning}`).checked = true; 
+  }
 }
 
 if (currentUrl.includes('view-story')) {
