@@ -10546,6 +10546,20 @@ $('.advance-button').on('click', function () {
   }
 });
 
+$('#search-view-more').on('click', function () {
+  $('.search-wrapper').css('max-height', 'none');
+  $('#search-view-more').hide();
+});
+
+$('#search-view-all').on('click', function () {
+  $('#search-button').click();
+});
+
+var searchResults = $('#search-results').length;
+if (searchResults) {
+  $('.search-wrapper').css('max-height', 'none');
+}
+
 // toggles between login and sign up
 $('.tab a').on('click', function (e) {
 

@@ -162,6 +162,19 @@ $('.advance-button').on('click', () => {
   }
 })
 
+$('#search-view-more').on('click', ()=> {
+  $('.search-wrapper').css('max-height', 'none');
+  $('#search-view-more').hide();
+})
+
+$('#search-view-all').on('click',()=> {
+  $('#search-button').click();
+})
+
+var searchResults = $('#search-results').length;
+if (searchResults) {
+  $('.search-wrapper').css('max-height', 'none');
+}
 
 // toggles between login and sign up
 $('.tab a').on('click', function (e) {

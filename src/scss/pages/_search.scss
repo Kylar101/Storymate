@@ -206,6 +206,9 @@
 			width: 100vw;
 		}
 		margin: 0 auto;
+		transition: .2s height;
+		max-height: 1190px;
+		overflow: hidden;
 	}
 	.story-tile {
 		// display: flex;
@@ -398,4 +401,9 @@
 			font-size: 18px;
 	  }
 
+}
+
+.extra-btn {
+	width: 20%;
+	margin: 0 auto;
 }
