@@ -10688,6 +10688,12 @@ textarea {
   .edit-image-wrapper .edit-story-image {
     width: 90%; }
 
+.mature-content-select {
+  margin-bottom: 20px; }
+
+.category-select {
+  margin-bottom: 20px; }
+
 .new-users-location .new-users {
   display: flex;
   margin-top: 2vh; }
@@ -11160,8 +11166,9 @@ pre {
       font-size: 18px; } }
 
 .extra-btn {
-  width: 20%;
-  margin: 0 auto; }
+  width: 30%;
+  margin: 0 auto;
+  margin-top: 20px; }
 
 html, body {
   height: 100%; }

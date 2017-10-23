@@ -118,26 +118,26 @@ include('php/fetch_notifications.php');
 							<?php endif; ?>
 						</div>
 
-						<div class="">
+						<div class="mature-content-select">
 							<p class="small-label">Does your story contain mature content?</p>
 							<input id="storyWarning" type="hidden" name="warningLevel" value="<?php echo $contentWarning; ?>">
 							<span class="story-cat"><input type="radio" name="warning" class="yesWarning" value="1">Yes</span>
 							<span class="story-cat"><input type="radio" name="warning" class="noWarning" value="0">No</span>
 						</div>
 
-						<div class="">
+						<div class="category-select">
 							<p class="small-label">
-								Add Category
+								Choose Category
 							</p>
 
 							<input id="storyCategory" type="hidden" name="categoryName" value="<?php echo $categoryName; ?>">
 
 							<div class="categories">
-							<?php 
+							<?php
 
 								$cat = "SELECT * FROM categories";
 								$fetchCats = mysqli_query($conn,$cat);
-								
+
 
 								while($cats = mysqli_fetch_array($fetchCats)) :
 
@@ -152,7 +152,7 @@ include('php/fetch_notifications.php');
 
 						<div class="field-wrap">
 							<p class="small-label">
-								Add content <span class="req">*</span>
+								Add content to your story <span class="req">*</span>
 							</p>
 			            	<button type="button" class="btn story-type-button" data-type="text"><span>Text</span></button>
 			            	<button type="button" class="btn story-type-button" data-type="images"><span>Images</span></button>

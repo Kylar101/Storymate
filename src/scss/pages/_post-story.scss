@@ -46,6 +46,7 @@
 .field-wrap {
 	&.story-text, &.story-images, &.story-audio {
 		margin-bottom: 10px;
+		// margin-top: 20px;
 	}
 }
 
@@ -154,4 +155,13 @@
 		// margin-right: 5%;
 		width: 90%;
 	}
+}
+
+.mature-content-select{
+	margin-bottom: 20px;
+}
+
+
+.category-select{
+margin-bottom: 20px;
 }

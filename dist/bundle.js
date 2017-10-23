@@ -11284,7 +11284,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Native Javascript for Bootstrap 3 v2.0.17 | © dnp_theme | MIT-License
+/* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Native Javascript for Bootstrap 3 v2.0.13 | © dnp_theme | MIT-License
 (function (root, factory) {
   if (true) {
     // AMD support:
@@ -11314,7 +11314,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   
   /* Native Javascript for Bootstrap 3 | Internal Utility Functions
   ----------------------------------------------------------------*/
-  "use strict";
   
   // globals
   var globalObject = typeof global !== 'undefined' ? global : this||window,
@@ -11346,7 +11345,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     dataInterval      = 'data-interval',
     dataHeight        = 'data-height',
     dataPause         = 'data-pause',
-    dataTitle         = 'data-title',  
     dataOriginalTitle = 'data-original-title',
     dataOriginalText  = 'data-original-text',
     dataDismissible   = 'data-dismissible',
@@ -11430,9 +11428,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     mouseHover = ('onmouseleave' in document) ? [ 'mouseenter', 'mouseleave'] : [ 'mouseover', 'mouseout' ],
     tipPositions = /\b(top|bottom|left|top)+/,
   
-    // modal
-    modalOverlayRefCount = 0,
-  
     // transitionEnd since 2.0.4
     supportTransitions = Webkit+Transition in doc[style] || Transition[toLowerCase]() in doc[style],
     transitionEndEvent = Webkit+Transition in doc[style] ? Webkit[toLowerCase]()+Transition+'End' : Transition[toLowerCase]()+'end',  
@@ -11502,15 +11497,38 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       this.dispatchEvent(OriginalCustomEvent);
     },
   
+    // reference a live collection of the DOM
+    AllDOMElements = document[getElementsByTagName]('*'),
+  
     // Init DATA API
-    initializeDataAPI = function( component, constructor, collection ){
-      for (var i=0; i < collection[length]; i++) {
-        new constructor(collection[i]);
+    initializeDataAPI = function( component, constructor, dataAttribute, collection ){
+      var lookUp = collection && collection[length] ? collection : AllDOMElements;
+      for (var i=0; i < lookUp[length]; i++) {
+        var attrValue = lookUp[i][getAttribute](dataAttribute), expectedAttrValue = component.replace(/spy/i,'')[toLowerCase]();
+        if ( attrValue && component === stringButton && ( attrValue[indexOf](expectedAttrValue) > -1 ) // data-toggle="buttons"
+            || attrValue === expectedAttrValue ) { // all other components
+          new constructor(lookUp[i]);
+        }
       }
-    },
+    },  
   
     // tab / collapse stuff
     targetsReg = /^\#(.)+$/,
+    getOuterHeight = function (child) {
+      var childStyle = child && (child.currentStyle || globalObject.getComputedStyle(child)), 
+        btp = /px/.test(childStyle.borderTopWidth) ? Math.round(childStyle.borderTopWidth.replace('px','')) : 0,
+        btb = /px/.test(childStyle.borderBottomWidth) ? Math.round(childStyle.borderBottomWidth.replace('px','')) : 0,
+        mtp = /px/.test(childStyle.marginTop) ? Math.round(childStyle.marginTop.replace('px','')) : 0,
+        mbp = /px/.test(childStyle.marginBottom) ? Math.round(childStyle.marginBottom.replace('px','')) : 0;
+      return child[clientHeight] + parseInt( btp ) + parseInt( btb ) + parseInt( mtp ) + parseInt( mbp );
+    },
+    getMaxHeight = function(parent) { // get collapse trueHeight and border
+      var parentHeight = 0;
+      for (var k = 0, ll = parent.children[length]; k < ll; k++) {
+        parentHeight += getOuterHeight(parent.children[k]);
+      }
+      return parentHeight;
+    },
   
     // tooltip / popover stuff
     isElementInViewport = function(element) { // check if this.tooltip is in viewport
@@ -11680,7 +11698,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   
   // AFFIX DATA API
   // =================
-  initializeDataAPI( stringAffix, Affix, doc[querySelectorAll]('['+dataSpy+'="affix"]') );
+  initializeDataAPI( stringAffix, Affix, dataSpy );
   
   
   /* Native Javascript for Bootstrap 3 | Alert
@@ -11699,9 +11717,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       triggerHandler = function(){ hasClass(alert,'fade') ? emulateTransitionEnd(alert,transitionEndHandler) : transitionEndHandler(); },
       // handlers
       clickHandler = function(e){
-        alert = getClosest(e[target],'.'+component);
-        element = queryElement('['+dataDismiss+'="'+component+'"]',alert);
-        element && alert && (element === e[target] || element.contains(e[target])) && self.close();
+        var eventTarget = e[target];
+        eventTarget = eventTarget[hasAttribute](dataDismiss) ? eventTarget : eventTarget[parentNode];
+        if (eventTarget && eventTarget[hasAttribute](dataDismiss)) { // we double check the data attribute, it's important
+          alert = getClosest(eventTarget,'.'+component);
+          element = queryElement('['+dataDismiss+'="'+component+'"]',alert);
+          (element === eventTarget || element === eventTarget[parentNode]) && alert && self.close();
+        }
       },
       transitionEndHandler = function(){
         bootstrapCustomEvent.call(alert, closedEvent, component);
@@ -11727,7 +11749,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   
   // ALERT DATA API
   // ==============
-  initializeDataAPI ( stringAlert, Alert, doc[querySelectorAll]('['+dataDismiss+'="alert"]') );
+  initializeDataAPI ( stringAlert, Alert, dataDismiss );
   
   
   /* Native Javascript for Bootstrap 3 | Button
@@ -11774,8 +11796,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         }
       },
       toggle = function(e) {
-        var label = e[target].tagName === LABEL ? e[target] : e[target][parentNode].tagName === LABEL ? e[target][parentNode] : null; // the .btn label
-        
+        var parent = e[target][parentNode],
+          label = e[target].tagName === LABEL ? e[target] : parent.tagName === LABEL ? parent : null; // the .btn label
+  
         if ( !label ) return; //react if a label or its immediate child is clicked
   
         var eventTarget = this, // the button group, the target of the handler function
@@ -11845,7 +11868,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   
   // BUTTON DATA API
   // =================
-  initializeDataAPI( stringButton, Button, doc[querySelectorAll]('['+dataToggle+'="buttons"]') );
+  initializeDataAPI( stringButton, Button, dataToggle );
   
   
   /* Native Javascript for Bootstrap 3 | Carousel
@@ -11913,6 +11936,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   
         if ( eventTarget && !hasClass(eventTarget,active) && eventTarget[getAttribute](dataSlideTo) ) {
           index = parseInt( eventTarget[getAttribute](dataSlideTo), 10 );
+  
+          //determine direction first
+          if  ( (activeIndicator < index ) || (activeIndicator === 0 && index === total -1 ) ) {
+            slideDirection = self[direction] = left; // next
+          } else if  ( (activeIndicator > index) || (activeIndicator === total - 1 && index === 0 ) ) {
+            slideDirection = self[direction] = right; // prev
+          }
         } else { return false; }
   
         self.slideTo( index ); //Do the slide
@@ -11925,8 +11955,22 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   
         if ( eventTarget === rightArrow ) {
           index++;
+          slideDirection = self[direction] = left; //set direction first
+  
+          if( index === total - 1 ) {
+            index = total - 1;
+          } else if ( index === total ){
+            index = 0;
+          }
         } else if ( eventTarget === leftArrow ) {
           index--;
+          slideDirection = self[direction] = right; //set direction first
+  
+          if( index === 0 ) {
+            index = 0;
+          } else if ( index < 0 ){
+            index = total - 1
+          }
         }
   
         self.slideTo( index ); //Do the slide
@@ -11936,9 +11980,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         switch (e.which) {
           case 39:
             index++;
+            slideDirection = self[direction] = left;
+            if( index == total - 1 ) { index = total - 1; } else
+            if ( index == total ){ index = 0 }
             break;
           case 37:
             index--;
+            slideDirection = self[direction] = right;
+            if ( index == 0 ) { index = 0; } else
+            if ( index < 0 ) { index = total - 1 }
             break;
           default: return;
         }
@@ -11955,34 +12005,21 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   
     // public methods
     this.cycle = function() {
+      slideDirection = this[direction] = left; // make sure to always come back to default slideDirection
       timer = setInterval(function() {
         index++;
+  
+        index = index === total ? 0 : index;
         self.slideTo( index );
       }, this[interval]);
     };
     this.slideTo = function( next ) {
-      if (isSliding) return; // when controled via methods, make sure to check again    
       var activeItem = this.getActiveIndex(), // the current active
-          orientation;
-      
-      // determine slideDirection first
-      if  ( (activeItem < next ) || (activeItem === 0 && next === total -1 ) ) {
-        slideDirection = self[direction] = left; // next
-      } else if  ( (activeItem > next) || (activeItem === total - 1 && next === 0 ) ) {
-        slideDirection = self[direction] = right; // prev
-      }
+          orientation = slideDirection === left ? 'next' : 'prev'; //determine type
   
-      // find the right next index 
-      if ( next < 0 ) { next = total - 1; } 
-      else if ( next === total ){ next = 0; }
-  
-      // update index
-      index = next;
-      
-      orientation = slideDirection === left ? 'next' : 'prev'; //determine type
       bootstrapCustomEvent.call(element, slideEvent, component, slides[next]); // here we go with the slide
   
-      isSliding = true;
+      isSliding = this.isSliding = true;
       clearInterval(timer);
       setActivePage( next );
   
@@ -11996,7 +12033,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         one(slides[activeItem], transitionEndEvent, function(e) {
           var timeout = e[target] !== slides[activeItem] ? e.elapsedTime*1000 : 0;
           setTimeout(function(){
-            isSliding = false;
+            isSliding = self.isSliding = false;
   
             addClass(slides[next],active);
             removeClass(slides[activeItem],active);
@@ -12058,7 +12095,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   
   // CAROUSEL DATA API
   // =================
-  initializeDataAPI( stringCarousel, Carousel, doc[querySelectorAll]('['+dataRide+'="carousel"]') );
+  initializeDataAPI( stringCarousel, Carousel, dataRide );
   
   
   /* Native Javascript for Bootstrap 3 | Collapse
@@ -12089,37 +12126,36 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         bootstrapCustomEvent.call(collapseElement, showEvent, component);
         isAnimating = true;
         addClass(collapseElement,collapsing);
-        removeClass(collapseElement,component);
-        collapseElement[style][height] = collapseElement[scrollHeight] + 'px';
-        
-        emulateTransitionEnd(collapseElement, function() {
-          isAnimating = false;
-          collapseElement[setAttribute](ariaExpanded,'true');
-          removeClass(collapseElement,collapsing);
-          addClass(collapseElement, component);
-          addClass(collapseElement, inClass);
-          collapseElement[style][height] = '';
-          bootstrapCustomEvent.call(collapseElement, shownEvent, component);
-        });
+        addClass(collapseElement,inClass);
+        setTimeout(function() {
+          collapseElement[style][height] = getMaxHeight(collapseElement) + 'px';
+  
+          emulateTransitionEnd(collapseElement, function() {
+            isAnimating = false;
+            collapseElement[setAttribute](ariaExpanded,'true');
+            removeClass(collapseElement,collapsing);
+            collapseElement[style][height] = '';
+            bootstrapCustomEvent.call(collapseElement, shownEvent, component);
+          });
+        },20);
       },
       closeAction = function(collapseElement) {
         bootstrapCustomEvent.call(collapseElement, hideEvent, component);
         isAnimating = true;
-        collapseElement[style][height] = collapseElement[scrollHeight] + 'px'; // set height first
-        removeClass(collapseElement,component);
-        removeClass(collapseElement, inClass);
-        addClass(collapseElement, collapsing);
-        collapseElement[offsetWidth]; // force reflow to enable transition
-        collapseElement[style][height] = '0px';
-        
-        emulateTransitionEnd(collapseElement, function() {
-          isAnimating = false;
-          collapseElement[setAttribute](ariaExpanded,'false');
-          removeClass(collapseElement,collapsing);
-          addClass(collapseElement,component);
-          collapseElement[style][height] = '';
-          bootstrapCustomEvent.call(collapseElement, hiddenEvent, component);
-        });
+        collapseElement[style][height] = getMaxHeight(collapseElement) + 'px';
+        setTimeout(function() {
+          addClass(collapseElement,collapsing);
+          collapseElement[style][height] = '0px';
+  
+          emulateTransitionEnd(collapseElement, function() {
+            isAnimating = false;
+            collapseElement[setAttribute](ariaExpanded,'false');
+            removeClass(collapseElement,collapsing);
+            removeClass(collapseElement,inClass);
+            collapseElement[style][height] = '';
+            bootstrapCustomEvent.call(collapseElement, hiddenEvent, component);
+          });
+        },20);
       },
       getTarget = function() {
         var href = element.href && element[getAttribute]('href'),
@@ -12140,20 +12176,22 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       addClass(element,collapsed);
     };
     this.show = function() {
-      if ( accordion ) {
-        var activeCollapse = queryElement('.'+component+'.'+inClass,accordion),
-            toggle = activeCollapse && (queryElement('['+dataToggle+'="'+component+'"]['+dataTarget+'="#'+activeCollapse.id+'"]',accordion)
-                   || queryElement('['+dataToggle+'="'+component+'"][href="#'+activeCollapse.id+'"]',accordion) ),
-            correspondingCollapse = toggle && (toggle[getAttribute](dataTarget) || toggle.href);
-        if ( activeCollapse && toggle && activeCollapse !== collapse ) { 
-          closeAction(activeCollapse); 
-          if ( correspondingCollapse.split('#')[1] !== collapse.id ) { addClass(toggle,collapsed); } 
-          else { removeClass(toggle,collapsed); }
+      openAction(collapse);
+      removeClass(element,collapsed);
+  
+      if ( accordion !== null ) {
+        var activeCollapses = getElementsByClassName(accordion,component+' '+inClass),
+            allToggles = accordion[querySelectorAll]('['+dataToggle+'="'+component+'"]'),
+            correspondingCollapse;
+        for (var i=0, al=activeCollapses[length]; i<al; i++) {
+          if ( activeCollapses[i] !== collapse ) { closeAction(activeCollapses[i]); }
+        }
+        for (var u=0, atl=allToggles[length]; u<atl; u++) {
+          correspondingCollapse = allToggles[u][getAttribute](dataTarget) || allToggles[u].href;
+          if ( correspondingCollapse.split('#')[1] !== collapse.id ) { addClass(allToggles[u],collapsed); } 
+          else { removeClass(allToggles[u],collapsed); }
         }
       }
-  
-      openAction(collapse);
-      removeClass(element,collapsed); 
     };
   
     // init
@@ -12167,7 +12205,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   
   // COLLAPSE DATA API
   // =================
-  initializeDataAPI(stringCollapse, Collapse, doc[querySelectorAll]('['+dataToggle+'="collapse"]'));
+  initializeDataAPI(stringCollapse, Collapse, dataToggle);
   
   
   /* Native Javascript for Bootstrap 3 | Dropdown
@@ -12189,6 +12227,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       component = 'dropdown', open = 'open',
       relatedTarget = null,
       menu = queryElement('.dropdown-menu', parent),
+      children = menu[getElementsByTagName]('*'),
   
       // handlers
       keyHandler = function(e) {
@@ -12202,7 +12241,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
           relatedTarget = element;
           self.toggle();
         } else if ( isOpen ) {
-          if ( eventTarget === menu || menu.contains(eventTarget) && (self.persist || hasData) ) {
+          if ( eventTarget === menu || children && nodeListToArray(children)[indexOf](eventTarget) > -1 && (self.persist || hasData) ) {
             return;
           } else { relatedTarget = null; hide(); }
         }
@@ -12242,12 +12281,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   
   // DROPDOWN DATA API
   // =================
-  initializeDataAPI( stringDropdown, Dropdown, doc[querySelectorAll]('['+dataToggle+'="dropdown"]') );
+  initializeDataAPI( stringDropdown, Dropdown, dataToggle );
   
   
   /* Native Javascript for Bootstrap 3 | Modal
   -------------------------------------------*/
-  
+    
   // MODAL DEFINITION
   // ===============
   var Modal = function(element, options) { // element can be the modal/triggering button
@@ -12255,7 +12294,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     // the modal (both JavaScript / DATA API init) / triggering button element (DATA API)
     element = queryElement(element);
   
-    // determine modal, triggering element
+    // determine modal, triggering element 
     var btnCheck = element[getAttribute](dataTarget)||element[getAttribute]('href'),
       checkModal = queryElement( btnCheck ),
       modal = hasClass(element,'modal') ? element : checkModal,
@@ -12292,13 +12331,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         return globalObject[innerWidth] || (htmlRect[right] - Math.abs(htmlRect[left]));
       },
       setScrollbar = function () {
-        var bodyStyle = body.currentStyle || globalObject.getComputedStyle(body),
+        var bodyStyle = body.currentStyle || globalObject.getComputedStyle(body), 
             bodyPad = parseInt((bodyStyle[paddingRight]), 10), itemPad;
-        if (bodyIsOverflowing) {
+        if (bodyIsOverflowing) { 
           body[style][paddingRight] = (bodyPad + scrollbarWidth) + 'px';
           if (fixedItems[length]){
             for (var i = 0; i < fixedItems[length]; i++) {
-              itemPad = (fixedItems[i].currentStyle || globalObject.getComputedStyle(fixedItems[i]))[paddingRight];
+              itemPad = globalObject.getComputedStyle(fixedItems[i])[paddingRight];
               fixedItems[i][style][paddingRight] = ( parseInt(itemPad) + scrollbarWidth) + 'px';
             }
           }
@@ -12334,10 +12373,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         modal[style][paddingRight] = '';
       },
       createOverlay = function() {
-        if ( modalOverlayRefCount > 1 ) { return; }
-            
-        modalOverlayRefCount += 1;
-  
         var newOverlay = document.createElement('div');
         overlay = queryElement('.'+modalBackdropString);
   
@@ -12348,11 +12383,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         }
       },
       removeOverlay = function() {
-        if (modalOverlayRefCount === 0) { return; }
-        
-        modalOverlayRefCount -= 1;
-  
-        overlay = queryElement('.'+modalBackdropString);
+        overlay = queryElement('.'+modalBackdropString); 
         if ( overlay && overlay !== null && typeof overlay === 'object' ) {
           body.removeChild(overlay); overlay = null;
         }
@@ -12399,15 +12430,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             resetAdjustments();
             resetScrollbar();
             removeClass(body,component+'-open');
-            if (self[backdrop]){
-              hasClass(overlay,'fade') ? (removeClass(overlay,inClass), emulateTransitionEnd(overlay,removeOverlay)) : removeOverlay();
-            }
+            removeOverlay(); 
           }
-        }, 50);
-      },
+        }, 100);
+      },    
       // handlers
       clickHandler = function(e) {
-        var clickTarget = e[target];
+        var clickTarget = e[target]; 
         clickTarget = clickTarget[hasAttribute](dataTarget) || clickTarget[hasAttribute]('href') ? clickTarget : clickTarget[parentNode];
         if ( !open && clickTarget === element && !hasClass(modal,inClass) ) {
           modal.modalTrigger = element;
@@ -12424,7 +12453,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       },
       dismissHandler = function(e) {
         var clickTarget = e[target];
-        if ( open && (clickTarget[parentNode][getAttribute](dataDismiss) === component
+        if ( open && (clickTarget[parentNode][getAttribute](dataDismiss) === component 
             || clickTarget[getAttribute](dataDismiss) === component
             || (clickTarget === modal && self[backdrop] !== staticString) ) ) {
           self.hide(); relatedTarget = null;
@@ -12441,7 +12470,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   
       // we elegantly hide any opened modal
       var currentOpen = getElementsByClassName(document,component+' in')[0];
-      currentOpen && currentOpen !== modal && currentOpen.modalTrigger[stringModal].hide();
+      currentOpen && currentOpen !== modal && currentOpen.modalTrigger[stringModal].hide(); 
   
       if ( this[backdrop] ) {
         createOverlay();
@@ -12476,6 +12505,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       removeClass(modal,inClass);
       modal[setAttribute](ariaHidden, true);
   
+      !!overlay && removeClass(overlay,inClass);
+  
       setTimeout(function(){
         hasClass(modal,'fade') ? emulateTransitionEnd(modal, triggerHide) : triggerHide();
       }, supportTransitions ? 150 : 0);
@@ -12493,7 +12524,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   
     // init
     // prevent adding event handlers over and over
-    // modal is independent of a triggering element
+    // modal is independent of a triggering element 
     if ( !!element && !(stringModal in element) ) {
       on(element, clickEvent, clickHandler);
     }
@@ -12502,7 +12533,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   };
   
   // DATA API
-  initializeDataAPI(stringModal, Modal, doc[querySelectorAll]('['+dataToggle+'="modal"]'));
+  initializeDataAPI(stringModal, Modal, dataToggle);
+  
   
   /* Native Javascript for Bootstrap 3 | Popover
   ----------------------------------------------*/
@@ -12529,7 +12561,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         classString = 'class',
         div = 'div',
         fade = 'fade',
+        title = 'title',
         content = 'content',
+        dataTitle = 'data-title',
         dataContent = 'data-content',
         dismissible = 'dismissible',
         closeBtn = '<button type="button" class="close">×</button>',
@@ -12683,7 +12717,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   
   // POPOVER DATA API
   // ================
-  initializeDataAPI(stringPopover, Popover, doc[querySelectorAll]('['+dataToggle+'="popover"]'));
+  initializeDataAPI(stringPopover, Popover, dataToggle);
   
   
   /* Native Javascript for Bootstrap 3 | ScrollSpy
@@ -12697,8 +12731,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     element = queryElement(element); 
   
     // DATA API
-    var targetData = queryElement(element[getAttribute](dataTarget)),
-        offsetData = element[getAttribute]('data-offset');
+    var targetData = queryElement(element[getAttribute](dataTarget));
   
     // set options
     options = options || {};
@@ -12706,8 +12739,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   
     // event targets, constants
     var spyTarget = options[target] && queryElement(options[target]) || targetData,
-        links = spyTarget && spyTarget[getElementsByTagName]('A'),
-        offset = parseInt(offsetData || options['offset']) || 10,      
+        links = spyTarget && spyTarget[getElementsByTagName]('A'), 
         items = [], targetItems = [], scrollOffset,
         scrollTarget = element[offsetHeight] < element[scrollHeight] ? element : globalObject, // determine which is the real scrollTarget
         isWindow = scrollTarget === globalObject;  
@@ -12731,8 +12763,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   
           isActive = hasClass(parent,active) || false,
   
-          topEdge = (isWindow ? targetRect[top] + scrollOffset : targetItem[offsetTop]) - offset,
-          bottomEdge = isWindow ? targetRect[bottom] + scrollOffset - offset : targetItems[index+1] ? targetItems[index+1][offsetTop] - offset : element[scrollHeight],
+          topEdge = isWindow ? targetRect[top] + scrollOffset : targetItem[offsetTop] - (targetItems[index-1] ? 0 : 10),
+          bottomEdge = isWindow ? targetRect[bottom] + scrollOffset : targetItems[index+1] ? targetItems[index+1][offsetTop] : element[scrollHeight],
   
           inside = scrollOffset >= topEdge && bottomEdge > scrollOffset;
   
@@ -12780,7 +12812,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   
   // SCROLLSPY DATA API
   // ==================
-  initializeDataAPI(stringScrollSpy, ScrollSpy, doc[querySelectorAll]('['+dataSpy+'="scroll"]'));
+  initializeDataAPI(stringScrollSpy, ScrollSpy, dataSpy);
   
   
   /* Native Javascript for Bootstrap 3 | Tab
@@ -12797,7 +12829,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     var heightData = element[getAttribute](dataHeight),
       
         // strings
-        component = 'tab', height = 'height', float = 'float', isAnimating = 'isAnimating';
+        component = 'tab', height = 'height', isAnimating = 'isAnimating';
+  
+    // set default animation state
+    element[isAnimating] = false;
   
     // set options
     options = options || {};
@@ -12806,65 +12841,43 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     // bind, event targets
     var self = this, next,
       tabs = getClosest(element,'.nav'),
-      tabsContentContainer = false,
+      tabsContentContainer,
       dropdown = tabs && queryElement('.dropdown',tabs),
-      activeTab, activeContent, nextContent, containerHeight, equalContents, nextHeight,
-  
+      activeTab, activeContent, nextContent,
       // trigger
-      triggerEnd = function(){
-        tabsContentContainer[style][height] = '';
-        removeClass(tabsContentContainer,collapsing);
-        tabs[isAnimating] = false;
-      },
       triggerShow = function() {
-        if (tabsContentContainer) { // height animation
-          if ( equalContents ) {
-            triggerEnd();
-          } else {            
-            setTimeout(function(){
-              tabsContentContainer[style][height] = nextHeight + 'px'; // height animation
-              tabsContentContainer[offsetWidth];
-              emulateTransitionEnd(tabsContentContainer, triggerEnd);
-            },1);
-          }
-        } else {
-          tabs[isAnimating] = false; 
-        }
         bootstrapCustomEvent.call(next, shownEvent, component, activeTab);
+        if (tabsContentContainer) { // height animation
+          (function(){
+            setTimeout(function(){
+              tabsContentContainer[style][height] = '';
+              removeClass(tabsContentContainer,collapsing);
+              activeTab[isAnimating] = next[isAnimating] = false;
+            },200);
+          }());
+        } else { 
+          activeTab[isAnimating] = next[isAnimating] = false; 
+        }
       },
       triggerHide = function() {
-        if (tabsContentContainer) {
-          activeContent[style][float] = 'left';
-          nextContent[style][float] = 'left';        
-          containerHeight = activeContent[scrollHeight];
-        }
-        
-        addClass(nextContent,active);
-        bootstrapCustomEvent.call(next, showEvent, component, activeTab);
-        
         removeClass(activeContent,active);
-        bootstrapCustomEvent.call(activeTab, hiddenEvent, component, next);
-        
-        if (tabsContentContainer) {
-          nextHeight = nextContent[scrollHeight];
-          equalContents = nextHeight === containerHeight;
-          addClass(tabsContentContainer,collapsing);
-          tabsContentContainer[style][height] = containerHeight + 'px'; // height animation
-          tabsContentContainer[offsetHeight];
-          activeContent[style][float] = '';
-          nextContent[style][float] = '';
-        }
-        if ( hasClass(nextContent, 'fade') ) {
+        addClass(nextContent,active);
+        setTimeout(function() {
           addClass(nextContent,inClass);
-          emulateTransitionEnd(nextContent,triggerShow);
-        } else { triggerShow(); }        
+          nextContent[offsetHeight];
+          if (tabsContentContainer) addClass(tabsContentContainer,collapsing);
+          (function() {
+            bootstrapCustomEvent.call(next, showEvent, component, activeTab);
+            (function() {
+              if(tabsContentContainer) tabsContentContainer[style][height] = getMaxHeight(nextContent) + 'px'; // height animation
+              bootstrapCustomEvent.call(activeTab, hiddenEvent, component, next);
+            }());
+          }());
+        },20);
       };
   
     if (!tabs) return; // invalidate 
   
-    // set default animation state
-    tabs[isAnimating] = false;
-      
     // private methods
     var getActiveTab = function() {
         var activeTabs = getElementsByClassName(tabs,active), activeTab;
@@ -12883,7 +12896,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         e.preventDefault();
         next = e[target][getAttribute](dataToggle) === component || targetsReg.test(e[target][getAttribute]('href')) 
              ? e[target] : e[target][parentNode]; // allow for child elements like icons to use the handler
-        !tabs[isAnimating] && !hasClass(next[parentNode],active) && self.show();
+        self.show();
       };
   
     // public method
@@ -12893,24 +12906,33 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       activeTab = getActiveTab(); 
       activeContent = getActiveContent();
   
-      tabs[isAnimating] = true;
-      removeClass(activeTab[parentNode],active);
-      addClass(next[parentNode],active);
+      if ( (!activeTab[isAnimating] || !next[isAnimating]) && !hasClass(next[parentNode],active) ) {
+        activeTab[isAnimating] = next[isAnimating] = true;
+        removeClass(activeTab[parentNode],active);
+        addClass(next[parentNode],active);
   
-      if ( dropdown ) {
-        if ( !hasClass(element[parentNode][parentNode],'dropdown-menu') ) {
-          if (hasClass(dropdown,active)) removeClass(dropdown,active);
-        } else {
-          if (!hasClass(dropdown,active)) addClass(dropdown,active);
+        if ( dropdown ) {
+          if ( !hasClass(element[parentNode][parentNode],'dropdown-menu') ) {
+            if (hasClass(dropdown,active)) removeClass(dropdown,active);
+          } else {
+            if (!hasClass(dropdown,active)) addClass(dropdown,active);
+          }
         }
+        
+        if (tabsContentContainer) tabsContentContainer[style][height] = getMaxHeight(activeContent) + 'px'; // height animation
+  
+        (function(){
+          removeClass(activeContent,inClass);
+          bootstrapCustomEvent.call(activeTab, hideEvent, component, next);
+          (function(){
+            hasClass(activeContent, 'fade') ? emulateTransitionEnd(activeContent, triggerHide) : triggerHide();
+          }());
+        }());
+  
+        (function(){
+          hasClass(nextContent, 'fade') ? emulateTransitionEnd(nextContent, triggerShow) : triggerShow();
+        }());
       }
-      
-      bootstrapCustomEvent.call(activeTab, hideEvent, component, next);
-      
-      if (hasClass(activeContent, 'fade')) {
-        removeClass(activeContent,inClass);
-        emulateTransitionEnd(activeContent, triggerHide);
-      } else { triggerHide(); }
     };
   
     // init
@@ -12923,7 +12945,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   
   // TAB DATA API
   // ============
-  initializeDataAPI(stringTab, Tab, doc[querySelectorAll]('['+dataToggle+'="tab"]'));
+  initializeDataAPI(stringTab, Tab, dataToggle);
   
   
   /* Native Javascript for Bootstrap 3 | Tooltip
@@ -12969,9 +12991,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   
     // bind, event targets, title and constants
     var self = this, timer = 0, placementSetting = this[placement], tooltip = null,
-      titleString = element[getAttribute](title) || element[getAttribute](dataTitle) || element[getAttribute](dataOriginalTitle);
+      titleString = element[getAttribute](title) || element[getAttribute](dataOriginalTitle);
   
-    if ( !titleString || titleString == "" ) return; // invalidate
+    if ( !titleString ) return; // invalidate
   
     // private methods
     var removeToolTip = function() {
@@ -12979,9 +13001,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         tooltip = null; timer = null;
       },
       createToolTip = function() {
-        titleString = element[getAttribute](title) || element[getAttribute](dataTitle) || element[getAttribute](dataOriginalTitle); // read the title again
-        if ( !titleString || titleString == "" ) return false; // invalidate
-        
+        titleString = element[getAttribute](title) || element[getAttribute](dataOriginalTitle); // read the title again
         tooltip = document.createElement(div);
         tooltip[setAttribute]('role',component);
   
@@ -13020,7 +13040,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       timer = setTimeout( function() {
         if (tooltip === null) {
           placementSetting = self[placement]; // we reset placement in all cases
-          if(createToolTip() == false) return;
+          createToolTip();
           updateTooltip();
           showTooltip();
           bootstrapCustomEvent.call(element, showEvent, component);
@@ -13055,7 +13075,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   
   // TOOLTIP DATA API
   // =================
-  initializeDataAPI(stringTooltip, Tooltip, doc[querySelectorAll]('['+dataToggle+'="tooltip"]'));
+  initializeDataAPI(stringTooltip, Tooltip, dataToggle);
   
   
   return {
