@@ -65,7 +65,7 @@ if (!isset($_SESSION['login_user'])) {
 				        </label>
 								<input class="search-bar" type="text" autocomplete="off" name="search"/>
 				      </div>
-							<button class="search-button edit-button"><i class="fa fa-search" aria-hidden="true"></i></button>
+							<button id="search-button" class="search-button edit-button"><i class="fa fa-search" aria-hidden="true"></i></button>
 						</form>
 						<!-- Advanced Search -->
 
@@ -138,7 +138,7 @@ if (!isset($_SESSION['login_user'])) {
 				<?php } else { ?>
 
 				<div id="title-search-content">
-					<h1><?php echo $numResults ?> Stories Found</h1>
+					<h1 id="search-results"><?php echo $numResults ?> Stories Found</h1>
 				</div>
 				<?php } ?>
 				<div class="search-wrapper">
@@ -200,7 +200,7 @@ if (!isset($_SESSION['login_user'])) {
 				<div class="search-wrapper">
 
 					<?php
-						$sql = "SELECT * FROM stories INNER JOIN users ON stories.authorID = users.userID WHERE stories.trash = '0' AND stories.draft = '0' ORDER BY storyID Desc LIMIT 10";
+						$sql = "SELECT * FROM stories INNER JOIN users ON stories.authorID = users.userID WHERE stories.trash = '0' AND stories.draft = '0' ORDER BY storyID Desc LIMIT 18";
 						$topRes = mysqli_query($conn,$sql);
 						while($stories = mysqli_fetch_array($topRes)){
 
@@ -229,7 +229,7 @@ if (!isset($_SESSION['login_user'])) {
 
 					?>
 
-					<div class="story-tile">
+						<div class="story-tile">
 							<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" ><img src="<?php echo $path; ?>"></a>
 							<div class="story-info">
 								<a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" class="title-link"><h3><?php echo $stories['title']; ?></h3></a>
@@ -241,8 +241,8 @@ if (!isset($_SESSION['login_user'])) {
 										<div class="likes" id="likecoutner"><?php echo $likesqty; ?> <span class="feature-likes"> <i class="fa fa-thumbs-up" aria-hidden="true"></span></i></div>
 										<!-- <a href="view-story.php?storyID=<?php echo $stories['storyID'];?>" class="btn view-button-searched view-story">View Story</a> -->
 									</div>
+								 </div>
 							 </div>
-						 </div>
 						</div>
 
 
@@ -250,8 +250,12 @@ if (!isset($_SESSION['login_user'])) {
 						<?php
 							}
 						?>
-					</div>
 
+					</div>
+					<div class="extra-btn">
+						<button type="button" id="search-view-more" class="btn comments-button">View More</button>
+						<button type="button" id="search-view-all" class="btn view-button">View all</button>
+					</div>
 					<?php
 						}
 					?>

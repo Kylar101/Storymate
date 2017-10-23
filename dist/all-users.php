@@ -62,8 +62,13 @@ include 'includes/admin.php';
 								<p class="user-email"><?php echo $user['email']; ?></p>
 							</div>
 							<div class="user-buttons">
-								<a href="php/update-users.php?userID=<?php echo $user['userID'] ?>&method=delete" class="delete-button user-icons"><i class="fa fa-times" aria-hidden="true"></i></a>
-								<a href="php/update-users.php?userID=<?php echo $user['userID'] ?>&method=<?php echo $roleName['roleName'] ?>" class="edit-button user-icons"><i class="fa fa-arrows-h" aria-hidden="true"></i></a>
+								<a href="php/update-users.php?userID=<?php echo $user['userID'] ?>&method=delete&type='none" class="delete-button user-icons"><i class="fa fa-times" aria-hidden="true"></i></a>
+								<?php if ($roleName['roleName'] != 'User') : ?>
+								<a href="php/update-users.php?userID=<?php echo $user['userID'] ?>&method=down" class="edit-button user-icons"><i class="fa fa-arrow-down" aria-hidden="true"></i></a>
+								<?php endif; ?>
+								<?php if ($roleName['roleName'] != 'SA') : ?>
+								<a href="php/update-users.php?userID=<?php echo $user['userID'] ?>&method=up" class="edit-button user-icons"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+								<?php endif; ?>
 							</div>
 						</div>
 

@@ -264,8 +264,9 @@ CREATE TABLE `userroles` (
 --
 
 INSERT INTO `userroles` (`rollID`, `roleName`, `roleDescription`) VALUES
-(1, 'admin', 'Role type for admins'),
-(2, 'User', 'Role type for normal users');
+(1, 'User', 'Role type for normal users'),
+(2, 'admin', 'Role type for admins'),
+(3, 'User', 'Role type for Devs');
 
 -- --------------------------------------------------------
 

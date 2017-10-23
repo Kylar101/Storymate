@@ -18,7 +18,8 @@ $row = mysqli_fetch_array($result);
 $editMode = '';
 $storyID = '';
 $storyActive = '';
-$categoryName = '';
+$categoryName = 'noCats';
+$contentWarning = 'noWarning';
 
 if (isset($_GET['edit'])) :
 
@@ -39,6 +40,12 @@ if (isset($_GET['edit'])) :
 		$catResult = mysqli_query($conn, $getCat);
 		$catResult = mysqli_fetch_array($catResult);
 		$categoryName = $catResult['categoryName'];
+	}
+
+	if ($storyRow['contentWarning']) {
+		$contentWarning = "yesWarning";
+	} else {
+		$contentWarning = "noWarning";
 	}
 
 	$draft = $storyRow['draft'];
@@ -109,6 +116,13 @@ include('php/fetch_notifications.php');
 							<?php else : ?>
 							<textarea rows="1" name="description" required><?php echo $storyRow['description']?></textarea>
 							<?php endif; ?>
+						</div>
+
+						<div class="">
+							<p class="small-label">Does your story contain mature content?</p>
+							<input id="storyWarning" type="hidden" name="warningLevel" value="<?php echo $contentWarning; ?>">
+							<span class="story-cat"><input type="radio" name="warning" class="yesWarning" value="1">Yes</span>
+							<span class="story-cat"><input type="radio" name="warning" class="noWarning" value="0">No</span>
 						</div>
 
 						<div class="">
@@ -218,7 +232,11 @@ include('php/fetch_notifications.php');
 						    <div>
 						      <div  class="list-unstyled" id='ul'></div>
 						    </div>
+						    <?php if (!$editMode) : ?>
 						    <input id="audioID" type="text" name="audio">
+						    <?php else : ?>
+							<input id="audioID" type="text" name="audio" value="<?php echo $storyRow['audioID']; ?>">
+						    <?php endif; ?>
 						</div>
 
 						<div class="field-wrap">

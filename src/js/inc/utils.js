@@ -1,7 +1,13 @@
 export default {
 	getUrl : () => {
-	  var path = window.location.pathname;
+	  var path = window.location.href;
 	  path = path.substring(path.lastIndexOf("/")+1,path.lastIndexOf("."));
+	  return path;
+	},
+
+	getWholeUrl : () => {
+	  var path = window.location.href;
+	  // path = path.substring(path.lastIndexOf("/")+1,path.lastIndexOf("."));
 	  return path;
 	},
 

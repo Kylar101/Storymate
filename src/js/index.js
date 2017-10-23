@@ -9,6 +9,7 @@ import './inc/slick.min';
 // -----------------------------------------------------------
 
 var currentUrl = utils.getUrl();
+var wholeUrl = utils.getWholeUrl();
 
 // apply active dashboard class
 window.onload = function() {
@@ -32,10 +33,18 @@ window.onload = function() {
 
 
 }
+if (currentUrl.includes('post') && wholeUrl.includes('edit')) {
+  let category = document.getElementById('storyCategory').value;
+  if (category != 'noCats') {
+    document.querySelector(`.${category}`).checked = true; 
+  }
+}
 
-if (currentUrl.includes('post') && currentUrl.includes('edit')) {
-  let category = document.getElementById('storyCategory').value
-  document.querySelector(`.${category}`).checked = true
+if (currentUrl.includes('post') && wholeUrl.includes('edit')) {
+  let warning = document.getElementById('storyWarning').value;
+  if (warning != 'noWarning') {
+    document.querySelector(`.${warning}`).checked = true; 
+  }
 }
 
 if (currentUrl.includes('view-story')) {
@@ -71,11 +80,11 @@ if (currentUrl.includes('profile')) {
     document.querySelector('#change-user-details').classList.remove('show')
     document.querySelector('.my-details').classList.remove('hide')
   })
+}
 
   $('.notifications').on('click', function(){
     $('.all-notifications').toggleClass('show');
   })
-}
 
 // if (currentUrl.includes('index')) {
 
@@ -153,6 +162,19 @@ $('.advance-button').on('click', () => {
   }
 })
 
+$('#search-view-more').on('click', ()=> {
+  $('.search-wrapper').css('max-height', 'none');
+  $('#search-view-more').hide();
+})
+
+$('#search-view-all').on('click',()=> {
+  $('#search-button').click();
+})
+
+var searchResults = $('#search-results').length;
+if (searchResults) {
+  $('.search-wrapper').css('max-height', 'none');
+}
 
 // toggles between login and sign up
 $('.tab a').on('click', function (e) {

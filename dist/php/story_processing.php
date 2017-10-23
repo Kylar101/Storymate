@@ -10,6 +10,7 @@ $Text= mysqli_real_escape_string($conn,$_POST['text']);
 #$pubSet = mysqli_real_escape_string($conn,$_POST['public']);
 $AudioID = mysqli_real_escape_string($conn,$_POST['audio']);
 $categoryID = mysqli_real_escape_string($conn,$_POST['category']);
+$warning = mysqli_real_escape_string($conn,$_POST['warning']);
 
 $username = $_SESSION['login_user'];
 
@@ -26,16 +27,6 @@ if(isset($_POST['draft'])){
 	$draft = 0;
 }
 
-/*
-$catname = mysqli_real_escape_string($conn,$_POST['category']);
-$getCatID = "SELECT categoryID FROM categories WHERE categoryName = '$catname'";
-$catID = mysqli_query($conn,$getCatID);
-
-$tagName = mysqli_real_escape_string($conn,$_POST['tag']);
-$getTagID = "SELECT categoryID FROM categories WHERE tagName = '$tagName'";
-$tagID = mysqli_query($conn,$getTagID);
-*/
-
 $sql = "INSERT INTO stories (title, description, authorID, categoryID, draft) VALUES ('$Title', '$Description', '$authorID', '$categoryID', '$draft')";
 $result = mysqli_query($conn,$sql);
 
@@ -45,7 +36,7 @@ if (!$result) {
 
 $storyID = mysqli_insert_id($conn);
 
-$sql = "INSERT INTO storycontents (storyID, textfield, audioID) VALUES ('$storyID', '$Text', '$AudioID')";
+$sql = "INSERT INTO storycontents (storyID, textfield, audioID, contentWarning) VALUES ('$storyID', '$Text', '$AudioID','$warning')";
 $result = mysqli_query($conn,$sql);
 
 if (!$result) {
