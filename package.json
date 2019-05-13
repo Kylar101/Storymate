@@ -35,6 +35,6 @@
   },
   "dependencies": {
     "bootstrap.native": "^2.0.17",
-    "jquery": "^3.2.1"
+    "jquery": "^3.4.0"
   }
 }
